@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CTL / VCF – SurveyTools User Guide</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand">
+        <div class="logo">SurveyTools</div>
+        <div class="tagline">CTL / VCF (high-level)</div>
+      </div>
+      <div class="nav">
+        <a href="../index.html">User Guide</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h1>CTL / VCF (high-level explanation)</h1>
+      <p>
+        Some calculations in SurveyTools require a temperature correction factor for petroleum
+        products. You may see this referred to as CTL (or, more generally, a volume correction
+        factor sometimes called VCF).
+      </p>
+
+      <h2>What it is used for (in this app)</h2>
+      <ul>
+        <li>Adjusting volume between observed temperature and a reference temperature.</li>
+        <li>Supporting dependent calculations such as floating roof displacement (FRC).</li>
+        <li>Supporting some unit conversions (e.g. standard volume to barrels at a reference condition).</li>
+      </ul>
+
+      <h2>Important note about standards</h2>
+      <p>
+        The underlying industry standards and tables used in professional custody transfer are paid
+        publications. This user guide does <strong>not</strong> reproduce any paid tables, copyrighted text,
+        or claim full compliance/certification.
+      </p>
+
+      <h2>Best practice</h2>
+      <ul>
+        <li>Use SurveyTools as a calculation aid within your existing workflow.</li>
+        <li>Where required by your contract/procedure, cross-check with your official tables or certified systems.</li>
+        <li>If results look unexpected, verify your density basis (vacuum/air), temperature, and product group selection.</li>
+      </ul>
+
+      <p class="small">
+        Implementation note (for maintainers): the app uses an internal CTL calculator (e.g. <code>CTLcalc</code>)
+        and exposes native-ready facades in the shared module.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
+

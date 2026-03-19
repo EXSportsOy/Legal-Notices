@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wedge – SurveyTools User Guide</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand">
+        <div class="logo">SurveyTools</div>
+        <div class="tagline">Wedge calculator</div>
+      </div>
+      <div class="nav">
+        <a href="../index.html">User Guide</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h1>Wedge calculator</h1>
+      <p>
+        The wedge calculator is used when a vessel is trimmed and the product inside a tank forms
+        a wedge (a triangular shape in side view). This can happen with low volumes where the
+        liquid does not contact all four tank boundaries.
+      </p>
+
+      <h2>Inputs (what you need)</h2>
+      <ul>
+        <li><strong>Draft aft</strong> and <strong>draft forward</strong> (to get trim).</li>
+        <li><strong>LBP</strong> (length between perpendiculars).</li>
+        <li><strong>Tank length</strong>.</li>
+        <li><strong>Reference height</strong> and <strong>distance from aft bulkhead to gauge point</strong>.</li>
+        <li><strong>Observed sounding</strong>.</li>
+        <li><strong>Volume from table</strong> for the relevant condition (from your tank table).</li>
+      </ul>
+
+      <h2>What the calculator does (high level)</h2>
+      <ol>
+        <li>Computes vessel trim: aft draft minus forward draft.</li>
+        <li>Turns trim into a trim factor by dividing by LBP.</li>
+        <li>Calculates an adjusted sounding based on trim geometry and gauge position.</li>
+        <li>Checks whether the case is a wedge case (if not, the tool indicates it).</li>
+        <li>Estimates wedge volume using the table volume and the adjusted sounding.</li>
+      </ol>
+
+      <details>
+        <summary>Formulas (optional)</summary>
+        <p class="small">These formulas match the app logic and are shown for transparency.</p>
+        <pre><code>trim = draftAft - draftFwd
+trimFactor = trim / LBP
+
+adjustedSounding = obsSounding + (distAftBhd - (refHeight * trimFactor)) * trimFactor
+innageForTable = adjustedSounding / 2
+
+If trimFactor == 0:
+  wedgeVolume = 0
+
+wedgeLength = adjustedSounding / trimFactor
+If wedgeLength &gt; tankLength:
+  Not a wedge case
+
+wedgeVolume = (volumeFromTable * adjustedSounding) / (tankLength * trimFactor)
+</code></pre>
+      </details>
+
+      <h2>Practical notes</h2>
+      <ul>
+        <li>If <strong>LBP = 0</strong> the calculation is invalid.</li>
+        <li>If there is <strong>no trim</strong> (trim factor is zero), the wedge effect is zero.</li>
+        <li>Make sure your table value matches the same reference and units you use in input.</li>
+      </ul>
+
+      <p class="small">
+        Implementation reference (for maintainers):
+        <code>shared/src/commonMain/kotlin/fi/exsports/surveytools/WedgeCalculationModule.kt</code>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
+

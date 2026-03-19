@@ -1,0 +1,208 @@
+:root {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
+  --card-border: #2a2a2a;
+  --card-shadow: rgba(0,0,0,0.5);
+  --logo-color: #64a8f0;
+  --tagline-color: #7d7d7d;
+  --heading-color: #b0b0b0;
+  --link-bg: #252525;
+  --link-border: #333;
+  --link-text: #90bdf7;
+  --link-hover-bg: #2a2a3a;
+  --link-hover-border: #64a8f0;
+  --link-hover-text: #64a8f0;
+  --muted: #9a9a9a;
+  --code-bg: #0f0f0f;
+  --code-border: #2a2a2a;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #f5f5f5;
+    --text-color: #333333;
+    --card-bg: #ffffff;
+    --card-border: #e0e0e0;
+    --card-shadow: rgba(0,0,0,0.1);
+    --logo-color: #2c3e50;
+    --tagline-color: #666;
+    --heading-color: #555;
+    --link-bg: #f0f0f0;
+    --link-border: #ddd;
+    --link-text: #2c3e50;
+    --link-hover-bg: #e8f4f8;
+    --link-hover-border: #3498db;
+    --link-hover-text: #3498db;
+    --muted: #5f5f5f;
+    --code-bg: #fafafa;
+    --code-border: #e6e6e6;
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 32px 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.brand .logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--logo-color);
+  letter-spacing: 1px;
+}
+
+.brand .tagline {
+  font-size: 14px;
+  color: var(--tagline-color);
+}
+
+.nav a {
+  color: var(--link-text);
+  text-decoration: none;
+  border: 1px solid var(--link-border);
+  background: var(--link-bg);
+  padding: 10px 12px;
+  border-radius: 8px;
+  display: inline-block;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.nav a:hover {
+  background: var(--link-hover-bg);
+  border-color: var(--link-hover-border);
+  color: var(--link-hover-text);
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 32px var(--card-shadow);
+  padding: 28px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+h1 {
+  margin: 0 0 10px 0;
+  font-size: 22px;
+  color: var(--heading-color);
+  font-weight: bold;
+}
+
+h2 {
+  margin: 28px 0 10px 0;
+  font-size: 18px;
+  color: var(--heading-color);
+}
+
+h3 {
+  margin: 18px 0 6px 0;
+  font-size: 15px;
+  color: var(--heading-color);
+}
+
+p { line-height: 1.55; }
+.small { color: var(--muted); font-size: 13px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.tile {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--link-bg);
+  border: 1px solid var(--link-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.tile:hover {
+  background: var(--link-hover-bg);
+  border-color: var(--link-hover-border);
+}
+
+.tile .title {
+  font-weight: bold;
+  color: var(--link-text);
+  margin-bottom: 6px;
+}
+
+.tile .desc {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+ul { margin: 8px 0 0 18px; }
+li { margin: 6px 0; }
+
+code, pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: 10px;
+  padding: 14px;
+  overflow: auto;
+}
+
+details {
+  margin-top: 12px;
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--link-text);
+}
+
+.footer {
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--card-border);
+  margin: 18px 0;
+}
+
