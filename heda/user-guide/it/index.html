@@ -1,631 +1,419 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Guida utente – Heda</title>
-  <link rel="stylesheet" href="../shared.css" />
+<meta charset="utf-8" />
+<title>Guida per l'utente — Heda · EXSports Oy</title>
+<meta name="description" content="Come usare Heda: un diario discreto per cefalea ed emicrania per Android. Di EXSports Oy." />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0E1310" />
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/favicon-64.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16.png" />
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/legal.css" />
+<style>
+  body.theme-heda{ --signature:#C9DDA6; }
+  .toc{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:24px 26px; margin: 4px 0 36px; }
+  .toc .toc-label{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--signature); margin:0 0 14px; }
+  .toc ol{ list-style:none; margin:0; padding:0; columns:2; column-gap:36px; }
+  @media (max-width:560px){ .toc ol{ columns:1; } }
+  .toc li{ margin:0 0 9px; padding:0; }
+  .toc li::before{ display:none; }
+  .toc a{ color:var(--sub); text-decoration:none; font-size:0.95rem; border:none; }
+  .toc a:hover{ color:var(--ink); }
+  .toc .counter{ font-family:var(--mono); font-size:0.74rem; color:var(--signature); margin-right:9px; }
+  .areas{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin: 4px 0 8px; }
+  @media (max-width:560px){ .areas{ grid-template-columns:1fr; } }
+  .area{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:20px 22px; }
+  .area h4{ margin:0 0 6px; font-size:1.02rem; font-weight:500; color:var(--ink); }
+  .area p{ margin:0; font-size:0.92rem; }
+  .metric-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin: 6px 0 18px; }
+  @media (max-width:560px){ .metric-grid{ grid-template-columns:1fr; } }
+  .metric{ border:1px solid var(--line); border-radius:var(--r-sm); padding:16px 18px; }
+  .metric b{ color:var(--ink); font-weight:500; display:block; margin-bottom:4px; }
+  .metric span{ color:var(--sub); font-size:0.9rem; }
+  .prose h2[id], .prose h3[id]{ scroll-margin-top: 90px; }
+</style>
 </head>
-<body>
+<body class="theme-sage theme-heda">
 
-  <!-- ── Site header ── -->
-  <header class="site-header">
-    <div class="site-header-inner">
-      <a class="brand-lockup" href="../../index.html">
-        <svg width="26" height="26" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <circle cx="32" cy="32" r="29" stroke="currentColor" stroke-width="1" opacity="0.18" fill="none"/>
-          <circle cx="32" cy="32" r="23" stroke="currentColor" stroke-width="1" opacity="0.30" fill="none"/>
-          <circle cx="32" cy="32" r="17.5" stroke="currentColor" stroke-width="1" opacity="0.50" fill="none"/>
-          <ellipse cx="32" cy="30" rx="9" ry="11" fill="currentColor"/>
-          <path d="M27 41 Q32 44 37 41 L39 47 Q32 49 25 47 Z" fill="currentColor"/>
-        </svg>
-        <div class="header-meta">
-          <span class="wordmark">heda</span>
-          <span class="header-subtitle">Guida utente</span>
-        </div>
-      </a>
-      <nav class="header-nav">
-        <a href="../../index.html">← Documenti</a>
-        <a href="../index.html?pick=1">← Tutte le lingue</a>
-      </nav>
-      <a class="lang-btn" href="../index.html?pick=1">🌐</a>
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="/index.html"><img src="/assets/brand/wordmark-ink.png" alt="exs" /><span class="mono-tag">EXSports Oy</span></a>
+    <nav class="nav__links">
+      <a href="/index.html" class="hide-sm">Home</a>
+      <a href="/legal/imprint.html" class="hide-sm">Impressum</a>
+      <a href="/heda/user-guide/index.html?pick=1" class="hide-sm" aria-label="Lingua" title="Lingua">🌐</a>
+      <a href="mailto:info@exsports.fi" class="cta">Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<section class="doc-head stage">
+  <div class="wrap doc-head__inner">
+    <a class="backlink" href="/heda/index.html"><span>←</span> Heda</a>
+    <p class="eyebrow">Heda · Guida</p>
+    <h1>Come usare Heda</h1>
+    <div class="meta"><span>Italiano</span><span>Ultima revisione <b>agosto 2026</b></span></div>
+    <p class="lead" style="margin-top:20px;">Un diario discreto per cefalea ed emicrania. Registra attacchi, sintomi e note: tutto resta privato sul tuo dispositivo.</p>
+  </div>
+</section>
+
+<div class="wrap"><div class="prose doc-sections">
+
+  <nav class="toc" aria-label="Contenuti">
+    <p class="toc-label">Contenuti</p>
+    <ol>
+      <li><a href="#overview"><span class="counter">01</span>Panoramica</a></li>
+      <li><a href="#getting-started"><span class="counter">02</span>Per iniziare</a></li>
+      <li><a href="#calendar"><span class="counter">03</span>Calendario</a></li>
+      <li><a href="#logging"><span class="counter">04</span>Registrare un episodio</a></li>
+      <li><a href="#editing"><span class="counter">05</span>Modifica ed eliminazione</a></li>
+      <li><a href="#analysis"><span class="counter">06</span>Analisi</a></li>
+      <li><a href="#reports"><span class="counter">07</span>Report</a></li>
+      <li><a href="#settings"><span class="counter">08</span>Impostazioni</a></li>
+      <li><a href="#privacy"><span class="counter">09</span>Privacy e dati</a></li>
+      <li><a href="#health-connect"><span class="counter">10</span>Health Connect</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="overview">Panoramica</h2>
+  <p>Heda è un diario per cefalea ed emicrania per Android, pensato per funzionare prima di tutto offline. Tutti i dati sanitari sono cifrati e restano solo sul tuo dispositivo. Nulla viene caricato su alcun server: i tuoi dati sono soltanto tuoi.</p>
+  <p>L'app ha quattro aree principali, raggiungibili dalla barra di navigazione in basso:</p>
+  <div class="areas">
+    <div class="area"><h4>Calendario</h4><p>Sfoglia e gestisci i tuoi episodi di cefalea per data. I nuovi episodi si aggiungono da qui.</p></div>
+    <div class="area"><h4>Analisi</h4><p>Statistiche e grafici di tendenza per tutti. Correlazioni e Salute (premium) individuano schemi e custodiscono i tuoi dati sanitari.</p></div>
+    <div class="area"><h4>Report</h4><p>Riepiloghi mensili e giornalieri con grafici. Esporta i tuoi dati in CSV o PDF.</p></div>
+    <div class="area"><h4>Impostazioni</h4><p>Stato premium, sincronizzazione e notifiche, sicurezza, backup, tema, lingua, privacy e opzioni avanzate.</p></div>
+  </div>
+
+  <h2 id="getting-started">Per iniziare</h2>
+  <h3>Accesso</h3>
+  <p>Heda richiede un account Google per proteggere i tuoi dati. L'accesso crea una chiave cifrata e vincolata al dispositivo, collegata al tuo account: nessun dato viene conservato nel cloud.</p>
+  <ul>
+    <li>Apri Heda dopo averla installata da Google Play.</li>
+    <li>Tocca <strong>Accedi con Google</strong> e scegli il tuo account Google.</li>
+    <li>Il tuo account è ora vincolato a questa installazione. In caso di reinstallazione dovrai usare lo stesso account Google.</li>
+  </ul>
+  <div class="callout"><p><strong>Prima la privacy.</strong> Heda non carica alcun dato sanitario su server esterni. Il tuo account Google serve solo come identità: a legare le chiavi di cifratura a un unico utente su questo dispositivo.</p></div>
+  <h3>Consenso al primo avvio</h3>
+  <p>Al primo avvio Heda ti chiede se desideri condividere segnalazioni di crash anonime. Non vengono inviati dati sanitari. Puoi cambiare la tua scelta in seguito in <strong>Impostazioni → Privacy e dati</strong>.</p>
+  <ul>
+    <li><strong>Segnalazioni di crash anonime</strong>: segnalano automaticamente i crash per correggere rapidamente i bug (GlitchTip). Non vengono raccolte statistiche d'uso.</li>
+  </ul>
+
+  <h2 id="calendar">Calendario</h2>
+  <p>Il calendario è la tua vista quotidiana. Mostra il mese corrente a colpo d'occhio, con punti colorati che indicano l'intensità della cefalea giorno per giorno.</p>
+  <h3>Vista mensile</h3>
+  <p>La striscia del mese in alto mostra il mese corrente in una griglia a settimane ISO (da lunedì a domenica). Ogni giorno con almeno un episodio registrato mostra un piccolo punto di intensità:</p>
+  <ul>
+    <li><strong>Blu</strong>: intensità 1–3 (lieve)</li>
+    <li><strong>Rosso</strong>: intensità 4–5 (grave)</li>
+  </ul>
+  <p>Usa i pulsanti <strong>‹</strong> e <strong>›</strong> per spostarti tra i mesi. Tocca una data per selezionarla e vedere sotto gli episodi di quel giorno. La data odierna è evidenziata. Toccando l'etichetta <strong>Oggi</strong> o la data odierna torni al giorno corrente.</p>
+  <h3>Schede degli episodi</h3>
+  <p>Gli episodi della data selezionata compaiono come schede sotto la striscia del mese. Ogni scheda mostra:</p>
+  <ul>
+    <li>il <strong>tipo di cefalea</strong> (Cefalea o Emicrania)</li>
+    <li>l'<strong>intervallo orario</strong>: ora di inizio, di fine e durata</li>
+    <li>una <strong>barra di intensità</strong> (scala 1–5)</li>
+    <li>gli indicatori di aura e farmaco al bisogno, se registrati</li>
+  </ul>
+  <p>Tocca una scheda per aprirla in <strong>modalità modifica</strong>, dove tutti i campi possono essere cambiati.</p>
+  <h3>Aggiunta rapida</h3>
+  <p>Per registrare in fretta, tocca <strong>Aggiunta rapida</strong> in fondo al calendario. Si apre un pannello con i campi essenziali:</p>
+  <ul>
+    <li><strong>Tipo</strong>: Cefalea o Emicrania</li>
+    <li><strong>Intensità</strong>: cursore 1–5</li>
+    <li><strong>Aura</strong>: casella</li>
+    <li><strong>Farmaco al bisogno</strong>: casella</li>
+  </ul>
+  <p>Tocca <strong>Salva</strong> per registrare subito con l'orario attuale, oppure <strong>Aggiungi dettagli…</strong> per aprire il modulo completo già compilato con questi valori.</p>
+
+  <h2 id="logging">Registrare un episodio</h2>
+  <p>Per registrare un nuovo episodio con tutti i dettagli, tocca <strong>+ Aggiungi episodio</strong> nel calendario. Se prima avevi toccato una data specifica, sarà già selezionata nel modulo.</p>
+  <h3>Tipo e intensità</h3>
+  <p>Scegli tra <strong>Cefalea</strong> ed <strong>Emicrania</strong> con il selettore in alto. Imposta poi l'intensità su una scala da 1 (lieve) a 5 (invalidante) con il cursore.</p>
+  <h3>Data e ora</h3>
+  <p>Tre campi determinano il momento dell'episodio:</p>
+  <ul>
+    <li><strong>Data</strong>: tocca per aprire un selettore di data. Per impostazione predefinita, oggi.</li>
+    <li><strong>Ora di inizio</strong>: quando è iniziato l'attacco. Tocca per aprire un selettore orario su 24 ore.</li>
+    <li><strong>Ora di fine</strong>: quando l'attacco è terminato. Per impostazione predefinita, 2 ore dopo l'inizio. Se sposti l'inizio oltre la fine, l'ora di fine avanza automaticamente mantenendo l'intervallo di 2 ore.</li>
+  </ul>
+  <h3>Area del dolore</h3>
+  <p>Il <strong>modello 3D della testa</strong> ti consente di segnare con precisione dove si localizza il dolore. Supporta due gesti:</p>
+  <ul>
+    <li><strong>Un dito</strong>: colora le aree dolorose trascinando sulla superficie della testa.</li>
+    <li><strong>Due dita</strong>: ruota la testa per raggiungere la parte posteriore, i lati o il collo.</li>
+  </ul>
+  <p>Sono supportate otto regioni anatomiche: Frontale, Intorno all'occhio — sinistra, Intorno all'occhio — destra, Tempia — sinistra, Tempia — destra, Occipitale — sinistra, Occipitale — destra e Collo.</p>
+  <p>Attiva l'opzione <strong>Colora in base all'intensità</strong> per tingere le aree colorate con il colore dell'intensità (rosso più chiaro per lieve, rosso intenso per grave). È disattivata per impostazione predefinita.</p>
+  <div class="callout"><p><strong>Suggerimento.</strong> Puoi rimuovere le aree colorate trascinandoci sopra di nuovo: il gesto alterna tra aggiunta e cancellazione.</p></div>
+  <h3>Possibili fattori scatenanti</h3>
+  <p>Registra i possibili fattori scatenanti che potrebbero aver contribuito a questo attacco. Sono raggruppati in sette categorie:</p>
+  <table class="grid">
+    <thead><tr><th>Categoria</th><th>Fattori scatenanti</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Stress e umore</strong></td><td>Stress, Rilascio dopo lo stress, Ansia</td></tr>
+      <tr><td><strong>Sonno</strong></td><td>Sonno insufficiente, Sonno eccessivo, Sonno irregolare</td></tr>
+      <tr><td><strong>Cibo e bevande</strong></td><td>Pasto saltato, Digiuno prolungato, Disidratazione, Alcol, Caffeina, Astinenza da caffeina, Cioccolato, Formaggio stagionato, Additivi alimentari, Carne processata</td></tr>
+      <tr><td><strong>Ormonali</strong></td><td>Mestruazioni, Ovulazione, Contraccezione ormonale</td></tr>
+      <tr><td><strong>Ambiente</strong></td><td>Cambio di tempo, Temperatura estrema, Umidità</td></tr>
+      <tr><td><strong>Sensoriali</strong></td><td>Luce intensa, Odore forte, Rumore forte, Sfarfallio dello schermo</td></tr>
+      <tr><td><strong>Fisici</strong></td><td>Esercizio intenso, Tensione cervicale, Viaggi, Abuso di farmaci</td></tr>
+    </tbody>
+  </table>
+  <h3>Aura e farmaco al bisogno</h3>
+  <ul>
+    <li><strong>Aura</strong>: spunta se l'episodio è stato preceduto da un'aura (disturbi visivi, formicolii, alterazioni del linguaggio ecc.).</li>
+    <li><strong>Farmaco al bisogno</strong>: spunta se durante l'attacco hai assunto un farmaco acuto (per esempio un triptano, un FANS o paracetamolo).</li>
+  </ul>
+  <h3>Note</h3>
+  <p>Il campo note in testo libero raccoglie tutto ciò che i campi strutturati non coprono: contesto, osservazioni, cosa ha aiutato o qualunque altro dettaglio tu voglia ricordare. Tocca <strong>Salva</strong> quando hai finito. L'episodio compare subito nel calendario.</p>
+
+  <h2 id="editing">Modificare ed eliminare episodi</h2>
+  <h3>Modificare un episodio</h3>
+  <ul>
+    <li>Vai alla data nel calendario.</li>
+    <li>Tocca la scheda dell'episodio che vuoi cambiare.</li>
+    <li>Il modulo si apre in modalità modifica: tutti i campi sono modificabili.</li>
+    <li>Apporta le modifiche e tocca <strong>Aggiorna</strong> per salvare.</li>
+  </ul>
+  <h3>Eliminare un episodio</h3>
+  <ul>
+    <li>Apri l'episodio in modalità modifica (tocca la sua scheda nel calendario).</li>
+    <li>Scorri fino in fondo e tocca <strong>Elimina voce</strong>.</li>
+    <li>Compare una finestra di conferma. Tocca <strong>Elimina</strong> per rimuovere definitivamente l'episodio.</li>
+  </ul>
+  <div class="callout"><p><strong>Azione permanente.</strong> L'eliminazione non può essere annullata. L'episodio viene rimosso subito dal database cifrato sul tuo dispositivo.</p></div>
+
+  <h2 id="analysis">Analisi</h2>
+  <p>La schermata Analisi ha tre schede in alto: <strong>Statistiche</strong>, <strong>Correlazioni</strong> e <strong>Salute</strong>. Statistiche è disponibile per tutti. Correlazioni e Salute richiedono Heda Premium.</p>
+
+  <h3 id="statistics">Statistiche</h3>
+  <p>La scheda Statistiche ti offre una panoramica della frequenza e della gravità delle tue cefalee nel periodo selezionato.</p>
+  <p><strong>Selezione del periodo.</strong> Scegli tra cinque periodi: 7 giorni, 30 giorni, 90 giorni, 1 anno o Tutto.</p>
+  <p><strong>Scheda di riepilogo.</strong> La scheda principale mostra i seguenti indicatori per il periodo scelto. Le frecce di tendenza (↑ / ↓) li confrontano con il periodo precedente equivalente:</p>
+  <ul>
+    <li><strong>Episodi totali</strong>: numero di episodi di cefalea ed emicrania nel periodo.</li>
+    <li><strong>Intensità media</strong>: media dell'intensità (1–5) di tutti gli episodi del periodo.</li>
+    <li><strong>Episodi con aura</strong>: quanti attacchi sono stati accompagnati da aura.</li>
+    <li><strong>Episodi con farmaco al bisogno</strong>: quanti attacchi hanno richiesto un farmaco acuto.</li>
+  </ul>
+  <p><strong>Grafici.</strong></p>
+  <ul>
+    <li><strong>Grafico di tendenza</strong>: numero di episodi per intervallo (giornaliero su 7/30/90 giorni, settimanale su 1 anno, mensile su Tutto).</li>
+    <li><strong>Mappa di calore per giorno della settimana</strong>: mostra in quali giorni le tue cefalee compaiono più spesso.</li>
+  </ul>
+  <p><strong>Ripartizione per tipo e fattori scatenanti.</strong> Un istogramma in pila mostra la ripartizione tra i tipi di episodio (Cefalea / Cefalea grave / Emicrania / Emicrania grave) con conteggi e percentuali. Sotto, un grafico a barre orizzontali elenca i tuoi fattori scatenanti più frequenti nel periodo.</p>
+
+  <h3 id="correlations">Correlazioni</h3>
+  <p>La scheda Correlazioni analizza i tuoi dati sanitari — letti da Health Connect, inseriti a mano o importati da un file — e cerca nove schemi basati sull'evidenza che spesso precedono gli attacchi di cefalea ed emicrania. Considera gli ultimi 90 giorni.</p>
+  <div class="callout"><p><strong>Funzione premium.</strong> La scheda Correlazioni richiede Heda Premium. Si basa sugli stessi dati di sonno, frequenza cardiaca, HRV, passi e attività fisica mostrati nella scheda <a href="#health-tab">Salute</a>, comunque siano arrivati lì.</p></div>
+  <p><strong>La tua baseline.</strong> Una scheda baseline in alto mostra i valori mediani su 14 giorni per ogni indicatore sanitario. Per gli indicatori senza dati sufficienti compare un «—».</p>
+  <ul>
+    <li><strong>Sonno</strong>: mediana della durata totale del sonno notturno</li>
+    <li><strong>HRV</strong>: mediana della variabilità della frequenza cardiaca (ms)</li>
+    <li><strong>Frequenza cardiaca a riposo</strong>: mediana della frequenza a riposo (bpm)</li>
+    <li><strong>Passi</strong>: mediana del numero di passi giornaliero</li>
+    <li><strong>Attività fisica</strong>: mediana dei minuti di attività giornalieri</li>
+    <li><strong>Sonno profondo</strong>: mediana del sonno profondo per notte</li>
+    <li><strong>Sonno REM</strong>: mediana del sonno REM per notte</li>
+    <li><strong>Veglia durante il sonno</strong>: mediana del tempo di veglia all'interno del periodo di sonno</li>
+  </ul>
+  <p><strong>Schemi rilevati.</strong> Heda verifica nove schemi basati sull'evidenza a ogni attacco di cefalea. Ogni rilevazione indica il valore misurato e la soglia superata — per esempio: <em>«Hai dormito 5 h 30 min prima di questo attacco (soglia: 7 h)»</em>.</p>
+  <ul>
+    <li><strong>Sonno breve</strong>: il sonno totale della notte precedente è stato inferiore a 7 ore (modificabile in Impostazioni → Avanzate).</li>
+    <li><strong>Sonno irregolare</strong>: gli orari del sonno hanno oscillato di oltre 120 minuti (deviazione standard) nei 7 giorni precedenti.</li>
+    <li><strong>Pochi passi</strong>: meno di 3 000 passi il giorno prima dell'attacco (modificabile).</li>
+    <li><strong>Calo dell'HRV</strong>: l'HRV è scesa sotto i 30 ms o sotto l'80 % della tua baseline personale a 14 giorni.</li>
+    <li><strong>Frequenza a riposo elevata</strong>: la frequenza a riposo ha superato la tua mediana a 14 giorni il giorno prima dell'attacco.</li>
+    <li><strong>Picco di attività</strong>: i minuti di attività sono stati insolitamente alti rispetto alla tua mediana a 14 giorni il giorno prima dell'attacco.</li>
+    <li><strong>Poco sonno profondo</strong>: il sonno profondo è stato nettamente inferiore alla tua mediana a 14 giorni la notte precedente.</li>
+    <li><strong>Poco sonno REM</strong>: il sonno REM è stato nettamente inferiore alla tua mediana a 14 giorni la notte precedente.</li>
+    <li><strong>Sonno frammentato</strong>: il tempo di veglia nel periodo di sonno è stato insolitamente alto rispetto al sonno totale e alla baseline.</li>
+  </ul>
+  <p><strong>Raccomandazioni.</strong> In base agli schemi rilevati, Heda genera raccomandazioni personalizzate ordinate per priorità (Alta / Media / Bassa). Alcuni esempi: migliorare la durata o la regolarità del sonno, aumentare l'attività quotidiana, oppure gestire stress e recupero.</p>
+  <div class="callout"><p><strong>Non è un consiglio medico.</strong> Gli schemi rilevati sono correlazioni, non diagnosi. Per qualsiasi questione medica relativa alle tue cefalee rivolgiti sempre a un professionista sanitario.</p></div>
+
+  <h3 id="health-tab">Salute</h3>
+  <div class="callout"><p><strong>Funzione premium.</strong> La scheda Salute richiede Heda Premium. Finché Premium non è attivo, la scheda mostra invece la schermata <strong>Sblocca Health Connect</strong>: prima di allora Heda non richiede autorizzazioni Health Connect e non legge alcun dato sanitario.</p></div>
+  <p>Nella scheda Salute si trovano i tuoi dati di sonno, variabilità della frequenza cardiaca (HRV), frequenza cardiaca a riposo, passi e attività fisica: gli stessi cinque indicatori analizzati da Correlazioni. I dati possono arrivarci in tre modi:</p>
+  <ul>
+    <li><strong>Health Connect</strong>: letti automaticamente da un dispositivo indossabile collegato o da un'altra app che scrive su Health Connect. Ogni sincronizzazione recupera gli ultimi 30 giorni, e i giorni già sincronizzati restano sul dispositivo, così il tuo storico continua a crescere. Tocca <strong>Aggiorna</strong> per sincronizzare subito. Per la configurazione vedi <a href="#health-connect">Health Connect</a>.</li>
+    <li><strong>Valori manuali</strong>: in <em>Valori manuali</em>, tocca <strong>Aggiungi valore per un giorno</strong> per inserire a mano frequenza a riposo, HRV, durata del sonno, passi o attività fisica per qualsiasi data. Un'etichetta di origine (per esempio «Polar Flow → Nightly Recharge») tiene traccia della provenienza dei numeri. Un valore fuori dall'intervallo abituale viene segnalato con un avviso ma può comunque essere salvato, e ogni valore manuale può essere modificato o eliminato in seguito.</li>
+    <li><strong>Importa da un file</strong>: tocca <strong>Importa da un file</strong> per leggere un CSV esportato da un altro dispositivo o da un'altra app. Scegli il file, associ le sue colonne ai campi data e valore e controlli un'anteprima — righe lette e saltate, giorni nuovi, giorni che hanno già un valore e l'intero intervallo di date — prima che venga salvato qualcosa. Se un giorno ha già un valore, decidi una sola volta se mantenere il tuo o sostituirlo con quello importato.</li>
+  </ul>
+  <p>I valori che inserisci o importi portano l'etichetta <strong>Manuale</strong>, sono conservati esattamente come i dati di Health Connect — cifrati, solo sul tuo dispositivo — e vengono usati da Correlazioni insieme a tutto ciò che è stato letto da Health Connect. Revocare l'accesso a Health Connect non li tocca.</p>
+  <p>Il resto della scheda mostra l'ultima notte sincronizzata con la relativa finestra di sonno, una media del sonno su 30 giorni, un andamento della durata del sonno e un elenco <strong>Dettagli salute giornalieri</strong> per i singoli giorni.</p>
+
+  <h2 id="reports">Report</h2>
+  <p>La scheda Report ti permette di consultare riepiloghi strutturati dei tuoi dati e di esportarli per condividerli con un professionista sanitario.</p>
+  <h3>Report mensile</h3>
+  <p>Il report mensile mostra una vista calendario per ogni mese selezionato, in cui ogni giorno è colorato in base allo stato:</p>
+  <ul>
+    <li><strong>Nessun episodio</strong>: nessun attacco registrato</li>
+    <li><strong>Cefalea</strong>: almeno un episodio di cefalea</li>
+    <li><strong>Emicrania</strong>: almeno un episodio di emicrania</li>
+  </ul>
+  <p>Un grafico a torta mostra la percentuale di giorni in ciascuna categoria. Seleziona uno o più mesi con i chip dei mesi. Tocca <strong>Seleziona tutto</strong> o <strong>Azzera</strong> per selezionare o deselezionare rapidamente tutti i mesi.</p>
+  <h3>Report giornaliero</h3>
+  <p>Il report giornaliero si concentra sui singoli episodi all'interno di un periodo scelto. Scegli tra 7 giorni, 30 giorni, 90 giorni o Tutto. Una riga di riepilogo in alto mostra il totale degli episodi, l'intensità media e l'intervallo di date. Sotto, ogni episodio è elencato con tipo, orario e intensità.</p>
+  <h3>Esportare i dati</h3>
+  <ul>
+    <li><strong>Esporta come CSV</strong>: salva un file separato da virgole con tutti gli episodi del periodo corrente. Colonne: Data, Ora, Tipo, Intensità, Aura, Farmaco al bisogno, Fattori scatenanti, Note. Il selettore di file di sistema di Android ti fa scegliere dove salvarlo.</li>
+    <li><strong>Esporta come PDF</strong>: genera un documento PDF formattato con il riepilogo e la tabella degli episodi, adatto alla stampa o all'invio al medico. <strong>Richiede Premium</strong>; senza Premium il pulsante apre la finestra di acquisto.</li>
+    <li><strong>Esporta i dati sanitari come CSV</strong>: esporta facoltativamente i tuoi dati sanitari insieme agli episodi di cefalea. Questo file ha quattro colonne — data, sonno in ore, HRV in millisecondi e passi — e copre i giorni sincronizzati da Health Connect.</li>
+  </ul>
+  <div class="callout"><p><strong>Posizione del file.</strong> Heda usa lo Storage Access Framework di Android, quindi sei tu a scegliere dove viene salvato il file esportato. Nessun file viene caricato su alcun server.</p></div>
+
+  <h2 id="settings">Impostazioni</h2>
+  <p>Apri le Impostazioni dalla barra di navigazione in basso. Le modifiche hanno effetto immediato. Le sezioni qui sotto sono elencate nello stesso ordine in cui compaiono nell'app.</p>
+
+  <h3>Stato premium</h3>
+  <p>Finché Premium non è attivo, in cima alle Impostazioni compare una scheda <strong>Stato premium</strong>. <strong>Acquista premium</strong> apre la finestra di acquisto; <strong>Aggiorna stato</strong> ricontrolla un acquisto esistente, ed è ciò che serve dopo una reinstallazione o il cambio di telefono. Se un controllo non è riuscito, la scheda spiega perché: nessun contatto con Google Play o con il server di verifica, un pagamento ancora in sospeso, un acquisto effettuato con un altro account Google e così via. Quando Premium è attivo, la scheda scompare.</p>
+  <p>Premium è un <strong>acquisto una tantum, non un abbonamento</strong>. Sblocca le schede Correlazioni e Salute nella schermata Analisi (compresi l'inserimento manuale e l'importazione da file dei dati sanitari), la sincronizzazione automatica con Health Connect, le raccomandazioni salute giornaliere e l'esportazione in PDF nella schermata Report.</p>
+
+  <h3>Sincronizzazione e notifiche</h3>
+  <p><strong>Sincronizzazione automatica con Health Connect.</strong> Quando è attiva, Heda recupera i tuoi dati sanitari più recenti da Health Connect una volta al giorno in background, anche ad app chiusa. È <strong>disattivata per impostazione predefinita</strong> e <strong>richiede Premium</strong>: toccandola senza Premium si apre la finestra di acquisto. Richiede inoltre che le autorizzazioni Health Connect siano state concesse.</p>
+  <p><strong>Raccomandazioni salute giornaliere.</strong> Quando sono attive, Heda invia una notifica giornaliera se rileva una correlazione ad alta priorità. Toccando la notifica si apre la schermata Analisi sulla scheda Correlazioni. Sono <strong>disattivate per impostazione predefinita</strong>, <strong>richiedono Premium</strong> e necessitano dell'autorizzazione alle notifiche del dispositivo.</p>
+
+  <h3>Avanzate</h3>
+  <p>Espandi la sezione Avanzate per regolare con precisione le soglie usate dal motore di correlazione. I valori predefiniti seguono le linee guida cliniche consolidate per la prevenzione dell'emicrania:</p>
+  <table class="grid">
+    <thead><tr><th>Impostazione</th><th>Predefinito</th><th>Descrizione</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Sonno minimo</strong></td><td>7 h 0 min</td><td>Un sonno inferiore a questa durata viene segnalato come possibile fattore scatenante.</td></tr>
+      <tr><td><strong>Variabilità massima del sonno</strong></td><td>60 min</td><td>Una deviazione standard degli orari del sonno superiore a questo valore attiva lo schema sonno irregolare.</td></tr>
+      <tr><td><strong>Passi minimi</strong></td><td>3 000</td><td>Un numero di passi inferiore viene segnalato come attività bassa.</td></tr>
+      <tr><td><strong>HRV minima</strong></td><td>30 ms</td><td>Un'HRV sotto questa soglia assoluta viene segnalata.</td></tr>
+      <tr><td><strong>Frazione della baseline HRV</strong></td><td>0,80</td><td>Un'HRV sotto questa frazione della tua baseline a 14 giorni viene anch'essa segnalata.</td></tr>
+    </tbody>
+  </table>
+  <p>Tocca <strong>Ripristina valori predefiniti</strong> per riportare tutte le soglie ai valori originali.</p>
+
+  <h3>Sicurezza</h3>
+  <p>La sezione Sicurezza contiene l'interruttore <strong>Blocco biometrico</strong>: richiede impronta digitale, sblocco con il volto o PIN per aprire Heda. L'interruttore resta non disponibile finché non imposti un blocco schermo nelle impostazioni del dispositivo.</p>
+
+  <h3>Backup</h3>
+  <p>La sezione Backup ha un'unica riga, <strong>Backup e ripristino</strong>, ed è gratuita: non serve Premium. <strong>Crea backup</strong> scrive un singolo file cifrato che puoi conservare ovunque; sei tu a scegliere la password che lo protegge, e deve avere almeno 10 caratteri con una maiuscola, una minuscola e un numero, usando solo caratteri senza accenti (caratteri come à, è o ì non possono essere usati). <strong>Se perdi la password il file non potrà essere aperto: non esiste alcun recupero.</strong></p>
+  <p><strong>Ripristina da backup</strong> unisce il file a ciò che è già sul telefono anziché cancellarlo. Se alcuni record esistono da entrambe le parti con contenuto diverso, Heda chiede una sola volta se mantenere ciò che è sul telefono o sostituirlo con il backup, e poi riferisce quante voci e quanti giorni di dati sanitari sono stati aggiunti, sostituiti e saltati. Le impostazioni dell'app come tema e lingua non fanno parte del backup: reimpostale sul nuovo dispositivo.</p>
+
+  <h3>Aspetto</h3>
+  <p><strong>Tema.</strong> Scegli l'aspetto dell'app:</p>
+  <ul>
+    <li><strong>Chiaro</strong>: modalità chiara dai toni caldi di carta.</li>
+    <li><strong>Scuro</strong>: modalità scura bosco profondo (predefinita).</li>
+    <li><strong>Sistema</strong>: segue automaticamente l'impostazione chiaro/scuro del dispositivo.</li>
+  </ul>
+  <p><strong>Lingua.</strong> Scegli tra oltre 30 lingue raggruppate per regione (nordiche, germaniche, romanze, slave, baltiche e altre). La lingua scelta si applica a tutti i testi dell'app. Scegli <strong>Sistema</strong> per seguire l'impostazione di lingua del dispositivo.</p>
+
+  <h3>Diagnostica</h3>
+  <p><strong>Segnalazione errori</strong> condivide, se lo desideri, segnalazioni di crash anonime (GlitchTip) per permettere la correzione dei bug. <strong>Non vengono mai inclusi dati sanitari</strong> e non si raccolgono statistiche d'uso. Puoi cambiare questa scelta in qualsiasi momento; l'app riavvia allora il modulo di segnalazione.</p>
+
+  <h3>Aiuto e legale</h3>
+  <ul>
+    <li><strong>Guida per l'utente</strong>: apre questa guida online.</li>
+    <li><strong>Disclaimer</strong>: l'avviso medico e di responsabilità.</li>
+    <li><strong>Impressum</strong>: i dati del fornitore EXSports Oy.</li>
+    <li><strong>Privacy e dati</strong>: apre la schermata Privacy e dati, dove gestisci il tuo account, verifichi cosa è memorizzato, eserciti i tuoi diritti GDPR ed elimini i tuoi dati. Vedi <a href="#privacy">Privacy e dati</a>.</li>
+    <li><strong>Segnala un bug</strong>: apre il modulo di segnalazione.</li>
+  </ul>
+
+  <h3>Informazioni</h3>
+  <p>In fondo alla schermata sono indicate la versione installata dell'app e un blocco a comparsa <strong>Diritti d'autore</strong> che riconosce i crediti dell'app, del suo modello 3D e della sua tipografia.</p>
+
+  <h2 id="privacy">Privacy e dati</h2>
+  <p>Apri <strong>Impostazioni → Privacy e dati</strong> per gestire tutti i dati e le impostazioni dell'account.</p>
+  <h3>Il tuo account</h3>
+  <p>In cima alla schermata è indicato l'account Google con cui hai effettuato l'accesso. Tocca <strong>Esci</strong> per uscire dall'app. I tuoi dati restano sul dispositivo; puoi accedere di nuovo quando vuoi.</p>
+  <h3>Quali dati vengono memorizzati</h3>
+  <p>Tutti i dati sono memorizzati localmente sul tuo dispositivo in due database cifrati:</p>
+  <table class="grid">
+    <thead><tr><th>Tipo di dato</th><th>Contenuto</th><th>Cifratura</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Episodi di cefalea</strong></td><td>Marche temporali, aree del dolore, intensità, aura, farmaco al bisogno, fattori scatenanti, note</td><td>AES-256 (SQLCipher)</td></tr>
+      <tr><td><strong>Cache di Health Connect</strong></td><td>Sonno, fasi del sonno, HRV, frequenza cardiaca, passi e attività fisica sincronizzati da Health Connect</td><td>AES-256 (SQLCipher)</td></tr>
+      <tr><td><strong>Voci sanitarie manuali</strong></td><td>Frequenza a riposo, HRV, durata del sonno, passi e attività fisica inseriti a mano o importati da un file</td><td>AES-256 (SQLCipher)</td></tr>
+      <tr><td><strong>Token di autenticazione</strong></td><td>ID utente Supabase, e-mail, marca temporale dell'accesso, associazione dell'account</td><td>AES-256-GCM (Tink)</td></tr>
+      <tr><td><strong>Impostazioni dell'app</strong></td><td>Solo preferenze di tema e lingua: nessun dato sanitario</td><td>Non cifrato</td></tr>
+    </tbody>
+  </table>
+  <p>Le chiavi di cifratura sono conservate nell'Android Keystore, con supporto hardware ove disponibile, e non lasciano mai il dispositivo.</p>
+  <h3>I tuoi diritti ai sensi del GDPR</h3>
+  <p>Heda rispetta l'articolo 9 del GDPR dell'UE (categorie particolari di dati personali). I tuoi diritti:</p>
+  <ul>
+    <li><strong>Diritto di accesso (art. 15)</strong>: tutti i tuoi dati sono visibili in Calendario e Statistiche.</li>
+    <li><strong>Diritto di rettifica (art. 16)</strong>: modifica qualsiasi episodio toccandolo nel calendario.</li>
+    <li><strong>Diritto alla cancellazione (art. 17)</strong>: elimina tutti i dati dalla zona di pericolo (vedi sotto).</li>
+    <li><strong>Diritto di limitazione (art. 18)</strong>: esci dall'account per fermare ogni trattamento.</li>
+    <li><strong>Diritto alla portabilità (art. 20)</strong>: crea un backup cifrato in <strong>Impostazioni → Backup</strong>, oppure esporta tutti gli episodi in CSV dalla schermata Report.</li>
+    <li><strong>Diritto di opposizione (art. 21)</strong>: esci dall'account; il trattamento cessa immediatamente.</li>
+  </ul>
+  <h3>Zona di pericolo</h3>
+  <p><strong>Queste azioni sono permanenti e non possono essere annullate.</strong></p>
+  <ul>
+    <li><strong>Elimina i dati locali (mantieni l'account)</strong>: cancella definitivamente tutti i record di cefalea, i dati sanitari, le impostazioni e le chiavi di cifratura da questo dispositivo. Il collegamento con il tuo account Google viene mantenuto, così puoi accedere di nuovo da qualsiasi dispositivo.</li>
+    <li><strong>Elimina account e tutti i dati</strong>: cancella definitivamente tutto quanto sopra più il tuo account Supabase. Non è possibile alcun recupero. È richiesta una conferma in due passaggi.</li>
+  </ul>
+
+  <h2 id="health-connect">Health Connect</h2>
+  <p>Health Connect è la piattaforma unificata di dati sanitari di Google per Android. Heda vi legge cinque tipi di dati sanitari per alimentare le schede Correlazioni e Salute della schermata Analisi. Se non hai un dispositivo o un'app collegati, puoi inserire gli stessi cinque indicatori a mano o importarli da un file: vedi <a href="#health-tab">Salute</a>.</p>
+  <div class="metric-grid">
+    <div class="metric"><b>Sessioni di sonno</b><span>Durata del sonno notturno e fasi (REM, profondo, leggero e tempo di veglia) dal tuo indossabile o dall'app per il sonno.</span></div>
+    <div class="metric"><b>Variabilità della frequenza cardiaca (HRV)</b><span>Misurazioni RMSSD giornaliere che indicano lo stato di recupero e l'equilibrio del sistema nervoso autonomo.</span></div>
+    <div class="metric"><b>Frequenza cardiaca</b><span>Campioni continui di frequenza cardiaca usati per calcolare la media della giornata e la frequenza a riposo.</span></div>
+    <div class="metric"><b>Conteggio passi</b><span>Passi giornalieri dal telefono o dal dispositivo indossabile.</span></div>
+    <div class="metric"><b>Sessioni di attività</b><span>Durata delle sessioni di attività, usata per calcolare il livello di attività giornaliero.</span></div>
+  </div>
+  <div class="callout"><p><strong>Solo lettura.</strong> Heda si limita a leggere i dati da Health Connect: non vi scrive mai. Vengono richiesti solo i tipi di record necessari all'analisi delle correlazioni.</p></div>
+  <h3>Configurare Health Connect</h3>
+  <ul>
+    <li>Apri la scheda <strong>Salute</strong> nella schermata Analisi di Heda. Senza Premium la scheda mostra invece la schermata <strong>Sblocca Health Connect</strong>: Heda non richiede autorizzazioni Health Connect finché Premium non è attivo.</li>
+    <li>Se l'app Health Connect non è installata, tocca <strong>Installa Health Connect</strong> per ottenerla da Google Play. (Android 9 e successivi. Su Android 14+ Health Connect è integrato.)</li>
+    <li>Tocca <strong>Collega Health Connect</strong>.</li>
+    <li>Nella schermata delle autorizzazioni di Health Connect, concedi a Heda l'accesso a <strong>Sonno</strong>, <strong>Variabilità della frequenza cardiaca</strong>, <strong>Frequenza cardiaca</strong>, <strong>Passi</strong> e <strong>Attività fisica</strong>.</li>
+    <li>Torna in Heda. Vengono recuperati e mostrati gli ultimi 30 giorni. Puoi comunque aggiungere o correggere singoli giorni a mano: vedi <a href="#health-tab">Salute</a>.</li>
+  </ul>
+  <h3>Sincronizzazione in background</h3>
+  <p>Per impostazione predefinita i dati sanitari vengono recuperati solo quando apri la scheda Salute o tocchi <strong>Aggiorna</strong>. Attiva la <strong>Sincronizzazione automatica con Health Connect</strong> nelle Impostazioni per recuperarli una volta al giorno in background.</p>
+  <h3>Revocare l'accesso</h3>
+  <p>Puoi revocare in qualsiasi momento le autorizzazioni Health Connect di Heda dall'app Health Connect (<strong>Gestisci app e dispositivi → Heda → Autorizzazioni</strong>) oppure dalla scheda <strong>Salute</strong> in Heda. I dati già in cache restano sul dispositivo finché non li elimini tramite <strong>Privacy e dati → Elimina i dati locali</strong>. I valori inseriti a mano o importati da un file non sono interessati dalla revoca.</p>
+  <div class="callout"><p><strong>I dati restano sul dispositivo.</strong> I dati di Health Connect sono memorizzati nella cache del database cifrato sul dispositivo e non vengono mai inviati ad alcun server.</p></div>
+
+  <hr>
+  <p class="muted" style="font-size:0.9rem;">© 2026 EXSports Oy. Questa documentazione viene aggiornata con l'evoluzione dell'app. Ultima revisione: agosto 2026.</p>
+
+  <div class="doc-cta">
+    <h3>Domande su Heda?</h3>
+    <p>Dicci che cosa vuoi monitorare e ti aiutiamo.</p>
+    <a class="btn btn--primary" href="mailto:info@exsports.fi">info@exsports.fi <span class="arrow">→</span></a>
+  </div>
+
+</div></div>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <a class="footer__brand" href="/index.html"><img src="/assets/brand/wordmark-ink.png" alt="exs" /></a>
+    <div class="footer__meta">
+      <span>© 2026 EXSPORTS OY</span><span class="dot">·</span>
+      <a href="/index.html">Home</a><span class="dot">·</span>
+      <a href="/legal/imprint.html">Impressum</a><span class="dot">·</span>
+      <a href="mailto:info@exsports.fi">Contatti</a>
     </div>
-  </header>
-
-  <div class="doc-layout">
-
-    <!-- ── Sidebar TOC ── -->
-    <aside>
-      <nav class="toc" aria-label="Sommario">
-        <p class="toc-label">Contenuto</p>
-        <ul class="toc-list">
-          <li><a href="#panoramica">Panoramica</a></li>
-          <li><a href="#iniziare">Per iniziare</a></li>
-          <li><a href="#calendario">Calendario</a></li>
-          <li class="toc-sub"><ul class="toc-list">
-            <li><a href="#vista-mensile">Vista mensile</a></li>
-            <li><a href="#schede-eventi">Schede eventi</a></li>
-            <li><a href="#aggiunta-rapida">Aggiunta rapida</a></li>
-          </ul></li>
-          <li><a href="#registrazione">Registrare un evento</a></li>
-          <li class="toc-sub"><ul class="toc-list">
-            <li><a href="#tipo-intensita">Tipo e intensità</a></li>
-            <li><a href="#data-ora">Data e ora</a></li>
-            <li><a href="#area-dolore">Area del dolore</a></li>
-            <li><a href="#fattori-scatenanti">Fattori scatenanti</a></li>
-            <li><a href="#aura-farmaco">Aura e farmaco</a></li>
-            <li><a href="#note">Note</a></li>
-          </ul></li>
-          <li><a href="#modifica">Modificare ed eliminare</a></li>
-          <li><a href="#analisi">Analisi</a></li>
-          <li class="toc-sub"><ul class="toc-list">
-            <li><a href="#statistiche">Statistiche</a></li>
-            <li><a href="#correlazioni">Correlazioni</a></li>
-          </ul></li>
-          <li><a href="#rapporti">Rapporti</a></li>
-          <li><a href="#impostazioni">Impostazioni</a></li>
-          <li><a href="#privacy">Privacy e dati</a></li>
-          <li><a href="#health-connect">Health Connect</a></li>
-        </ul>
-      </nav>
-    </aside>
-
-    <!-- ── Main content ── -->
-    <main class="doc-content">
-
-      <span class="section-label">Heda · Guida utente</span>
-      <h1 class="doc-title">Come usare Heda</h1>
-      <p class="doc-intro">Un diario discreto per mal di testa e emicrania. Mappa il tuo dolore, trova i pattern e comprendi i tuoi fattori scatenanti — tutto archiviato in modo privato sul tuo dispositivo.</p>
-
-      <!-- ─ Panoramica ─ -->
-      <section class="doc-section" id="panoramica">
-        <h2 class="section-heading">Panoramica</h2>
-
-        <p>Heda è un diario per mal di testa ed emicrania per Android che funziona principalmente offline. Tutti i dati sanitari sono cifrati e archiviati solo sul tuo dispositivo. Niente viene caricato su alcun server — i tuoi dati appartengono solo a te.</p>
-
-        <p>L'app ha quattro aree principali, accessibili dalla barra di navigazione inferiore:</p>
-
-        <div class="nav-bar-demo" aria-hidden="true">
-          <div class="nav-tab active">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 9h17M8 3v3M16 3v3"/></svg>
-            Calendario
-          </div>
-          <div class="nav-tab">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l4-6 3 3 5-8 4 6"/></svg>
-            Analisi
-          </div>
-          <div class="nav-tab">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14M5 12h14M5 17h9"/></svg>
-            Rapporti
-          </div>
-          <div class="nav-tab">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.5 5.5l1.5 1.5M17 17l1.5 1.5M5.5 18.5L7 17M17 7l1.5-1.5"/></svg>
-            Impostazioni
-          </div>
-        </div>
-
-        <div class="card-grid">
-          <div class="info-card">
-            <div class="card-title">Calendario</div>
-            <div class="card-body">Sfoglia e gestisci i tuoi eventi di mal di testa per data. Aggiungi nuovi eventi da qui.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Analisi</div>
-            <div class="card-body">Statistiche e grafici di tendenza per tutti gli utenti. Correlazioni (premium) rileva pattern tra i tuoi dati Health Connect e gli eventi di mal di testa.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Rapporti</div>
-            <div class="card-body">Riepiloghi mensili e giornalieri con grafici. Esporta i dati come CSV o PDF.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Impostazioni</div>
-            <div class="card-body">Tema, lingua, Health Connect, notifiche, privacy e opzioni avanzate.</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─ Per iniziare ─ -->
-      <section class="doc-section" id="iniziare">
-        <h2 class="section-heading">Per iniziare</h2>
-
-        <h3 class="sub-heading">Accesso</h3>
-        <p>Heda richiede un account Google per proteggere i tuoi dati. Effettuando l'accesso si crea una chiave di crittografia legata al dispositivo e associata al tuo account — nessun dato viene archiviato nel cloud.</p>
-        <ol class="steps">
-          <li>Apri Heda dopo averla installata da Google Play.</li>
-          <li>Tocca <strong>Accedi con Google</strong> e scegli il tuo account Google.</li>
-          <li>Il tuo account è ora collegato a questa installazione. Dovrai usare lo stesso account Google se reinstalli l'app.</li>
-        </ol>
-        <div class="note">
-          <strong>La privacy prima di tutto.</strong> Heda non carica nessun dato sanitario su server esterni. Il tuo account Google viene usato esclusivamente per l'identificazione — per associare le chiavi di crittografia a un singolo utente su questo dispositivo.
-        </div>
-
-        <h3 class="sub-heading">Consenso al primo avvio</h3>
-        <p>Al primo avvio, Heda chiede se desideri condividere segnalazioni di errori anonime. Nessuna opzione invia dati sanitari. Puoi modificare la tua scelta in seguito in <strong>Impostazioni → Privacy e dati</strong>.</p>
-
-        <ul>
-          <li><strong>Segnalazioni di errori anonime</strong> — segnala automaticamente i crash in modo da correggere i bug rapidamente (GlitchTip). Non vengono raccolte statistiche di utilizzo.</li>
-        </ul>
-      </section>
-
-      <!-- ─ Calendario ─ -->
-      <section class="doc-section" id="calendario">
-        <h2 class="section-heading">Calendario</h2>
-        <p>Il Calendario è la tua vista quotidiana. Mostra il mese corrente a colpo d'occhio, con punti colorati che indicano l'intensità del mal di testa per ogni giorno.</p>
-
-        <h3 class="sub-heading" id="vista-mensile">Vista mensile</h3>
-        <p>La banda mensile nella parte superiore mostra il mese corrente in una griglia di settimane ISO (le settimane vanno da lunedì a domenica). Ogni giorno con almeno un evento registrato mostra un piccolo punto di intensità:</p>
-
-        <ul>
-          <li><span style="color:var(--accent)">●</span> <strong>Blu</strong> — intensità 1–3 (lieve)</li>
-          <li><span style="color:var(--danger)">●</span> <strong>Rosso</strong> — intensità 4–5 (grave)</li>
-        </ul>
-
-        <p>Usa i pulsanti <strong>‹</strong> e <strong>›</strong> per navigare tra i mesi. Tocca qualsiasi data per selezionarla e visualizzare gli eventi di quel giorno in basso.</p>
-        <p>La data odierna appare evidenziata. Tocca l'etichetta <strong>Oggi</strong> o la data odierna per tornare al giorno corrente.</p>
-
-        <h3 class="sub-heading" id="schede-eventi">Schede eventi</h3>
-        <p>Gli eventi della data selezionata vengono mostrati come schede sotto la banda mensile. Ogni scheda mostra:</p>
-        <ul>
-          <li>Il <strong>tipo di cefalea</strong> (Mal di testa o Emicrania)</li>
-          <li>L'<strong>intervallo di tempo</strong> — ora di inizio e fine, e la durata</li>
-          <li>Una <strong>barra dell'intensità</strong> (scala 1–5)</li>
-          <li>Indicatori di aura e farmaco di emergenza, se registrati</li>
-        </ul>
-        <p>Tocca una scheda per aprirla in <strong>modalità modifica</strong> dove tutti i campi sono modificabili.</p>
-
-        <h3 class="sub-heading" id="aggiunta-rapida">Aggiunta rapida</h3>
-        <p>Per una registrazione veloce, tocca <strong>Aggiunta rapida</strong> nella parte inferiore della schermata Calendario. Un pannello scorre verso l'alto con i campi essenziali:</p>
-        <ul>
-          <li><strong>Tipo</strong> — Mal di testa o Emicrania</li>
-          <li><strong>Intensità</strong> — cursore 1–5</li>
-          <li><strong>Aura</strong> — casella di controllo</li>
-          <li><strong>Farmaco di emergenza</strong> — casella di controllo</li>
-        </ul>
-        <p>Tocca <strong>Salva</strong> per registrare immediatamente con l'ora corrente, oppure tocca <strong>Aggiungi dettagli…</strong> per aprire il modulo evento completo precompilato con questi valori.</p>
-      </section>
-
-      <!-- ─ Registrazione ─ -->
-      <section class="doc-section" id="registrazione">
-        <h2 class="section-heading">Registrare un evento</h2>
-        <p>Per registrare un nuovo evento con tutti i dettagli, tocca il pulsante <strong>+ Aggiungi evento</strong> nel Calendario. Se hai prima toccato una data specifica, quella data sarà preselezionata nel modulo.</p>
-
-        <h3 class="sub-heading" id="tipo-intensita">Tipo e intensità</h3>
-        <p>Scegli tra <strong>Mal di testa</strong> e <strong>Emicrania</strong> con il selettore in alto. Quindi imposta l'intensità su una scala da 1 (lieve) a 5 (invalidante) con il cursore.</p>
-
-        <h3 class="sub-heading" id="data-ora">Data e ora</h3>
-        <p>Tre campi controllano le informazioni temporali dell'evento:</p>
-        <ul>
-          <li><strong>Data</strong> — tocca per aprire un selettore di data. Predefinito: oggi.</li>
-          <li><strong>Ora di inizio</strong> — quando è iniziato l'attacco. Tocca per aprire un selettore d'ora in formato 24 h.</li>
-          <li><strong>Ora di fine</strong> — quando è terminato l'attacco. Predefinito: 2 ore dopo l'ora di inizio. Se sposti l'ora di inizio oltre l'ora di fine, questa avanza automaticamente per mantenere l'intervallo di 2 ore.</li>
-        </ul>
-
-        <h3 class="sub-heading" id="area-dolore">Area del dolore</h3>
-        <p>Il <strong>modello 3D della testa</strong> ti permette di contrassegnare esattamente dove si localizza il dolore. Supporta due gesti:</p>
-        <ul>
-          <li><strong>Un dito</strong> — dipingi le aree dolorose trascinando sulla superficie della testa.</li>
-          <li><strong>Due dita</strong> — ruota la testa per accedere alle zone posteriori, laterali o del collo.</li>
-        </ul>
-
-        <p>Sono supportate otto regioni anatomiche:</p>
-        <div class="tag-group">
-          <span class="tag">Fronte</span>
-          <span class="tag">Intorno all'occhio — sinistra</span>
-          <span class="tag">Intorno all'occhio — destra</span>
-          <span class="tag">Tempia — sinistra</span>
-          <span class="tag">Tempia — destra</span>
-          <span class="tag">Occipitale — sinistra</span>
-          <span class="tag">Occipitale — destra</span>
-          <span class="tag">Collo</span>
-        </div>
-
-        <p>Attiva l'interruttore <strong>Colora in base all'intensità</strong> per tingere le regioni dipinte con il colore dell'intensità (rosso chiaro per lieve, rosso scuro per grave). Disattivato per impostazione predefinita.</p>
-
-        <div class="note">
-          <strong>Suggerimento.</strong> Puoi cancellare le regioni dipinte trascinando di nuovo su di esse — il gesto alterna tra aggiunta e rimozione.
-        </div>
-
-        <h3 class="sub-heading" id="fattori-scatenanti">Possibili fattori scatenanti</h3>
-        <p>Registra i possibili fattori scatenanti che potrebbero aver contribuito a questo attacco. Sono raggruppati in sette categorie:</p>
-
-        <table class="data-table">
-          <thead>
-            <tr><th>Categoria</th><th>Fattori scatenanti</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Stress e umore</strong></td>
-              <td>Stress, Rilassamento dopo stress, Ansia</td>
-            </tr>
-            <tr>
-              <td><strong>Sonno</strong></td>
-              <td>Poco sonno, Troppo sonno, Sonno irregolare</td>
-            </tr>
-            <tr>
-              <td><strong>Cibo e bevande</strong></td>
-              <td>Pasto saltato, Digiuno prolungato, Disidratazione, Alcol, Caffeina, Astinenza da caffeina, Cioccolato, Formaggi stagionati, Additivi alimentari, Carni lavorate</td>
-            </tr>
-            <tr>
-              <td><strong>Ormonale</strong></td>
-              <td>Mestruazione, Ovulazione, Contraccettivi ormonali</td>
-            </tr>
-            <tr>
-              <td><strong>Ambiente</strong></td>
-              <td>Cambiamento meteo, Temperatura estrema, Umidità</td>
-            </tr>
-            <tr>
-              <td><strong>Sensoriale</strong></td>
-              <td>Luce intensa, Odore forte, Rumore forte, Sfarfallio dello schermo</td>
-            </tr>
-            <tr>
-              <td><strong>Fisico</strong></td>
-              <td>Esercizio intenso, Tensione cervicale, Viaggio, Abuso di farmaci</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3 class="sub-heading" id="aura-farmaco">Aura e farmaco di emergenza</h3>
-        <ul>
-          <li><strong>Aura</strong> — contrassegna se questo evento è stato preceduto da un'aura (disturbi visivi, formicolio, alterazioni del linguaggio, ecc.).</li>
-          <li><strong>Farmaco di emergenza</strong> — contrassegna se hai assunto un farmaco acuto (es. triptano, FANS o paracetamolo) durante questo attacco.</li>
-        </ul>
-
-        <h3 class="sub-heading" id="note">Note</h3>
-        <p>Il campo note a testo libero cattura tutto ciò che i campi strutturati non coprono — contesto, osservazioni, cosa ha aiutato o altri dettagli che vuoi ricordare.</p>
-
-        <p>Tocca <strong>Salva</strong> quando hai finito. L'evento appare immediatamente nel Calendario.</p>
-      </section>
-
-      <!-- ─ Modifica ed eliminazione ─ -->
-      <section class="doc-section" id="modifica">
-        <h2 class="section-heading">Modificare ed eliminare eventi</h2>
-
-        <h3 class="sub-heading">Modificare un evento</h3>
-        <ol class="steps">
-          <li>Naviga fino alla data nel Calendario.</li>
-          <li>Tocca la scheda dell'evento che vuoi modificare.</li>
-          <li>Il modulo evento si apre in modalità modifica — tutti i campi sono modificabili.</li>
-          <li>Apporta le modifiche e poi tocca <strong>Aggiorna</strong> per salvare.</li>
-        </ol>
-
-        <h3 class="sub-heading">Eliminare un evento</h3>
-        <ol class="steps">
-          <li>Apri l'evento in modalità modifica (tocca la sua scheda nel Calendario).</li>
-          <li>Scorri verso il basso e tocca <strong>Elimina voce</strong>.</li>
-          <li>Appare una finestra di conferma. Tocca <strong>Elimina</strong> per cancellare definitivamente l'evento.</li>
-        </ol>
-
-        <div class="warning">
-          <strong>Azione permanente.</strong> L'eliminazione non può essere annullata. L'evento viene rimosso immediatamente dal database cifrato sul tuo dispositivo.
-        </div>
-      </section>
-
-      <!-- ─ Analisi ─ -->
-      <section class="doc-section" id="analisi">
-        <h2 class="section-heading">Analisi</h2>
-        <p>La schermata Analisi ha due schede in cima: <strong>Statistiche</strong> e <strong>Correlazioni</strong>. Statistiche è disponibile per tutti gli utenti. Correlazioni è una funzione premium che richiede anche una connessione Health Connect.</p>
-
-        <div class="card-grid">
-          <div class="info-card">
-            <div class="card-title">Statistiche</div>
-            <div class="card-body">Grafici di frequenza e gravità per un periodo selezionato. Disponibile per tutti gli utenti.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Correlazioni</div>
-            <div class="card-body">Rileva pattern nei tuoi dati Health Connect che possono precedere gli attacchi di mal di testa. Richiede premium e Health Connect.</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─ Statistiche ─ -->
-      <section class="doc-section" id="statistiche">
-        <h2 class="section-heading">Statistiche</h2>
-        <p>La scheda Statistiche ti offre una panoramica della frequenza e della gravità dei tuoi mal di testa in un periodo selezionato.</p>
-
-        <h3 class="sub-heading">Selettore del periodo</h3>
-        <p>Scegli tra cinque periodi:</p>
-        <div class="tag-group">
-          <span class="tag accent">7 giorni</span>
-          <span class="tag">30 giorni</span>
-          <span class="tag">90 giorni</span>
-          <span class="tag">1 anno</span>
-          <span class="tag">Tutto il tempo</span>
-        </div>
-
-        <h3 class="sub-heading">Scheda di riepilogo</h3>
-        <p>Una scheda principale mostra le seguenti metriche per il periodo selezionato. Le frecce di tendenza (↑ / ↓) confrontano ogni valore con il periodo precedente equivalente:</p>
-        <div class="card-grid">
-          <div class="info-card">
-            <div class="card-title">Totale eventi</div>
-            <div class="card-body">Numero totale di eventi di mal di testa ed emicrania nel periodo.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Intensità media</div>
-            <div class="card-body">Intensità media (1–5) di tutti gli eventi nel periodo.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Eventi con aura</div>
-            <div class="card-body">Quanti eventi sono stati accompagnati da aura.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Eventi con farmaco di emergenza</div>
-            <div class="card-body">Quanti eventi hanno richiesto un farmaco acuto.</div>
-          </div>
-        </div>
-
-        <h3 class="sub-heading">Grafici</h3>
-        <ul>
-          <li><strong>Grafico di tendenza</strong> — numero di eventi per intervallo di tempo (giornaliero per 7/30/90 giorni, settimanale per 1 anno, mensile per Tutto il tempo).</li>
-          <li><strong>Mappa termica per giorno della settimana</strong> — mostra in quali giorni della settimana i tuoi mal di testa si verificano più spesso.</li>
-        </ul>
-
-        <h3 class="sub-heading">Tipo di evento e fattori scatenanti</h3>
-        <p>Un grafico a barre sovrapposte mostra la distribuzione tra i tipi di eventi (Mal di testa / Mal di testa grave / Emicrania / Emicrania grave) con conteggi e percentuali. Sotto, un grafico a barre orizzontale elenca i tuoi fattori scatenanti più frequenti nel periodo selezionato.</p>
-      </section>
-
-      <!-- ─ Correlazioni ─ -->
-      <section class="doc-section" id="correlazioni">
-        <h2 class="section-heading">Correlazioni</h2>
-        <p>La scheda Correlazioni analizza i tuoi dati Health Connect e cerca nove pattern basati su evidenze che spesso precedono gli attacchi di mal di testa ed emicrania. Esamina gli ultimi 90 giorni.</p>
-
-        <div class="note">
-          <strong>Funzione premium.</strong> La scheda Correlazioni richiede Heda Premium. Richiede anche le autorizzazioni Health Connect per i dati di sonno, frequenza cardiaca, HRV, passi e attività fisica. Consulta la sezione <a href="#health-connect">Health Connect</a> per i passi di configurazione.
-        </div>
-
-        <h3 class="sub-heading">La tua linea di base</h3>
-        <p>Una scheda della linea di base in cima mostra i tuoi valori mediani a 14 giorni per ogni metrica di salute. "—" viene mostrato per le metriche senza dati sufficienti.</p>
-        <ul>
-          <li><strong>Sonno</strong> — durata totale mediana del sonno notturno</li>
-          <li><strong>HRV</strong> — variabilità mediana della frequenza cardiaca (ms)</li>
-          <li><strong>Frequenza cardiaca a riposo</strong> — frequenza cardiaca mediana a riposo (bpm)</li>
-          <li><strong>Passi</strong> — numero mediano giornaliero di passi</li>
-          <li><strong>Esercizio</strong> — minuti attivi mediani giornalieri</li>
-          <li><strong>Sonno profondo</strong> — durata mediana del sonno profondo notturno</li>
-          <li><strong>Sonno REM</strong> — durata mediana del sonno REM notturno</li>
-          <li><strong>Sveglio durante il sonno</strong> — tempo mediano di veglia nelle sessioni di sonno</li>
-        </ul>
-
-        <h3 class="sub-heading">Pattern rilevati</h3>
-        <p>Heda controlla nove pattern basati su evidenze per ogni evento di mal di testa. Ogni rilevamento mostra il valore misurato e la soglia superata — ad esempio: <em>«Hai dormito 5 h 30 min prima di questo evento (soglia: 7 h)»</em>.</p>
-
-        <ul class="feature-list">
-          <li><strong>Sonno breve</strong> — la durata totale del sonno la notte prima era inferiore a 7 ore (configurabile in Impostazioni → Avanzate).</li>
-          <li><strong>Orario di sonno irregolare</strong> — gli orari di sonno sono variati di più di 120 minuti (deviazione standard) nei 7 giorni precedenti.</li>
-          <li><strong>Basso conteggio di passi</strong> — meno di 3 000 passi il giorno prima dell'evento (configurabile).</li>
-          <li><strong>Calo di HRV</strong> — l'HRV è sceso sotto 30 ms o sotto l'80% della tua linea di base personale a 14 giorni.</li>
-          <li><strong>Frequenza cardiaca a riposo elevata</strong> — la frequenza cardiaca a riposo era superiore alla tua mediana a 14 giorni il giorno prima dell'evento.</li>
-          <li><strong>Picco di esercizio</strong> — i minuti attivi erano insolitamente alti rispetto alla tua mediana a 14 giorni il giorno prima.</li>
-          <li><strong>Poco sonno profondo</strong> — il sonno profondo era ben al di sotto della tua mediana a 14 giorni la notte prima.</li>
-          <li><strong>Poco sonno REM</strong> — il sonno REM era ben al di sotto della tua mediana a 14 giorni la notte prima.</li>
-          <li><strong>Sonno frammentato</strong> — il tempo di veglia nelle sessioni di sonno era insolitamente alto rispetto al sonno totale e alla tua linea di base.</li>
-        </ul>
-
-        <h3 class="sub-heading">Raccomandazioni</h3>
-        <p>Sulla base dei pattern rilevati, Heda genera raccomandazioni personalizzate ordinate per priorità (Alta / Media / Bassa). Gli esempi includono il miglioramento della durata o della regolarità del sonno, l'aumento dell'attività quotidiana o la gestione dello stress e del recupero.</p>
-
-        <div class="warning">
-          <strong>Non è un consiglio medico.</strong> I pattern rilevati sono correlazioni, non diagnosi. Consulta sempre un professionista della salute per una guida medica sui tuoi mal di testa.
-        </div>
-      </section>
-
-      <!-- ─ Rapporti ─ -->
-      <section class="doc-section" id="rapporti">
-        <h2 class="section-heading">Rapporti</h2>
-        <p>La scheda Rapporti ti permette di visualizzare riepiloghi strutturati dei tuoi dati ed esportarli per condividerli con un professionista della salute.</p>
-
-        <h3 class="sub-heading">Rapporto mensile</h3>
-        <p>Il rapporto mensile mostra una vista calendario per ogni mese selezionato, con ogni giorno colorato in base al suo stato:</p>
-        <ul>
-          <li><strong>Nessun evento</strong> — nessun attacco registrato</li>
-          <li><strong>Mal di testa</strong> — almeno un evento di mal di testa</li>
-          <li><strong>Emicrania</strong> — almeno un evento di emicrania</li>
-        </ul>
-        <p>Un grafico a torta mostra la proporzione di giorni per categoria. Seleziona uno o più mesi usando i chip del mese. Tocca <strong>Seleziona tutti</strong> o <strong>Cancella</strong> per selezionare o deselezionare rapidamente tutti i mesi.</p>
-
-        <h3 class="sub-heading">Rapporto giornaliero</h3>
-        <p>Il rapporto giornaliero si concentra sui singoli eventi in un periodo selezionato. Scegli tra:</p>
-        <div class="tag-group">
-          <span class="tag">7 giorni</span>
-          <span class="tag accent">30 giorni</span>
-          <span class="tag">90 giorni</span>
-          <span class="tag">Tutto il tempo</span>
-        </div>
-        <p>Una riga di riepilogo in cima mostra il totale degli eventi, l'intensità media e l'intervallo di date. Sotto è elencato ogni evento con tipo, ora e intensità.</p>
-
-        <h3 class="sub-heading">Esportare dati</h3>
-        <p>Usa i pulsanti di esportazione per salvare i tuoi dati:</p>
-        <ul>
-          <li><strong>Esporta come CSV</strong> — salva un file separato da virgole con tutti gli eventi del periodo corrente. Colonne: Data, Ora, Tipo, Intensità, Aura, Farmaco di emergenza, Fattori scatenanti, Note. Il selettore di file di sistema Android ti permette di scegliere dove salvare.</li>
-          <li><strong>Esporta come PDF</strong> — genera un documento PDF formattato con il riepilogo e la tabella degli eventi, adatto per la stampa o l'invio a un medico.</li>
-          <li><strong>Esporta dati Health Connect come CSV</strong> — esporta opzionalmente i dati in cache di sonno, frequenza cardiaca, HRV, passi e attività fisica insieme ai tuoi eventi di mal di testa.</li>
-        </ul>
-
-        <div class="note">
-          <strong>Posizione del file.</strong> Heda utilizza il framework di accesso allo storage di Android, quindi sei tu a scegliere dove viene salvato il file esportato. Nessun file viene caricato su alcun server.
-        </div>
-      </section>
-
-      <!-- ─ Impostazioni ─ -->
-      <section class="doc-section" id="impostazioni">
-        <h2 class="section-heading">Impostazioni</h2>
-        <p>Accedi alle Impostazioni dalla barra di navigazione inferiore. Le modifiche hanno effetto immediato.</p>
-
-        <h3 class="sub-heading">Tema</h3>
-        <p>Scegli tra tre opzioni:</p>
-        <ul>
-          <li><strong>Chiaro</strong> — modalità chiara con toni caldi di carta.</li>
-          <li><strong>Scuro</strong> — modalità scura profonda con toni boschivi (predefinito).</li>
-          <li><strong>Sistema</strong> — segue automaticamente l'impostazione modalità scura/chiara del dispositivo.</li>
-        </ul>
-
-        <h3 class="sub-heading">Lingua</h3>
-        <p>Scegli tra oltre 30 lingue raggruppate per regione (Nordica, Germanica, Romanza, Slava, Baltica e Altre). La lingua selezionata si applica a tutto il testo dell'app. Scegli <strong>Sistema</strong> per seguire l'impostazione di lingua del dispositivo.</p>
-
-        <h3 class="sub-heading">Health Connect</h3>
-        <p>Porta alla schermata delle impostazioni di Health Connect dove puoi concedere o revocare i permessi per i dati di sonno, frequenza cardiaca, HRV, passi e attività fisica. Consulta la sezione <a href="#health-connect">Health Connect</a> per ulteriori dettagli.</p>
-
-        <h3 class="sub-heading">Privacy e dati</h3>
-        <p>Apre la schermata Privacy e dati dove puoi gestire il tuo account, esaminare quali dati sono archiviati, esercitare i tuoi diritti GDPR ed eliminare i tuoi dati. Consulta la sezione <a href="#privacy">Privacy e dati</a> per ulteriori dettagli.</p>
-
-        <h3 class="sub-heading">Sincronizzazione automatica Health Connect</h3>
-        <p>Quando attivata, Heda recupera i tuoi dati di salute più recenti da Health Connect una volta al giorno in background, anche quando l'app è chiusa. <strong>Disattivata per impostazione predefinita.</strong> Per attivarla è necessario che i permessi di Health Connect siano concessi.</p>
-
-        <h3 class="sub-heading">Raccomandazioni sanitarie giornaliere</h3>
-        <p>Quando attivata, Heda invia una notifica giornaliera se viene rilevata una correlazione ad alta priorità. Tocca la notifica per aprire la schermata Analisi. <strong>Disattivata per impostazione predefinita</strong> e richiede il permesso di notifiche del dispositivo.</p>
-
-        <h3 class="sub-heading">Avanzate</h3>
-        <p>Espandi la sezione Avanzate per regolare le soglie utilizzate dal motore di correlazione. I valori predefiniti corrispondono alle linee guida cliniche consolidate per la prevenzione dell'emicrania:</p>
-
-        <table class="data-table">
-          <thead>
-            <tr><th>Impostazione</th><th>Predefinito</th><th>Descrizione</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>Sonno minimo</strong></td><td>7 h 0 min</td><td>Un sonno inferiore a questa durata viene segnalato come possibile fattore scatenante.</td></tr>
-            <tr><td><strong>Variabilità massima del sonno</strong></td><td>60 min</td><td>La deviazione standard dell'orario del sonno superiore a questo valore attiva il pattern di sonno irregolare.</td></tr>
-            <tr><td><strong>Passi minimi</strong></td><td>3 000</td><td>Un conteggio di passi inferiore a questo viene segnalato come attività bassa.</td></tr>
-            <tr><td><strong>HRV minimo</strong></td><td>30 ms</td><td>Un HRV al di sotto di questa soglia assoluta viene segnalato.</td></tr>
-            <tr><td><strong>Frazione della linea di base HRV</strong></td><td>0,80</td><td>Un HRV al di sotto di questa frazione della tua linea di base di 14 giorni viene anche segnalato.</td></tr>
-          </tbody>
-        </table>
-
-        <p>Tocca <strong>Ripristina valori predefiniti</strong> per ripristinare tutte le soglie ai valori originali.</p>
-      </section>
-
-      <!-- ─ Privacy e dati ─ -->
-      <section class="doc-section" id="privacy">
-        <h2 class="section-heading">Privacy e dati</h2>
-        <p>Apri <strong>Impostazioni → Privacy e dati</strong> per gestire tutte le impostazioni di dati e account.</p>
-
-        <h3 class="sub-heading">Il tuo account</h3>
-        <p>In cima alla schermata viene mostrato l'account Google con cui hai effettuato l'accesso. Tocca <strong>Disconnetti</strong> per uscire dall'app. I tuoi dati rimangono sul dispositivo; puoi rieffettuare l'accesso in qualsiasi momento.</p>
-
-        <h3 class="sub-heading">Quali dati vengono archiviati</h3>
-        <p>Tutti i dati vengono archiviati localmente sul tuo dispositivo in due database cifrati:</p>
-
-        <table class="data-table">
-          <thead>
-            <tr><th>Tipo di dato</th><th>Contenuto</th><th>Cifratura</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Eventi di mal di testa</strong></td>
-              <td>Marcature temporali, aree del dolore, intensità, aura, farmaco di emergenza, fattori scatenanti, note</td>
-              <td>AES-256 (SQLCipher)</td>
-            </tr>
-            <tr>
-              <td><strong>Cache Health Connect</strong></td>
-              <td>Sonno, fasi del sonno, HRV, frequenza cardiaca, passi e attività fisica</td>
-              <td>AES-256 (SQLCipher)</td>
-            </tr>
-            <tr>
-              <td><strong>Token di autenticazione</strong></td>
-              <td>UID Supabase, email, timestamp di accesso, collegamento account</td>
-              <td>AES-256-GCM (Tink)</td>
-            </tr>
-            <tr>
-              <td><strong>Configurazione app</strong></td>
-              <td>Solo preferenza tema e lingua — nessun dato sanitario</td>
-              <td>Non cifrata</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p>Le chiavi di cifratura sono archiviate nell'Android Keystore, con supporto hardware quando disponibile, e non lasciano mai il dispositivo.</p>
-
-        <h3 class="sub-heading">Blocco biometrico</h3>
-        <p>Attiva il blocco biometrico per richiedere impronta digitale, sblocco facciale o PIN per aprire l'app. Richiede che sia configurato un blocco schermo nelle impostazioni del dispositivo.</p>
-
-        <h3 class="sub-heading">Diagnostica</h3>
-        <p>Condividi opzionalmente segnalazioni di errori anonime (GlitchTip). <strong>Nessun dato sanitario è mai incluso.</strong> Non vengono raccolte statistiche di utilizzo. Questa opzione può essere modificata in qualsiasi momento.</p>
-
-        <h3 class="sub-heading">I tuoi diritti GDPR</h3>
-        <p>Heda è conforme all'art. 9 del GDPR UE (categorie particolari di dati personali). I tuoi diritti:</p>
-
-        <ul>
-          <li><strong>Diritto di accesso (art. 15)</strong> — tutti i tuoi dati sono visibili in Calendario e Statistiche.</li>
-          <li><strong>Diritto di rettifica (art. 16)</strong> — modifica qualsiasi evento toccandolo nel Calendario.</li>
-          <li><strong>Diritto alla cancellazione (art. 17)</strong> — elimina tutti i dati tramite la Zona pericolosa (vedi sotto).</li>
-          <li><strong>Diritto alla limitazione (art. 18)</strong> — disconnettiti per interrompere ogni elaborazione.</li>
-          <li><strong>Diritto alla portabilità (art. 20)</strong> — esporta tutti gli eventi come CSV dalla schermata Rapporti.</li>
-          <li><strong>Diritto di opposizione (art. 21)</strong> — disconnettiti; l'elaborazione si interrompe immediatamente.</li>
-        </ul>
-
-        <h3 class="sub-heading">Zona pericolosa</h3>
-        <div class="warning">
-          <strong>Queste azioni sono permanenti e non possono essere annullate.</strong>
-        </div>
-        <ul>
-          <li><strong>Elimina dati locali (mantieni account)</strong> — elimina permanentemente tutte le registrazioni di mal di testa, dati di salute, impostazioni e chiavi di cifratura da questo dispositivo. Il collegamento al tuo account Google viene conservato, quindi puoi rieffettuare l'accesso su qualsiasi dispositivo.</li>
-          <li><strong>Elimina account e tutti i dati</strong> — elimina permanentemente tutto quanto sopra più il tuo account Supabase. Non è possibile recuperare nulla. È richiesta una conferma in due passaggi.</li>
-        </ul>
-      </section>
-
-      <!-- ─ Health Connect ─ -->
-      <section class="doc-section" id="health-connect">
-        <h2 class="section-heading">Health Connect</h2>
-        <p>Health Connect è la piattaforma unificata di dati sanitari di Google per Android. Heda legge cinque tipi di dati sanitari per alimentare la funzione Correlazioni nella schermata Analisi:</p>
-
-        <div class="card-grid">
-          <div class="info-card">
-            <div class="card-title">Sessioni di sonno</div>
-            <div class="card-body">Durata del sonno notturno e fasi del sonno (REM, profondo, leggero e tempo di veglia) dal tuo dispositivo indossabile o app di monitoraggio del sonno.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Variabilità della frequenza cardiaca (HRV)</div>
-            <div class="card-body">Misurazioni RMSSD giornaliere che indicano lo stato di recupero e l'equilibrio del sistema nervoso autonomo.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Frequenza cardiaca</div>
-            <div class="card-body">Dati continui di frequenza cardiaca usati per calcolare la tua frequenza cardiaca media e a riposo.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Conteggio passi</div>
-            <div class="card-body">Passi giornalieri dal tuo telefono o dispositivo indossabile.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Sessioni di attività fisica</div>
-            <div class="card-body">Durate delle sessioni di attività fisica usate per calcolare il tuo livello di attività giornaliero.</div>
-          </div>
-        </div>
-
-        <div class="note">
-          <strong>Solo lettura.</strong> Heda legge solo dati da Health Connect — non scrive mai su di esso. Vengono richiesti solo i tipi di record specifici necessari per l'analisi delle correlazioni.
-        </div>
-
-        <h3 class="sub-heading">Configurare Health Connect</h3>
-        <ol class="steps">
-          <li>Vai a <strong>Impostazioni → Health Connect</strong> in Heda.</li>
-          <li>Se l'app Health Connect non è installata, tocca <strong>Installa Health Connect</strong> per ottenerla su Google Play. (Android 9 e versioni successive. Su Android 14+, Health Connect è integrato.)</li>
-          <li>Tocca <strong>Connetti Health Connect</strong>.</li>
-          <li>Nella schermata dei permessi di Health Connect, concedi a Heda l'accesso a <strong>Sonno</strong>, <strong>Variabilità della frequenza cardiaca</strong>, <strong>Frequenza cardiaca</strong>, <strong>Passi</strong> e <strong>Attività fisica</strong>.</li>
-          <li>Torna a Heda. I tuoi dati di salute recenti verranno visualizzati.</li>
-        </ol>
-
-        <h3 class="sub-heading">Sincronizzazione in background</h3>
-        <p>Per impostazione predefinita, i dati di salute vengono recuperati solo quando apri la schermata Health Connect o tocchi <strong>Aggiorna</strong>. Attiva <strong>Sincronizzazione automatica Health Connect</strong> nelle Impostazioni per recuperare i dati una volta al giorno in background.</p>
-
-        <h3 class="sub-heading">Revocare l'accesso</h3>
-        <p>Puoi revocare i permessi di Health Connect di Heda in qualsiasi momento dall'app Health Connect (<strong>Gestisci app e dispositivi → Heda → Permessi</strong>) o in <strong>Impostazioni → Health Connect</strong> dentro Heda. I dati precedentemente in cache rimangono sul tuo dispositivo fino a quando non li elimini tramite <strong>Privacy e dati → Elimina dati locali</strong>.</p>
-
-        <div class="note">
-          <strong>I dati rimangono sul dispositivo.</strong> I dati di Health Connect vengono salvati in cache nel database locale cifrato e non vengono mai inviati ad alcun server.
-        </div>
-      </section>
-
-      <hr class="section-sep" />
-      <p style="font-size:13px; color:var(--text-dim)">© 2026 EXSports Oy. Questa documentazione viene aggiornata man mano che l'app si evolve. Ultima revisione: aprile 2026.</p>
-
-    </main>
-  </div><!-- /.doc-layout -->
-
-  <footer class="site-footer">
-    &copy; 2026 EXSports Oy &nbsp;·&nbsp;
-    <a href="../index.html?pick=1">← Tutte le lingue</a> &nbsp;·&nbsp;
-    <a href="../../index.html">← Documenti</a> &nbsp;·&nbsp;
-    <a href="../../legal/privacy_policy.html">Informativa sulla privacy</a> &nbsp;·&nbsp;
-    <a href="mailto:info@exsports.fi">Contatto</a>
-  </footer>
-
+  </div>
+</footer>
+
+<script>
+  document.body.classList.add('js');
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('is-stuck',window.scrollY>8);
+  onScroll(); addEventListener('scroll',onScroll,{passive:true});
+</script>
 </body>
 </html>

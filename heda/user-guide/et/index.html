@@ -47,6 +47,7 @@
     <nav class="nav__links">
       <a href="/index.html" class="hide-sm">Avaleht</a>
       <a href="/legal/imprint.html" class="hide-sm">Impressum</a>
+      <a href="/heda/user-guide/index.html?pick=1" class="hide-sm" aria-label="Keel" title="Keel">🌐</a>
       <a href="mailto:info@exsports.fi" class="cta">Kontakt</a>
     </nav>
   </div>
@@ -57,7 +58,7 @@
     <a class="backlink" href="/heda/index.html"><span>←</span> Heda</a>
     <p class="eyebrow">Heda · Juhend</p>
     <h1>Kuidas kasutada Hedat</h1>
-    <div class="meta"><span>Eesti keel</span><span>Viimati muudetud <b>aprill 2026</b></span></div>
+    <div class="meta"><span>Eesti keel</span><span>Viimati muudetud <b>august 2026</b></span></div>
     <p class="lead" style="margin-top:20px;">Vaikne päevik peavalu ja migreeni jaoks. Logi oma hood, sümptomid ja märkmed — kõik salvestatakse privaatselt sinu seadmesse.</p>
   </div>
 </section>
@@ -81,280 +82,312 @@
   </nav>
 
   <h2 id="overview">Ülevaade</h2>
-  <p>Heda on offline-eelistusega peavalu- ja migreenipäevik Androidile. Kõik terviseandmed on krüpteeritud ja salvestatud ainult sinu seadmesse. Midagi ei laadita ühtegi serverisse — sinu andmed kuuluvad ainult sulle.</p>
-  <p>Rakendusel on neli peamist ala, millele pääseb ligi alumiselt navigeerimisribalt:</p>
+  <p>Heda on eelkõige võrguühenduseta töötav peavalu- ja migreenipäevik Androidile. Kõik terviseandmed on krüpteeritud ja hoitakse ainult sinu seadmes. Midagi ei laadita ühessegi serverisse — sinu andmed kuuluvad ainult sulle.</p>
+  <p>Rakendusel on neli põhiala, millele pääsed alumiselt navigeerimisribalt:</p>
   <div class="areas">
-    <div class="area"><h4>Kalender</h4><p>Sirvi ja halda oma peavalusündmusi kuupäeva järgi. Lisa siit uusi sündmusi.</p></div>
-    <div class="area"><h4>Analüüs</h4><p>Statistika ja trendigraafikud kõigile kasutajatele. Korrelatsioonid (premium) tuvastab mustreid sinu Health Connecti andmete ja peavalusündmuste vahel.</p></div>
-    <div class="area"><h4>Aruanded</h4><p>Kuu- ja päevakokkuvõtted graafikutega. Ekspordi oma andmed CSV- või PDF-vormingus.</p></div>
-    <div class="area"><h4>Seaded</h4><p>Teema, keel, Health Connect, teavitused, privaatsus ja lisavalikud.</p></div>
+    <div class="area"><h4>Kalender</h4><p>Sirvi ja halda oma peavalusündmusi kuupäeva järgi. Uued sündmused lisad siit.</p></div>
+    <div class="area"><h4>Analüüs</h4><p>Statistika ja trendigraafikud kõigile kasutajatele. Korrelatsioonid ja Tervis (premium) tuvastavad mustreid ja hoiavad sinu terviseandmeid.</p></div>
+    <div class="area"><h4>Aruanded</h4><p>Kuu- ja päevakokkuvõtted graafikutega. Ekspordi oma andmed CSV- või PDF-failina.</p></div>
+    <div class="area"><h4>Seaded</h4><p>Premiumi olek, sünkroonimine ja teavitused, turvalisus, varundus, teema, keel, privaatsus ja täpsemad valikud.</p></div>
   </div>
 
   <h2 id="getting-started">Alustamine</h2>
   <h3>Sisselogimine</h3>
-  <p>Heda nõuab sinu andmete kaitsmiseks Google'i kontot. Sisselogimine loob krüpteeritud, seadmega seotud võtme, mis on lingitud sinu kontoga — pilve ei salvestata ühtegi andmet.</p>
+  <p>Heda vajab sinu andmete kaitsmiseks Google'i kontot. Sisselogimine loob krüpteeritud, seadmega seotud võtme, mis on ühendatud sinu kontoga — pilve ei salvestata ühtegi andmet.</p>
   <ul>
-    <li>Ava Heda pärast selle installimist Google Playst.</li>
+    <li>Ava Heda pärast selle paigaldamist Google Playst.</li>
     <li>Puuduta <strong>Logi sisse Google'iga</strong> ja vali oma Google'i konto.</li>
-    <li>Sinu konto on nüüd selle installiga seotud. Rakenduse uuesti installimisel tuleb kasutada sama Google'i kontot.</li>
+    <li>Sinu konto on nüüd selle paigaldusega seotud. Rakenduse uuesti paigaldamisel tuleb kasutada sama Google'i kontot.</li>
   </ul>
-  <div class="callout"><p><strong>Privaatsus esmajärjekorras.</strong> Heda ei laadi ühtegi terviseandmet välistesse serveritesse. Sinu Google'i kontot kasutatakse ainult isiku tuvastamiseks — et siduda krüpteerimisvõtmed ühe kasutajaga selles seadmes.</p></div>
-  <h3>Esmakäivituse nõusolek</h3>
-  <p>Esmakordsel käivitamisel küsib Heda, kas soovid jagada anonüümseid tõrkeraporteid. See ei saada ühtegi terviseandmet. Saad oma valikut hiljem muuta jaotises <strong>Seaded → Privaatsus &amp; andmed</strong>.</p>
+  <div class="callout"><p><strong>Privaatsus esmajärjekorras.</strong> Heda ei laadi ühtegi terviseandmete kirjet välisserveritesse. Google'i kontot kasutatakse ainult isikutuvastuseks — krüpteerimisvõtmete sidumiseks ühe kasutajaga selles seadmes.</p></div>
+  <h3>Nõusolek esmakäivitusel</h3>
+  <p>Esmakäivitusel küsib Heda, kas soovid jagada anonüümseid tõrkeraporteid. Terviseandmeid seejuures ei saadeta. Saad oma valikut hiljem muuta menüüs <strong>Seaded → Privaatsus &amp; andmed</strong>.</p>
   <ul>
-    <li><strong>Anonüümsed tõrkeraportid</strong> — raporteerib tõrgetest automaatselt, et vigu saaks kiiresti parandada (GlitchTip). Kasutusanalüütikat ei koguta.</li>
+    <li><strong>Anonüümsed tõrkeraportid</strong> — teatavad tõrgetest automaatselt, et vead saaks kiiresti parandada (GlitchTip). Kasutusstatistikat ei koguta.</li>
   </ul>
 
   <h2 id="calendar">Kalender</h2>
-  <p>Kalender on sinu igapäevane vaade. See näitab praegust kuud ühe pilguga, värviliste punktidega, mis tähistavad iga päeva peavalu intensiivsust.</p>
+  <p>Kalender on sinu igapäevane vaade. See näitab jooksvat kuud ühe pilguga, värviliste punktidega, mis märgivad peavalu intensiivsust igal päeval.</p>
   <h3>Kuuvaade</h3>
-  <p>Üleval olev kuuriba näitab praegust kuud ISO-nädala ruudustikus (nädalad kestavad esmaspäevast pühapäevani). Iga päev, millel on vähemalt üks logitud sündmus, kuvab väikese intensiivsuse punkti:</p>
+  <p>Ülemine kuuriba näitab jooksvat kuud ISO-nädalate ruudustikus (nädalad esmaspäevast pühapäevani). Igal päeval, kuhu on logitud vähemalt üks sündmus, on väike intensiivsuspunkt:</p>
   <ul>
     <li><strong>Sinine</strong> — intensiivsus 1–3 (kerge)</li>
     <li><strong>Punane</strong> — intensiivsus 4–5 (tugev)</li>
   </ul>
-  <p>Kasuta nuppe <strong>‹</strong> ja <strong>›</strong>, et liikuda kuude vahel. Puuduta mis tahes kuupäeva, et see valida ja näha selle päeva sündmusi allpool. Praegune kuupäev on esile tõstetud. Sildi <strong>Täna</strong> või tänase kuupäeva puudutamine kerib tagasi praeguse päeva juurde.</p>
+  <p>Kuude vahel liikumiseks kasuta nuppe <strong>‹</strong> ja <strong>›</strong>. Puuduta mis tahes kuupäeva, et see valida ja näha allpool selle päeva sündmusi. Tänane kuupäev on esile tõstetud. Sildi <strong>Täna</strong> või tänase kuupäeva puudutamine viib tagasi jooksva päeva juurde.</p>
   <h3>Sündmusekaardid</h3>
-  <p>Valitud kuupäeva sündmused kuvatakse kuuriba all kaartidena. Iga kaart näitab:</p>
+  <p>Valitud kuupäeva sündmused kuvatakse kaartidena kuuriba all. Iga kaart näitab:</p>
   <ul>
-    <li><strong>peavalu tüüpi</strong> (peavalu või migreen)</li>
-    <li><strong>ajavahemikku</strong> — algus- ja lõpuaeg ning kestus</li>
+    <li><strong>peavalu tüüpi</strong> (Peavalu või Migreen)</li>
+    <li><strong>ajavahemikku</strong> — algus- ja lõpuaega ning kestust</li>
     <li><strong>intensiivsuse riba</strong> (skaala 1–5)</li>
-    <li>auura ja päästeravimi näidikuid, kui need on logitud</li>
+    <li>auura ja päästeravimi märkeid, kui need on logitud</li>
   </ul>
-  <p>Puuduta kaarti, et avada see <strong>muutmisrežiimis</strong>, kus saab kõiki välju muuta.</p>
+  <p>Puuduta kaarti, et avada see <strong>muutmisrežiimis</strong>, kus kõiki välju saab muuta.</p>
   <h3>Kiirlisamine</h3>
-  <p>Kiireks logimiseks puuduta Kalendri ekraani allosas <strong>Kiirlisamine</strong>. Üles libiseb leht kõige olulisemate väljadega:</p>
+  <p>Kiireks logimiseks puuduta kalendri allservas nuppu <strong>Kiirlisamine</strong>. Avaneb leht kõige olulisemate väljadega:</p>
   <ul>
-    <li><strong>Tüüp</strong> — peavalu või migreen</li>
+    <li><strong>Tüüp</strong> — Peavalu või Migreen</li>
     <li><strong>Intensiivsus</strong> — liugur 1–5</li>
     <li><strong>Auura</strong> — märkeruut</li>
     <li><strong>Päästeravim</strong> — märkeruut</li>
   </ul>
-  <p>Puuduta <strong>Salvesta</strong>, et logida kohe praeguse kellaajaga, või puuduta <strong>Lisa üksikasju…</strong>, et avada nende väärtustega eeltäidetud täielik sündmusevorm.</p>
+  <p>Puuduta <strong>Salvesta</strong>, et logida kohe praeguse kellaajaga, või <strong>Lisa üksikasju…</strong>, et avada täielik sündmusevorm nende väärtustega eeltäidetuna.</p>
 
   <h2 id="logging">Sündmuse logimine</h2>
-  <p>Uue sündmuse logimiseks kõigi üksikasjadega puuduta Kalendris nuppu <strong>+ Lisa sündmus</strong>. Kui puudutasid esmalt kindlat kuupäeva, on see vormis eelvalitud.</p>
-  <h3>Tüüp &amp; intensiivsus</h3>
-  <p>Vali ülaosas oleva valijaga <strong>peavalu</strong> ja <strong>migreeni</strong> vahel. Seejärel määra liuguriga intensiivsus skaalal 1 (kerge) kuni 5 (töövõimetuks tegev).</p>
-  <h3>Kuupäev &amp; kellaaeg</h3>
-  <p>Kolm välja juhivad sündmuse ajastust:</p>
+  <p>Uue sündmuse logimiseks kõigi üksikasjadega puuduta kalendris nuppu <strong>+ Lisa sündmus</strong>. Kui puudutasid enne kindlat kuupäeva, on see vormis juba valitud.</p>
+  <h3>Tüüp ja intensiivsus</h3>
+  <p>Vali ülemise valikuga <strong>Peavalu</strong> või <strong>Migreen</strong>. Seejärel määra liuguriga intensiivsus skaalal 1 (kerge) kuni 5 (halvav).</p>
+  <h3>Kuupäev ja kellaaeg</h3>
+  <p>Sündmuse ajastust juhivad kolm välja:</p>
   <ul>
-    <li><strong>Kuupäev</strong> — puuduta, et avada kuupäevavalija. Vaikimisi täna.</li>
-    <li><strong>Algusaeg</strong> — millal hoog algas. Puuduta, et avada 24-tunnine kellaajavalija.</li>
-    <li><strong>Lõpuaeg</strong> — millal hoog lõppes. Vaikimisi 2 tundi pärast algusaega. Kui liigutad algusaja lõpuajast hilisemaks, nihkub lõpuaeg automaatselt edasi, et säilitada 2-tunnine vahe.</li>
+    <li><strong>Kuupäev</strong> — puuduta kuupäevavalija avamiseks. Vaikimisi tänane.</li>
+    <li><strong>Algusaeg</strong> — millal hoog algas. Puuduta 24-tunnise kellaajavalija avamiseks.</li>
+    <li><strong>Lõpuaeg</strong> — millal hoog lõppes. Vaikimisi 2 tundi pärast algusaega. Kui nihutad algusaja lõpuajast ettepoole, nihkub lõpuaeg automaatselt, hoides 2-tunnist vahet.</li>
   </ul>
   <h3>Valupiirkond</h3>
-  <p><strong>3D-peamudel</strong> võimaldab sul märkida täpselt, kus valu asub. See toetab kahte žesti:</p>
+  <p><strong>3D-peamudel</strong> võimaldab märkida täpselt, kus valu asub. See toetab kahte žesti:</p>
   <ul>
-    <li><strong>Üks sõrm</strong> — märgi valupiirkonnad, lohistades üle pea pinna.</li>
-    <li><strong>Kaks sõrme</strong> — pööra pead, et jõuda tagumiste, külgmiste või kaela piirkondadeni.</li>
+    <li><strong>Üks sõrm</strong> — värvi valupiirkondi, lohistades üle pea pinna.</li>
+    <li><strong>Kaks sõrme</strong> — pööra pead, et jõuda taha, külgedele või kaelale.</li>
   </ul>
-  <p>Toetatud on kaheksa anatoomilist piirkonda: otsmik, silma ümbrus — vasak, silma ümbrus — parem, oimukoht — vasak, oimukoht — parem, kuklaluu — vasak, kuklaluu — parem ja kael.</p>
-  <p>Luba lüliti <strong>Värvikodeering intensiivsuse järgi</strong>, et toonida märgitud piirkonnad intensiivsuse värviga (helepunane kerge, tumepunane tugeva korral). See on vaikimisi väljas.</p>
-  <div class="callout"><p><strong>Nõuanne.</strong> Saad märgitud piirkondi eemaldada, lohistades neist uuesti üle — žest lülitub lisamise ja kustutamise vahel.</p></div>
+  <p>Toetatud on kaheksa anatoomilist piirkonda: Otsmik, Silma ümbrus — vasak, Silma ümbrus — parem, Oimukoht — vasak, Oimukoht — parem, Kukal — vasak, Kukal — parem ja Kael.</p>
+  <p>Lülita sisse valik <strong>Värvikodeeri intensiivsuse järgi</strong>, et toonida värvitud piirkonnad intensiivsuse värviga (heledam punane kerge, tumepunane tugeva puhul). Vaikimisi väljas.</p>
+  <div class="callout"><p><strong>Vihje.</strong> Värvitud piirkondi saad eemaldada, lohistades neist uuesti üle — žest vahetab lisamise ja kustutamise vahel.</p></div>
   <h3>Võimalikud vallandajad</h3>
-  <p>Märki üles võimalikud vallandajad, mis võisid sellele hoole kaasa aidata. Need on rühmitatud seitsmesse kategooriasse:</p>
+  <p>Logi võimalikud vallandajad, mis võisid selle hoo tekkele kaasa aidata. Need on jaotatud seitsmesse kategooriasse:</p>
   <table class="grid">
     <thead><tr><th>Kategooria</th><th>Vallandajad</th></tr></thead>
     <tbody>
-      <tr><td><strong>Stress &amp; meeleolu</strong></td><td>Stress, stressist taastumine, ärevus</td></tr>
-      <tr><td><strong>Uni</strong></td><td>Liiga vähe und, liiga palju und, ebakorrapärane uni</td></tr>
-      <tr><td><strong>Toit &amp; jook</strong></td><td>Vahelejäänud söögikord, pikk paastumine, vedelikupuudus, alkohol, kofeiin, kofeiinist võõrutamine, šokolaad, laagerdunud juust, toidulisandid, töödeldud liha</td></tr>
-      <tr><td><strong>Hormonaalne</strong></td><td>Menstruatsioon, ovulatsioon, hormonaalne rasestumisvastane vahend</td></tr>
-      <tr><td><strong>Keskkond</strong></td><td>Ilmamuutus, äärmuslik temperatuur, õhuniiskus</td></tr>
-      <tr><td><strong>Sensoorne</strong></td><td>Ere valgus, tugev lõhn, vali müra, ekraani vilkumine</td></tr>
-      <tr><td><strong>Füüsiline</strong></td><td>Intensiivne treening, kaelapinge, reisimine, ravimite liigtarvitamine</td></tr>
+      <tr><td><strong>Stress ja meeleolu</strong></td><td>Stress, Stressijärgne lõdvestus, Ärevus</td></tr>
+      <tr><td><strong>Uni</strong></td><td>Liiga vähe und, Liiga palju und, Ebaregulaarne uni</td></tr>
+      <tr><td><strong>Toit ja jook</strong></td><td>Vahele jäänud söögikord, Pikk paastumine, Vedelikupuudus, Alkohol, Kofeiin, Kofeiinivõõrutus, Šokolaad, Laagerdunud juust, Toidulisandid, Töödeldud liha</td></tr>
+      <tr><td><strong>Hormonaalsed</strong></td><td>Menstruatsioon, Ovulatsioon, Hormonaalne rasestumisvastane vahend</td></tr>
+      <tr><td><strong>Keskkond</strong></td><td>Ilmamuutus, Äärmuslik temperatuur, Õhuniiskus</td></tr>
+      <tr><td><strong>Meeltega seotud</strong></td><td>Ere valgus, Tugev lõhn, Vali müra, Ekraani virvendus</td></tr>
+      <tr><td><strong>Füüsilised</strong></td><td>Intensiivne treening, Kaelapinge, Reisimine, Ravimite liigtarvitamine</td></tr>
     </tbody>
   </table>
-  <h3>Auura &amp; päästeravim</h3>
+  <h3>Auura ja päästeravim</h3>
   <ul>
-    <li><strong>Auura</strong> — märgi, kui sellele sündmusele eelnes auura (nägemishäired, surin, kõnemuutused jne).</li>
-    <li><strong>Päästeravim</strong> — märgi, kui võtsid selle hoo ajal ägeda ravimi (nt triptaani, MSPVA-d või paratsetamooli).</li>
+    <li><strong>Auura</strong> — märgi, kui sellele sündmusele eelnes auura (nägemishäired, kihelus, kõnehäired jne).</li>
+    <li><strong>Päästeravim</strong> — märgi, kui võtsid hoo ajal ägedat ravimit (nt triptaani, valuvaigistit või paratsetamooli).</li>
   </ul>
   <h3>Märkmed</h3>
-  <p>Vabateksti märkmeväli jäädvustab kõike, mida struktureeritud väljad ei kata — konteksti, tähelepanekuid, mis aitas, või mis tahes muu üksikasja, mida soovid meeles pidada. Puuduta lõpetamisel <strong>Salvesta</strong>. Sündmus ilmub Kalendrisse kohe.</p>
+  <p>Vabatekstiline märkmeväli hõlmab kõike, mida struktureeritud väljad ei kata — konteksti, tähelepanekuid, mis aitas, või muid üksikasju, mida soovid meeles pidada. Kui oled valmis, puuduta <strong>Salvesta</strong>. Sündmus ilmub kalendrisse kohe.</p>
 
-  <h2 id="editing">Sündmuste muutmine &amp; kustutamine</h2>
+  <h2 id="editing">Sündmuste muutmine ja kustutamine</h2>
   <h3>Sündmuse muutmine</h3>
   <ul>
-    <li>Liigu Kalendris vastavale kuupäevale.</li>
+    <li>Liigu kalendris soovitud kuupäevale.</li>
     <li>Puuduta sündmusekaarti, mida soovid muuta.</li>
-    <li>Sündmusevorm avaneb muutmisrežiimis — kõik väljad on muudetavad.</li>
-    <li>Tee oma muudatused, seejärel puuduta salvestamiseks <strong>Uuenda</strong>.</li>
+    <li>Sündmusevorm avaneb muutmisrežiimis — kõiki välju saab muuta.</li>
+    <li>Tee oma muudatused ja salvestamiseks puuduta <strong>Uuenda</strong>.</li>
   </ul>
   <h3>Sündmuse kustutamine</h3>
   <ul>
-    <li>Ava sündmus muutmisrežiimis (puuduta selle kaarti Kalendris).</li>
-    <li>Keri alla ja puuduta <strong>Kustuta kanne</strong>.</li>
-    <li>Ilmub kinnitusdialoog. Puuduta <strong>Kustuta</strong>, et sündmus jäädavalt eemaldada.</li>
+    <li>Ava sündmus muutmisrežiimis (puuduta selle kaarti kalendris).</li>
+    <li>Keri lõppu ja puuduta <strong>Kustuta kirje</strong>.</li>
+    <li>Ilmub kinnitusdialoog. Sündmuse jäädavaks eemaldamiseks puuduta <strong>Kustuta</strong>.</li>
   </ul>
-  <div class="callout"><p><strong>Püsiv toiming.</strong> Kustutamist ei saa tagasi võtta. Sündmus eemaldatakse kohe sinu seadme krüpteeritud andmebaasist.</p></div>
+  <div class="callout"><p><strong>Pöördumatu toiming.</strong> Kustutamist ei saa tagasi võtta. Sündmus eemaldatakse kohe sinu seadme krüpteeritud andmebaasist.</p></div>
 
   <h2 id="analysis">Analüüs</h2>
-  <p>Analüüsi ekraanil on ülaosas kaks vahekaarti: <strong>Statistika</strong> ja <strong>Korrelatsioonid</strong>. Statistika on saadaval kõigile kasutajatele. Korrelatsioonid on premium-funktsioon, mis nõuab ka Health Connecti ühendust.</p>
+  <p>Analüüsi ekraanil on ülal kolm vahekaarti: <strong>Statistika</strong>, <strong>Korrelatsioonid</strong> ja <strong>Tervis</strong>. Statistika on saadaval kõigile kasutajatele. Korrelatsioonid ja Tervis nõuavad Heda Premiumit.</p>
 
   <h3 id="statistics">Statistika</h3>
-  <p>Statistika vahekaart annab sulle ülevaate oma peavalude sagedusest ja raskusest valitud ajaperioodil.</p>
-  <p><strong>Perioodivalija.</strong> Vali viie ajaperioodi vahel: 7 päeva, 30 päeva, 90 päeva, 1 aasta ja kogu aeg.</p>
-  <p><strong>Kokkuvõttekaart.</strong> Esikaart näitab valitud perioodi kohta järgmisi näitajaid. Trendinooled (↑ / ↓) võrdlevad iga arvu vastava eelmise perioodiga:</p>
-  <div class="metric-grid">
-    <div class="metric"><b>Sündmusi kokku</b><span>Kõigi peavalu- ja migreenisündmuste arv perioodil.</span></div>
-    <div class="metric"><b>Keskmine intensiivsus</b><span>Keskmine intensiivsus (1–5) kõigi perioodi sündmuste lõikes.</span></div>
-    <div class="metric"><b>Auuraga sündmused</b><span>Kui paljude sündmustega kaasnes auura.</span></div>
-    <div class="metric"><b>Päästeravimiga sündmused</b><span>Kui paljud sündmused nõudsid ägedat ravimit.</span></div>
-  </div>
+  <p>Statistika vahekaart annab ülevaate sinu peavalude sagedusest ja raskusest valitud ajavahemikus.</p>
+  <p><strong>Ajavahemiku valik.</strong> Vali viie ajavahemiku vahel: 7 päeva, 30 päeva, 90 päeva, 1 aasta või Kogu aeg.</p>
+  <p><strong>Kokkuvõttekaart.</strong> Põhikaart näitab valitud ajavahemiku kohta järgmisi näitajaid. Trendinooled (↑ / ↓) võrdlevad neid eelmise samaväärse ajavahemikuga:</p>
+  <ul>
+    <li><strong>Sündmusi kokku</strong> — peavalu- ja migreenisündmuste arv ajavahemikus.</li>
+    <li><strong>Keskmine intensiivsus</strong> — kõigi ajavahemiku sündmuste intensiivsuse (1–5) keskmine.</li>
+    <li><strong>Auuraga sündmused</strong> — mitme hooga kaasnes auura.</li>
+    <li><strong>Päästeravimiga sündmused</strong> — mitu hoogu nõudsid ägedat ravimit.</li>
+  </ul>
   <p><strong>Graafikud.</strong></p>
   <ul>
-    <li><strong>Trendigraafik</strong> — sündmuste arv ajaühiku kohta (päevane 7/30/90 päeva puhul, nädalane 1 aasta puhul, kuine kogu aja puhul).</li>
-    <li><strong>Nädalapäevade soojuskaart</strong> — näitab, millistel nädalapäevadel sinu peavalud kõige sagedamini esinevad.</li>
+    <li><strong>Trendigraafik</strong> — sündmuste arv ajaühiku kohta (päevas 7/30/90 päeva puhul, nädalas 1 aasta puhul, kuus kogu aja puhul).</li>
+    <li><strong>Nädalapäevade soojuskaart</strong> — näitab, millistel nädalapäevadel peavalud kõige sagedamini esinevad.</li>
   </ul>
-  <p><strong>Tüübijaotus &amp; vallandajad.</strong> Virnastatud riba näitab jaotust sündmusetüüpide vahel (peavalu / tugev peavalu / migreen / tugev migreen) koos arvude ja protsentidega. Selle all loetleb horisontaalne tulpdiagramm sinu kõige sagedasemad vallandajad valitud perioodil.</p>
+  <p><strong>Tüüpide jaotus ja vallandajad.</strong> Virnastatud tulpdiagramm näitab jaotust sündmusetüüpide vahel (Peavalu / Tugev peavalu / Migreen / Tugev migreen) koos arvude ja protsentidega. Selle all loetleb horisontaalne tulpdiagramm valitud ajavahemiku sagedasemad vallandajad.</p>
 
   <h3 id="correlations">Korrelatsioonid</h3>
-  <p>Korrelatsioonide vahekaart analüüsib sinu Health Connecti andmeid ja otsib üheksat tõenduspõhist mustrit, mis sageli eelnevad peavalu- ja migreenihoogudele. See vaatab tagasi viimasele 90 päevale.</p>
-  <div class="callout"><p><strong>Premium-funktsioon.</strong> Korrelatsioonide vahekaart nõuab Heda Premiumit. See nõuab samuti Health Connecti lubasid une-, südame löögisageduse, HRV, sammude ja treeningandmete jaoks. Seadistamissammude jaoks vaata jaotist <a href="#health-connect">Health Connect</a>.</p></div>
-  <p><strong>Sinu lähtetase.</strong> Ülaosas olev lähtetaseme kaart näitab sinu 14-päeva mediaanväärtusi iga tervisenäitaja jaoks. „—" kuvatakse iga näitaja puhul, mille jaoks pole piisavalt andmeid.</p>
+  <p>Korrelatsioonide vahekaart analüüsib sinu terviseandmeid — Health Connectist loetud, käsitsi sisestatud või failist imporditud — ja otsib üheksat tõenduspõhist mustrit, mis sageli eelnevad peavalu- ja migreenihoogudele. See vaatab tagasi viimasele 90 päevale.</p>
+  <div class="callout"><p><strong>Premium-funktsioon.</strong> Korrelatsioonide vahekaart nõuab Heda Premiumit. See tugineb samadele une-, südame löögisageduse, HRV, sammude ja treeningu andmetele, mida näidatakse <a href="#health-tab">Tervise</a> vahekaardil, olenemata sellest, kuidas need sinna jõudsid.</p></div>
+  <p><strong>Sinu lähtetase.</strong> Ülal olev lähtetaseme kaart näitab iga tervisenäitaja 14 päeva mediaanväärtusi. Näitajate puhul, mille kohta pole piisavalt andmeid, kuvatakse „—“.</p>
   <ul>
-    <li><strong>Uni</strong> — öise kogu une kestuse mediaan</li>
+    <li><strong>Uni</strong> — öise kogu-une kestuse mediaan</li>
     <li><strong>HRV</strong> — südame löögisageduse muutlikkuse mediaan (ms)</li>
-    <li><strong>Puhkeoleku südame löögisagedus</strong> — puhkeoleku südame löögisageduse mediaan (lööki/min)</li>
-    <li><strong>Sammud</strong> — igapäevase sammude arvu mediaan</li>
-    <li><strong>Treening</strong> — igapäevaste aktiivsete minutite mediaan</li>
-    <li><strong>Sügav uni</strong> — öise sügava une kestuse mediaan</li>
-    <li><strong>REM-uni</strong> — öise REM-une kestuse mediaan</li>
-    <li><strong>Ärkvelolek une ajal</strong> — uneseansside ärkveloleku aja mediaan</li>
+    <li><strong>Puhkeoleku pulss</strong> — puhkeoleku pulsi mediaan (lööki/min)</li>
+    <li><strong>Sammud</strong> — päevase sammude arvu mediaan</li>
+    <li><strong>Treening</strong> — päevaste aktiivsusminutite mediaan</li>
+    <li><strong>Sügav uni</strong> — öise sügava une mediaan</li>
+    <li><strong>REM-uni</strong> — öise REM-une mediaan</li>
+    <li><strong>Ärkvelolek une ajal</strong> — uneperioodi sees oleva ärkveloleku mediaan</li>
   </ul>
-  <p><strong>Tuvastatud mustrid.</strong> Heda kontrollib iga peavalusündmuse puhul üheksat tõenduspõhist mustrit. Iga leid näitab mõõdetud väärtust ja läve, mille see ületas — näiteks: <em>„Magas enne seda sündmust 5 h 30 min (lävi: 7 h)"</em>.</p>
+  <p><strong>Tuvastatud mustrid.</strong> Heda kontrollib iga peavaluhoo puhul üheksat tõenduspõhist mustrit. Iga leid näitab mõõdetud väärtust ja ületatud läve — näiteks: <em>„Magasid enne seda hoogu 5 t 30 min (lävi: 7 t)“</em>.</p>
   <ul>
-    <li><strong>Lühike uni</strong> — eelmise öö kogu uni oli alla 7 tunni (seadistatav jaotises Seaded → Lisavalikud).</li>
-    <li><strong>Ebakorrapärane unegraafik</strong> — une ajastus varieerus eelneva 7 päeva jooksul rohkem kui 120 minutit (standardhälve).</li>
-    <li><strong>Madal sammude arv</strong> — vähem kui 3 000 sammu sündmusele eelneval päeval (seadistatav).</li>
-    <li><strong>HRV langus</strong> — HRV langes alla 30 ms või alla 80 % sinu 14-päeva isiklikust lähtetasemest.</li>
-    <li><strong>Kõrgenenud puhkeoleku südame löögisagedus</strong> — puhkeoleku südame löögisagedus oli sündmusele eelneval päeval kõrgem kui sinu 14-päeva mediaan.</li>
-    <li><strong>Treeningu hüpe</strong> — aktiivsed minutid olid eelneval päeval ebatavaliselt kõrged võrreldes sinu 14-päeva mediaaniga.</li>
-    <li><strong>Madal sügav uni</strong> — sügav uni oli eelneval ööl tublisti alla sinu 14-päeva mediaani.</li>
-    <li><strong>Madal REM-uni</strong> — REM-uni oli eelneval ööl tublisti alla sinu 14-päeva mediaani.</li>
-    <li><strong>Killustatud uni</strong> — ärkveloleku aeg uneseansside ajal oli ebatavaliselt kõrge võrreldes kogu une ja sinu lähtetasemega.</li>
+    <li><strong>Lühike uni</strong> — eelmise öö kogu-uni jäi alla 7 tunni (muudetav menüüs Seaded → Täpsem).</li>
+    <li><strong>Ebaregulaarne uni</strong> — uneajad kõikusid eelnenud 7 päeva jooksul rohkem kui 120 minutit (standardhälve).</li>
+    <li><strong>Vähe samme</strong> — hoole eelnenud päeval alla 3 000 sammu (muudetav).</li>
+    <li><strong>HRV langus</strong> — HRV langes alla 30 ms või alla 80 % sinu isiklikust 14 päeva lähtetasemest.</li>
+    <li><strong>Kõrgenenud puhkeoleku pulss</strong> — puhkeoleku pulss ületas hoole eelnenud päeval sinu 14 päeva mediaani.</li>
+    <li><strong>Treeningu tipp</strong> — aktiivsusminuteid oli hoole eelnenud päeval ebatavaliselt palju võrreldes sinu 14 päeva mediaaniga.</li>
+    <li><strong>Vähe sügavat und</strong> — sügavat und oli eelmisel ööl selgelt alla sinu 14 päeva mediaani.</li>
+    <li><strong>Vähe REM-und</strong> — REM-und oli eelmisel ööl selgelt alla sinu 14 päeva mediaani.</li>
+    <li><strong>Katkendlik uni</strong> — ärkvelolek uneperioodi sees oli ebatavaliselt suur võrreldes kogu-une ja lähtetasemega.</li>
   </ul>
-  <p><strong>Soovitused.</strong> Tuvastatud mustrite põhjal loob Heda isikupärastatud soovitused, mis on järjestatud prioriteedi järgi (kõrge / keskmine / madal). Näited hõlmavad une kestuse või korrapära parandamist, igapäevase aktiivsuse suurendamist või stressi ja taastumise haldamist.</p>
-  <div class="callout"><p><strong>Mitte meditsiiniline nõuanne.</strong> Tuvastatud mustrid on korrelatsioonid, mitte diagnoosid. Konsulteeri oma peavalude osas meditsiinilise juhendamise saamiseks alati tervishoiutöötajaga.</p></div>
+  <p><strong>Soovitused.</strong> Tuvastatud mustrite põhjal koostab Heda isiklikke soovitusi, järjestatuna tähtsuse järgi (Kõrge / Keskmine / Madal). Näiteks une kestuse või regulaarsuse parandamine, igapäevase aktiivsuse suurendamine või stressi ja taastumise juhtimine.</p>
+  <div class="callout"><p><strong>Mitte meditsiiniline nõuanne.</strong> Tuvastatud mustrid on korrelatsioonid, mitte diagnoosid. Peavaludega seotud meditsiiniliste küsimuste puhul pöördu alati tervishoiutöötaja poole.</p></div>
+
+  <h3 id="health-tab">Tervis</h3>
+  <div class="callout"><p><strong>Premium-funktsioon.</strong> Tervise vahekaart nõuab Heda Premiumit. Kuni Premium pole aktiivne, näitab vahekaart selle asemel ekraani <strong>Ava Health Connect</strong> — Heda ei küsi enne seda Health Connecti lube ega loe ühtegi terviseandmet.</p></div>
+  <p>Tervise vahekaardil on sinu une, südame löögisageduse muutlikkuse (HRV), puhkeoleku pulsi, sammude ja treeningu andmed — samad viis näitajat, mida Korrelatsioonid analüüsivad. Andmed võivad sinna jõuda kolmel viisil:</p>
+  <ul>
+    <li><strong>Health Connect</strong> — loetakse automaatselt ühendatud nutiseadmest või muust rakendusest, mis kirjutab Health Connecti. Iga sünkroonimine toob viimased 30 päeva ja juba sünkroonitud päevad jäävad sinu seadmesse, nii et ajalugu aina kasvab. Kohe sünkroonimiseks puuduta <strong>Värskenda</strong>. Seadistuse kohta vaata jaotist <a href="#health-connect">Health Connect</a>.</li>
+    <li><strong>Käsitsi sisestatud väärtused</strong> — puuduta jaotises <em>Käsitsi sisestatud väärtused</em> nuppu <strong>Lisa päevale väärtus</strong>, et sisestada käsitsi puhkeoleku pulss, HRV, une kestus, sammud või treening mis tahes päeva kohta. Allika silt (näiteks „Polar Flow → Nightly Recharge“) hoiab meeles, kust numbrid pärinevad. Tavapärasest vahemikust väljapoole jäävat väärtust märgitakse hoiatusega, kuid selle saab siiski salvestada, ja iga käsitsi sisestatud väärtust saab hiljem muuta või kustutada.</li>
+    <li><strong>Impordi failist</strong> — puuduta <strong>Impordi failist</strong>, et lugeda teisest seadmest või rakendusest eksporditud CSV-fail. Valid faili, seod selle veerud kuupäeva- ja väärtusväljadega ning vaatad üle eelvaate — loetud ja vahele jäetud read, uued päevad, päevad, millel on juba väärtus, ning kogu kuupäevavahemik — enne kui midagi salvestatakse. Kui päeval on juba väärtus, valid ühe korra, kas jätta alles enda oma või asendada see imporditud väärtusega.</li>
+  </ul>
+  <p>Sinu sisestatud ja imporditud väärtused kannavad silti <strong>Käsitsi</strong>, neid hoitakse täpselt nagu Health Connecti andmeid — krüpteeritult, ainult sinu seadmes — ja Korrelatsioonid kasutavad neid koos kõigega, mis on Health Connectist loetud. Health Connecti õiguste tühistamine neid ei puuduta.</p>
+  <p>Ülejäänud vahekaart näitab viimast sünkroonitud ööd koos uneaknaga, 30 päeva une keskmist, une kestuse trendi ning loendit <strong>Igapäevased terviseandmed</strong> üksikute päevade kohta.</p>
 
   <h2 id="reports">Aruanded</h2>
-  <p>Aruannete vahekaart võimaldab sul vaadata oma andmete struktureeritud kokkuvõtteid ja eksportida need tervishoiutöötajaga jagamiseks.</p>
+  <p>Aruannete vahekaart võimaldab vaadata oma andmete struktureeritud kokkuvõtteid ja eksportida need tervishoiutöötajaga jagamiseks.</p>
   <h3>Kuuaruanne</h3>
-  <p>Kuuaruanne näitab iga valitud kuu kalendrivaadet, kus iga päev on värvikodeeritud oleku järgi:</p>
+  <p>Kuuaruanne näitab iga valitud kuu kohta kalendrivaadet, kus iga päev on oleku järgi värvikoodiga tähistatud:</p>
   <ul>
-    <li><strong>Sündmusi pole</strong> — ühtegi hoogu pole salvestatud</li>
+    <li><strong>Sündmusi pole</strong> — hoogu ei ole registreeritud</li>
     <li><strong>Peavalu</strong> — vähemalt üks peavalusündmus</li>
     <li><strong>Migreen</strong> — vähemalt üks migreenisündmus</li>
   </ul>
-  <p>Sektordiagramm näitab iga kategooria päevade osakaalu. Vali üks või mitu kuud, kasutades kuusildi nuppe. Puuduta <strong>Vali kõik</strong> või <strong>Tühjenda</strong>, et kõik kuud kiiresti valida või valikust eemaldada.</p>
+  <p>Sektordiagramm näitab päevade osakaalu igas kategoorias. Vali kuusiltidega üks või mitu kuud. Kõigi kuude kiireks valimiseks või valiku tühistamiseks puuduta <strong>Vali kõik</strong> või <strong>Tühjenda</strong>.</p>
   <h3>Päevaaruanne</h3>
-  <p>Päevaaruanne keskendub valitud perioodi üksikutele sündmustele. Vali 7 päeva, 30 päeva, 90 päeva või kogu aja vahel. Ülaosas olev kokkuvõtterida näitab sündmuste koguarvu, keskmist intensiivsust ja kuupäevavahemikku. Selle all on iga sündmus loetletud koos selle tüübi, kellaaja ja intensiivsusega.</p>
+  <p>Päevaaruanne keskendub üksikutele sündmustele valitud ajavahemikus. Vali 7 päeva, 30 päeva, 90 päeva või Kogu aeg. Ülemine kokkuvõtterida näitab sündmuste koguarvu, keskmist intensiivsust ja kuupäevavahemikku. Selle all on iga sündmus loetletud koos tüübi, kellaaja ja intensiivsusega.</p>
   <h3>Andmete eksportimine</h3>
   <ul>
-    <li><strong>Ekspordi CSV-na</strong> — salvestab komaga eraldatud faili, mis sisaldab kõiki praeguse perioodi sündmusi. Veerud: kuupäev, kellaaeg, tüüp, intensiivsus, auura, päästeravim, vallandajad, märkmed. Androidi süsteemi failivalija laseb sul valida salvestuskoha.</li>
-    <li><strong>Ekspordi PDF-na</strong> — loob vormindatud PDF-dokumendi koos kokkuvõtte ja sündmustetabeliga, mis sobib printimiseks või arstile saatmiseks.</li>
-    <li><strong>Ekspordi Health Connecti andmed CSV-na</strong> — ekspordi soovi korral vahemällu salvestatud une-, südame löögisageduse, HRV, sammude arvu ja treeningandmed koos oma peavalusündmustega.</li>
+    <li><strong>Ekspordi CSV-na</strong> — salvestab komadega eraldatud faili kõigi jooksva ajavahemiku sündmustega. Veerud: Kuupäev, Kellaaeg, Tüüp, Intensiivsus, Auura, Päästeravim, Vallandajad, Märkmed. Androidi süsteemne failivalija laseb valida salvestuskoha.</li>
+    <li><strong>Ekspordi PDF-na</strong> — loob vormindatud PDF-dokumendi kokkuvõtte ja sündmuste tabeliga, sobiv printimiseks või arstile saatmiseks. <strong>Nõuab Premiumit</strong>; ilma selleta avab nupp ostuakna.</li>
+    <li><strong>Ekspordi terviseandmed CSV-na</strong> — soovi korral ekspordi oma terviseandmed koos peavalusündmustega. Sellel failil on neli veergu — kuupäev, uni tundides, HRV millisekundites ja sammud — ning see hõlmab Health Connectist sünkroonitud päevi.</li>
   </ul>
-  <div class="callout"><p><strong>Faili asukoht.</strong> Heda kasutab Androidi salvestusruumi juurdepääsu raamistikku, seega valid sina, kuhu eksporditud fail salvestatakse. Ühtegi faili ei laadita ühtegi serverisse.</p></div>
+  <div class="callout"><p><strong>Faili asukoht.</strong> Heda kasutab Androidi Storage Access Frameworki, seega valid ise, kuhu eksporditud fail salvestatakse. Ühtegi faili ei laadita üheski serverisse.</p></div>
 
   <h2 id="settings">Seaded</h2>
-  <p>Pääse Seadetesse alumiselt navigeerimisribalt. Muudatused jõustuvad kohe.</p>
-  <h3>Teema</h3>
-  <ul>
-    <li><strong>Hele</strong> — sooja paberitooniga hele režiim.</li>
-    <li><strong>Tume</strong> — sügava metsatooniga tume režiim (vaikimisi).</li>
-    <li><strong>Süsteem</strong> — järgib automaatselt sinu seadme tumeda/heleda režiimi seadet.</li>
-  </ul>
-  <h3>Keel</h3>
-  <p>Vali enam kui 30 keele vahel, mis on rühmitatud piirkonna järgi (Põhjamaade, germaani, romaani, slaavi, balti ja muud). Valitud keel rakendub kõigile rakenduse tekstidele. Vali <strong>Süsteem</strong>, et järgida oma seadme keeleseadet.</p>
-  <h3>Health Connect</h3>
-  <p>Viib Health Connecti seadete ekraanile, kus saad anda või tühistada lube une-, südame löögisageduse, HRV, sammude ja treeningandmete jaoks. Üksikasju vaata jaotisest <a href="#health-connect">Health Connect</a>.</p>
-  <h3>Privaatsus &amp; andmed</h3>
-  <p>Avab Privaatsuse &amp; andmete ekraani, kus saad hallata oma kontot, vaadata, millised andmed on salvestatud, kasutada oma GDPR-i õigusi ja kustutada oma andmed. Üksikasju vaata jaotisest <a href="#privacy">Privaatsus &amp; andmed</a>.</p>
-  <h3>Automaatne Health Connecti sünkroonimine</h3>
-  <p>Kui see on lubatud, hangib Heda sinu uusimad terviseandmed Health Connectist kord päevas taustal, isegi kui rakendus on suletud. See on <strong>vaikimisi väljas</strong>. Selle lubamiseks peavad Health Connecti load olema antud.</p>
-  <h3>Igapäevased tervisesoovitused</h3>
-  <p>Kui see on lubatud, saadab Heda igapäevase teavituse, kui tuvastatakse kõrge prioriteediga korrelatsioon. Teavituse puudutamine avab Analüüsi ekraani. See on <strong>vaikimisi väljas</strong> ja nõuab seadme teavitusluba.</p>
-  <h3>Lisavalikud</h3>
-  <p>Laienda Lisavalikute jaotist, et peenhäälestada korrelatsioonimootori kasutatavaid lävesid. Vaikeväärtused vastavad migreeni ennetamise väljakujunenud kliinilistele juhistele:</p>
+  <p>Ava Seaded alumiselt navigeerimisribalt. Muudatused jõustuvad kohe. Allolevad jaotised on loetletud samas järjekorras, nagu need rakenduses esinevad.</p>
+
+  <h3>Premiumi olek</h3>
+  <p>Kuni Premium pole aktiivne, on Seadete ülaosas kaart <strong>Premiumi olek</strong>. <strong>Osta premium</strong> avab ostuakna; <strong>Värskenda olekut</strong> kontrollib olemasolevat ostu uuesti — just seda on vaja pärast uuesti paigaldamist või telefoni vahetust. Kui kontroll ebaõnnestus, ütleb kaart, miks — ühendust pole Google Play või kontrolliserveriga, makse on veel kinnitamata, ost on tehtud teise Google'i kontoga jne. Kui Premium on aktiivne, kaart kaob.</p>
+  <p>Premium on <strong>ühekordne ost, mitte tellimus</strong>. See avab Analüüsi ekraanil Korrelatsioonide ja Tervise vahekaardid (sealhulgas terviseandmete käsitsi sisestamise ja failist importimise), automaatse Health Connecti sünkroonimise, igapäevased tervisesoovitused ning PDF-ekspordi Aruannete ekraanil.</p>
+
+  <h3>Sünkroonimine ja teavitused</h3>
+  <p><strong>Automaatne Health Connecti sünkroonimine.</strong> Sisselülitatuna toob Heda su uusimad terviseandmed Health Connectist korra ööpäevas taustal, isegi kui rakendus on suletud. See on <strong>vaikimisi väljas</strong> ja <strong>nõuab Premiumit</strong> — ilma Premiumita puudutamine avab ostuakna. Samuti peavad Health Connecti load olema antud.</p>
+  <p><strong>Igapäevased tervisesoovitused.</strong> Sisselülitatuna saadab Heda igapäevase teavituse, kui tuvastatakse kõrge prioriteediga korrelatsioon. Teavituse puudutamine avab Analüüsi ekraani Korrelatsioonide vahekaardil. See on <strong>vaikimisi väljas</strong>, <strong>nõuab Premiumit</strong> ja vajab seadme teavitusluba.</p>
+
+  <h3>Täpsem</h3>
+  <p>Ava jaotis Täpsem, et peenhäälestada korrelatsioonimootori kasutatavaid läviväärtusi. Vaikeväärtused vastavad väljakujunenud kliinilistele juhistele migreeni ennetamiseks:</p>
   <table class="grid">
-    <thead><tr><th>Seade</th><th>Vaikeväärtus</th><th>Kirjeldus</th></tr></thead>
+    <thead><tr><th>Seade</th><th>Vaikimisi</th><th>Kirjeldus</th></tr></thead>
     <tbody>
-      <tr><td><strong>Minimaalne uni</strong></td><td>7 h 0 min</td><td>Sellest kestusest lühem uni märgitakse võimaliku vallandajana.</td></tr>
-      <tr><td><strong>Maksimaalne une varieeruvus</strong></td><td>60 min</td><td>Une ajastuse standardhälve sellest kõrgemal käivitab ebakorrapärase une mustri.</td></tr>
-      <tr><td><strong>Minimaalne sammude arv</strong></td><td>3 000</td><td>Sellest madalam sammude arv märgitakse madalaks aktiivsuseks.</td></tr>
+      <tr><td><strong>Minimaalne uni</strong></td><td>7 t 0 min</td><td>Sellest lühem uni märgitakse võimalikuks vallandajaks.</td></tr>
+      <tr><td><strong>Maksimaalne une kõikumine</strong></td><td>60 min</td><td>Sellest suurem uneaegade standardhälve käivitab ebaregulaarse une mustri.</td></tr>
+      <tr><td><strong>Minimaalne sammude arv</strong></td><td>3 000</td><td>Sellest väiksem sammude arv märgitakse madalaks aktiivsuseks.</td></tr>
       <tr><td><strong>Minimaalne HRV</strong></td><td>30 ms</td><td>Sellest absoluutsest lävest madalam HRV märgitakse.</td></tr>
-      <tr><td><strong>HRV lähtetaseme osakaal</strong></td><td>0,80</td><td>Ka HRV, mis on sellest sinu 14-päeva lähtetaseme osakaalust madalam, märgitakse.</td></tr>
+      <tr><td><strong>HRV lähtetaseme osakaal</strong></td><td>0,80</td><td>Ka sinu 14 päeva lähtetaseme sellest osakaalust madalam HRV märgitakse.</td></tr>
     </tbody>
   </table>
-  <p>Puuduta <strong>Lähtesta vaikeväärtustele</strong>, et taastada kõik läved nende algsetele väärtustele.</p>
+  <p>Puuduta <strong>Taasta vaikeväärtused</strong>, et seada kõik läviväärtused algsele tasemele.</p>
 
-  <h2 id="privacy">Privaatsus &amp; andmed</h2>
-  <p>Ava <strong>Seaded → Privaatsus &amp; andmed</strong>, et hallata kõiki andme- ja kontoseadeid.</p>
+  <h3>Turvalisus</h3>
+  <p>Jaotises Turvalisus on lüliti <strong>Biomeetriline lukk</strong> — nõua Heda avamiseks sõrmejälge, näotuvastust või PIN-koodi. Lüliti jääb kättesaamatuks, kuni oled seadme enda seadetes ekraaniluku seadistanud.</p>
+
+  <h3>Varundus</h3>
+  <p>Jaotises Varundus on üksainus rida, <strong>Varundamine ja taastamine</strong>, ning see on tasuta — Premiumit ei ole vaja. <strong>Loo varukoopia</strong> kirjutab ühe krüpteeritud faili, mida saad hoida kus tahes; sina valid parooli, mis selle lukustab, ja see peab olema vähemalt 10 tähemärki, sisaldades suurtähte, väiketähte ja numbrit, kasutades ainult diakriitikuteta märke (näiteks ä, ö ja õ ei sobi). <strong>Kui parool kaob, ei saa faili enam avada — taastamist ei ole.</strong></p>
+  <p><strong>Taasta varukoopiast</strong> liidab faili sellega, mis telefonis juba on, selle asemel et olemasolev kustutada. Kui mõned kirjed on mõlemal pool erineva sisuga, küsib Heda ühe korra, kas säilitada telefonis olev või asendada see varukoopiaga, ning teatab siis, mitu kirjet ja tervisepäeva lisati, asendati ja jäeti vahele. Rakenduse seaded, näiteks teema ja keel, ei kuulu varukoopiasse — seadista need uues seadmes uuesti.</p>
+
+  <h3>Välimus</h3>
+  <p><strong>Teema.</strong> Vali, milline rakendus välja näeb:</p>
+  <ul>
+    <li><strong>Hele</strong> — soe paberitooniline hele režiim.</li>
+    <li><strong>Tume</strong> — sügav metsatoonis tume režiim (vaikimisi).</li>
+    <li><strong>Süsteem</strong> — järgib automaatselt seadme tumeda/heleda režiimi seadet.</li>
+  </ul>
+  <p><strong>Keel.</strong> Vali enam kui 30 keele hulgast, mis on rühmitatud piirkondade kaupa (põhjamaised, germaani, romaani, slaavi, balti ja muud). Valitud keel kehtib kogu rakenduse tekstile. Vali <strong>Süsteem</strong>, et järgida seadme keeleseadet.</p>
+
+  <h3>Diagnostika</h3>
+  <p><strong>Veateated</strong> jagavad soovi korral anonüümseid tõrkeraporteid (GlitchTip), et vigu saaks parandada. <strong>Terviseandmeid ei lisata kunagi</strong> ja kasutusstatistikat ei koguta. Saad seda igal ajal muuta; rakendus taaskäivitab siis raportija.</p>
+
+  <h3>Abi ja õigusteave</h3>
+  <ul>
+    <li><strong>Kasutusjuhend</strong> — avab selle veebijuhendi.</li>
+    <li><strong>Vastutusest loobumine</strong> — meditsiiniline ja vastutusega seotud teatis.</li>
+    <li><strong>Impressum</strong> — EXSports Oy teenusepakkuja andmed.</li>
+    <li><strong>Privaatsus &amp; andmed</strong> — avab Privaatsuse ja andmete ekraani, kus haldad oma kontot, vaatad üle salvestatu, kasutad oma GDPR-i õigusi ja kustutad oma andmed. Vaata <a href="#privacy">Privaatsus &amp; andmed</a>.</li>
+    <li><strong>Teata veast</strong> — avab veateate vormi.</li>
+  </ul>
+
+  <h3>Teave</h3>
+  <p>Ekraani allservas on paigaldatud rakenduse versioon ja kokkuvolditav plokk <strong>Autoriõigused</strong>, mis nimetab rakenduse, selle 3D-mudeli ja tüpograafia autorid.</p>
+
+  <h2 id="privacy">Privaatsus ja andmed</h2>
+  <p>Kõigi andmete ja kontoseadete haldamiseks ava <strong>Seaded → Privaatsus &amp; andmed</strong>.</p>
   <h3>Sinu konto</h3>
-  <p>Ekraani ülaosas kuvatakse praegu sisselogitud Google'i konto. Puuduta <strong>Logi välja</strong>, et rakendusest välja logida. Sinu andmed jäävad seadmesse; saad igal ajal uuesti sisse logida.</p>
-  <h3>Millised andmed on salvestatud</h3>
-  <p>Kõik andmed salvestatakse kohalikult sinu seadmesse kahte krüpteeritud andmebaasi:</p>
+  <p>Ekraani ülaosas on näha praegu sisse logitud Google'i konto. Rakendusest välja logimiseks puuduta <strong>Logi välja</strong>. Sinu andmed jäävad seadmesse; saad igal ajal uuesti sisse logida.</p>
+  <h3>Milliseid andmeid salvestatakse</h3>
+  <p>Kõik andmed salvestatakse kohapeal sinu seadmes kahte krüpteeritud andmebaasi:</p>
   <table class="grid">
-    <thead><tr><th>Andmetüüp</th><th>Sisu</th><th>Krüpteering</th></tr></thead>
+    <thead><tr><th>Andmetüüp</th><th>Sisu</th><th>Krüpteerimine</th></tr></thead>
     <tbody>
       <tr><td><strong>Peavalusündmused</strong></td><td>Ajatemplid, valupiirkonnad, intensiivsus, auura, päästeravim, vallandajad, märkmed</td><td>AES-256 (SQLCipher)</td></tr>
-      <tr><td><strong>Health Connecti vahemälu</strong></td><td>Uni, unefaasid, HRV, südame löögisagedus, sammud ja treening</td><td>AES-256 (SQLCipher)</td></tr>
-      <tr><td><strong>Autentimismärgis</strong></td><td>Supabase kasutaja ID, e-post, sisselogimise ajatempel, konto sidumine</td><td>AES-256-GCM (Tink)</td></tr>
-      <tr><td><strong>Rakenduse seaded</strong></td><td>Ainult teema ja keele eelistus — terviseandmeid pole</td><td>Krüpteerimata</td></tr>
+      <tr><td><strong>Health Connecti vahemälu</strong></td><td>Health Connectist sünkroonitud uni, unefaasid, HRV, pulss, sammud ja treening</td><td>AES-256 (SQLCipher)</td></tr>
+      <tr><td><strong>Käsitsi sisestatud tervisekirjed</strong></td><td>Puhkeoleku pulss, HRV, une kestus, sammud ja treening, mille oled käsitsi sisestanud või failist importinud</td><td>AES-256 (SQLCipher)</td></tr>
+      <tr><td><strong>Autentimistunnus</strong></td><td>Supabase'i kasutaja ID, e-post, sisselogimise ajatempel, konto sidumine</td><td>AES-256-GCM (Tink)</td></tr>
+      <tr><td><strong>Rakenduse seaded</strong></td><td>Ainult teema- ja keele-eelistus — terviseandmeid ei ole</td><td>Krüpteerimata</td></tr>
     </tbody>
   </table>
-  <p>Krüpteerimisvõtmed salvestatakse Android Keystore'i, riistvarapõhiselt seal, kus see on saadaval, ja need ei lahku kunagi seadmest.</p>
-  <h3>Biomeetriline lukk</h3>
-  <p>Luba biomeetriline lukk, et rakenduse avamiseks oleks vaja sõrmejälge, näotuvastust või PIN-koodi. Nõuab seadme seadetes seadistatud ekraanilukku.</p>
-  <h3>Diagnostika</h3>
-  <p>Jaga soovi korral anonüümseid tõrkeraporteid (GlitchTip). <strong>Ühtegi terviseandmet ei kaasata kunagi.</strong> Kasutusanalüütikat ei koguta. Seda saab igal ajal muuta.</p>
-  <h3>Sinu GDPR-i õigused</h3>
-  <p>Heda vastab EL-i GDPR-i artiklile 9 (isikuandmete eriliigid). Sinu õigused:</p>
+  <p>Krüpteerimisvõtmeid hoitakse Android Keystore'is, võimaluse korral riistvaraliselt kaitstuna, ja need ei lahku kunagi seadmest.</p>
+  <h3>Sinu õigused GDPR-i alusel</h3>
+  <p>Heda järgib ELi isikuandmete kaitse üldmääruse artiklit 9 (isikuandmete eriliigid). Sinu õigused:</p>
   <ul>
-    <li><strong>Õigus tutvuda andmetega (art. 15)</strong> — kõik sinu andmed on nähtavad Kalendris ja Statistikas.</li>
-    <li><strong>Õigus andmete parandamisele (art. 16)</strong> — muuda mis tahes sündmust, puudutades seda Kalendris.</li>
-    <li><strong>Õigus andmete kustutamisele (art. 17)</strong> — kustuta kõik andmed Ohutsooni kaudu (vaata allpool).</li>
-    <li><strong>Õigus töötlemise piiramisele (art. 18)</strong> — logi välja, et peatada kogu töötlemine.</li>
-    <li><strong>Õigus andmete ülekantavusele (art. 20)</strong> — ekspordi kõik sündmused CSV-na Aruannete ekraanilt.</li>
-    <li><strong>Õigus esitada vastuväiteid (art. 21)</strong> — logi välja; töötlemine peatub kohe.</li>
+    <li><strong>Õigus tutvuda andmetega (art 15)</strong> — kõik sinu andmed on nähtavad Kalendris ja Statistikas.</li>
+    <li><strong>Õigus andmete parandamisele (art 16)</strong> — muuda mis tahes sündmust, puudutades seda kalendris.</li>
+    <li><strong>Õigus andmete kustutamisele (art 17)</strong> — kustuta kõik andmed ohutsooni kaudu (vaata allpool).</li>
+    <li><strong>Õigus töötlemise piiramisele (art 18)</strong> — logi välja, et kogu töötlemine peatada.</li>
+    <li><strong>Õigus andmete ülekandmisele (art 20)</strong> — loo krüpteeritud varukoopia menüüs <strong>Seaded → Varundus</strong> või ekspordi kõik sündmused Aruannete ekraanilt CSV-na.</li>
+    <li><strong>Õigus esitada vastuväiteid (art 21)</strong> — logi välja; töötlemine lõpeb kohe.</li>
   </ul>
   <h3>Ohutsoon</h3>
-  <p><strong>Need toimingud on püsivad ja neid ei saa tagasi võtta.</strong></p>
+  <p><strong>Need toimingud on pöördumatud ja neid ei saa tagasi võtta.</strong></p>
   <ul>
-    <li><strong>Kustuta kohalikud andmed (säilita konto)</strong> — kustutab jäädavalt kõik peavalukanded, terviseandmed, seaded ja krüpteerimisvõtmed sellest seadmest. Sinu Google'i konto link säilib, nii et saad mis tahes seadmes uuesti sisse logida.</li>
-    <li><strong>Kustuta konto ja kõik andmed</strong> — kustutab jäädavalt kõik eespool nimetatu pluss sinu Supabase konto. Taastamist ei ole. Nõutav on kaheastmeline kinnitus.</li>
+    <li><strong>Kustuta kohalikud andmed (säilita konto)</strong> — kustutab sellest seadmest jäädavalt kõik peavalukirjed, terviseandmed, seaded ja krüpteerimisvõtmed. Google'i konto seos säilib, nii et saad mis tahes seadmes uuesti sisse logida.</li>
+    <li><strong>Kustuta konto ja kõik andmed</strong> — kustutab jäädavalt kõik eelnimetatu ning lisaks sinu Supabase'i konto. Taastamine ei ole võimalik. Nõutav on kaheastmeline kinnitus.</li>
   </ul>
 
   <h2 id="health-connect">Health Connect</h2>
-  <p>Health Connect on Google'i ühtne terviseandmete platvorm Androidile. Heda loeb sellest viit tüüpi terviseandmeid, et toita Analüüsi ekraani Korrelatsioonide funktsiooni:</p>
+  <p>Health Connect on Google'i ühtne terviseandmete platvorm Androidile. Heda loeb sealt viit tüüpi terviseandmeid, et toita Analüüsi ekraani Korrelatsioonide ja Tervise vahekaarte. Kui sul ei ole ühendatud seadet ega rakendust, saad samad viis näitajat selle asemel käsitsi sisestada või failist importida — vaata <a href="#health-tab">Tervis</a>.</p>
   <div class="metric-grid">
-    <div class="metric"><b>Uneseanssid</b><span>Öine une kestus ja unefaasid (REM, sügav, kerge ja ärkveloleku aeg) sinu kantavast seadmest või unejälgimise rakendusest.</span></div>
-    <div class="metric"><b>Südame löögisageduse muutlikkus (HRV)</b><span>Igapäevased RMSSD mõõtmised, mis näitavad taastumise olekut ja autonoomse närvisüsteemi tasakaalu.</span></div>
-    <div class="metric"><b>Südame löögisagedus</b><span>Pidevad südame löögisageduse näidud, mida kasutatakse sinu igapäevase keskmise ja puhkeoleku südame löögisageduse arvutamiseks.</span></div>
-    <div class="metric"><b>Sammude arv</b><span>Igapäevane sammude arv sinu telefonist või kantavast seadmest.</span></div>
-    <div class="metric"><b>Treeningseanssid</b><span>Treeningseansside kestused, mida kasutatakse sinu igapäevase aktiivsustaseme arvutamiseks.</span></div>
+    <div class="metric"><b>Uneseansid</b><span>Öise une kestus ja unefaasid (REM, sügav, kerge ja ärkveloleku aeg) sinu nutiseadmest või unerakendusest.</span></div>
+    <div class="metric"><b>Südame löögisageduse muutlikkus (HRV)</b><span>Igapäevased RMSSD mõõtmised, mis näitavad taastumisseisundit ja autonoomse närvisüsteemi tasakaalu.</span></div>
+    <div class="metric"><b>Pulss</b><span>Pidevad pulsimõõtmised, mille alusel arvutatakse päeva keskmine ja puhkeoleku pulss.</span></div>
+    <div class="metric"><b>Sammude arv</b><span>Päevane sammude arv sinu telefonist või nutiseadmest.</span></div>
+    <div class="metric"><b>Treeningseansid</b><span>Treeningseansside kestus, mille alusel arvutatakse päevane aktiivsustase.</span></div>
   </div>
-  <div class="callout"><p><strong>Ainult lugemine.</strong> Heda ainult loeb andmeid Health Connectist — see ei kirjuta sinna kunagi. Küsitakse ainult korrelatsioonianalüüsiks vajalikke kindlaid kirjetüüpe.</p></div>
+  <div class="callout"><p><strong>Ainult lugemine.</strong> Heda ainult loeb andmeid Health Connectist — see ei kirjuta sinna kunagi. Küsitakse ainult neid kirjetüüpe, mida korrelatsioonianalüüs vajab.</p></div>
   <h3>Health Connecti seadistamine</h3>
   <ul>
-    <li>Mine Hedas jaotisesse <strong>Seaded → Health Connect</strong>.</li>
-    <li>Kui Health Connecti rakendus ei ole installitud, puuduta <strong>Installi Health Connect</strong>, et hankida see Google Playst. (Android 9 ja uuem. Androidis 14+ on Health Connect sisseehitatud.)</li>
+    <li>Ava Hedas Analüüsi ekraanil vahekaart <strong>Tervis</strong>. Ilma Premiumita näitab vahekaart selle asemel ekraani <strong>Ava Health Connect</strong> — Heda ei küsi Health Connecti lube enne, kui Premium on aktiivne.</li>
+    <li>Kui Health Connecti rakendus pole paigaldatud, puuduta <strong>Paigalda Health Connect</strong>, et see Google Playst hankida. (Android 9 ja uuemad. Androidis 14+ on Health Connect sisse ehitatud.)</li>
     <li>Puuduta <strong>Ühenda Health Connect</strong>.</li>
-    <li>Health Connecti lubade ekraanil anna Hedale juurdepääs andmetele <strong>Uni</strong>, <strong>Südame löögisageduse muutlikkus</strong>, <strong>Südame löögisagedus</strong>, <strong>Sammud</strong> ja <strong>Treening</strong>.</li>
-    <li>Naase Hedasse. Sinu hiljutised terviseandmed kuvatakse.</li>
+    <li>Health Connecti lubade ekraanil anna Hedale juurdepääs andmetele <strong>Uni</strong>, <strong>Südame löögisageduse muutlikkus</strong>, <strong>Pulss</strong>, <strong>Sammud</strong> ja <strong>Treening</strong>.</li>
+    <li>Naase Hedasse. Viimased 30 päeva tuuakse ja kuvatakse. Üksikuid päevi saad ikkagi käsitsi lisada või parandada — vaata <a href="#health-tab">Tervis</a>.</li>
   </ul>
   <h3>Taustasünkroonimine</h3>
-  <p>Vaikimisi hangitakse terviseandmeid ainult siis, kui avad Health Connecti ekraani või puudutad <strong>Värskenda</strong>. Luba Seadetes <strong>Automaatne Health Connecti sünkroonimine</strong>, et hankida andmeid kord päevas taustal.</p>
-  <h3>Juurdepääsu tühistamine</h3>
-  <p>Saad Heda Health Connecti load igal ajal tühistada Health Connecti rakenduses (<strong>Halda rakendusi &amp; seadmeid → Heda → Load</strong>) või Heda jaotises <strong>Seaded → Health Connect</strong>. Varem vahemällu salvestatud andmed jäävad sinu seadmesse, kuni kustutad need jaotise <strong>Privaatsus &amp; andmed → Kustuta kohalikud andmed</strong> kaudu.</p>
-  <div class="callout"><p><strong>Andmed jäävad seadmesse.</strong> Health Connecti andmed salvestatakse vahemällu krüpteeritud seadmesisesesse andmebaasi ja neid ei saadeta kunagi ühtegi serverisse.</p></div>
+  <p>Vaikimisi tuuakse terviseandmed ainult siis, kui avad Tervise vahekaardi või puudutad <strong>Värskenda</strong>. Lülita Seadetes sisse <strong>Automaatne Health Connecti sünkroonimine</strong>, et andmeid taustal korra ööpäevas tuua.</p>
+  <h3>Õiguste tühistamine</h3>
+  <p>Saad Heda Health Connecti load igal ajal tühistada Health Connecti rakenduses (<strong>Halda rakendusi ja seadmeid → Heda → Load</strong>) või Heda vahekaardil <strong>Tervis</strong>. Varem vahemällu salvestatud andmed jäävad seadmesse, kuni kustutad need menüüst <strong>Privaatsus &amp; andmed → Kustuta kohalikud andmed</strong>. Käsitsi sisestatud või failist imporditud väärtusi õiguste tühistamine ei mõjuta.</p>
+  <div class="callout"><p><strong>Andmed jäävad seadmesse.</strong> Health Connecti andmed salvestatakse vahemällu seadme krüpteeritud andmebaasi ja neid ei saadeta kunagi ühessegi serverisse.</p></div>
 
   <hr>
-  <p class="muted" style="font-size:0.9rem;">© 2026 EXSports Oy. Seda dokumentatsiooni uuendatakse rakenduse arenedes. Viimati muudetud aprill 2026.</p>
+  <p class="muted" style="font-size:0.9rem;">© 2026 EXSports Oy. Seda dokumentatsiooni uuendatakse rakenduse arenedes. Viimati muudetud august 2026.</p>
 
   <div class="doc-cta">
     <h3>Küsimusi Heda kohta?</h3>

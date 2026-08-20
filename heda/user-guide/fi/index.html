@@ -1,631 +1,419 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Käyttöohje – Heda</title>
-  <link rel="stylesheet" href="../shared.css" />
+<meta charset="utf-8" />
+<title>Käyttöohje — Heda · EXSports Oy</title>
+<meta name="description" content="Näin käytät Hedaa — hiljainen päänsärky- ja migreenipäiväkirja Androidille. EXSports Oy." />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0E1310" />
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/favicon-64.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16.png" />
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/legal.css" />
+<style>
+  body.theme-heda{ --signature:#C9DDA6; }
+  .toc{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:24px 26px; margin: 4px 0 36px; }
+  .toc .toc-label{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--signature); margin:0 0 14px; }
+  .toc ol{ list-style:none; margin:0; padding:0; columns:2; column-gap:36px; }
+  @media (max-width:560px){ .toc ol{ columns:1; } }
+  .toc li{ margin:0 0 9px; padding:0; }
+  .toc li::before{ display:none; }
+  .toc a{ color:var(--sub); text-decoration:none; font-size:0.95rem; border:none; }
+  .toc a:hover{ color:var(--ink); }
+  .toc .counter{ font-family:var(--mono); font-size:0.74rem; color:var(--signature); margin-right:9px; }
+  .areas{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin: 4px 0 8px; }
+  @media (max-width:560px){ .areas{ grid-template-columns:1fr; } }
+  .area{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:20px 22px; }
+  .area h4{ margin:0 0 6px; font-size:1.02rem; font-weight:500; color:var(--ink); }
+  .area p{ margin:0; font-size:0.92rem; }
+  .metric-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin: 6px 0 18px; }
+  @media (max-width:560px){ .metric-grid{ grid-template-columns:1fr; } }
+  .metric{ border:1px solid var(--line); border-radius:var(--r-sm); padding:16px 18px; }
+  .metric b{ color:var(--ink); font-weight:500; display:block; margin-bottom:4px; }
+  .metric span{ color:var(--sub); font-size:0.9rem; }
+  .prose h2[id], .prose h3[id]{ scroll-margin-top: 90px; }
+</style>
 </head>
-<body>
+<body class="theme-sage theme-heda">
 
-  <!-- ── Sivuotsikko ── -->
-  <header class="site-header">
-    <div class="site-header-inner">
-      <a class="brand-lockup" href="../../index.html">
-        <svg width="26" height="26" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <circle cx="32" cy="32" r="29" stroke="currentColor" stroke-width="1" opacity="0.18" fill="none"/>
-          <circle cx="32" cy="32" r="23" stroke="currentColor" stroke-width="1" opacity="0.30" fill="none"/>
-          <circle cx="32" cy="32" r="17.5" stroke="currentColor" stroke-width="1" opacity="0.50" fill="none"/>
-          <ellipse cx="32" cy="30" rx="9" ry="11" fill="currentColor"/>
-          <path d="M27 41 Q32 44 37 41 L39 47 Q32 49 25 47 Z" fill="currentColor"/>
-        </svg>
-        <div class="header-meta">
-          <span class="wordmark">heda</span>
-          <span class="header-subtitle">Käyttöohje</span>
-        </div>
-      </a>
-      <nav class="header-nav">
-        <a href="../../index.html">← Dokumentit</a>
-        <a href="../index.html?pick=1">← Kaikki kielet</a>
-      </nav>
-      <a class="lang-btn" href="../index.html?pick=1">🌐</a>
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="/index.html"><img src="/assets/brand/wordmark-ink.png" alt="exs" /><span class="mono-tag">EXSports Oy</span></a>
+    <nav class="nav__links">
+      <a href="/index.html" class="hide-sm">Etusivu</a>
+      <a href="/legal/imprint.html" class="hide-sm">Impressum</a>
+      <a href="/heda/user-guide/index.html?pick=1" class="hide-sm" aria-label="Kieli" title="Kieli">🌐</a>
+      <a href="mailto:info@exsports.fi" class="cta">Yhteystiedot</a>
+    </nav>
+  </div>
+</header>
+
+<section class="doc-head stage">
+  <div class="wrap doc-head__inner">
+    <a class="backlink" href="/heda/index.html"><span>←</span> Heda</a>
+    <p class="eyebrow">Heda · Käyttöohje</p>
+    <h1>Näin käytät Hedaa</h1>
+    <div class="meta"><span>Suomi</span><span>Viimeksi päivitetty <b>elokuu 2026</b></span></div>
+    <p class="lead" style="margin-top:20px;">Hiljainen päiväkirja päänsärkyyn ja migreeniin. Kirjaa kohtaukset, oireet ja muistiinpanot — kaikki tallentuu yksityisesti laitteellesi.</p>
+  </div>
+</section>
+
+<div class="wrap"><div class="prose doc-sections">
+
+  <nav class="toc" aria-label="Sisältö">
+    <p class="toc-label">Sisältö</p>
+    <ol>
+      <li><a href="#overview"><span class="counter">01</span>Yleiskatsaus</a></li>
+      <li><a href="#getting-started"><span class="counter">02</span>Alkuun pääseminen</a></li>
+      <li><a href="#calendar"><span class="counter">03</span>Kalenteri</a></li>
+      <li><a href="#logging"><span class="counter">04</span>Tapahtuman kirjaaminen</a></li>
+      <li><a href="#editing"><span class="counter">05</span>Muokkaus &amp; poisto</a></li>
+      <li><a href="#analysis"><span class="counter">06</span>Analyysi</a></li>
+      <li><a href="#reports"><span class="counter">07</span>Raportit</a></li>
+      <li><a href="#settings"><span class="counter">08</span>Asetukset</a></li>
+      <li><a href="#privacy"><span class="counter">09</span>Tietosuoja &amp; tiedot</a></li>
+      <li><a href="#health-connect"><span class="counter">10</span>Health Connect</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="overview">Yleiskatsaus</h2>
+  <p>Heda on offline-first-periaatteella toimiva päänsärky- ja migreenipäiväkirja Androidille. Kaikki terveystiedot ovat salattuja ja tallennettuina vain laitteellesi. Mitään ei ladata palvelimille — tietosi ovat yksin sinun.</p>
+  <p>Sovelluksessa on neljä pääosiota, joihin pääset alanavigaatiopalkista:</p>
+  <div class="areas">
+    <div class="area"><h4>Kalenteri</h4><p>Selaa ja hallinnoi päänsärkykirjauksia päivämäärän mukaan. Lisää uusia tapahtumia täältä.</p></div>
+    <div class="area"><h4>Analyysi</h4><p>Tilastot ja trendikuvaajat kaikille käyttäjille. Korrelaatiot ja Terveys (premium) tunnistavat kaavoja ja säilyttävät terveystietosi.</p></div>
+    <div class="area"><h4>Raportit</h4><p>Kuukausi- ja päiväyhteenvedot kaavioilla. Vie tietosi CSV- tai PDF-muodossa.</p></div>
+    <div class="area"><h4>Asetukset</h4><p>Premium-tila, synkronointi ja ilmoitukset, tietoturva, varmuuskopiointi, teema, kieli, tietosuoja ja edistyneet asetukset.</p></div>
+  </div>
+
+  <h2 id="getting-started">Alkuun pääseminen</h2>
+  <h3>Kirjautuminen</h3>
+  <p>Heda vaatii Google-tilin tietojesi suojaamiseksi. Kirjautuminen luo salatun, laitteeseen sidotun avaimen, joka on kytketty tiliisi — terveystietoja ei tallenneta pilveen.</p>
+  <ul>
+    <li>Avaa Heda asennettuasi sen Google Playsta.</li>
+    <li>Napauta <strong>Kirjaudu sisään Googlella</strong> ja valitse Google-tilisi.</li>
+    <li>Tilisi on nyt sidottu tähän asennukseen. Saman Google-tilin on oltava käytössä, jos asennat sovelluksen uudelleen.</li>
+  </ul>
+  <div class="callout"><p><strong>Tietosuoja ensin.</strong> Heda ei lataa mitään terveystietoja ulkoisille palvelimille. Google-tiliäsi käytetään vain tunnistautumiseen — salausavainten sitomiseen yhdelle käyttäjälle tällä laitteella.</p></div>
+  <h3>Ensikäynnistyksen suostumus</h3>
+  <p>Ensimmäisellä käynnistyskerralla Heda kysyy, haluatko jakaa nimettömiä kaatumisraportteja. Tämä ei lähetä terveystietoja. Voit muuttaa valintaasi myöhemmin kohdassa <strong>Asetukset → Tietosuoja ja tiedot</strong>.</p>
+  <ul>
+    <li><strong>Nimettömät kaatumisraportit</strong> — ilmoittaa automaattisesti kaatumisista, jotta virheet voidaan korjata nopeasti (GlitchTip). Käyttötilastoja ei kerätä.</li>
+  </ul>
+
+  <h2 id="calendar">Kalenteri</h2>
+  <p>Kalenteri on päivittäinen näkymäsi. Se näyttää kuluvan kuukauden yhdellä silmäyksellä värillisinä pisteinä, jotka kuvaavat päänsäryn voimakkuutta kullakin päivällä.</p>
+  <h3>Kuukausinäkymä</h3>
+  <p>Yläosassa oleva kuukausirivi näyttää kuluvan kuukauden ISO-viikkoruudukossa (viikot maanantaista sunnuntaihin). Jokaisella päivällä, jolle on kirjattu vähintään yksi tapahtuma, näkyy pieni voimakkuuspiste:</p>
+  <ul>
+    <li><strong>Sininen</strong> — voimakkuus 1–3 (lievä)</li>
+    <li><strong>Punainen</strong> — voimakkuus 4–5 (vaikea)</li>
+  </ul>
+  <p>Käytä <strong>‹</strong>- ja <strong>›</strong>-painikkeita kuukausien välillä liikkumiseen. Napauta mitä tahansa päivää valitaksesi sen ja nähdäksesi sen tapahtumat alla. Kuluva päivä on korostettu. Napauttamalla <strong>Tänään</strong>-tunnistetta tai tämän päivän päivämäärää pääset takaisin nykyiseen päivään.</p>
+  <h3>Tapahtumakortit</h3>
+  <p>Valitun päivän tapahtumat näkyvät kortteina kuukausirivin alla. Jokainen kortti näyttää:</p>
+  <ul>
+    <li><strong>Päänsäryn tyypin</strong> (Päänsärky tai Migreeni)</li>
+    <li><strong>Aikavälin</strong> — alku- ja loppuajan sekä keston</li>
+    <li><strong>Voimakkuuspalkin</strong> (asteikko 1–5)</li>
+    <li>Aura- ja kohtauslääkemerkinnät, jos kirjattu</li>
+  </ul>
+  <p>Napauta korttia avataksesi sen <strong>muokkaustilassa</strong>, jossa kaikkia kenttiä voidaan muuttaa.</p>
+  <h3>Pikalisäys</h3>
+  <p>Nopeaa kirjaamista varten napauta Kalenterin alaosassa olevaa <strong>Pikalisäys</strong>-painiketta. Esiin tulee arkki tärkeimmillä kentillä:</p>
+  <ul>
+    <li><strong>Tyyppi</strong> — Päänsärky tai Migreeni</li>
+    <li><strong>Voimakkuus</strong> — liukusäädin 1–5</li>
+    <li><strong>Aura</strong> — valintaruutu</li>
+    <li><strong>Kohtauslääke</strong> — valintaruutu</li>
+  </ul>
+  <p>Napauta <strong>Tallenna</strong> kirjataksesi välittömästi nykyisellä kellonajalla tai napauta <strong>Lisää tietoja…</strong> avataksesi täydellisen tapahtumalomakkeen esitäytettynä näillä arvoilla.</p>
+
+  <h2 id="logging">Tapahtuman kirjaaminen</h2>
+  <p>Voit kirjata uuden tapahtuman täysin tiedoin napauttamalla <strong>+ Lisää tapahtuma</strong> -painiketta Kalenterissa. Jos napautit ensin tiettyä päivämäärää, se on valmiiksi valittuna lomakkeessa.</p>
+  <h3>Tyyppi ja voimakkuus</h3>
+  <p>Valitse <strong>Päänsärky</strong> tai <strong>Migreeni</strong> yläosan valitsimella. Aseta sitten voimakkuus asteikolla 1 (lievä) — 5 (lamauttava) liukusäätimellä.</p>
+  <h3>Päivämäärä ja aika</h3>
+  <p>Kolme kenttää hallitsevat tapahtuman ajoitusta:</p>
+  <ul>
+    <li><strong>Päivämäärä</strong> — napauta avataksesi päivämäärävalitsimen. Oletuksena tämä päivä.</li>
+    <li><strong>Alkamisaika</strong> — milloin kohtaus alkoi. Napauta avataksesi 24-tunnin aikavalitsimen.</li>
+    <li><strong>Päättymisaika</strong> — milloin kohtaus päättyi. Oletuksena 2 tuntia alkamisajan jälkeen. Jos siirrät alkamisajan päättymisajan ohi, päättymisaika siirtyy automaattisesti pitäen 2 tunnin välin.</li>
+  </ul>
+  <h3>Kipualue</h3>
+  <p><strong>3D-päämalli</strong> mahdollistaa kivun sijainnin merkitsemisen tarkasti. Se tukee kahta elettä:</p>
+  <ul>
+    <li><strong>Yksi sormi</strong> — maalaa kipualueet vetämällä pään pinnalla.</li>
+    <li><strong>Kaksi sormea</strong> — kierrä päätä päästäksesi takaosaan, sivuille tai kaulaan.</li>
+  </ul>
+  <p>Kahdeksan anatomista aluetta on tuettu: Otsaosa, Silmän ympäri — vasen, Silmän ympäri — oikea, Ohimo — vasen, Ohimo — oikea, Takaraivo — vasen, Takaraivo — oikea ja Niska.</p>
+  <p>Ota käyttöön <strong>Värikoodaa voimakkuuden mukaan</strong> -valitsin sävyttääksesi maalatut alueet voimakkuuden värillä (vaaleampi punainen = lievä, tummanpunainen = vaikea). Oletuksena pois käytöstä.</p>
+  <div class="callout"><p><strong>Vinkki.</strong> Voit poistaa maalattuja alueita vetämällä niiden yli uudelleen — ele vaihtaa lisäämisen ja pyyhkimisen välillä.</p></div>
+  <h3>Mahdolliset syyt</h3>
+  <p>Kirjaa mahdolliset laukaisijat, jotka ovat saattaneet vaikuttaa tähän kohtaukseen. Ne on ryhmitelty seitsemään luokkaan:</p>
+  <table class="grid">
+    <thead><tr><th>Luokka</th><th>Laukaisijat</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Stressi ja mieliala</strong></td><td>Stressi, Stressin vapautuminen, Ahdistus</td></tr>
+      <tr><td><strong>Uni</strong></td><td>Liian vähän unta, Liian paljon unta, Epäsäännöllinen uni</td></tr>
+      <tr><td><strong>Ruoka ja juoma</strong></td><td>Aterian väliin jättäminen, Pitkä paasto, Nestehukka, Alkoholi, Kofeiini, Kofeiinin vieroitus, Suklaa, Kypsytetty juusto, Elintarvikelisäaineet, Prosessoitu liha</td></tr>
+      <tr><td><strong>Hormonaaliset</strong></td><td>Kuukautiset, Ovulaatio, Hormonaalinen ehkäisy</td></tr>
+      <tr><td><strong>Ympäristö</strong></td><td>Säämuutos, Äärilämpötila, Kosteus</td></tr>
+      <tr><td><strong>Aistit</strong></td><td>Kirkas valo, Voimakas haju, Kova ääni, Näytön välkkyminen</td></tr>
+      <tr><td><strong>Fyysinen</strong></td><td>Raskas liikunta, Niskan jännitys, Matkailu, Lääkkeiden liiallinen käyttö</td></tr>
+    </tbody>
+  </table>
+  <h3>Aura ja kohtauslääke</h3>
+  <ul>
+    <li><strong>Aura</strong> — valitse, jos tätä kohtausta edelsi aura (näköhäiriöt, pistely, puhehäiriöt jne.).</li>
+    <li><strong>Kohtauslääke</strong> — valitse, jos otit akuuttia lääkitystä tämän kohtauksen aikana (esim. triptaani, tulehduskipulääke tai parasetamoli).</li>
+  </ul>
+  <h3>Muistiinpanot</h3>
+  <p>Vapaamuotoiseen muistiinpanokenttään voit kirjata kaiken, mitä rakenteelliset kentät eivät kata — asiayhteyden, havaintoja, mikä auttoi tai muita yksityiskohtia, jotka haluat muistaa. Napauta <strong>Tallenna</strong>, kun olet valmis. Tapahtuma ilmestyy Kalenteriin välittömästi.</p>
+
+  <h2 id="editing">Muokkaus ja poisto</h2>
+  <h3>Tapahtuman muokkaaminen</h3>
+  <ul>
+    <li>Siirry haluamaasi päivämäärään Kalenterissa.</li>
+    <li>Napauta muokattavan tapahtuman korttia.</li>
+    <li>Tapahtumalomake avautuu muokkaustilassa — kaikki kentät ovat muokattavissa.</li>
+    <li>Tee muutoksesi ja napauta <strong>Päivitä</strong> tallentaaksesi.</li>
+  </ul>
+  <h3>Tapahtuman poistaminen</h3>
+  <ul>
+    <li>Avaa tapahtuma muokkaustilassa (napauta sen korttia Kalenterissa).</li>
+    <li>Vieritä alas ja napauta <strong>Poista kirjaus</strong>.</li>
+    <li>Vahvistusvalintaikkuna tulee näkyviin. Napauta <strong>Poista</strong> poistaaksesi tapahtuman pysyvästi.</li>
+  </ul>
+  <div class="callout"><p><strong>Pysyvä toiminto.</strong> Poistoa ei voi peruuttaa. Tapahtuma poistetaan välittömästi laitteen salatusta tietokannasta.</p></div>
+
+  <h2 id="analysis">Analyysi</h2>
+  <p>Analyysi-näytöllä on kolme välilehteä yläosassa: <strong>Tilastot</strong>, <strong>Korrelaatiot</strong> ja <strong>Terveys</strong>. Tilastot ovat käytettävissä kaikille käyttäjille. Korrelaatiot ja Terveys vaativat Heda Premiumin.</p>
+
+  <h3 id="statistics">Tilastot</h3>
+  <p>Tilastot-välilehti antaa yleiskatsauksen päänsärkyjen esiintymistiheydestä ja voimakkuudesta valitun ajanjakson ajalta.</p>
+  <p><strong>Aikajakson valinta.</strong> Valitse viidestä aikajaksosta: 7 päivää, 30 päivää, 90 päivää, 1 vuosi tai Kaikki.</p>
+  <p><strong>Yhteenvetokortti.</strong> Pääkortti näyttää seuraavat mittarit valitulle jaksolle. Trendinuolet (↑ / ↓) vertaavat lukuja edelliseen vastaavaan jaksoon:</p>
+  <ul>
+    <li><strong>Tapahtumat yhteensä</strong> — kaikkien päänsärky- ja migreenitapahtumien lukumäärä jaksolla.</li>
+    <li><strong>Keskimääräinen voimakkuus</strong> — kaikkien jakson tapahtumien voimakkuuden (1–5) keskiarvo.</li>
+    <li><strong>Tapahtumat auralla</strong> — kuinka moneen kohtaukseen liittyi aura.</li>
+    <li><strong>Tapahtumat kohtauslääkkeellä</strong> — kuinka moni kohtaus vaati akuuttia lääkitystä.</li>
+  </ul>
+  <p><strong>Kaaviot.</strong></p>
+  <ul>
+    <li><strong>Trendikuvaaja</strong> — tapahtumien lukumäärä per aikajakso (päivittäinen 7/30/90 päivän jaksoilla, viikoittainen 1 vuoden jaksolla, kuukausittainen kaikki-jaksolla).</li>
+    <li><strong>Viikonpäivälämpökartta</strong> — näyttää, mihin viikonpäiviin päänsärkysi osuvat useimmin.</li>
+  </ul>
+  <p><strong>Tapahtumatyypit ja laukaisijat.</strong> Pinottu pylväskaavio näyttää jakauman tapahtumatyypeittäin (Päänsärky / Voimakas päänsärky / Migreeni / Voimakas migreeni) luvuilla ja prosenteilla. Sen alla vaakasuora pylväskaavio listaa yleisimmät laukaisijasi valitulle jaksolle.</p>
+
+  <h3 id="correlations">Korrelaatiot</h3>
+  <p>Korrelaatiot-välilehti analysoi terveystietojasi — Health Connectista luettuja, käsin syötettyjä tai tiedostosta tuotuja — ja etsii yhdeksää näyttöön perustuvaa kaavaa, jotka yleisesti edeltävät päänsärky- ja migreenikohtauksia. Se tarkastelee viimeisiä 90 päivää.</p>
+  <div class="callout"><p><strong>Premium-ominaisuus.</strong> Korrelaatiot-välilehti vaatii Heda Premiumin. Se käyttää samoja uni-, syke-, HRV-, askel- ja liikuntatietoja, jotka näkyvät <a href="#health-tab">Terveys</a>-välilehdellä, riippumatta siitä miten ne ovat sinne päätyneet.</p></div>
+  <p><strong>Perusarvosi.</strong> Yläosan perusarvokortti näyttää 14 päivän mediaaniarvosi kullekin terveysmittarille. "—" näytetään mittareille, joista ei ole riittävästi dataa.</p>
+  <ul>
+    <li><strong>Uni</strong> — mediaaninen yöunen kokonaiskesto</li>
+    <li><strong>HRV</strong> — mediaaninen sykevälivaihtelu (ms)</li>
+    <li><strong>Leposyke</strong> — mediaaninen leposyke (lyöntiä/min)</li>
+    <li><strong>Askeleet</strong> — mediaaninen päivittäinen askelmäärä</li>
+    <li><strong>Liikunta</strong> — mediaaniset päivittäiset aktiivisuusminuutit</li>
+    <li><strong>Syvä uni</strong> — mediaaninen yöllinen syvän unen kesto</li>
+    <li><strong>REM-uni</strong> — mediaaninen yöllinen REM-unen kesto</li>
+    <li><strong>Valvominen unen aikana</strong> — mediaaninen valveaika unijaksossa</li>
+  </ul>
+  <p><strong>Havaitut kaavat.</strong> Heda tarkistaa yhdeksän näyttöön perustuvaa kaavaa jokaisen päänsärkykohtauksen kohdalla. Jokainen havainto näyttää mitatun arvon ja ylitetyn kynnyksen — esimerkiksi: <em>"Nukuit 5 t 30 min ennen tätä kohtausta (kynnys: 7 t)"</em>.</p>
+  <ul>
+    <li><strong>Lyhyt uni</strong> — yöunen kokonaiskesto edellisenä yönä alle 7 tuntia (muokattavissa kohdassa Asetukset → Edistynyt).</li>
+    <li><strong>Epäsäännöllinen unirytmi</strong> — uniajat vaihtelivat yli 120 minuuttia (keskihajonta) edeltävien 7 päivän aikana.</li>
+    <li><strong>Vähäinen askelmäärä</strong> — alle 3 000 askelta kohtausta edeltävänä päivänä (muokattavissa).</li>
+    <li><strong>HRV-lasku</strong> — HRV laski alle 30 ms tai alle 80 % 14 päivän henkilökohtaisesta perustasostasi.</li>
+    <li><strong>Kohonnut leposyke</strong> — leposyke oli kohtausta edeltävänä päivänä 14 päivän mediaanisi yläpuolella.</li>
+    <li><strong>Liikunnan piikki</strong> — aktiivisuusminuutit olivat epätavallisen korkeat verrattuna 14 päivän mediaaniisi kohtausta edeltävänä päivänä.</li>
+    <li><strong>Vähäinen syvä uni</strong> — syvä uni oli selvästi alle 14 päivän mediaanisi edellisenä yönä.</li>
+    <li><strong>Vähäinen REM-uni</strong> — REM-uni oli selvästi alle 14 päivän mediaanisi edellisenä yönä.</li>
+    <li><strong>Katkonainen uni</strong> — valveaika unijaksossa oli epätavallisen korkea suhteessa unen kokonaiskestoon ja perustasoon.</li>
+  </ul>
+  <p><strong>Suositukset.</strong> Havaittujen kaavojen perusteella Heda tuottaa yksilöllisiä suosituksia prioriteetin mukaan (Korkea / Kohtalainen / Matala). Esimerkkejä: unen keston tai säännöllisyyden parantaminen, päivittäisen aktiivisuuden lisääminen tai stressin ja palautumisen hallinta.</p>
+  <div class="callout"><p><strong>Ei lääketieteellistä neuvontaa.</strong> Havaitut kaavat ovat korrelaatioita, eivät diagnooseja. Konsultoi aina terveydenhuollon ammattilaista päänsärkyihisi liittyvissä lääketieteellisissä kysymyksissä.</p></div>
+
+  <h3 id="health-tab">Terveys</h3>
+  <div class="callout"><p><strong>Premium-ominaisuus.</strong> Terveys-välilehti vaatii Heda Premiumin. Ennen kuin Premium on aktiivinen, välilehti näyttää sen sijaan <strong>Avaa Health Connect</strong> -näytön — Heda ei pyydä Health Connect -oikeuksia eikä lue terveystietoja sitä ennen.</p></div>
+  <p>Terveys-välilehdellä ovat uni-, sykevälivaihtelu- (HRV), leposyke-, askel- ja liikuntatietosi — samat viisi mittaria, joita Korrelaatiot analysoi. Tiedot voivat päätyä sinne kolmella tavalla:</p>
+  <ul>
+    <li><strong>Health Connect</strong> — luetaan automaattisesti yhdistetystä puettavasta laitteesta tai muusta sovelluksesta, joka kirjoittaa Health Connectiin. Jokainen synkronointi hakee viimeiset 30 päivää, ja jo synkronoidut päivät säilyvät laitteellasi, joten historiasi kasvaa jatkuvasti. Napauta <strong>Päivitä</strong> synkronoidaksesi heti. Katso käyttöönotto-ohjeet <a href="#health-connect">Health Connect</a> -osiosta.</li>
+    <li><strong>Manuaaliset arvot</strong> — napauta <em>Manuaaliset arvot</em> -osiossa <strong>Lisää arvo päivälle</strong> syöttääksesi leposykkeen, HRV:n, unen keston, askeleet tai liikunnan käsin mille tahansa päivälle. Lähdenimike (esimerkiksi "Polar Flow → Nightly Recharge") kertoo, mistä luvut ovat peräisin. Tavanomaisen vaihteluvälin ulkopuolelle jäävästä arvosta annetaan varoitus, mutta sen voi silti tallentaa, ja jokaista manuaalista arvoa voi myöhemmin muokata tai sen voi poistaa.</li>
+    <li><strong>Tuo tiedostosta</strong> — napauta <strong>Tuo tiedostosta</strong> lukeaksesi toisesta laitteesta tai sovelluksesta viedyn CSV-tiedoston. Valitset tiedoston, kohdistat sen sarakkeet päivämäärä- ja arvokenttiin ja tarkistat esikatselun — luetut ja ohitetut rivit, uudet päivät, päivät joilla on jo arvo sekä koko päivämääräväli — ennen kuin mitään tallennetaan. Jos päivällä on jo arvo, valitset kerran, säilytetäänkö omasi vai korvataanko se tuodulla.</li>
+  </ul>
+  <p>Syöttämäsi ja tuomasi arvot on merkitty <strong>Manuaalinen</strong>-tunnisteella, ne tallennetaan täsmälleen kuten Health Connect -data — salattuna, vain laitteellesi — ja Korrelaatiot käyttää niitä Health Connectista luettujen tietojen rinnalla. Health Connect -oikeuksien peruuttaminen ei koske niitä.</p>
+  <p>Välilehden loppuosa näyttää viimeisimmän synkronoidun yön uniaikaikkunoineen, 30 päivän unen keskiarvon, unen keston trendin sekä <strong>Päivittäiset terveystiedot</strong> -listan yksittäisille päiville.</p>
+
+  <h2 id="reports">Raportit</h2>
+  <p>Raportit-välilehti mahdollistaa jäsenneltyjen yhteenvetojen tarkastelun ja tietojen viemisen jaettavaksi terveydenhuollon ammattilaisen kanssa.</p>
+  <h3>Kuukausiraportti</h3>
+  <p>Kuukausiraportti näyttää kalenterinäkymän jokaiselle valitulle kuukaudelle, jossa jokainen päivä on värikoodattu tilan mukaan:</p>
+  <ul>
+    <li><strong>Ei tapahtumia</strong> — kohtausta ei kirjattu</li>
+    <li><strong>Päänsärky</strong> — vähintään yksi päänsärkykirjaus</li>
+    <li><strong>Migreeni</strong> — vähintään yksi migreenitapahtuma</li>
+  </ul>
+  <p>Piirakkakaavio näyttää päivien osuuden kussakin luokassa. Valitse yksi tai useampi kuukausi kuukausisiruilla. Napauta <strong>Valitse kaikki</strong> tai <strong>Tyhjennä</strong> valitaksesi tai poistaaksesi kaikkien kuukausien valinnan nopeasti.</p>
+  <h3>Päiväraportti</h3>
+  <p>Päiväraportti keskittyy yksittäisiin tapahtumiin valitulla ajanjaksolla. Valitse 7 päivää, 30 päivää, 90 päivää tai Kaikki. Ylärivi näyttää tapahtumien kokonaismäärän, keskimääräisen voimakkuuden ja aikavälin. Sen alla jokainen tapahtuma on listattu tyypillä, ajalla ja voimakkuudella.</p>
+  <h3>Tietojen vieminen</h3>
+  <ul>
+    <li><strong>Vie CSV-tiedostona</strong> — tallentaa pilkuilla erotetun tiedoston kaikista nykyisen jakson tapahtumista. Sarakkeet: Päivämäärä, Aika, Tyyppi, Voimakkuus, Aura, Kohtauslääke, Laukaisijat, Muistiinpanot. Androidin järjestelmätiedostonvalitsin antaa sinun valita tallennuspaikan.</li>
+    <li><strong>Vie PDF-tiedostona</strong> — luo muotoillun PDF-asiakirjan yhteenvedolla ja tapahtumataulukolla, sopii tulostettavaksi tai lääkärille lähetettäväksi. <strong>Vaatii Premiumin</strong>; ilman sitä painikkeen napauttaminen avaa ostoikkunan.</li>
+    <li><strong>Vie terveystiedot CSV-tiedostona</strong> — voit halutessasi viedä terveystietosi päänsärkykirjausten rinnalla. Tässä tiedostossa on neljä saraketta — päivämäärä, uni tunteina, HRV millisekunteina ja askeleet — ja se kattaa Health Connectista synkronoidut päivät.</li>
+  </ul>
+  <div class="callout"><p><strong>Tiedoston sijainti.</strong> Heda käyttää Androidin Storage Access Frameworkia, joten sinä valitset, minne viety tiedosto tallennetaan. Tiedostoja ei ladata palvelimille.</p></div>
+
+  <h2 id="settings">Asetukset</h2>
+  <p>Avaa Asetukset alanavigaatiopalkista. Muutokset astuvat voimaan välittömästi. Alla olevat osiot on lueteltu samassa järjestyksessä kuin ne esiintyvät sovelluksessa.</p>
+
+  <h3>Premium-tila</h3>
+  <p>Niin kauan kuin Premium ei ole aktiivinen, Asetusten yläosassa on <strong>Premium-tila</strong>-kortti. <strong>Osta premium</strong> avaa ostoikkunan; <strong>Päivitä tila</strong> tarkistaa aiemman oston uudelleen, mitä tarvitset uudelleenasennuksen tai puhelimen vaihdon jälkeen. Jos tarkistus epäonnistui, kortti kertoo syyn — ei yhteyttä Google Playhin tai vahvistuspalvelimeen, maksu vielä vahvistamatta, osto tehty eri Google-tilillä ja niin edelleen. Kun Premium on aktiivinen, kortti katoaa.</p>
+  <p>Premium on <strong>kertaostos, ei tilaus</strong>. Se avaa Analyysi-näytön Korrelaatiot- ja Terveys-välilehdet (mukaan lukien terveystietojen käsin syötön ja tuonnin tiedostosta), automaattisen Health Connect -synkronoinnin, päivittäiset terveyssuositukset sekä PDF-viennin Raportit-näytöllä.</p>
+
+  <h3>Synkronointi ja ilmoitukset</h3>
+  <p><strong>Automaattinen Health Connect -synkronointi.</strong> Kun käytössä, Heda hakee uusimmat Health Connect -tiedot kerran päivässä taustalla, vaikka sovellus olisi suljettu. <strong>Oletuksena pois</strong> ja <strong>vaatii Premiumin</strong> — napauttaminen ilman Premiumia avaa ostoikkunan. Lisäksi Health Connect -oikeuksien on oltava myönnetyt.</p>
+  <p><strong>Päivittäiset terveyssuositukset.</strong> Kun käytössä, Heda lähettää päivittäisen ilmoituksen, jos korkean prioriteetin korrelaatio havaitaan. Ilmoituksen napauttaminen avaa Analyysi-näytön Korrelaatiot-välilehdelle. <strong>Oletuksena pois</strong>, <strong>vaatii Premiumin</strong> ja vaatii laitteen ilmoitusoikeuden.</p>
+
+  <h3>Edistynyt</h3>
+  <p>Laajenna Edistynyt-osio hienosäätääksesi korrelaatiomoottorissa käytettyjä kynnysarvoja. Oletusarvot vastaavat vakiintuneita kliinisiä ohjeistuksia migreenin ennaltaehkäisyyn:</p>
+  <table class="grid">
+    <thead><tr><th>Asetus</th><th>Oletus</th><th>Kuvaus</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Unen minimimäärä</strong></td><td>7 t 0 min</td><td>Tämän keston alle jäävä uni merkitään mahdolliseksi laukaisijaksi.</td></tr>
+      <tr><td><strong>Uniajan suurin vaihtelevuus</strong></td><td>60 min</td><td>Uniajan keskihajonta tämän arvon yli laukaisee epäsäännöllinen-uni-kaavan.</td></tr>
+      <tr><td><strong>Askeleiden minimimäärä</strong></td><td>3 000</td><td>Tämän alle jäävä askelmäärä merkitään alhaiseksi aktiivisuudeksi.</td></tr>
+      <tr><td><strong>HRV-minimi</strong></td><td>30 ms</td><td>HRV tämän absoluuttisen kynnyksen alapuolella merkitään.</td></tr>
+      <tr><td><strong>HRV-perustasokerroin</strong></td><td>0,80</td><td>HRV tämän osuuden alle 14 päivän perustasostasi merkitään myös.</td></tr>
+    </tbody>
+  </table>
+  <p>Napauta <strong>Palauta oletusarvot</strong> palauttaaksesi kaikki kynnysarvot alkuperäisiin arvoihinsa.</p>
+
+  <h3>Tietoturva</h3>
+  <p>Tietoturva-osiossa on <strong>Biometrinen lukitus</strong> -kytkin — vaadi sormenjälkeä, kasvojentunnistusta tai PIN-koodia Hedan avaamiseen. Kytkin pysyy pois käytöstä, kunnes olet määrittänyt näytönlukituksen laitteesi omissa asetuksissa.</p>
+
+  <h3>Varmuuskopiointi</h3>
+  <p>Varmuuskopiointi-osiossa on yksi rivi, <strong>Varmuuskopiointi ja palautus</strong>, ja se on maksuton — Premiumia ei tarvita. <strong>Luo varmuuskopio</strong> kirjoittaa yhden salatun tiedoston, jonka voit tallentaa minne tahansa; sinä valitset sen lukitsevan salasanan, ja siinä on oltava vähintään 10 merkkiä sisältäen ison kirjaimen, pienen kirjaimen ja numeron, vain aksentittomia merkkejä käyttäen (ä, ö ja å eivät käy). <strong>Jos salasana katoaa, tiedostoa ei voi avata — palautusta ei ole.</strong></p>
+  <p><strong>Palauta varmuuskopiosta</strong> yhdistää tiedoston siihen, mitä puhelimessa jo on, sen sijaan että pyyhkisi vanhan pois. Jos jokin kirjaus on molemmilla puolilla eri sisällöllä, Heda kysyy kerran, säilytetäänkö puhelimen tiedot vai korvataanko ne varmuuskopiolla, ja kertoo sitten, kuinka monta kirjausta ja terveyspäivää lisättiin, korvattiin ja ohitettiin. Sovelluksen asetukset kuten teema ja kieli eivät sisälly varmuuskopioon — aseta ne uudelleen uudella laitteella.</p>
+
+  <h3>Ulkoasu</h3>
+  <p><strong>Teema.</strong> Valitse, miltä sovellus näyttää:</p>
+  <ul>
+    <li><strong>Vaalea</strong> — lämmin paperinsävyinen vaalea tila.</li>
+    <li><strong>Tumma</strong> — syvä metsän tumma tila (oletus).</li>
+    <li><strong>Järjestelmä</strong> — seuraa automaattisesti laitteesi tumma/vaalea-asetusta.</li>
+  </ul>
+  <p><strong>Kieli.</strong> Valitse yli 30 kielestä alueittain ryhmiteltyinä (Pohjoismaat, Germaaniset, Romaaniset, Slaavilaiset, Balttiset ja Muut). Valittu kieli koskee kaikkia sovelluksen tekstejä. Valitse <strong>Järjestelmä</strong> seurataksesi laitteesi kieliasetusta.</p>
+
+  <h3>Diagnostiikka</h3>
+  <p><strong>Virheilmoitukset</strong> jakaa halutessasi nimettömiä kaatumisraportteja (GlitchTip), jotta virheet voidaan korjata. <strong>Mitään terveystietoja ei koskaan sisällytetä</strong>, eikä käyttötilastoja kerätä. Voit muuttaa valintaa milloin tahansa; sovellus käynnistää raportoijan uudelleen, kun teet niin.</p>
+
+  <h3>Ohje ja oikeudelliset</h3>
+  <ul>
+    <li><strong>Käyttöohje</strong> — avaa tämän verkossa olevan ohjeen.</li>
+    <li><strong>Vastuuvapauslauseke</strong> — lääketieteellinen ja vastuuta koskeva vastuuvapauslauseke.</li>
+    <li><strong>Impressum</strong> — EXSports Oy:n palveluntarjoajatiedot.</li>
+    <li><strong>Tietosuoja ja tiedot</strong> — avaa Tietosuoja ja tiedot -näytön, jossa hallitset tiliäsi, tarkastelet tallennettuja tietoja, käytät GDPR-oikeuksiasi ja poistat tietosi. Katso <a href="#privacy">Tietosuoja ja tiedot</a>.</li>
+    <li><strong>Ilmoita virheestä</strong> — avaa virheilmoituslomakkeen.</li>
+  </ul>
+
+  <h3>Tietoja</h3>
+  <p>Näytön alaosassa näkyy asennetun sovelluksen versio sekä avattava <strong>Tekijänoikeudet</strong>-lohko, jossa mainitaan sovelluksen, sen 3D-mallin ja typografian tekijät.</p>
+
+  <h2 id="privacy">Tietosuoja ja tiedot</h2>
+  <p>Avaa <strong>Asetukset → Tietosuoja ja tiedot</strong> hallitaksesi kaikkia tietoja ja tiliasetuksia.</p>
+  <h3>Tilisi</h3>
+  <p>Näytön yläosassa näkyy tällä hetkellä kirjautunut Google-tili. Napauta <strong>Kirjaudu ulos</strong> poistuaksesi sovelluksesta. Tietosi säilyvät laitteella; voit kirjautua takaisin sisään koska tahansa.</p>
+  <h3>Mitä tietoja tallennetaan</h3>
+  <p>Kaikki tiedot tallennetaan paikallisesti laitteellesi kahteen salattuun tietokantaan:</p>
+  <table class="grid">
+    <thead><tr><th>Tietotyyppi</th><th>Sisältö</th><th>Salaus</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Päänsärkykirjaukset</strong></td><td>Aikaleimat, kipualueet, voimakkuus, aura, kohtauslääke, laukaisijat, muistiinpanot</td><td>AES-256 (SQLCipher)</td></tr>
+      <tr><td><strong>Health Connect -välimuisti</strong></td><td>Health Connectista synkronoidut uni, univaiheet, HRV, syke, askelmäärä ja liikunta</td><td>AES-256 (SQLCipher)</td></tr>
+      <tr><td><strong>Manuaaliset terveysmerkinnät</strong></td><td>Käsin syöttämäsi tai tiedostosta tuomasi leposyke, HRV, unen kesto, askeleet ja liikunta</td><td>AES-256 (SQLCipher)</td></tr>
+      <tr><td><strong>Kirjautumistunniste</strong></td><td>Supabase-käyttäjätunnus, sähköposti, kirjautumisaikaleima, tilin sidontatieto</td><td>AES-256-GCM (Tink)</td></tr>
+      <tr><td><strong>Sovelluksen asetukset</strong></td><td>Teema ja kielivalinta — ei terveystietoja</td><td>Salaamaton</td></tr>
+    </tbody>
+  </table>
+  <p>Salausavaimet tallennetaan Android Keystoreen, laitteistotasolla suojattuina tarvittaessa, eivätkä ne koskaan poistu laitteelta.</p>
+  <h3>GDPR-oikeutesi</h3>
+  <p>Heda noudattaa EU:n GDPR:n 9 artiklaa (erityiset henkilötietoryhmät). Oikeutesi:</p>
+  <ul>
+    <li><strong>Tiedonsaantioikeus (Art. 15)</strong> — kaikki tietosi näkyvät Kalenterissa ja Tilastoissa.</li>
+    <li><strong>Oikaisuoikeus (Art. 16)</strong> — muokkaa mitä tahansa tapahtumaa napauttamalla sitä Kalenterissa.</li>
+    <li><strong>Oikeus tietojen poistamiseen (Art. 17)</strong> — poista kaikki tiedot Vaaravyöhykkeen kautta (katso alla).</li>
+    <li><strong>Oikeus käsittelyn rajoittamiseen (Art. 18)</strong> — kirjaudu ulos lopettaaksesi käsittelyn.</li>
+    <li><strong>Tietojen siirrettävyys (Art. 20)</strong> — luo salattu varmuuskopio kohdassa <strong>Asetukset → Varmuuskopiointi</strong> tai vie kaikki tapahtumat CSV-muodossa Raportit-näytöltä.</li>
+    <li><strong>Vastustamisoikeus (Art. 21)</strong> — kirjaudu ulos; käsittely lakkaa välittömästi.</li>
+  </ul>
+  <h3>Vaaravyöhyke</h3>
+  <p><strong>Nämä toiminnot ovat pysyviä eikä niitä voi peruuttaa.</strong></p>
+  <ul>
+    <li><strong>Poista paikalliset tiedot (säilytä tili)</strong> — poistaa pysyvästi kaikki päänsärkykirjaukset, terveystiedot, asetukset ja salausavaimet laitteeltasi. Google-tilin yhteys säilyy, joten voit kirjautua sisään uudelleen millä tahansa laitteella.</li>
+    <li><strong>Poista tili ja kaikki tiedot</strong> — poistaa pysyvästi kaiken yllä olevan lisäksi Supabase-tilisi. Tietojen palauttaminen ei ole mahdollista. Vaaditaan kaksivaiheinen vahvistus.</li>
+  </ul>
+
+  <h2 id="health-connect">Health Connect</h2>
+  <p>Health Connect on Googlen yhtenäinen terveysdatan alusta Androidille. Heda lukee siitä viittä terveystietotyyppiä Analyysi-näytön Korrelaatiot- ja Terveys-välilehtiä varten. Jos sinulla ei ole yhdistettyä laitetta tai sovellusta, voit sen sijaan syöttää samat viisi mittaria käsin tai tuoda ne tiedostosta — katso <a href="#health-tab">Terveys</a>.</p>
+  <div class="metric-grid">
+    <div class="metric"><b>Unijaksot</b><span>Yöunen kesto ja univaiheet (REM, syvä, kevyt ja valveilla olo) puettavasta laitteesta tai unenseurantasovelluksesta.</span></div>
+    <div class="metric"><b>Sykevälivaihtelu (HRV)</b><span>Päivittäiset RMSSD-mittaukset, jotka kuvaavat palautumistilaa ja autonomisen hermoston tasapainoa.</span></div>
+    <div class="metric"><b>Syke</b><span>Jatkuvat sykedatanäytteet, joista lasketaan päivän keskisyke ja leposyke.</span></div>
+    <div class="metric"><b>Askelmäärä</b><span>Päivittäinen askelmäärä puhelimesta tai puettavasta laitteesta.</span></div>
+    <div class="metric"><b>Liikuntajaksot</b><span>Liikuntajaksojen kestot, joita käytetään päivittäisen aktiivisuustason laskemiseen.</span></div>
+  </div>
+  <div class="callout"><p><strong>Vain lukuoikeus.</strong> Heda ainoastaan lukee Health Connect -dataa — se ei koskaan kirjoita sinne. Vain korrelaatioanalyysin vaatimat tietuetyypit pyydetään.</p></div>
+  <h3>Health Connectin käyttöönotto</h3>
+  <ul>
+    <li>Avaa Analyysi-näytön <strong>Terveys</strong>-välilehti Hedassa. Ilman Premiumia välilehti näyttää sen sijaan <strong>Avaa Health Connect</strong> -näytön — Heda ei pyydä Health Connect -oikeuksia ennen kuin Premium on aktiivinen.</li>
+    <li>Jos Health Connect -sovellusta ei ole asennettu, napauta <strong>Asenna Health Connect</strong> saadaksesi sen Google Playsta. (Android 9 ja uudemmat. Android 14+:ssa Health Connect on sisäänrakennettu.)</li>
+    <li>Napauta <strong>Yhdistä Health Connect</strong>.</li>
+    <li>Health Connect -oikeuksien näytöllä myönnä Hedalle pääsy <strong>Uneen</strong>, <strong>Sykevälivaihteluun</strong>, <strong>Sykkeeseen</strong>, <strong>Askeleisiin</strong> ja <strong>Liikuntaan</strong>.</li>
+    <li>Palaa Hedaan. Viimeiset 30 päivää haetaan ja näytetään. Voit yhä lisätä tai korjata yksittäisiä päiviä käsin — katso <a href="#health-tab">Terveys</a>.</li>
+  </ul>
+  <h3>Taustasynkronointi</h3>
+  <p>Oletuksena terveystiedot haetaan vain, kun avaat Terveys-välilehden tai napautat <strong>Päivitä</strong>. Ota käyttöön <strong>Automaattinen Health Connect -synkronointi</strong> Asetuksissa hakemaan tiedot kerran päivässä taustalla.</p>
+  <h3>Oikeuksien peruuttaminen</h3>
+  <p>Voit peruuttaa Hedan Health Connect -oikeudet milloin tahansa Health Connect -sovelluksessa (<strong>Hallitse sovelluksia ja laitteita → Heda → Oikeudet</strong>) tai Hedan <strong>Terveys</strong>-välilehdeltä. Aiemmin välimuistissa olevat tiedot säilyvät laitteellasi, kunnes poistat ne kohdasta <strong>Tietosuoja ja tiedot → Poista paikalliset tiedot</strong>. Käsin syöttämiisi tai tiedostosta tuomiisi arvoihin Health Connect -oikeuksien peruuttaminen ei vaikuta.</p>
+  <div class="callout"><p><strong>Tieto pysyy laitteella.</strong> Health Connect -data välimuistitetaan salattuun laitteen tietokantaan eikä sitä koskaan lähetetä palvelimille.</p></div>
+
+  <hr>
+  <p class="muted" style="font-size:0.9rem;">© 2026 EXSports Oy. Tätä dokumentaatiota päivitetään sovelluksen kehittyessä. Viimeksi päivitetty elokuu 2026.</p>
+
+  <div class="doc-cta">
+    <h3>Kysyttävää Hedasta?</h3>
+    <p>Kerro meille, mitä yrität seurata, niin autamme.</p>
+    <a class="btn btn--primary" href="mailto:info@exsports.fi">info@exsports.fi <span class="arrow">→</span></a>
+  </div>
+
+</div></div>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <a class="footer__brand" href="/index.html"><img src="/assets/brand/wordmark-ink.png" alt="exs" /></a>
+    <div class="footer__meta">
+      <span>© 2026 EXSPORTS OY</span><span class="dot">·</span>
+      <a href="/index.html">Etusivu</a><span class="dot">·</span>
+      <a href="/legal/imprint.html">Impressum</a><span class="dot">·</span>
+      <a href="mailto:info@exsports.fi">Yhteystiedot</a>
     </div>
-  </header>
-
-  <div class="doc-layout">
-
-    <!-- ── Sisällysluettelo ── -->
-    <aside>
-      <nav class="toc" aria-label="Sisällysluettelo">
-        <p class="toc-label">Sisältö</p>
-        <ul class="toc-list">
-          <li><a href="#yleiskatsaus">Yleiskatsaus</a></li>
-          <li><a href="#alkuun">Alkuun pääseminen</a></li>
-          <li><a href="#kalenteri">Kalenteri</a></li>
-          <li class="toc-sub"><ul class="toc-list">
-            <li><a href="#kuukausinäkymä">Kuukausinäkymä</a></li>
-            <li><a href="#tapahtumakortti">Tapahtumakortti</a></li>
-            <li><a href="#pikalisäys">Pikalisäys</a></li>
-          </ul></li>
-          <li><a href="#kirjaaminen">Tapahtuman kirjaaminen</a></li>
-          <li class="toc-sub"><ul class="toc-list">
-            <li><a href="#tyyppi-voimakkuus">Tyyppi ja voimakkuus</a></li>
-            <li><a href="#aika">Päivämäärä ja aika</a></li>
-            <li><a href="#kipualue">Kipualue</a></li>
-            <li><a href="#laukaisijat">Mahdolliset syyt</a></li>
-            <li><a href="#aura-laake">Aura ja lääkitys</a></li>
-            <li><a href="#muistiinpanot">Muistiinpanot</a></li>
-          </ul></li>
-          <li><a href="#muokkaus">Muokkaus ja poisto</a></li>
-          <li><a href="#analyysi">Analyysi</a></li>
-          <li class="toc-sub"><ul class="toc-list">
-            <li><a href="#tilastot">Tilastot</a></li>
-            <li><a href="#korrelaatiot">Korrelaatiot</a></li>
-          </ul></li>
-          <li><a href="#raportit">Raportit</a></li>
-          <li><a href="#asetukset">Asetukset</a></li>
-          <li><a href="#tietosuoja">Tietosuoja ja tiedot</a></li>
-          <li><a href="#health-connect">Health Connect</a></li>
-        </ul>
-      </nav>
-    </aside>
-
-    <!-- ── Pääsisältö ── -->
-    <main class="doc-content">
-
-      <span class="section-label">Heda · Käyttöohje</span>
-      <h1 class="doc-title">Hedan käyttöohje</h1>
-      <p class="doc-intro">Hiljainen päiväkirja päänsärkyyn ja migreeniin. Merkitse kipu, löydä kaavat ja tunnista laukaisijasi — kaikki tallennetaan yksityisesti laitteellesi.</p>
-
-      <!-- ─ Yleiskatsaus ─ -->
-      <section class="doc-section" id="yleiskatsaus">
-        <h2 class="section-heading">Yleiskatsaus</h2>
-
-        <p>Heda on offline-first-päänsärky- ja migreenipäiväkirja Androidille. Kaikki terveystieto salataan ja tallennetaan vain laitteellesi. Mitään ei ladata palvelimille — tietosi ovat yksinomaan sinun.</p>
-
-        <p>Sovelluksessa on neljä pääaluetta, joihin pääsee alanavigaatiopalkista:</p>
-
-        <div class="nav-bar-demo" aria-hidden="true">
-          <div class="nav-tab active">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 9h17M8 3v3M16 3v3"/></svg>
-            Kalenteri
-          </div>
-          <div class="nav-tab">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l4-6 3 3 5-8 4 6"/></svg>
-            Analyysi
-          </div>
-          <div class="nav-tab">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14M5 12h14M5 17h9"/></svg>
-            Raportit
-          </div>
-          <div class="nav-tab">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.5 5.5l1.5 1.5M17 17l1.5 1.5M5.5 18.5L7 17M17 7l1.5-1.5"/></svg>
-            Asetukset
-          </div>
-        </div>
-
-        <div class="card-grid">
-          <div class="info-card">
-            <div class="card-title">Kalenteri</div>
-            <div class="card-body">Selaa ja hallinnoi päänsärkykirjauksia päivämäärän mukaan. Lisää uusia tapahtumia täältä.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Analyysi</div>
-            <div class="card-body">Tilastot ja trendikuvaajat kaikille käyttäjille. Korrelaatiot (premium) tunnistaa kaavoja Health Connect -datan ja päänsärkytapahtumien välillä.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Raportit</div>
-            <div class="card-body">Kuukausi- ja päiväyhteenvedot kaavioilla. Vie tietosi CSV- tai PDF-muodossa.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Asetukset</div>
-            <div class="card-body">Teema, kieli, Health Connect, ilmoitukset, tietosuoja ja edistyneet asetukset.</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─ Alkuun pääseminen ─ -->
-      <section class="doc-section" id="alkuun">
-        <h2 class="section-heading">Alkuun pääseminen</h2>
-
-        <h3 class="sub-heading">Kirjautuminen</h3>
-        <p>Heda vaatii Google-tilin tietojesi suojaamiseksi. Kirjautuminen luo salatun, laitteeseen sidotun avaimen, joka on kytketty tiliisi — terveystietoja ei tallenneta pilveen.</p>
-        <ol class="steps">
-          <li>Avaa Heda asennuksen jälkeen Google Playsta.</li>
-          <li>Napauta <strong>Kirjaudu sisään Googlella</strong> ja valitse Google-tilisi.</li>
-          <li>Tilisi on nyt sidottu tähän asennukseen. Saman Google-tilin on oltava käytössä, jos asennat sovelluksen uudelleen.</li>
-        </ol>
-        <div class="note">
-          <strong>Tietosuoja ensin.</strong> Heda ei lataa mitään terveystietoja ulkoisille palvelimille. Google-tiliäsi käytetään vain tunnistautumiseen — salausavainten sitomiseen yhdelle käyttäjälle tällä laitteella.
-        </div>
-
-        <h3 class="sub-heading">Ensikäynnistyksen suostumus</h3>
-        <p>Ensimmäisellä käynnistyskerralla Heda kysyy, haluatko jakaa nimettömiä kaatumisraportteja. Tämä ei lähetä terveystietoja. Voit muuttaa valintaasi myöhemmin kohdassa <strong>Asetukset → Tietosuoja ja tiedot</strong>.</p>
-
-        <ul>
-          <li><strong>Nimettömät kaatumisraportit</strong> — ilmoittaa automaattisesti kaatumisista, jotta virheet voidaan korjata nopeasti (GlitchTip). Käyttötilastoja ei kerätä.</li>
-        </ul>
-      </section>
-
-      <!-- ─ Kalenteri ─ -->
-      <section class="doc-section" id="kalenteri">
-        <h2 class="section-heading">Kalenteri</h2>
-        <p>Kalenteri on päivittäinen näkymäsi. Se näyttää kuluvan kuukauden yhdellä silmäyksellä värillisinä pisteinä, jotka kuvaavat päänsäryn voimakkuutta kullakin päivällä.</p>
-
-        <h3 class="sub-heading" id="kuukausinäkymä">Kuukausinäkymä</h3>
-        <p>Yläosassa oleva kuukausirivi näyttää kuluvan kuukauden ISO-viikkoruudukossa (viikot maanantaista sunnuntaihin). Jokaisella päivällä, jolle on kirjattu vähintään yksi tapahtuma, näkyy pieni voimakkuuspiste:</p>
-
-        <ul>
-          <li><span style="color:var(--accent)">●</span> <strong>Sininen</strong> — voimakkuus 1–3 (lievä)</li>
-          <li><span style="color:var(--danger)">●</span> <strong>Punainen</strong> — voimakkuus 4–5 (vaikea)</li>
-        </ul>
-
-        <p>Käytä <strong>‹</strong>- ja <strong>›</strong>-painikkeita kuukausien välillä liikkumiseen. Napauta mitä tahansa päivää valitaksesi sen ja nähdäksesi sen tapahtumat alla.</p>
-        <p>Kuluva päivä on korostettu. Napauttamalla <strong>Tänään</strong>-tunnistetta tai tämän päivän päivämäärää pääset takaisin nykyiseen päivään.</p>
-
-        <h3 class="sub-heading" id="tapahtumakortti">Tapahtumakortti</h3>
-        <p>Valitun päivän tapahtumat näkyvät kortteina kuukausirivin alla. Jokainen kortti näyttää:</p>
-        <ul>
-          <li><strong>Päänsäryn tyypin</strong> (Päänsärky tai Migreeni)</li>
-          <li><strong>Aikavälin</strong> — alku- ja loppuaika sekä kesto</li>
-          <li><strong>Voimakkuuspalkin</strong> (asteikko 1–5)</li>
-          <li>Aura- ja kohtauslääkemerkinnät, jos kirjattu</li>
-        </ul>
-        <p>Napauta korttia avataksesi sen <strong>muokkaustilassa</strong>, jossa kaikkia kenttiä voidaan muuttaa.</p>
-
-        <h3 class="sub-heading" id="pikalisäys">Pikalisäys</h3>
-        <p>Nopeaa kirjaamista varten napauta Kalenterin alaosassa olevaa <strong>Pikalisäys</strong>-painiketta. Esiin tulee arkki tärkeimmillä kentillä:</p>
-        <ul>
-          <li><strong>Tyyppi</strong> — Päänsärky tai Migreeni</li>
-          <li><strong>Voimakkuus</strong> — liukusäädin 1–5</li>
-          <li><strong>Aura</strong> — valintaruutu</li>
-          <li><strong>Kohtauslääke</strong> — valintaruutu</li>
-        </ul>
-        <p>Napauta <strong>Tallenna</strong> kirjataksesi välittömästi nykyisellä kellonajalla tai napauta <strong>Lisää tietoja…</strong> avataksesi täydellinen tapahtumalomake esitäytettyinä näillä arvoilla.</p>
-      </section>
-
-      <!-- ─ Kirjaaminen ─ -->
-      <section class="doc-section" id="kirjaaminen">
-        <h2 class="section-heading">Tapahtuman kirjaaminen</h2>
-        <p>Voit kirjata uuden tapahtuman täysin tiedoin napauttamalla <strong>+ Lisää tapahtuma</strong> -painiketta Kalenterissa. Jos napautit ensin tiettyä päivämäärää, se on valmiiksi valittuna lomakkeessa.</p>
-
-        <h3 class="sub-heading" id="tyyppi-voimakkuus">Tyyppi ja voimakkuus</h3>
-        <p>Valitse <strong>Päänsärky</strong> tai <strong>Migreeni</strong> yläosan valitsimella. Aseta sitten voimakkuus asteikolla 1 (lievä) — 5 (lamauttava) liukusäätimellä.</p>
-
-        <h3 class="sub-heading" id="aika">Päivämäärä ja aika</h3>
-        <p>Kolme kenttää hallitsevat tapahtuman ajoitusta:</p>
-        <ul>
-          <li><strong>Päivämäärä</strong> — napauta avataksesi päivämäärävalitsimen. Oletuksena tämä päivä.</li>
-          <li><strong>Alkamisaika</strong> — milloin kohtaus alkoi. Napauta avataksesi 24-tunnin aikavalitsimen.</li>
-          <li><strong>Päättymisaika</strong> — milloin kohtaus päättyi. Oletuksena 2 tuntia alkamisajan jälkeen. Jos siirrät alkamisajan päättymisajan ohi, päättymisaika siirtyy automaattisesti pitäen 2 tunnin välin.</li>
-        </ul>
-
-        <h3 class="sub-heading" id="kipualue">Kipualue</h3>
-        <p><strong>3D-päämalli</strong> mahdollistaa kivun sijainnin merkitsemisen tarkasti. Se tukee kahta elettä:</p>
-        <ul>
-          <li><strong>Yksi sormi</strong> — maalaa kipualueet vetämällä pään pinnalla.</li>
-          <li><strong>Kaksi sormea</strong> — kierrä päätä päästäksesi takaosaan, sivuille tai kaulaan.</li>
-        </ul>
-
-        <p>Kahdeksan anatomista aluetta on tuettu:</p>
-        <div class="tag-group">
-          <span class="tag">Otsaosa</span>
-          <span class="tag">Silmän ympäri — vasen</span>
-          <span class="tag">Silmän ympäri — oikea</span>
-          <span class="tag">Ohimo — vasen</span>
-          <span class="tag">Ohimo — oikea</span>
-          <span class="tag">Takaraivo — vasen</span>
-          <span class="tag">Takaraivo — oikea</span>
-          <span class="tag">Niska</span>
-        </div>
-
-        <p>Ota käyttöön <strong>Värikoodaa voimakkuuden mukaan</strong> -valitsin sävyttääksesi maalatut alueet voimakkuuden värillä (vaaleampi punainen = lievä, tummanpunainen = vaikea). Oletuksena pois käytöstä.</p>
-
-        <div class="note">
-          <strong>Vinkki.</strong> Voit poistaa maalattuja alueita vetämällä niiden yli uudelleen — ele vaihtaa lisäämisen ja pyyhkimisen välillä.
-        </div>
-
-        <h3 class="sub-heading" id="laukaisijat">Mahdolliset syyt</h3>
-        <p>Kirjaa mahdolliset laukaisijat, jotka ovat saattaneet vaikuttaa tähän kohtaukseen. Ne on ryhmitelty seitsemään luokkaan:</p>
-
-        <table class="data-table">
-          <thead>
-            <tr><th>Luokka</th><th>Laukaisijat</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Stressi ja mieliala</strong></td>
-              <td>Stressi, Stressin vapautuminen, Ahdistus</td>
-            </tr>
-            <tr>
-              <td><strong>Uni</strong></td>
-              <td>Liian vähän unta, Liian paljon unta, Epäsäännöllinen uni</td>
-            </tr>
-            <tr>
-              <td><strong>Ruoka ja juoma</strong></td>
-              <td>Aterian väliin jättäminen, Pitkä paasto, Nestehukka, Alkoholi, Kofeiini, Kofeiinin vieroitus, Suklaa, Kypsytetty juusto, Elintarvikelisäaineet, Prosessoitu liha</td>
-            </tr>
-            <tr>
-              <td><strong>Hormonaaliset</strong></td>
-              <td>Kuukautiset, Ovulaatio, Hormonaalinen ehkäisy</td>
-            </tr>
-            <tr>
-              <td><strong>Ympäristö</strong></td>
-              <td>Säämuutos, Äärilämpötila, Kosteus</td>
-            </tr>
-            <tr>
-              <td><strong>Aistit</strong></td>
-              <td>Kirkas valo, Voimakas haju, Kova ääni, Näytön välkkyminen</td>
-            </tr>
-            <tr>
-              <td><strong>Fyysinen</strong></td>
-              <td>Raskas liikunta, Niskan jännitys, Matkailu, Lääkkeiden liiallinen käyttö</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3 class="sub-heading" id="aura-laake">Aura ja kohtauslääke</h3>
-        <ul>
-          <li><strong>Aura</strong> — valitse, jos tätä kohtausta edelsi aura (näköhäiriöt, pistely, puhehäiriöt jne.).</li>
-          <li><strong>Kohtauslääke</strong> — valitse, jos otit akuuttia lääkitystä tämän kohtauksen aikana (esim. triptaani, tulehduskipulääke tai parasetamoli).</li>
-        </ul>
-
-        <h3 class="sub-heading" id="muistiinpanot">Muistiinpanot</h3>
-        <p>Vapaamuotoiseen muistiinpanokenttään voit kirjata kaiken, mitä rakenteelliset kentät eivät kata — asiayhteyden, havaintoja, mikä auttoi tai muita yksityiskohtia.</p>
-
-        <p>Napauta <strong>Tallenna</strong> kun olet valmis. Tapahtuma ilmestyy Kalenteriin välittömästi.</p>
-      </section>
-
-      <!-- ─ Muokkaus ja poisto ─ -->
-      <section class="doc-section" id="muokkaus">
-        <h2 class="section-heading">Muokkaus ja poisto</h2>
-
-        <h3 class="sub-heading">Tapahtuman muokkaaminen</h3>
-        <ol class="steps">
-          <li>Siirry haluamaasi päivämäärään Kalenterissa.</li>
-          <li>Napauta muokattavan tapahtuman korttia.</li>
-          <li>Tapahtumalomake avautuu muokkaustilassa — kaikki kentät ovat muokattavissa.</li>
-          <li>Tee muutoksesi ja napauta <strong>Päivitä</strong> tallentaaksesi.</li>
-        </ol>
-
-        <h3 class="sub-heading">Tapahtuman poistaminen</h3>
-        <ol class="steps">
-          <li>Avaa tapahtuma muokkaustilassa (napauta sen korttia Kalenterissa).</li>
-          <li>Vieritä alas ja napauta <strong>Poista kirjaus</strong>.</li>
-          <li>Vahvistusvalintaikkuna tulee näkyviin. Napauta <strong>Poista</strong> poistaaksesi tapahtuman pysyvästi.</li>
-        </ol>
-
-        <div class="warning">
-          <strong>Pysyvä toiminto.</strong> Poistoa ei voi peruuttaa. Tapahtuma poistetaan välittömästi laitteen salatusta tietokannasta.
-        </div>
-      </section>
-
-      <!-- ─ Analyysi ─ -->
-      <section class="doc-section" id="analyysi">
-        <h2 class="section-heading">Analyysi</h2>
-        <p>Analyysi-näytöllä on kaksi välilehteä yläosassa: <strong>Tilastot</strong> ja <strong>Korrelaatiot</strong>. Tilastot ovat käytettävissä kaikille käyttäjille. Korrelaatiot on premium-ominaisuus, joka vaatii myös Health Connect -yhteyden.</p>
-
-        <div class="card-grid">
-          <div class="info-card">
-            <div class="card-title">Tilastot</div>
-            <div class="card-body">Päänsärkyjen esiintymistiheys- ja vakavuuskuvaajat valitulle ajanjaksolle. Käytettävissä kaikille käyttäjille.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Korrelaatiot</div>
-            <div class="card-body">Tunnistaa kaavoja Health Connect -datassasi, jotka saattavat edeltää päänsärkykohtauksia. Vaatii premiumin ja Health Connectin.</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─ Tilastot ─ -->
-      <section class="doc-section" id="tilastot">
-        <h2 class="section-heading">Tilastot</h2>
-        <p>Tilastot-välilehti antaa yleiskatsauksen päänsärkyjen esiintymistiheydestä ja voimakkuudesta valitun ajanjakson ajalta.</p>
-
-        <h3 class="sub-heading">Aikajakson valinta</h3>
-        <p>Valitse viidestä aikajaksosta:</p>
-        <div class="tag-group">
-          <span class="tag accent">7 päivää</span>
-          <span class="tag">30 päivää</span>
-          <span class="tag">90 päivää</span>
-          <span class="tag">1 vuosi</span>
-          <span class="tag">Kaikki</span>
-        </div>
-
-        <h3 class="sub-heading">Yhteenvetokortti</h3>
-        <p>Pääkortti näyttää seuraavat mittarit valitulle jaksolle. Trendi-nuolet (↑ / ↓) vertaavat lukuja edelliseen vastaavaan jaksoon:</p>
-        <div class="card-grid">
-          <div class="info-card">
-            <div class="card-title">Tapahtumat yhteensä</div>
-            <div class="card-body">Kaikkien päänsärky- ja migreenitapahtumien lukumäärä jaksolla.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Keskimääräinen voimakkuus</div>
-            <div class="card-body">Kaikkien jakson tapahtumien voimakkuuden (1–5) keskiarvo.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Tapahtumat auralla</div>
-            <div class="card-body">Kuinka moneen kohtaukseen liittyi aura.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Tapahtumat kohtauslääkkeellä</div>
-            <div class="card-body">Kuinka moni kohtaus vaati akuuttia lääkitystä.</div>
-          </div>
-        </div>
-
-        <h3 class="sub-heading">Kaaviot</h3>
-        <ul>
-          <li><strong>Trendikuvaaja</strong> — tapahtumien lukumäärä per aikajakso (päivittäinen 7/30/90 päivän jaksoilla, viikoittainen 1 vuoden jaksolla, kuukausittainen kaikki-jaksolla).</li>
-          <li><strong>Viikonpäivälämpökartta</strong> — näyttää, mihin viikonpäiviin päänsärkysi osuvat useimmin.</li>
-        </ul>
-
-        <h3 class="sub-heading">Tapahtumatyypit ja laukaisijat</h3>
-        <p>Pinottu pylväskaavio näyttää jakauman tapahtumatyypeittäin (Päänsärky / Voimakas päänsärky / Migreeni / Voimakas migreeni) luvuilla ja prosenteilla. Sen alla vaakasuora pylväskaavio listaa yleisimmät laukaisijasi valitulle jaksolle.</p>
-      </section>
-
-      <!-- ─ Korrelaatiot ─ -->
-      <section class="doc-section" id="korrelaatiot">
-        <h2 class="section-heading">Korrelaatiot</h2>
-        <p>Korrelaatiot-välilehti analysoi Health Connect -dataasi ja etsii yhdeksää näyttöön perustuvaa kaavaa, jotka yleisesti edeltävät päänsärky- ja migreenikohtauksia. Se tarkastelee viimeisiä 90 päivää.</p>
-
-        <div class="note">
-          <strong>Premium-ominaisuus.</strong> Korrelaatiot-välilehti vaatii Heda Premiumin. Se vaatii myös Health Connect -oikeudet uni-, syke-, HRV-, askel- ja liikuntadataa varten. Katso asennusohjeet <a href="#health-connect">Health Connect</a> -osiosta.
-        </div>
-
-        <h3 class="sub-heading">Perusarvosi</h3>
-        <p>Yläosan perusarvokortti näyttää 14 päivän mediaaniarvosi kullekin terveysmittarille. "—" näytetään mittareille, joista ei ole riittävästi dataa.</p>
-        <ul>
-          <li><strong>Uni</strong> — mediaaninen yöunen kokonaiskesto</li>
-          <li><strong>HRV</strong> — mediaaninen sykevälivaihtelu (ms)</li>
-          <li><strong>Leposyke</strong> — mediaaninen leposyke (lyöntiä/min)</li>
-          <li><strong>Askeleet</strong> — mediaaninen päivittäinen askelmäärä</li>
-          <li><strong>Liikunta</strong> — mediaaniset päivittäiset aktiivisuusminuutit</li>
-          <li><strong>Syvä uni</strong> — mediaaninen yöllinen syvän unen kesto</li>
-          <li><strong>REM-uni</strong> — mediaaninen yöllinen REM-unen kesto</li>
-          <li><strong>Valvominen unen aikana</strong> — mediaaninen valveaika unijaksossa</li>
-        </ul>
-
-        <h3 class="sub-heading">Havaitut kaavat</h3>
-        <p>Heda tarkistaa yhdeksän näyttöön perustuvaa kaavaa jokaisen päänsärkykohtauksen kohdalla. Jokainen havainto näyttää mitatun arvon ja ylitetyn kynnyksen — esimerkiksi: <em>"Nukuit 5 t 30 min ennen tätä kohtausta (kynnys: 7 t)"</em>.</p>
-
-        <ul class="feature-list">
-          <li><strong>Lyhyt uni</strong> — yöunen kokonaiskesto edellisenä yönä alle 7 tuntia (muokattavissa kohdassa Asetukset → Edistynyt).</li>
-          <li><strong>Epäsäännöllinen unirytmi</strong> — uniajat vaihtelivat yli 120 minuuttia (keskihajonta) edeltävien 7 päivän aikana.</li>
-          <li><strong>Vähäinen askelmäärä</strong> — alle 3 000 askelta kohtausta edeltävänä päivänä (muokattavissa).</li>
-          <li><strong>HRV-lasku</strong> — HRV laski alle 30 ms tai alle 80 % 14 päivän henkilökohtaisesta perustasostasi.</li>
-          <li><strong>Kohonnut leposyke</strong> — leposyke oli kohtausta edeltävänä päivänä 14 päivän mediaanisi yläpuolella.</li>
-          <li><strong>Liikunnan piikki</strong> — aktiivisuusminuutit olivat epätavallisen korkeat verrattuna 14 päivän mediaaniisi kohtausta edeltävänä päivänä.</li>
-          <li><strong>Vähäinen syvä uni</strong> — syvä uni oli selvästi alle 14 päivän mediaanisi edellisenä yönä.</li>
-          <li><strong>Vähäinen REM-uni</strong> — REM-uni oli selvästi alle 14 päivän mediaanisi edellisenä yönä.</li>
-          <li><strong>Katkonainen uni</strong> — valveaika unijaksossa oli epätavallisen korkea suhteessa unen kokonaiskestoon ja perustasoon.</li>
-        </ul>
-
-        <h3 class="sub-heading">Suositukset</h3>
-        <p>Havaittujen kaavojen perusteella Heda tuottaa yksilöllisiä suosituksia prioriteetin mukaan (Korkea / Kohtalainen / Matala). Esimerkkejä: unen keston tai säännöllisyyden parantaminen, päivittäisen aktiivisuuden lisääminen tai stressin ja palautumisen hallinta.</p>
-
-        <div class="warning">
-          <strong>Ei lääketieteellistä neuvontaa.</strong> Havaitut kaavat ovat korrelaatioita, eivät diagnooseja. Konsultoi aina terveydenhuollon ammattilaista päänsärkyihisi liittyvissä lääketieteellisissä kysymyksissä.
-        </div>
-      </section>
-
-      <!-- ─ Raportit ─ -->
-      <section class="doc-section" id="raportit">
-        <h2 class="section-heading">Raportit</h2>
-        <p>Raportit-välilehti mahdollistaa jäsenneltyjen yhteenvetojen tarkastelun ja tietojen viemisen jaettavaksi terveydenhuollon ammattilaisen kanssa.</p>
-
-        <h3 class="sub-heading">Kuukausiraportti</h3>
-        <p>Kuukausiraportti näyttää kalenterinäkymän jokaiselle valitulle kuukaudelle, jossa jokainen päivä on värikoodattu tilan mukaan:</p>
-        <ul>
-          <li><strong>Ei tapahtumia</strong> — kohtausta ei kirjattu</li>
-          <li><strong>Päänsärky</strong> — vähintään yksi päänsärkykirjaus</li>
-          <li><strong>Migreeni</strong> — vähintään yksi migreenitapahtuma</li>
-        </ul>
-        <p>Piirakkakaavio näyttää päivien osuuden kussakin luokassa. Valitse yksi tai useampi kuukausi kuukausisiruilla. Napauta <strong>Valitse kaikki</strong> tai <strong>Tyhjennä</strong> valitaksesi tai poistaaksesi kaikkien kuukausien valinnan nopeasti.</p>
-
-        <h3 class="sub-heading">Päiväraportti</h3>
-        <p>Päiväraportti keskittyy yksittäisiin tapahtumiin valitulla ajanjaksolla. Valitse seuraavista:</p>
-        <div class="tag-group">
-          <span class="tag">7 päivää</span>
-          <span class="tag accent">30 päivää</span>
-          <span class="tag">90 päivää</span>
-          <span class="tag">Kaikki</span>
-        </div>
-        <p>Ylärivi näyttää tapahtumien kokonaismäärän, keskimääräisen voimakkuuden ja aikavälin. Sen alla jokainen tapahtuma on listattu tyypillä, ajalla ja voimakkuudella.</p>
-
-        <h3 class="sub-heading">Tietojen vieminen</h3>
-        <p>Käytä vientipainikkeita tallentaaksesi tietosi:</p>
-        <ul>
-          <li><strong>Vie CSV-tiedostona</strong> — tallentaa pilkuilla erotetun tiedoston kaikista nykyisen jakson tapahtumista. Sarakkeet: Päivämäärä, Aika, Tyyppi, Voimakkuus, Aura, Kohtauslääke, Laukaisijat, Muistiinpanot. Androidin järjestelmätiedostonvalitsin antaa sinun valita tallennuspaikan.</li>
-          <li><strong>Vie PDF-tiedostona</strong> — luo muotoillun PDF-asiakirjan yhteenvedolla ja tapahtumataulukolla, sopii tulostettavaksi tai lääkärille lähetettäväksi.</li>
-          <li><strong>Vie Health Connect -data CSV-tiedostona</strong> — voit halutessasi viedä välimuistissa olevat uni-, syke-, HRV-, askel- ja liikuntadatan päänsärkykirjausten rinnalla.</li>
-        </ul>
-
-        <div class="note">
-          <strong>Tiedoston sijainti.</strong> Heda käyttää Androidin Storage Access Frameworkia, joten sinä valitset, minne viety tiedosto tallennetaan. Tiedostoja ei ladata palvelimille.
-        </div>
-      </section>
-
-      <!-- ─ Asetukset ─ -->
-      <section class="doc-section" id="asetukset">
-        <h2 class="section-heading">Asetukset</h2>
-        <p>Avaa Asetukset alanavigaatiopalkista. Muutokset astuvat voimaan välittömästi.</p>
-
-        <h3 class="sub-heading">Teema</h3>
-        <p>Valitse kolmesta vaihtoehdosta:</p>
-        <ul>
-          <li><strong>Vaalea</strong> — lämmin paperinsävyinen vaalea tila.</li>
-          <li><strong>Tumma</strong> — syvä metsän tumma tila (oletus).</li>
-          <li><strong>Järjestelmä</strong> — seuraa automaattisesti laitteesi tumma/vaalea-asetusta.</li>
-        </ul>
-
-        <h3 class="sub-heading">Kieli</h3>
-        <p>Valitse yli 30 kielestä alueittain ryhmiteltyinä (Pohjoismaat, Germaaniset, Romaaniset, Slaavilaiset, Balttiset ja Muut). Valittu kieli koskee kaikkia sovelluksen tekstejä. Valitse <strong>Järjestelmä</strong> seurataksesi laitteesi kieliasetusta.</p>
-
-        <h3 class="sub-heading">Health Connect</h3>
-        <p>Linkki Health Connect -asetukset-näyttöön, jossa voit myöntää tai peruuttaa oikeudet uni-, syke-, HRV-, askel- ja liikuntadataan. Katso tiedot <a href="#health-connect">Health Connect</a> -osiosta.</p>
-
-        <h3 class="sub-heading">Tietosuoja ja tiedot</h3>
-        <p>Avaa Tietosuoja ja tiedot -näytön, jossa voit hallita tiliäsi, tarkastella tallennettuja tietoja, käyttää GDPR-oikeuksiasi ja poistaa tietosi. Katso tiedot <a href="#tietosuoja">Tietosuoja ja tiedot</a> -osiosta.</p>
-
-        <h3 class="sub-heading">Automaattinen Health Connect -synkronointi</h3>
-        <p>Kun käytössä, Heda hakee uusimmat Health Connect -tiedot kerran päivässä taustalla, vaikka sovellus olisi suljettu. <strong>Oletuksena pois</strong>. Käyttöönotto vaatii Health Connect -oikeudet.</p>
-
-        <h3 class="sub-heading">Päivittäiset terveyssuositukset</h3>
-        <p>Kun käytössä, Heda lähettää päivittäisen ilmoituksen, jos korkean prioriteetin korrelaatio havaitaan. Ilmoituksen napauttaminen avaa Analyysi-näytön. <strong>Oletuksena pois</strong> ja vaatii laitteen ilmoitusoikeuden.</p>
-
-        <h3 class="sub-heading">Edistynyt</h3>
-        <p>Laajenna Edistynyt-osio hienosäätääksesi korrelaatiomoottorissa käytettyjä kynnysarvoja. Oletusarvot vastaavat vakiintuneita kliinisiä ohjeistuksia migreenin ennaltaehkäisyyn:</p>
-
-        <table class="data-table">
-          <thead>
-            <tr><th>Asetus</th><th>Oletus</th><th>Kuvaus</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>Unen minimimäärä</strong></td><td>7 t 0 min</td><td>Tämän keston alle jäävä uni merkitään mahdolliseksi laukaisijaksi.</td></tr>
-            <tr><td><strong>Uniajan suurin vaihtelevuus</strong></td><td>60 min</td><td>Uniajan keskihajonta tämän arvon yli laukaisee epäsäännöllinen-uni-kaavan.</td></tr>
-            <tr><td><strong>Askeleiden minimimäärä</strong></td><td>3 000</td><td>Tämän alle jäävä askelmäärä merkitään alhaiseksi aktiivisuudeksi.</td></tr>
-            <tr><td><strong>HRV-minimi</strong></td><td>30 ms</td><td>HRV tämän absoluuttisen kynnyksen alapuolella merkitään.</td></tr>
-            <tr><td><strong>HRV-perustasokerroin</strong></td><td>0,80</td><td>HRV tämän osuuden alle 14 päivän perustasostasi merkitään myös.</td></tr>
-          </tbody>
-        </table>
-
-        <p>Napauta <strong>Palauta oletusarvot</strong> palauttaaksesi kaikki kynnysarvot alkuperäisiin arvoihinsa.</p>
-      </section>
-
-      <!-- ─ Tietosuoja ja tiedot ─ -->
-      <section class="doc-section" id="tietosuoja">
-        <h2 class="section-heading">Tietosuoja ja tiedot</h2>
-        <p>Avaa <strong>Asetukset → Tietosuoja ja tiedot</strong> hallitaksesi kaikkia tietoja ja tiliasetuksia.</p>
-
-        <h3 class="sub-heading">Tilisi</h3>
-        <p>Näytön yläosassa näkyy tällä hetkellä kirjautunut Google-tili. Napauta <strong>Kirjaudu ulos</strong> poistuaksesi sovelluksesta. Tietosi säilyvät laitteella; voit kirjautua takaisin sisään koska tahansa.</p>
-
-        <h3 class="sub-heading">Mitä tietoja tallennetaan</h3>
-        <p>Kaikki tiedot tallennetaan paikallisesti laitteellesi kahteen salattuun tietokantaan:</p>
-
-        <table class="data-table">
-          <thead>
-            <tr><th>Tietotyyppi</th><th>Sisältö</th><th>Salaus</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Päänsärkykirjaukset</strong></td>
-              <td>Aikaleimat, kipualueet, voimakkuus, aura, kohtauslääke, laukaisijat, muistiinpanot</td>
-              <td>AES-256 (SQLCipher)</td>
-            </tr>
-            <tr>
-              <td><strong>Health Connect -välimuisti</strong></td>
-              <td>Uni, univaiheet, HRV, syke, askelmäärä ja liikunta</td>
-              <td>AES-256 (SQLCipher)</td>
-            </tr>
-            <tr>
-              <td><strong>Kirjautumistunniste</strong></td>
-              <td>Supabase-käyttäjätunnus, sähköposti, kirjautumisaikaleima, tilin sidontatieto</td>
-              <td>AES-256-GCM (Tink)</td>
-            </tr>
-            <tr>
-              <td><strong>Sovelluksen asetukset</strong></td>
-              <td>Teema ja kielivalinta — ei terveystietoja</td>
-              <td>Salaamaton</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p>Salausavaimet tallennetaan Android Keystoreen, laitteistotasolla suojattuina tarvittaessa, eivätkä ne koskaan poistu laitteelta.</p>
-
-        <h3 class="sub-heading">Biometrinen lukitus</h3>
-        <p>Ota käyttöön biometrinen lukitus vaatiaksesi sormenjälkeä, kasvojentunnistusta tai PIN-koodia sovelluksen avaamiseen. Vaatii näytönlukituksen konfiguroinnin laitteen asetuksissa.</p>
-
-        <h3 class="sub-heading">Diagnostiikka</h3>
-        <p>Voit halutessasi jakaa nimettömiä kaatumisraportteja (GlitchTip). <strong>Mitään terveystietoja ei koskaan sisällytetä.</strong> Käyttötilastoja ei kerätä. Valintaa voi muuttaa milloin tahansa.</p>
-
-        <h3 class="sub-heading">GDPR-oikeutesi</h3>
-        <p>Heda noudattaa EU:n GDPR:n 9 artiklaa (erityiset henkilötietoryhmät). Oikeutesi:</p>
-
-        <ul>
-          <li><strong>Tiedonsaantioikeus (Art. 15)</strong> — kaikki tietosi näkyvät Kalenterissa ja Tilastoissa.</li>
-          <li><strong>Oikaisuoikeus (Art. 16)</strong> — muokkaa mitä tahansa tapahtumaa napauttamalla sitä Kalenterissa.</li>
-          <li><strong>Oikeus tietojen poistamiseen (Art. 17)</strong> — poista kaikki tiedot Vaaravyöhykkeen kautta (katso alla).</li>
-          <li><strong>Oikeus käsittelyn rajoittamiseen (Art. 18)</strong> — kirjaudu ulos lopettaaksesi käsittelyn.</li>
-          <li><strong>Tietojen siirrettävyys (Art. 20)</strong> — vie kaikki tapahtumat CSV-muodossa Raportit-näytöltä.</li>
-          <li><strong>Vastustamisoikeus (Art. 21)</strong> — kirjaudu ulos; käsittely lakkaa välittömästi.</li>
-        </ul>
-
-        <h3 class="sub-heading">Vaaravyöhyke</h3>
-        <div class="warning">
-          <strong>Nämä toiminnot ovat pysyviä eikä niitä voi peruuttaa.</strong>
-        </div>
-        <ul>
-          <li><strong>Poista paikalliset tiedot (säilytä tili)</strong> — poistaa pysyvästi kaikki päänsärkykirjaukset, terveystiedot, asetukset ja salausavaimet laitteeltasi. Google-tilin yhteys säilyy, joten voit kirjautua sisään uudelleen millä tahansa laitteella.</li>
-          <li><strong>Poista tili ja kaikki tiedot</strong> — poistaa pysyvästi kaiken yllä olevan lisäksi Supabase-tilisi. Tietojen palauttaminen ei ole mahdollista. Vaaditaan kaksivaiheinen vahvistus.</li>
-        </ul>
-      </section>
-
-      <!-- ─ Health Connect ─ -->
-      <section class="doc-section" id="health-connect">
-        <h2 class="section-heading">Health Connect</h2>
-        <p>Health Connect on Googlen yhtenäinen terveysdatan alusta Androidille. Heda lukee siitä viittä terveystietotyyppiä Analyysi-näytön Korrelaatiot-ominaisuutta varten:</p>
-
-        <div class="card-grid">
-          <div class="info-card">
-            <div class="card-title">Unijaksot</div>
-            <div class="card-body">Yöunen kesto ja univaiheet (REM, syvä, kevyt ja valveilla olo) puettavasta laitteesta tai unienseurantasovelluksesta.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Sykevälivaihtelu (HRV)</div>
-            <div class="card-body">Päivittäiset RMSSD-mittaukset, jotka kuvaavat palautumistilaa ja autonomisen hermoston tasapainoa.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Syke</div>
-            <div class="card-body">Jatkuvat sykedatanäytteet, joista lasketaan päivän keskisyke ja leposyke.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Askelmäärä</div>
-            <div class="card-body">Päivittäinen askelmäärä puhelimesta tai puettavasta laitteesta.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Liikuntajaksot</div>
-            <div class="card-body">Liikuntajaksojen kestot, joita käytetään päivittäisen aktiivisuustason laskemiseen.</div>
-          </div>
-        </div>
-
-        <div class="note">
-          <strong>Vain lukuoikeus.</strong> Heda ainoastaan lukee Health Connect -dataa — se ei koskaan kirjoita sinne. Vain korrelaatioanalyysin vaatimat tietuetyypit pyydetään.
-        </div>
-
-        <h3 class="sub-heading">Health Connectin käyttöönotto</h3>
-        <ol class="steps">
-          <li>Siirry kohtaan <strong>Asetukset → Health Connect</strong> Hedassa.</li>
-          <li>Jos Health Connect -sovellusta ei ole asennettu, napauta <strong>Asenna Health Connect</strong> saadaksesi sen Google Playsta. (Android 9 ja uudemmat. Android 14+:ssa Health Connect on sisäänrakennettu.)</li>
-          <li>Napauta <strong>Yhdistä Health Connect</strong>.</li>
-          <li>Health Connect -oikeuksien näytöllä myönnä Hedalle pääsy <strong>Uneen</strong>, <strong>Sykevälivaihteluun</strong>, <strong>Sykkeeseen</strong>, <strong>Askeleisiin</strong> ja <strong>Liikuntaan</strong>.</li>
-          <li>Palaa Hedaan. Viimeaikaiset terveystietosi näytetään.</li>
-        </ol>
-
-        <h3 class="sub-heading">Taustasynkronointi</h3>
-        <p>Oletuksena terveystiedot haetaan vain, kun avaat Health Connect -näytön tai napautat <strong>Päivitä</strong>. Ota käyttöön <strong>Automaattinen Health Connect -synkronointi</strong> Asetuksissa hakemaan tiedot kerran päivässä taustalla.</p>
-
-        <h3 class="sub-heading">Oikeuksien peruuttaminen</h3>
-        <p>Voit peruuttaa Hedan Health Connect -oikeudet milloin tahansa Health Connect -sovelluksessa (<strong>Hallitse sovelluksia ja laitteita → Heda → Oikeudet</strong>) tai <strong>Asetukset → Health Connect</strong> -kohdassa Hedassa. Aiemmin välimuistissa olevat tiedot säilyvät laitteellasi, kunnes poistat ne kohdasta <strong>Tietosuoja ja tiedot → Poista paikalliset tiedot</strong>.</p>
-
-        <div class="note">
-          <strong>Tieto pysyy laitteella.</strong> Health Connect -data välimuistitetaan salattuun laitteen tietokantaan eikä sitä koskaan lähetetä palvelimille.
-        </div>
-      </section>
-
-      <hr class="section-sep" />
-      <p style="font-size:13px; color:var(--text-dim)">© 2026 EXSports Oy. Tätä dokumentaatiota päivitetään sovelluksen kehittyessä. Viimeksi päivitetty huhtikuu 2026.</p>
-
-    </main>
-  </div><!-- /.doc-layout -->
-
-  <footer class="site-footer">
-    &copy; 2026 EXSports Oy &nbsp;·&nbsp;
-    <a href="../index.html?pick=1">← Kaikki kielet</a> &nbsp;·&nbsp;
-    <a href="../../index.html">← Dokumentit</a> &nbsp;·&nbsp;
-    <a href="../../legal/privacy_policy.html">Tietosuojakäytäntö</a> &nbsp;·&nbsp;
-    <a href="mailto:info@exsports.fi">Ota yhteyttä</a>
-  </footer>
-
+  </div>
+</footer>
+
+<script>
+  document.body.classList.add('js');
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('is-stuck',window.scrollY>8);
+  onScroll(); addEventListener('scroll',onScroll,{passive:true});
+</script>
 </body>
 </html>

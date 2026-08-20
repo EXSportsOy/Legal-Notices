@@ -47,6 +47,7 @@
     <nav class="nav__links">
       <a href="/index.html" class="hide-sm">Home</a>
       <a href="/legal/imprint.html" class="hide-sm">Imprint</a>
+      <a href="/heda/user-guide/index.html?pick=1" class="hide-sm" aria-label="Language" title="Language">🌐</a>
       <a href="mailto:info@exsports.fi" class="cta">Contact</a>
     </nav>
   </div>
@@ -57,7 +58,7 @@
     <a class="backlink" href="/heda/index.html"><span>←</span> Heda</a>
     <p class="eyebrow">Heda · Guide</p>
     <h1>How to use Heda</h1>
-    <div class="meta"><span>UK English</span><span>Last revised <b>April 2026</b></span></div>
+    <div class="meta"><span>UK English</span><span>Last revised <b>August 2026</b></span></div>
     <p class="lead" style="margin-top:20px;">A quiet diary for headache and migraine. Log your attacks, symptoms and notes — all stored privately on your device.</p>
   </div>
 </section>
@@ -85,9 +86,9 @@
   <p>The app has four main areas, accessible from the bottom navigation bar:</p>
   <div class="areas">
     <div class="area"><h4>Calendar</h4><p>Browse and manage your headache events by date. Add new events from here.</p></div>
-    <div class="area"><h4>Analysis</h4><p>Statistics and trend charts for all users. Correlations (premium) detects patterns between your Health Connect data and headache events.</p></div>
+    <div class="area"><h4>Analysis</h4><p>Statistics and trend charts for all users. Correlations and Health (premium) detect patterns and hold your health data.</p></div>
     <div class="area"><h4>Reports</h4><p>Monthly and daily summaries with charts. Export your data as CSV or PDF.</p></div>
-    <div class="area"><h4>Settings</h4><p>Theme, language, Health Connect, notifications, privacy, and advanced options.</p></div>
+    <div class="area"><h4>Settings</h4><p>Premium status, sync and notifications, security, backup, theme, language, privacy, and advanced options.</p></div>
   </div>
 
   <h2 id="getting-started">Getting started</h2>
@@ -192,7 +193,7 @@
   <div class="callout"><p><strong>Permanent action.</strong> Deletion cannot be undone. The event is removed immediately from the encrypted database on your device.</p></div>
 
   <h2 id="analysis">Analysis</h2>
-  <p>The Analysis screen has two tabs at the top: <strong>Statistics</strong> and <strong>Correlations</strong>. Statistics is available to all users. Correlations is a premium feature that also requires a Health Connect connection.</p>
+  <p>The Analysis screen has three tabs at the top: <strong>Statistics</strong>, <strong>Correlations</strong>, and <strong>Health</strong>. Statistics is available to all users. Correlations and Health require Heda Premium.</p>
 
   <h3 id="statistics">Statistics</h3>
   <p>The Statistics tab gives you an overview of your headache frequency and severity across a selected time period.</p>
@@ -212,8 +213,8 @@
   <p><strong>Type breakdown &amp; triggers.</strong> A stacked bar shows the split between event types (Headache / Severe Headache / Migraine / Severe Migraine) with counts and percentages. Below it, a horizontal bar chart lists your most frequent triggers for the selected period.</p>
 
   <h3 id="correlations">Correlations</h3>
-  <p>The Correlations tab analyses your Health Connect data and looks for nine evidence-based patterns that commonly precede headache and migraine attacks. It looks back over the last 90 days.</p>
-  <div class="callout"><p><strong>Premium feature.</strong> The Correlations tab requires Heda Premium. It also requires Health Connect permissions for sleep, heart rate, HRV, steps, and exercise data. See the <a href="#health-connect">Health Connect</a> section for setup steps.</p></div>
+  <p>The Correlations tab analyses your health data — read from Health Connect, entered by hand, or imported from a file — and looks for nine evidence-based patterns that commonly precede headache and migraine attacks. It looks back over the last 90 days.</p>
+  <div class="callout"><p><strong>Premium feature.</strong> The Correlations tab requires Heda Premium. It draws on the same sleep, heart rate, HRV, steps, and exercise data shown on the <a href="#health-tab">Health</a> tab, however that data got there.</p></div>
   <p><strong>Your baseline.</strong> A baseline card at the top shows your 14-day median values for each health metric. A "—" is shown for any metric without sufficient data.</p>
   <ul>
     <li><strong>Sleep</strong> — median nightly total sleep duration</li>
@@ -240,6 +241,17 @@
   <p><strong>Recommendations.</strong> Based on the detected patterns, Heda generates personalised recommendations ranked by priority (High / Medium / Low). Examples include improving sleep duration or regularity, increasing daily activity, or managing stress and recovery.</p>
   <div class="callout"><p><strong>Not medical advice.</strong> Detected patterns are correlations, not diagnoses. Always consult a healthcare professional for medical guidance about your headaches.</p></div>
 
+  <h3 id="health-tab">Health</h3>
+  <div class="callout"><p><strong>Premium feature.</strong> The Health tab requires Heda Premium. Until Premium is active the tab shows an <strong>Unlock Health Connect</strong> screen instead — Heda requests no Health Connect permissions and reads no health data before that.</p></div>
+  <p>The Health tab is where your sleep, heart rate variability (HRV), resting heart rate, step count and exercise data live — the same five metrics Correlations analyses. Data can reach it in three ways:</p>
+  <ul>
+    <li><strong>Health Connect</strong> — read automatically from a connected wearable or another app that writes to Health Connect. Each sync fetches the last 30 days, and days you have already synced stay on your device, so your history keeps growing. Tap <strong>Refresh</strong> to sync on demand. See <a href="#health-connect">Health Connect</a> for setup.</li>
+    <li><strong>Manual values</strong> — under <em>Manual values</em>, tap <strong>Add value for a day</strong> to enter resting heart rate, HRV, sleep duration, steps or exercise by hand for any date. A source label (for example "Polar Flow → Nightly Recharge") records where the numbers came from. A value outside the usual range is flagged with a warning but can still be saved, and any manual value can be edited or deleted later.</li>
+    <li><strong>Import from a file</strong> — tap <strong>Import from a file</strong> to read a CSV exported from another device or app. You choose the file, match its columns to the date and value fields, and check a preview — rows read and skipped, new days, days that already have a value, and the full date range — before anything is saved. Where a day already has a value, you choose once whether to keep yours or replace it with the imported one.</li>
+  </ul>
+  <p>Values you enter or import carry a <strong>Manual</strong> badge, are stored exactly like Health Connect data — encrypted, on your device only — and are used by Correlations alongside anything read from Health Connect. Revoking Health Connect access does not touch them.</p>
+  <p>The rest of the tab shows your latest synced night with its sleep window, a 30-day sleep average, a sleep-duration trend, and a <strong>Daily health details</strong> list for individual days.</p>
+
   <h2 id="reports">Reports</h2>
   <p>The Reports tab lets you view structured summaries of your data and export it for sharing with a healthcare professional.</p>
   <h3>Monthly report</h3>
@@ -255,29 +267,22 @@
   <h3>Exporting data</h3>
   <ul>
     <li><strong>Export as CSV</strong> — saves a comma-separated file with all events in the current period. Columns: Date, Time, Type, Intensity, Aura, Rescue medication, Triggers, Notes. The Android system file picker lets you choose the save location.</li>
-    <li><strong>Export as PDF</strong> — generates a formatted PDF document with the summary and event table, suitable for printing or sending to a doctor.</li>
-    <li><strong>Export Health Connect data as CSV</strong> — optionally export the cached sleep, heart rate, HRV, step count, and exercise data alongside your headache events.</li>
+    <li><strong>Export as PDF</strong> — generates a formatted PDF document with the summary and event table, suitable for printing or sending to a doctor. <strong>Requires Premium</strong>; without it, tapping the button opens the purchase dialog.</li>
+    <li><strong>Export health data as CSV</strong> — optionally export your health data alongside your headache events. This file has four columns — date, sleep in hours, HRV in milliseconds, and steps — and covers the days synced from Health Connect.</li>
   </ul>
   <div class="callout"><p><strong>File location.</strong> Heda uses the Android Storage Access Framework, so you choose where the exported file is saved. No files are uploaded to any server.</p></div>
 
   <h2 id="settings">Settings</h2>
-  <p>Access Settings from the bottom navigation bar. Changes take effect immediately.</p>
-  <h3>Theme</h3>
-  <ul>
-    <li><strong>Light</strong> — warm paper-toned light mode.</li>
-    <li><strong>Dark</strong> — deep forest dark mode (default).</li>
-    <li><strong>System</strong> — follows your device's dark/light mode setting automatically.</li>
-  </ul>
-  <h3>Language</h3>
-  <p>Choose from 30+ languages grouped by region (Nordic, Germanic, Romance, Slavic, Baltic, and Other). The selected language applies to all text in the app. Choose <strong>System</strong> to follow your device's language setting.</p>
-  <h3>Health Connect</h3>
-  <p>Links to the Health Connect settings screen where you can grant or revoke permissions for sleep, heart rate, HRV, steps, and exercise data. See the <a href="#health-connect">Health Connect</a> section for details.</p>
-  <h3>Privacy &amp; Data</h3>
-  <p>Opens the Privacy &amp; Data screen where you can manage your account, review what data is stored, exercise your GDPR rights, and delete your data. See the <a href="#privacy">Privacy &amp; Data</a> section for details.</p>
-  <h3>Automatic Health Connect sync</h3>
-  <p>When enabled, Heda fetches your latest health data from Health Connect once per day in the background, even when the app is closed. This is <strong>off by default</strong>. Enabling it requires Health Connect permissions to be granted.</p>
-  <h3>Daily health recommendations</h3>
-  <p>When enabled, Heda sends a daily notification if a high-priority correlation is detected. Tapping the notification opens the Analysis screen. This is <strong>off by default</strong> and requires the device's notification permission.</p>
+  <p>Access Settings from the bottom navigation bar. Changes take effect immediately. The sections below are listed in the same order as they appear in the app.</p>
+
+  <h3>Premium status</h3>
+  <p>While Premium is inactive, a <strong>Premium status</strong> card sits at the top of Settings. <strong>Buy premium</strong> opens the purchase dialog; <strong>Refresh status</strong> re-checks an existing purchase, which is what you need after reinstalling or moving to a new phone. If a check failed, the card says why — no connection to Google Play or the verification server, a payment still pending, a purchase made with a different Google account, and so on. Once Premium is active the card disappears.</p>
+  <p>Premium is a <strong>one-time purchase, not a subscription</strong>. It unlocks the Correlations and Health tabs on the Analysis screen (including manual entry and file import of health data), automatic Health Connect sync, daily health recommendations, and PDF export on the Reports screen.</p>
+
+  <h3>Sync &amp; notifications</h3>
+  <p><strong>Automatic Health Connect sync.</strong> When enabled, Heda fetches your latest health data from Health Connect once per day in the background, even when the app is closed. This is <strong>off by default</strong> and <strong>requires Premium</strong> — tapping it without Premium opens the purchase dialog. It also requires Health Connect permissions to be granted.</p>
+  <p><strong>Daily health recommendations.</strong> When enabled, Heda sends a daily notification if a high-priority correlation is detected. Tapping the notification opens the Analysis screen on the Correlations tab. This is <strong>off by default</strong>, <strong>requires Premium</strong>, and requires the device's notification permission.</p>
+
   <h3>Advanced</h3>
   <p>Expand the Advanced section to fine-tune the thresholds used by the correlation engine. The defaults match established clinical guidelines for migraine prevention:</p>
   <table class="grid">
@@ -292,6 +297,37 @@
   </table>
   <p>Tap <strong>Reset to defaults</strong> to restore all thresholds to their original values.</p>
 
+  <h3>Security</h3>
+  <p>The Security section holds the <strong>Biometric lock</strong> switch — require a fingerprint, face unlock or PIN to open Heda. The switch stays unavailable until you have set up a screen lock in your device's own Settings.</p>
+
+  <h3>Backup</h3>
+  <p>The Backup section has a single <strong>Backup &amp; restore</strong> row, and it is free — no Premium needed. <strong>Create backup</strong> writes one encrypted file that you can store anywhere; you choose the password that locks it, and it must be at least 10 characters with an upper-case letter, a lower-case letter and a number, using unaccented characters only (ä, ö and å cannot be used). <strong>If you lose the password the file cannot be opened — there is no recovery.</strong></p>
+  <p><strong>Restore from backup</strong> merges the file into what is already on the phone rather than wiping it. If some records exist on both sides with different content, Heda asks once whether to keep what is on the phone or replace it with the backup, then reports how many entries and health days were added, replaced and skipped. App settings such as theme and language are not included in a backup — set those again on the new device.</p>
+
+  <h3>Appearance</h3>
+  <p><strong>Theme.</strong> Choose how the app looks:</p>
+  <ul>
+    <li><strong>Light</strong> — warm paper-toned light mode.</li>
+    <li><strong>Dark</strong> — deep forest dark mode (default).</li>
+    <li><strong>System</strong> — follows your device's dark/light mode setting automatically.</li>
+  </ul>
+  <p><strong>Language.</strong> Choose from 30+ languages grouped by region (Nordic, Germanic, Romance, Slavic, Baltic, and Other). The selected language applies to all text in the app. Choose <strong>System</strong> to follow your device's language setting.</p>
+
+  <h3>Diagnostics</h3>
+  <p><strong>Error reporting</strong> optionally shares anonymous crash reports (GlitchTip) so bugs can be fixed. <strong>No health data is ever included</strong>, and no usage analytics are collected. You can change this at any time; the app restarts the reporter when you do.</p>
+
+  <h3>Help &amp; Legal</h3>
+  <ul>
+    <li><strong>User Guide</strong> — opens this online guide.</li>
+    <li><strong>Disclaimer</strong> — the medical and liability disclaimer.</li>
+    <li><strong>Imprint</strong> — provider details for EXSports Oy.</li>
+    <li><strong>Privacy &amp; Data</strong> — opens the Privacy &amp; Data screen, where you manage your account, review what is stored, exercise your GDPR rights, and delete your data. See <a href="#privacy">Privacy &amp; Data</a>.</li>
+    <li><strong>Report a Bug</strong> — opens the bug report form.</li>
+  </ul>
+
+  <h3>About</h3>
+  <p>The foot of the screen shows the installed app version, and a collapsible <strong>Copyrights</strong> block crediting the app, its 3D model, and its typography.</p>
+
   <h2 id="privacy">Privacy &amp; Data</h2>
   <p>Open <strong>Settings → Privacy &amp; Data</strong> to manage all data and account settings.</p>
   <h3>Your account</h3>
@@ -302,16 +338,13 @@
     <thead><tr><th>Data type</th><th>Contents</th><th>Encryption</th></tr></thead>
     <tbody>
       <tr><td><strong>Headache events</strong></td><td>Timestamps, pain areas, intensity, aura, rescue medication, triggers, notes</td><td>AES-256 (SQLCipher)</td></tr>
-      <tr><td><strong>Health Connect cache</strong></td><td>Sleep, sleep stages, HRV, heart rate, steps, and exercise</td><td>AES-256 (SQLCipher)</td></tr>
+      <tr><td><strong>Health Connect cache</strong></td><td>Sleep, sleep stages, HRV, heart rate, steps, and exercise synced from Health Connect</td><td>AES-256 (SQLCipher)</td></tr>
+      <tr><td><strong>Manual health entries</strong></td><td>Resting heart rate, HRV, sleep duration, steps, and exercise you entered by hand or imported from a file</td><td>AES-256 (SQLCipher)</td></tr>
       <tr><td><strong>Authentication token</strong></td><td>Supabase user ID, email, sign-in timestamp, account binding</td><td>AES-256-GCM (Tink)</td></tr>
       <tr><td><strong>App settings</strong></td><td>Theme and language preference only — no health data</td><td>Unencrypted</td></tr>
     </tbody>
   </table>
   <p>Encryption keys are stored in the Android Keystore, hardware-backed where available, and never leave the device.</p>
-  <h3>Biometric lock</h3>
-  <p>Enable biometric lock to require a fingerprint, face unlock, or PIN to open the app. Requires a screen lock to be configured in device Settings.</p>
-  <h3>Diagnostics</h3>
-  <p>Optionally share anonymous crash reports (GlitchTip). <strong>No health data is ever included.</strong> No usage analytics are collected. This can be changed at any time.</p>
   <h3>Your GDPR rights</h3>
   <p>Heda complies with EU GDPR Article 9 (special categories of personal data). Your rights:</p>
   <ul>
@@ -319,7 +352,7 @@
     <li><strong>Right to rectification (Art. 16)</strong> — edit any event by tapping it in the Calendar.</li>
     <li><strong>Right to erasure (Art. 17)</strong> — delete all data via the Danger zone (see below).</li>
     <li><strong>Right to restriction (Art. 18)</strong> — sign out to stop all processing.</li>
-    <li><strong>Right to data portability (Art. 20)</strong> — export all events as CSV from the Reports screen.</li>
+    <li><strong>Right to data portability (Art. 20)</strong> — create an encrypted backup from <strong>Settings → Backup</strong>, or export all events as CSV from the Reports screen.</li>
     <li><strong>Right to object (Art. 21)</strong> — sign out; processing stops immediately.</li>
   </ul>
   <h3>Danger zone</h3>
@@ -330,7 +363,7 @@
   </ul>
 
   <h2 id="health-connect">Health Connect</h2>
-  <p>Health Connect is Google's unified health data platform for Android. Heda reads five types of health data from it to power the Correlations feature on the Analysis screen:</p>
+  <p>Health Connect is Google's unified health data platform for Android. Heda reads five types of health data from it to power the Correlations and Health tabs on the Analysis screen. If you have no connected device or app, you can enter the same five metrics by hand or import them from a file instead — see <a href="#health-tab">Health</a>.</p>
   <div class="metric-grid">
     <div class="metric"><b>Sleep sessions</b><span>Nightly sleep duration and sleep stages (REM, deep, light, and awake time) from your wearable or sleep-tracking app.</span></div>
     <div class="metric"><b>Heart rate variability (HRV)</b><span>Daily RMSSD measurements indicating recovery status and autonomic nervous system balance.</span></div>
@@ -341,20 +374,20 @@
   <div class="callout"><p><strong>Read-only.</strong> Heda only reads data from Health Connect — it never writes to it. Only the specific record types required for correlation analysis are requested.</p></div>
   <h3>Setting up Health Connect</h3>
   <ul>
-    <li>Go to <strong>Settings → Health Connect</strong> in Heda.</li>
+    <li>Open the <strong>Health</strong> tab on the Analysis screen in Heda. Without Premium the tab shows the <strong>Unlock Health Connect</strong> screen instead — Heda requests no Health Connect permissions until Premium is active.</li>
     <li>If the Health Connect app is not installed, tap <strong>Install Health Connect</strong> to get it from Google Play. (Android 9 and later. On Android 14+, Health Connect is built in.)</li>
     <li>Tap <strong>Connect Health Connect</strong>.</li>
     <li>In the Health Connect permission screen, grant Heda access to <strong>Sleep</strong>, <strong>Heart rate variability</strong>, <strong>Heart rate</strong>, <strong>Steps</strong>, and <strong>Exercise</strong>.</li>
-    <li>Return to Heda. Your recent health data will be displayed.</li>
+    <li>Return to Heda. The last 30 days are fetched and displayed. You can still add or correct individual days by hand — see <a href="#health-tab">Health</a>.</li>
   </ul>
   <h3>Background sync</h3>
-  <p>By default, health data is only fetched when you open the Health Connect screen or tap <strong>Refresh</strong>. Enable <strong>Automatic Health Connect sync</strong> in Settings to fetch data once per day in the background.</p>
+  <p>By default, health data is only fetched when you open the Health tab or tap <strong>Refresh</strong>. Enable <strong>Automatic Health Connect sync</strong> in Settings to fetch data once per day in the background.</p>
   <h3>Revoking access</h3>
-  <p>You can revoke Heda's Health Connect permissions at any time in the Health Connect app (<strong>Manage apps &amp; devices → Heda → Permissions</strong>) or in <strong>Settings → Health Connect</strong> inside Heda. Previously cached data remains on your device until you delete it via <strong>Privacy &amp; Data → Delete local data</strong>.</p>
+  <p>You can revoke Heda's Health Connect permissions at any time in the Health Connect app (<strong>Manage apps &amp; devices → Heda → Permissions</strong>) or from the <strong>Health</strong> tab inside Heda. Previously cached data remains on your device until you delete it via <strong>Privacy &amp; Data → Delete local data</strong>. Values you entered by hand or imported from a file are not affected by revoking Health Connect access.</p>
   <div class="callout"><p><strong>Data stays on device.</strong> Health Connect data is cached in the encrypted on-device database and is never sent to any server.</p></div>
 
   <hr>
-  <p class="muted" style="font-size:0.9rem;">© 2026 EXSports Oy. This documentation is updated as the app evolves. Last revised April 2026.</p>
+  <p class="muted" style="font-size:0.9rem;">© 2026 EXSports Oy. This documentation is updated as the app evolves. Last revised August 2026.</p>
 
   <div class="doc-cta">
     <h3>Questions about Heda?</h3>

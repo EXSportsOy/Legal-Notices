@@ -1,631 +1,419 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gebruikershandleiding – Heda</title>
-  <link rel="stylesheet" href="../shared.css" />
+<meta charset="utf-8" />
+<title>Gebruikershandleiding — Heda · EXSports Oy</title>
+<meta name="description" content="Zo gebruik je Heda — een rustig dagboek voor hoofdpijn en migraine voor Android. Van EXSports Oy." />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0E1310" />
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/favicon-64.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16.png" />
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/legal.css" />
+<style>
+  body.theme-heda{ --signature:#C9DDA6; }
+  .toc{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:24px 26px; margin: 4px 0 36px; }
+  .toc .toc-label{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--signature); margin:0 0 14px; }
+  .toc ol{ list-style:none; margin:0; padding:0; columns:2; column-gap:36px; }
+  @media (max-width:560px){ .toc ol{ columns:1; } }
+  .toc li{ margin:0 0 9px; padding:0; }
+  .toc li::before{ display:none; }
+  .toc a{ color:var(--sub); text-decoration:none; font-size:0.95rem; border:none; }
+  .toc a:hover{ color:var(--ink); }
+  .toc .counter{ font-family:var(--mono); font-size:0.74rem; color:var(--signature); margin-right:9px; }
+  .areas{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin: 4px 0 8px; }
+  @media (max-width:560px){ .areas{ grid-template-columns:1fr; } }
+  .area{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:20px 22px; }
+  .area h4{ margin:0 0 6px; font-size:1.02rem; font-weight:500; color:var(--ink); }
+  .area p{ margin:0; font-size:0.92rem; }
+  .metric-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin: 6px 0 18px; }
+  @media (max-width:560px){ .metric-grid{ grid-template-columns:1fr; } }
+  .metric{ border:1px solid var(--line); border-radius:var(--r-sm); padding:16px 18px; }
+  .metric b{ color:var(--ink); font-weight:500; display:block; margin-bottom:4px; }
+  .metric span{ color:var(--sub); font-size:0.9rem; }
+  .prose h2[id], .prose h3[id]{ scroll-margin-top: 90px; }
+</style>
 </head>
-<body>
+<body class="theme-sage theme-heda">
 
-  <!-- ── Site header ── -->
-  <header class="site-header">
-    <div class="site-header-inner">
-      <a class="brand-lockup" href="../../index.html">
-        <svg width="26" height="26" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <circle cx="32" cy="32" r="29" stroke="currentColor" stroke-width="1" opacity="0.18" fill="none"/>
-          <circle cx="32" cy="32" r="23" stroke="currentColor" stroke-width="1" opacity="0.30" fill="none"/>
-          <circle cx="32" cy="32" r="17.5" stroke="currentColor" stroke-width="1" opacity="0.50" fill="none"/>
-          <ellipse cx="32" cy="30" rx="9" ry="11" fill="currentColor"/>
-          <path d="M27 41 Q32 44 37 41 L39 47 Q32 49 25 47 Z" fill="currentColor"/>
-        </svg>
-        <div class="header-meta">
-          <span class="wordmark">heda</span>
-          <span class="header-subtitle">Gebruikershandleiding</span>
-        </div>
-      </a>
-      <nav class="header-nav">
-        <a href="../../index.html">← Documenten</a>
-        <a href="../index.html?pick=1">← Alle talen</a>
-      </nav>
-      <a class="lang-btn" href="../index.html?pick=1">🌐</a>
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="/index.html"><img src="/assets/brand/wordmark-ink.png" alt="exs" /><span class="mono-tag">EXSports Oy</span></a>
+    <nav class="nav__links">
+      <a href="/index.html" class="hide-sm">Home</a>
+      <a href="/legal/imprint.html" class="hide-sm">Impressum</a>
+      <a href="/heda/user-guide/index.html?pick=1" class="hide-sm" aria-label="Taal" title="Taal">🌐</a>
+      <a href="mailto:info@exsports.fi" class="cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="doc-head stage">
+  <div class="wrap doc-head__inner">
+    <a class="backlink" href="/heda/index.html"><span>←</span> Heda</a>
+    <p class="eyebrow">Heda · Handleiding</p>
+    <h1>Zo gebruik je Heda</h1>
+    <div class="meta"><span>Nederlands</span><span>Laatst herzien <b>augustus 2026</b></span></div>
+    <p class="lead" style="margin-top:20px;">Een rustig dagboek voor hoofdpijn en migraine. Leg je aanvallen, symptomen en notities vast — alles blijft privé op je apparaat.</p>
+  </div>
+</section>
+
+<div class="wrap"><div class="prose doc-sections">
+
+  <nav class="toc" aria-label="Inhoud">
+    <p class="toc-label">Inhoud</p>
+    <ol>
+      <li><a href="#overview"><span class="counter">01</span>Overzicht</a></li>
+      <li><a href="#getting-started"><span class="counter">02</span>Aan de slag</a></li>
+      <li><a href="#calendar"><span class="counter">03</span>Kalender</a></li>
+      <li><a href="#logging"><span class="counter">04</span>Een gebeurtenis vastleggen</a></li>
+      <li><a href="#editing"><span class="counter">05</span>Bewerken &amp; verwijderen</a></li>
+      <li><a href="#analysis"><span class="counter">06</span>Analyse</a></li>
+      <li><a href="#reports"><span class="counter">07</span>Rapporten</a></li>
+      <li><a href="#settings"><span class="counter">08</span>Instellingen</a></li>
+      <li><a href="#privacy"><span class="counter">09</span>Privacy &amp; gegevens</a></li>
+      <li><a href="#health-connect"><span class="counter">10</span>Health Connect</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="overview">Overzicht</h2>
+  <p>Heda is een offline-first dagboek voor hoofdpijn en migraine voor Android. Alle gezondheidsgegevens zijn versleuteld en worden alleen op je apparaat bewaard. Er wordt niets naar een server geüpload — je gegevens zijn alleen van jou.</p>
+  <p>De app heeft vier hoofdgebieden die je bereikt via de navigatiebalk onderaan:</p>
+  <div class="areas">
+    <div class="area"><h4>Kalender</h4><p>Blader door je hoofdpijngebeurtenissen op datum en beheer ze. Nieuwe gebeurtenissen voeg je hier toe.</p></div>
+    <div class="area"><h4>Analyse</h4><p>Statistieken en trendgrafieken voor alle gebruikers. Correlaties en Gezondheid (premium) vinden patronen en bevatten je gezondheidsgegevens.</p></div>
+    <div class="area"><h4>Rapporten</h4><p>Maand- en dagoverzichten met grafieken. Exporteer je gegevens als CSV of PDF.</p></div>
+    <div class="area"><h4>Instellingen</h4><p>Premiumstatus, synchronisatie en meldingen, beveiliging, back-up, thema, taal, privacy en geavanceerde opties.</p></div>
+  </div>
+
+  <h2 id="getting-started">Aan de slag</h2>
+  <h3>Inloggen</h3>
+  <p>Heda vereist een Google-account om je gegevens te beschermen. Bij het inloggen wordt een versleutelde, aan het apparaat gebonden sleutel aangemaakt die aan je account is gekoppeld — er worden geen gegevens in de cloud bewaard.</p>
+  <ul>
+    <li>Open Heda nadat je de app uit Google Play hebt geïnstalleerd.</li>
+    <li>Tik op <strong>Inloggen met Google</strong> en kies je Google-account.</li>
+    <li>Je account is nu aan deze installatie gekoppeld. Bij een herinstallatie moet je hetzelfde Google-account gebruiken.</li>
+  </ul>
+  <div class="callout"><p><strong>Privacy voorop.</strong> Heda uploadt geen gezondheidsgegevens naar externe servers. Je Google-account dient alleen voor identiteit — om de versleutelingssleutels aan één gebruiker op dit apparaat te binden.</p></div>
+  <h3>Toestemming bij eerste start</h3>
+  <p>Bij de eerste start vraagt Heda of je anonieme crashrapporten wilt delen. Hierbij worden geen gezondheidsgegevens verzonden. Je kunt je keuze later wijzigen bij <strong>Instellingen → Privacy en gegevens</strong>.</p>
+  <ul>
+    <li><strong>Anonieme crashrapporten</strong> — meldt crashes automatisch zodat fouten snel verholpen kunnen worden (GlitchTip). Er worden geen gebruiksstatistieken verzameld.</li>
+  </ul>
+
+  <h2 id="calendar">Kalender</h2>
+  <p>De kalender is je dagelijkse weergave. Hij toont de huidige maand in één oogopslag, met gekleurde stippen die de hoofdpijnintensiteit per dag aangeven.</p>
+  <h3>Maandweergave</h3>
+  <p>De maandstrook bovenaan toont de huidige maand in een ISO-weekraster (weken lopen van maandag t/m zondag). Elke dag met minstens één vastgelegde gebeurtenis krijgt een klein intensiteitsstipje:</p>
+  <ul>
+    <li><strong>Blauw</strong> — intensiteit 1–3 (licht)</li>
+    <li><strong>Rood</strong> — intensiteit 4–5 (ernstig)</li>
+  </ul>
+  <p>Gebruik de knoppen <strong>‹</strong> en <strong>›</strong> om tussen maanden te navigeren. Tik op een datum om die te selecteren en de gebeurtenissen van die dag eronder te zien. De huidige datum is gemarkeerd. Tik op het label <strong>Vandaag</strong> of op de datum van vandaag om terug te keren naar de huidige dag.</p>
+  <h3>Gebeurteniskaarten</h3>
+  <p>Gebeurtenissen voor de geselecteerde datum verschijnen als kaarten onder de maandstrook. Elke kaart toont:</p>
+  <ul>
+    <li>het <strong>hoofdpijntype</strong> (Hoofdpijn of Migraine)</li>
+    <li>het <strong>tijdvak</strong> — begin- en eindtijd en de duur</li>
+    <li>een <strong>intensiteitsbalk</strong> (schaal 1–5)</li>
+    <li>markeringen voor aura en noodmedicatie, indien vastgelegd</li>
+  </ul>
+  <p>Tik op een kaart om die te openen in <strong>bewerkmodus</strong>, waar alle velden gewijzigd kunnen worden.</p>
+  <h3>Snel toevoegen</h3>
+  <p>Voor snel vastleggen tik je onderaan de kalender op <strong>Snel toevoegen</strong>. Er schuift een blad omhoog met de belangrijkste velden:</p>
+  <ul>
+    <li><strong>Type</strong> — Hoofdpijn of Migraine</li>
+    <li><strong>Intensiteit</strong> — schuifregelaar 1–5</li>
+    <li><strong>Aura</strong> — selectievakje</li>
+    <li><strong>Noodmedicatie</strong> — selectievakje</li>
+  </ul>
+  <p>Tik op <strong>Opslaan</strong> om direct met de huidige tijd vast te leggen, of op <strong>Details toevoegen…</strong> om het volledige formulier te openen, vooraf ingevuld met deze waarden.</p>
+
+  <h2 id="logging">Een gebeurtenis vastleggen</h2>
+  <p>Om een nieuwe gebeurtenis met alle details vast te leggen tik je in de kalender op <strong>+ Gebeurtenis toevoegen</strong>. Als je eerst op een bepaalde datum tikte, is die al geselecteerd in het formulier.</p>
+  <h3>Type en intensiteit</h3>
+  <p>Kies bovenaan met de keuzeschakelaar tussen <strong>Hoofdpijn</strong> en <strong>Migraine</strong>. Stel daarna met de schuifregelaar de intensiteit in op een schaal van 1 (licht) tot 5 (invaliderend).</p>
+  <h3>Datum en tijd</h3>
+  <p>Drie velden bepalen het tijdstip van de gebeurtenis:</p>
+  <ul>
+    <li><strong>Datum</strong> — tik om een datumkiezer te openen. Standaard is vandaag.</li>
+    <li><strong>Begintijd</strong> — wanneer de aanval begon. Tik om een 24-uurs tijdkiezer te openen.</li>
+    <li><strong>Eindtijd</strong> — wanneer de aanval eindigde. Standaard 2 uur na de begintijd. Schuif je de begintijd voorbij de eindtijd, dan schuift de eindtijd automatisch mee zodat het interval van 2 uur behouden blijft.</li>
+  </ul>
+  <h3>Pijngebied</h3>
+  <p>Met het <strong>3D-hoofdmodel</strong> markeer je precies waar de pijn zit. Het ondersteunt twee gebaren:</p>
+  <ul>
+    <li><strong>Eén vinger</strong> — verf pijngebieden door over het oppervlak van het hoofd te slepen.</li>
+    <li><strong>Twee vingers</strong> — draai het hoofd om de achterkant, de zijkanten of de nek te bereiken.</li>
+  </ul>
+  <p>Acht anatomische gebieden worden ondersteund: Voorhoofd, Rond het oog — links, Rond het oog — rechts, Slaap — links, Slaap — rechts, Achterhoofd — links, Achterhoofd — rechts en Nek.</p>
+  <p>Zet de schakelaar <strong>Kleurcodering op intensiteit</strong> aan om de geverfde gebieden te tinten met de intensiteitskleur (lichter rood voor licht, dieprood voor ernstig). Standaard staat dit uit.</p>
+  <div class="callout"><p><strong>Tip.</strong> Je verwijdert geverfde gebieden door er opnieuw overheen te slepen — het gebaar wisselt tussen toevoegen en wissen.</p></div>
+  <h3>Mogelijke triggers</h3>
+  <p>Leg mogelijke triggers vast die aan deze aanval kunnen hebben bijgedragen. Ze zijn gegroepeerd in zeven categorieën:</p>
+  <table class="grid">
+    <thead><tr><th>Categorie</th><th>Triggers</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Stress en stemming</strong></td><td>Stress, Ontspanning na stress, Angst</td></tr>
+      <tr><td><strong>Slaap</strong></td><td>Te weinig slaap, Te veel slaap, Onregelmatige slaap</td></tr>
+      <tr><td><strong>Eten en drinken</strong></td><td>Maaltijd overgeslagen, Lang vasten, Uitdroging, Alcohol, Cafeïne, Cafeïneontwenning, Chocolade, Gerijpte kaas, Voedingsadditieven, Bewerkt vlees</td></tr>
+      <tr><td><strong>Hormonaal</strong></td><td>Menstruatie, Eisprong, Hormonale anticonceptie</td></tr>
+      <tr><td><strong>Omgeving</strong></td><td>Weersomslag, Extreme temperatuur, Luchtvochtigheid</td></tr>
+      <tr><td><strong>Zintuiglijk</strong></td><td>Fel licht, Sterke geur, Hard geluid, Beeldschermflikkering</td></tr>
+      <tr><td><strong>Lichamelijk</strong></td><td>Intensieve inspanning, Nekspanning, Reizen, Overmatig medicijngebruik</td></tr>
+    </tbody>
+  </table>
+  <h3>Aura en noodmedicatie</h3>
+  <ul>
+    <li><strong>Aura</strong> — vink aan als deze gebeurtenis werd voorafgegaan door een aura (visuele stoornissen, tintelingen, spraakveranderingen enz.).</li>
+    <li><strong>Noodmedicatie</strong> — vink aan als je tijdens deze aanval acute medicatie hebt genomen (bijv. een triptaan, NSAID of paracetamol).</li>
+  </ul>
+  <h3>Notities</h3>
+  <p>Het vrije tekstveld voor notities vangt alles op wat de gestructureerde velden niet dekken — context, observaties, wat hielp of andere details die je wilt onthouden. Tik op <strong>Opslaan</strong> als je klaar bent. De gebeurtenis verschijnt direct in de kalender.</p>
+
+  <h2 id="editing">Gebeurtenissen bewerken en verwijderen</h2>
+  <h3>Een gebeurtenis bewerken</h3>
+  <ul>
+    <li>Navigeer in de kalender naar de datum.</li>
+    <li>Tik op de gebeurteniskaart die je wilt wijzigen.</li>
+    <li>Het formulier opent in bewerkmodus — alle velden zijn bewerkbaar.</li>
+    <li>Breng je wijzigingen aan en tik op <strong>Bijwerken</strong> om op te slaan.</li>
+  </ul>
+  <h3>Een gebeurtenis verwijderen</h3>
+  <ul>
+    <li>Open de gebeurtenis in bewerkmodus (tik op de kaart in de kalender).</li>
+    <li>Scroll naar beneden en tik op <strong>Vermelding verwijderen</strong>.</li>
+    <li>Er verschijnt een bevestigingsvenster. Tik op <strong>Verwijderen</strong> om de gebeurtenis definitief te wissen.</li>
+  </ul>
+  <div class="callout"><p><strong>Definitieve actie.</strong> Verwijderen kan niet ongedaan worden gemaakt. De gebeurtenis wordt direct uit de versleutelde database op je apparaat verwijderd.</p></div>
+
+  <h2 id="analysis">Analyse</h2>
+  <p>Het analysescherm heeft bovenaan drie tabbladen: <strong>Statistieken</strong>, <strong>Correlaties</strong> en <strong>Gezondheid</strong>. Statistieken is beschikbaar voor alle gebruikers. Correlaties en Gezondheid vereisen Heda Premium.</p>
+
+  <h3 id="statistics">Statistieken</h3>
+  <p>Het tabblad Statistieken geeft je een overzicht van hoe vaak en hoe hevig je hoofdpijn is in een gekozen periode.</p>
+  <p><strong>Periodekeuze.</strong> Kies uit vijf perioden: 7 dagen, 30 dagen, 90 dagen, 1 jaar of Alles.</p>
+  <p><strong>Overzichtskaart.</strong> De hoofdkaart toont de volgende cijfers voor de gekozen periode. Trendpijlen (↑ / ↓) vergelijken ze met de vorige vergelijkbare periode:</p>
+  <ul>
+    <li><strong>Totaal aantal gebeurtenissen</strong> — het aantal hoofdpijn- en migrainegebeurtenissen in de periode.</li>
+    <li><strong>Gemiddelde intensiteit</strong> — het gemiddelde van de intensiteit (1–5) van alle gebeurtenissen in de periode.</li>
+    <li><strong>Gebeurtenissen met aura</strong> — hoeveel aanvallen gepaard gingen met een aura.</li>
+    <li><strong>Gebeurtenissen met noodmedicatie</strong> — hoeveel aanvallen acute medicatie vereisten.</li>
+  </ul>
+  <p><strong>Grafieken.</strong></p>
+  <ul>
+    <li><strong>Trendgrafiek</strong> — aantal gebeurtenissen per tijdvak (dagelijks bij 7/30/90 dagen, wekelijks bij 1 jaar, maandelijks bij Alles).</li>
+    <li><strong>Weekdag-heatmap</strong> — laat zien op welke dagen van de week je hoofdpijn het vaakst optreedt.</li>
+  </ul>
+  <p><strong>Typeverdeling en triggers.</strong> Een gestapelde staafgrafiek toont de verdeling over gebeurtenistypen (Hoofdpijn / Ernstige hoofdpijn / Migraine / Ernstige migraine) met aantallen en percentages. Daaronder toont een horizontale staafgrafiek je meest voorkomende triggers in de periode.</p>
+
+  <h3 id="correlations">Correlaties</h3>
+  <p>Het tabblad Correlaties analyseert je gezondheidsgegevens — gelezen uit Health Connect, met de hand ingevoerd of geïmporteerd uit een bestand — en zoekt naar negen wetenschappelijk onderbouwde patronen die vaak aan hoofdpijn- en migraineaanvallen voorafgaan. Het kijkt terug over de laatste 90 dagen.</p>
+  <div class="callout"><p><strong>Premiumfunctie.</strong> Het tabblad Correlaties vereist Heda Premium. Het gebruikt dezelfde slaap-, hartslag-, HRV-, stappen- en sportgegevens die op het tabblad <a href="#health-tab">Gezondheid</a> staan, hoe die daar ook terecht zijn gekomen.</p></div>
+  <p><strong>Je basislijn.</strong> Een basislijnkaart bovenaan toont je mediaanwaarden over 14 dagen voor elke gezondheidsmaat. Bij maten zonder voldoende gegevens staat een „—”.</p>
+  <ul>
+    <li><strong>Slaap</strong> — mediaan van de totale nachtslaap</li>
+    <li><strong>HRV</strong> — mediaan van de hartslagvariabiliteit (ms)</li>
+    <li><strong>Rusthartslag</strong> — mediaan van de rusthartslag (slagen/min)</li>
+    <li><strong>Stappen</strong> — mediaan van het dagelijkse aantal stappen</li>
+    <li><strong>Sport</strong> — mediaan van de dagelijkse actieve minuten</li>
+    <li><strong>Diepe slaap</strong> — mediaan van de diepe slaap per nacht</li>
+    <li><strong>REM-slaap</strong> — mediaan van de REM-slaap per nacht</li>
+    <li><strong>Wakker tijdens slaap</strong> — mediaan van de wakkere tijd binnen de slaapperiode</li>
+  </ul>
+  <p><strong>Gevonden patronen.</strong> Heda controleert bij elke hoofdpijnaanval negen wetenschappelijk onderbouwde patronen. Elke bevinding toont de gemeten waarde en de overschreden drempel — bijvoorbeeld: <em>„Je sliep 5 u 30 min vóór deze aanval (drempel: 7 u)”</em>.</p>
+  <ul>
+    <li><strong>Korte slaap</strong> — de totale slaap in de nacht ervoor was minder dan 7 uur (aanpasbaar bij Instellingen → Geavanceerd).</li>
+    <li><strong>Onregelmatige slaap</strong> — de slaaptijden varieerden in de voorgaande 7 dagen met meer dan 120 minuten (standaarddeviatie).</li>
+    <li><strong>Laag aantal stappen</strong> — minder dan 3 000 stappen op de dag vóór de aanval (aanpasbaar).</li>
+    <li><strong>HRV-daling</strong> — de HRV zakte onder 30 ms of onder 80 % van je persoonlijke basislijn over 14 dagen.</li>
+    <li><strong>Verhoogde rusthartslag</strong> — de rusthartslag lag op de dag vóór de aanval boven je mediaan over 14 dagen.</li>
+    <li><strong>Sportpiek</strong> — de actieve minuten waren op de dag vóór de aanval ongewoon hoog ten opzichte van je mediaan over 14 dagen.</li>
+    <li><strong>Weinig diepe slaap</strong> — de diepe slaap lag de nacht ervoor duidelijk onder je mediaan over 14 dagen.</li>
+    <li><strong>Weinig REM-slaap</strong> — de REM-slaap lag de nacht ervoor duidelijk onder je mediaan over 14 dagen.</li>
+    <li><strong>Gefragmenteerde slaap</strong> — de wakkere tijd binnen de slaapperiode was ongewoon hoog ten opzichte van de totale slaap en de basislijn.</li>
+  </ul>
+  <p><strong>Aanbevelingen.</strong> Op basis van de gevonden patronen stelt Heda persoonlijke aanbevelingen op, gerangschikt naar prioriteit (Hoog / Middel / Laag). Voorbeelden zijn de slaapduur of slaapregelmaat verbeteren, meer dagelijkse beweging, of stress en herstel beter sturen.</p>
+  <div class="callout"><p><strong>Geen medisch advies.</strong> Gevonden patronen zijn correlaties, geen diagnoses. Raadpleeg voor medische vragen over je hoofdpijn altijd een zorgverlener.</p></div>
+
+  <h3 id="health-tab">Gezondheid</h3>
+  <div class="callout"><p><strong>Premiumfunctie.</strong> Het tabblad Gezondheid vereist Heda Premium. Zolang Premium niet actief is, toont het tabblad in plaats daarvan het scherm <strong>Health Connect ontgrendelen</strong> — Heda vraagt tot die tijd geen Health Connect-machtigingen aan en leest geen gezondheidsgegevens.</p></div>
+  <p>Op het tabblad Gezondheid staan je gegevens voor slaap, hartslagvariabiliteit (HRV), rusthartslag, stappen en sport — dezelfde vijf maten die Correlaties analyseert. Gegevens kunnen er op drie manieren komen:</p>
+  <ul>
+    <li><strong>Health Connect</strong> — automatisch gelezen uit een gekoppelde wearable of een andere app die naar Health Connect schrijft. Elke synchronisatie haalt de laatste 30 dagen op, en dagen die je al hebt gesynchroniseerd blijven op je apparaat, zodat je historie blijft groeien. Tik op <strong>Vernieuwen</strong> om meteen te synchroniseren. Zie <a href="#health-connect">Health Connect</a> voor de instelling.</li>
+    <li><strong>Handmatige waarden</strong> — tik onder <em>Handmatige waarden</em> op <strong>Waarde voor een dag toevoegen</strong> om rusthartslag, HRV, slaapduur, stappen of sport met de hand in te voeren voor een willekeurige dag. Een bronlabel (bijvoorbeeld „Polar Flow → Nightly Recharge”) houdt bij waar de cijfers vandaan komen. Een waarde buiten het gebruikelijke bereik krijgt een waarschuwing maar kan toch worden opgeslagen, en elke handmatige waarde kan later worden bewerkt of verwijderd.</li>
+    <li><strong>Importeren uit een bestand</strong> — tik op <strong>Importeren uit een bestand</strong> om een CSV-bestand in te lezen dat uit een ander apparaat of een andere app is geëxporteerd. Je kiest het bestand, koppelt de kolommen aan de datum- en waardevelden en bekijkt een voorbeeld — gelezen en overgeslagen rijen, nieuwe dagen, dagen die al een waarde hebben, en het volledige datumbereik — voordat er iets wordt opgeslagen. Heeft een dag al een waarde, dan kies je één keer of die van jou behouden blijft of wordt vervangen door de geïmporteerde.</li>
+  </ul>
+  <p>Waarden die je invoert of importeert krijgen het label <strong>Handmatig</strong>, worden precies zoals Health Connect-gegevens bewaard — versleuteld, alleen op je apparaat — en worden door Correlaties gebruikt naast alles wat uit Health Connect is gelezen. Het intrekken van de Health Connect-toegang raakt ze niet.</p>
+  <p>De rest van het tabblad toont je laatst gesynchroniseerde nacht met het slaapvenster, een slaapgemiddelde over 30 dagen, een trend van de slaapduur en een lijst met <strong>Dagelijkse gezondheidsdetails</strong> per dag.</p>
+
+  <h2 id="reports">Rapporten</h2>
+  <p>Op het tabblad Rapporten bekijk je gestructureerde overzichten van je gegevens en exporteer je ze om te delen met een zorgverlener.</p>
+  <h3>Maandrapport</h3>
+  <p>Het maandrapport toont per gekozen maand een kalenderweergave, waarin elke dag een kleurcode naar status krijgt:</p>
+  <ul>
+    <li><strong>Geen gebeurtenissen</strong> — geen aanval vastgelegd</li>
+    <li><strong>Hoofdpijn</strong> — ten minste één hoofdpijngebeurtenis</li>
+    <li><strong>Migraine</strong> — ten minste één migrainegebeurtenis</li>
+  </ul>
+  <p>Een cirkeldiagram toont het aandeel dagen per categorie. Selecteer met de maandchips een of meer maanden. Tik op <strong>Alles selecteren</strong> of <strong>Wissen</strong> om snel alle maanden te selecteren of te deselecteren.</p>
+  <h3>Dagrapport</h3>
+  <p>Het dagrapport richt zich op afzonderlijke gebeurtenissen binnen een gekozen periode. Kies uit 7 dagen, 30 dagen, 90 dagen of Alles. Een overzichtsrij bovenaan toont het totale aantal gebeurtenissen, de gemiddelde intensiteit en het datumbereik. Daaronder staat elke gebeurtenis met type, tijd en intensiteit.</p>
+  <h3>Gegevens exporteren</h3>
+  <ul>
+    <li><strong>Exporteren als CSV</strong> — slaat een door komma's gescheiden bestand op met alle gebeurtenissen in de huidige periode. Kolommen: Datum, Tijd, Type, Intensiteit, Aura, Noodmedicatie, Triggers, Notities. Met de systeembestandskiezer van Android bepaal je waar het bestand komt te staan.</li>
+    <li><strong>Exporteren als PDF</strong> — maakt een opgemaakt PDF-document met het overzicht en de gebeurtenistabel, geschikt om af te drukken of naar een arts te sturen. <strong>Vereist Premium</strong>; zonder Premium opent de knop het aankoopvenster.</li>
+    <li><strong>Gezondheidsgegevens exporteren als CSV</strong> — exporteer desgewenst je gezondheidsgegevens naast je hoofdpijngebeurtenissen. Dit bestand heeft vier kolommen — datum, slaap in uren, HRV in milliseconden en stappen — en omvat de dagen die uit Health Connect zijn gesynchroniseerd.</li>
+  </ul>
+  <div class="callout"><p><strong>Bestandslocatie.</strong> Heda gebruikt het Storage Access Framework van Android, dus jij bepaalt waar het geëxporteerde bestand wordt opgeslagen. Er worden geen bestanden naar een server geüpload.</p></div>
+
+  <h2 id="settings">Instellingen</h2>
+  <p>Open Instellingen via de navigatiebalk onderaan. Wijzigingen worden meteen van kracht. De onderstaande secties staan in dezelfde volgorde als in de app.</p>
+
+  <h3>Premiumstatus</h3>
+  <p>Zolang Premium niet actief is, staat bovenaan de instellingen een kaart <strong>Premiumstatus</strong>. <strong>Premium kopen</strong> opent het aankoopvenster; <strong>Status vernieuwen</strong> controleert een bestaande aankoop opnieuw, wat je nodig hebt na een herinstallatie of een nieuwe telefoon. Is een controle mislukt, dan vertelt de kaart waarom — geen verbinding met Google Play of de verificatieserver, een betaling die nog in behandeling is, een aankoop met een ander Google-account, enzovoort. Zodra Premium actief is, verdwijnt de kaart.</p>
+  <p>Premium is een <strong>eenmalige aankoop, geen abonnement</strong>. Het ontgrendelt de tabbladen Correlaties en Gezondheid op het analysescherm (inclusief handmatige invoer en bestandsimport van gezondheidsgegevens), de automatische Health Connect-synchronisatie, de dagelijkse gezondheidsaanbevelingen en de PDF-export op het rapportenscherm.</p>
+
+  <h3>Synchronisatie en meldingen</h3>
+  <p><strong>Automatische Health Connect-synchronisatie.</strong> Als deze aanstaat, haalt Heda je nieuwste gezondheidsgegevens eenmaal per dag op de achtergrond op uit Health Connect, ook als de app gesloten is. Ze staat <strong>standaard uit</strong> en <strong>vereist Premium</strong> — tik je erop zonder Premium, dan opent het aankoopvenster. Daarnaast moeten de Health Connect-machtigingen zijn verleend.</p>
+  <p><strong>Dagelijkse gezondheidsaanbevelingen.</strong> Als deze aanstaan, stuurt Heda een dagelijkse melding wanneer een correlatie met hoge prioriteit wordt gevonden. Tik je op de melding, dan opent het analysescherm op het tabblad Correlaties. Dit staat <strong>standaard uit</strong>, <strong>vereist Premium</strong> en vereist de meldingsmachtiging van het apparaat.</p>
+
+  <h3>Geavanceerd</h3>
+  <p>Vouw de sectie Geavanceerd uit om de drempelwaarden van de correlatiemotor bij te stellen. De standaardwaarden volgen gangbare klinische richtlijnen voor migrainepreventie:</p>
+  <table class="grid">
+    <thead><tr><th>Instelling</th><th>Standaard</th><th>Beschrijving</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Minimale slaap</strong></td><td>7 u 0 min</td><td>Slaap onder deze duur wordt gemarkeerd als mogelijke trigger.</td></tr>
+      <tr><td><strong>Max. slaapvariatie</strong></td><td>60 min</td><td>Een standaarddeviatie van de slaaptijden boven deze waarde activeert het patroon onregelmatige slaap.</td></tr>
+      <tr><td><strong>Minimaal aantal stappen</strong></td><td>3 000</td><td>Een stappenaantal daaronder wordt gemarkeerd als lage activiteit.</td></tr>
+      <tr><td><strong>Minimale HRV</strong></td><td>30 ms</td><td>Een HRV onder deze absolute drempel wordt gemarkeerd.</td></tr>
+      <tr><td><strong>HRV-basislijnfractie</strong></td><td>0,80</td><td>Een HRV onder deze fractie van je basislijn over 14 dagen wordt eveneens gemarkeerd.</td></tr>
+    </tbody>
+  </table>
+  <p>Tik op <strong>Standaardwaarden herstellen</strong> om alle drempels terug te zetten naar hun oorspronkelijke waarden.</p>
+
+  <h3>Beveiliging</h3>
+  <p>De sectie Beveiliging bevat de schakelaar <strong>Biometrisch slot</strong> — vereis een vingerafdruk, gezichtsontgrendeling of pincode om Heda te openen. De schakelaar blijft onbeschikbaar totdat je in de instellingen van je apparaat een schermvergrendeling hebt ingesteld.</p>
+
+  <h3>Back-up</h3>
+  <p>De sectie Back-up heeft één rij, <strong>Back-up en herstel</strong>, en die is gratis — Premium is niet nodig. <strong>Back-up maken</strong> schrijft één versleuteld bestand dat je overal kunt bewaren; jij kiest het wachtwoord dat het vergrendelt, en dat moet minstens 10 tekens hebben met een hoofdletter, een kleine letter en een cijfer, en alleen tekens zonder accenten gebruiken (tekens als ä, ö en å kunnen niet). <strong>Raak je het wachtwoord kwijt, dan is het bestand niet meer te openen — herstel is niet mogelijk.</strong></p>
+  <p><strong>Herstellen vanuit back-up</strong> voegt het bestand samen met wat al op de telefoon staat, in plaats van dat te wissen. Bestaan sommige records aan beide kanten met verschillende inhoud, dan vraagt Heda één keer of wat op de telefoon staat behouden blijft of wordt vervangen door de back-up, en meldt daarna hoeveel items en gezondheidsdagen zijn toegevoegd, vervangen en overgeslagen. App-instellingen zoals thema en taal zitten niet in een back-up — stel die op het nieuwe apparaat opnieuw in.</p>
+
+  <h3>Weergave</h3>
+  <p><strong>Thema.</strong> Kies hoe de app eruitziet:</p>
+  <ul>
+    <li><strong>Licht</strong> — warme, papierkleurige lichte modus.</li>
+    <li><strong>Donker</strong> — diepe bosgroene donkere modus (standaard).</li>
+    <li><strong>Systeem</strong> — volgt automatisch de donker/licht-instelling van je apparaat.</li>
+  </ul>
+  <p><strong>Taal.</strong> Kies uit meer dan 30 talen, gegroepeerd per regio (Noords, Germaans, Romaans, Slavisch, Baltisch en Overig). De gekozen taal geldt voor alle tekst in de app. Kies <strong>Systeem</strong> om de taalinstelling van je apparaat te volgen.</p>
+
+  <h3>Diagnostiek</h3>
+  <p><strong>Foutrapportage</strong> deelt desgewenst anonieme crashrapporten (GlitchTip), zodat fouten verholpen kunnen worden. <strong>Er worden nooit gezondheidsgegevens meegestuurd</strong> en er worden geen gebruiksstatistieken verzameld. Je kunt dit op elk moment wijzigen; de app herstart de rapportagecomponent dan.</p>
+
+  <h3>Hulp en juridisch</h3>
+  <ul>
+    <li><strong>Gebruikershandleiding</strong> — opent deze handleiding online.</li>
+    <li><strong>Vrijwaring</strong> — de medische en aansprakelijkheidsvrijwaring.</li>
+    <li><strong>Impressum</strong> — aanbiedergegevens van EXSports Oy.</li>
+    <li><strong>Privacy en gegevens</strong> — opent het scherm Privacy en gegevens, waar je je account beheert, ziet wat er is opgeslagen, je AVG-rechten uitoefent en je gegevens verwijdert. Zie <a href="#privacy">Privacy en gegevens</a>.</li>
+    <li><strong>Rapporteer een bug</strong> — opent het formulier voor foutmeldingen.</li>
+  </ul>
+
+  <h3>Over</h3>
+  <p>Onderaan het scherm staan de geïnstalleerde appversie en een uitklapbaar blok <strong>Auteursrechten</strong> met de credits voor de app, het 3D-model en de typografie.</p>
+
+  <h2 id="privacy">Privacy en gegevens</h2>
+  <p>Open <strong>Instellingen → Privacy en gegevens</strong> om alle gegevens- en accountinstellingen te beheren.</p>
+  <h3>Je account</h3>
+  <p>Bovenaan het scherm staat het Google-account waarmee je bent ingelogd. Tik op <strong>Uitloggen</strong> om uit de app te loggen. Je gegevens blijven op het apparaat; je kunt op elk moment weer inloggen.</p>
+  <h3>Welke gegevens worden bewaard</h3>
+  <p>Alle gegevens worden lokaal op je apparaat bewaard in twee versleutelde databases:</p>
+  <table class="grid">
+    <thead><tr><th>Gegevenstype</th><th>Inhoud</th><th>Versleuteling</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Hoofdpijngebeurtenissen</strong></td><td>Tijdstempels, pijngebieden, intensiteit, aura, noodmedicatie, triggers, notities</td><td>AES-256 (SQLCipher)</td></tr>
+      <tr><td><strong>Health Connect-cache</strong></td><td>Slaap, slaapfasen, HRV, hartslag, stappen en sport gesynchroniseerd uit Health Connect</td><td>AES-256 (SQLCipher)</td></tr>
+      <tr><td><strong>Handmatige gezondheidsinvoer</strong></td><td>Rusthartslag, HRV, slaapduur, stappen en sport die je met de hand hebt ingevoerd of uit een bestand hebt geïmporteerd</td><td>AES-256 (SQLCipher)</td></tr>
+      <tr><td><strong>Authenticatietoken</strong></td><td>Supabase-gebruikers-ID, e-mail, tijdstempel van inloggen, accountkoppeling</td><td>AES-256-GCM (Tink)</td></tr>
+      <tr><td><strong>App-instellingen</strong></td><td>Alleen thema- en taalvoorkeur — geen gezondheidsgegevens</td><td>Onversleuteld</td></tr>
+    </tbody>
+  </table>
+  <p>De versleutelingssleutels staan in de Android Keystore, waar mogelijk hardwarematig beveiligd, en verlaten het apparaat nooit.</p>
+  <h3>Je rechten onder de AVG</h3>
+  <p>Heda voldoet aan artikel 9 van de EU-AVG (bijzondere categorieën persoonsgegevens). Je rechten:</p>
+  <ul>
+    <li><strong>Recht op inzage (art. 15)</strong> — al je gegevens zijn zichtbaar in Kalender en Statistieken.</li>
+    <li><strong>Recht op rectificatie (art. 16)</strong> — bewerk elke gebeurtenis door erop te tikken in de kalender.</li>
+    <li><strong>Recht op wissing (art. 17)</strong> — verwijder alle gegevens via de gevarenzone (zie hieronder).</li>
+    <li><strong>Recht op beperking (art. 18)</strong> — log uit om alle verwerking te stoppen.</li>
+    <li><strong>Recht op dataportabiliteit (art. 20)</strong> — maak een versleutelde back-up bij <strong>Instellingen → Back-up</strong>, of exporteer alle gebeurtenissen als CSV vanuit het rapportenscherm.</li>
+    <li><strong>Recht van bezwaar (art. 21)</strong> — log uit; de verwerking stopt onmiddellijk.</li>
+  </ul>
+  <h3>Gevarenzone</h3>
+  <p><strong>Deze acties zijn definitief en kunnen niet ongedaan worden gemaakt.</strong></p>
+  <ul>
+    <li><strong>Lokale gegevens verwijderen (account behouden)</strong> — verwijdert definitief alle hoofdpijnrecords, gezondheidsgegevens, instellingen en versleutelingssleutels van dit apparaat. De koppeling met je Google-account blijft bestaan, zodat je op elk apparaat weer kunt inloggen.</li>
+    <li><strong>Account en alle gegevens verwijderen</strong> — verwijdert definitief al het bovenstaande plus je Supabase-account. Herstel is niet mogelijk. Een bevestiging in twee stappen is vereist.</li>
+  </ul>
+
+  <h2 id="health-connect">Health Connect</h2>
+  <p>Health Connect is Googles uniforme platform voor gezondheidsgegevens op Android. Heda leest er vijf soorten gezondheidsgegevens uit om de tabbladen Correlaties en Gezondheid op het analysescherm te voeden. Heb je geen gekoppeld apparaat of app, dan kun je dezelfde vijf maten met de hand invoeren of uit een bestand importeren — zie <a href="#health-tab">Gezondheid</a>.</p>
+  <div class="metric-grid">
+    <div class="metric"><b>Slaapsessies</b><span>Nachtelijke slaapduur en slaapfasen (REM, diep, licht en wakkere tijd) uit je wearable of slaap-app.</span></div>
+    <div class="metric"><b>Hartslagvariabiliteit (HRV)</b><span>Dagelijkse RMSSD-metingen die herstelstatus en de balans van het autonome zenuwstelsel aangeven.</span></div>
+    <div class="metric"><b>Hartslag</b><span>Doorlopende hartslagmetingen waaruit het daggemiddelde en de rusthartslag worden berekend.</span></div>
+    <div class="metric"><b>Stappen</b><span>Dagelijks aantal stappen van je telefoon of wearable.</span></div>
+    <div class="metric"><b>Sportsessies</b><span>De duur van sportsessies, gebruikt om het dagelijkse activiteitsniveau te berekenen.</span></div>
+  </div>
+  <div class="callout"><p><strong>Alleen lezen.</strong> Heda leest uitsluitend gegevens uit Health Connect — het schrijft er nooit naartoe. Alleen de recordtypen die nodig zijn voor de correlatieanalyse worden aangevraagd.</p></div>
+  <h3>Health Connect instellen</h3>
+  <ul>
+    <li>Open in Heda het tabblad <strong>Gezondheid</strong> op het analysescherm. Zonder Premium toont het tabblad in plaats daarvan het scherm <strong>Health Connect ontgrendelen</strong> — Heda vraagt pas Health Connect-machtigingen aan wanneer Premium actief is.</li>
+    <li>Is de Health Connect-app niet geïnstalleerd, tik dan op <strong>Health Connect installeren</strong> om die uit Google Play te halen. (Android 9 en nieuwer. Op Android 14+ is Health Connect ingebouwd.)</li>
+    <li>Tik op <strong>Health Connect koppelen</strong>.</li>
+    <li>Geef Heda in het machtigingenscherm van Health Connect toegang tot <strong>Slaap</strong>, <strong>Hartslagvariabiliteit</strong>, <strong>Hartslag</strong>, <strong>Stappen</strong> en <strong>Sport</strong>.</li>
+    <li>Ga terug naar Heda. De laatste 30 dagen worden opgehaald en weergegeven. Je kunt afzonderlijke dagen nog steeds met de hand aanvullen of corrigeren — zie <a href="#health-tab">Gezondheid</a>.</li>
+  </ul>
+  <h3>Synchronisatie op de achtergrond</h3>
+  <p>Standaard worden gezondheidsgegevens alleen opgehaald wanneer je het tabblad Gezondheid opent of op <strong>Vernieuwen</strong> tikt. Zet <strong>Automatische Health Connect-synchronisatie</strong> aan in de instellingen om de gegevens eenmaal per dag op de achtergrond op te halen.</p>
+  <h3>Toegang intrekken</h3>
+  <p>Je kunt Heda's Health Connect-machtigingen op elk moment intrekken in de Health Connect-app (<strong>Apps en apparaten beheren → Heda → Machtigingen</strong>) of via het tabblad <strong>Gezondheid</strong> in Heda. Eerder gecachte gegevens blijven op je apparaat totdat je ze verwijdert via <strong>Privacy en gegevens → Lokale gegevens verwijderen</strong>. Waarden die je met de hand hebt ingevoerd of uit een bestand hebt geïmporteerd, worden door het intrekken van de toegang niet geraakt.</p>
+  <div class="callout"><p><strong>Gegevens blijven op het apparaat.</strong> Health Connect-gegevens worden gecacht in de versleutelde database op het apparaat en worden nooit naar een server gestuurd.</p></div>
+
+  <hr>
+  <p class="muted" style="font-size:0.9rem;">© 2026 EXSports Oy. Deze documentatie wordt bijgewerkt naarmate de app zich ontwikkelt. Laatst herzien in augustus 2026.</p>
+
+  <div class="doc-cta">
+    <h3>Vragen over Heda?</h3>
+    <p>Vertel ons wat je wilt bijhouden, dan helpen we je verder.</p>
+    <a class="btn btn--primary" href="mailto:info@exsports.fi">info@exsports.fi <span class="arrow">→</span></a>
+  </div>
+
+</div></div>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <a class="footer__brand" href="/index.html"><img src="/assets/brand/wordmark-ink.png" alt="exs" /></a>
+    <div class="footer__meta">
+      <span>© 2026 EXSPORTS OY</span><span class="dot">·</span>
+      <a href="/index.html">Home</a><span class="dot">·</span>
+      <a href="/legal/imprint.html">Impressum</a><span class="dot">·</span>
+      <a href="mailto:info@exsports.fi">Contact</a>
     </div>
-  </header>
-
-  <div class="doc-layout">
-
-    <!-- ── Sidebar TOC ── -->
-    <aside>
-      <nav class="toc" aria-label="Inhoudsopgave">
-        <p class="toc-label">Inhoud</p>
-        <ul class="toc-list">
-          <li><a href="#overzicht">Overzicht</a></li>
-          <li><a href="#aan-de-slag">Aan de slag</a></li>
-          <li><a href="#kalender">Kalender</a></li>
-          <li class="toc-sub"><ul class="toc-list">
-            <li><a href="#maandweergave">Maandweergave</a></li>
-            <li><a href="#gebeurteniskaarten">Gebeurteniskaarten</a></li>
-            <li><a href="#snel-toevoegen">Snel toevoegen</a></li>
-          </ul></li>
-          <li><a href="#registreren">Een gebeurtenis registreren</a></li>
-          <li class="toc-sub"><ul class="toc-list">
-            <li><a href="#type-intensiteit">Type &amp; intensiteit</a></li>
-            <li><a href="#datum-tijd">Datum &amp; tijd</a></li>
-            <li><a href="#pijngebied">Pijngebied</a></li>
-            <li><a href="#triggers">Triggers</a></li>
-            <li><a href="#aura-medicatie">Aura &amp; medicatie</a></li>
-            <li><a href="#notities">Notities</a></li>
-          </ul></li>
-          <li><a href="#bewerking">Bewerken &amp; verwijderen</a></li>
-          <li><a href="#analyse">Analyse</a></li>
-          <li class="toc-sub"><ul class="toc-list">
-            <li><a href="#statistieken">Statistieken</a></li>
-            <li><a href="#correlaties">Correlaties</a></li>
-          </ul></li>
-          <li><a href="#rapporten">Rapporten</a></li>
-          <li><a href="#instellingen">Instellingen</a></li>
-          <li><a href="#privacy">Privacy &amp; Gegevens</a></li>
-          <li><a href="#health-connect">Health Connect</a></li>
-        </ul>
-      </nav>
-    </aside>
-
-    <!-- ── Main content ── -->
-    <main class="doc-content">
-
-      <span class="section-label">Heda · Gebruikershandleiding</span>
-      <h1 class="doc-title">Hoe gebruik je Heda</h1>
-      <p class="doc-intro">Een rustig dagboek voor hoofdpijn en migraine. Breng je pijn in kaart, ontdek patronen en begrijp je triggers — alles privé opgeslagen op je apparaat.</p>
-
-      <!-- ─ Overzicht ─ -->
-      <section class="doc-section" id="overzicht">
-        <h2 class="section-heading">Overzicht</h2>
-
-        <p>Heda is een offline-first hoofdpijn- en migraine-dagboek voor Android. Alle gezondheidsgegevens worden versleuteld en uitsluitend op je apparaat opgeslagen. Er wordt niets geüpload naar een server — jouw gegevens zijn van jou alleen.</p>
-
-        <p>De app heeft vier hoofdgebieden, toegankelijk via de navigatiebalk onderaan:</p>
-
-        <div class="nav-bar-demo" aria-hidden="true">
-          <div class="nav-tab active">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 9h17M8 3v3M16 3v3"/></svg>
-            Kalender
-          </div>
-          <div class="nav-tab">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l4-6 3 3 5-8 4 6"/></svg>
-            Analyse
-          </div>
-          <div class="nav-tab">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14M5 12h14M5 17h9"/></svg>
-            Rapporten
-          </div>
-          <div class="nav-tab">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.5 5.5l1.5 1.5M17 17l1.5 1.5M5.5 18.5L7 17M17 7l1.5-1.5"/></svg>
-            Instellingen
-          </div>
-        </div>
-
-        <div class="card-grid">
-          <div class="info-card">
-            <div class="card-title">Kalender</div>
-            <div class="card-body">Blader door en beheer je hoofdpijngebeurtenissen op datum. Voeg nieuwe gebeurtenissen toe vanaf hier.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Analyse</div>
-            <div class="card-body">Statistieken en trendgrafieken voor alle gebruikers. Correlaties (premium) detecteert patronen tussen je Health Connect-gegevens en hoofdpijngebeurtenissen.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Rapporten</div>
-            <div class="card-body">Maandelijkse en dagelijkse samenvattingen met grafieken. Exporteer je gegevens als CSV of PDF.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Instellingen</div>
-            <div class="card-body">Thema, taal, Health Connect, meldingen, privacy en geavanceerde opties.</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─ Aan de slag ─ -->
-      <section class="doc-section" id="aan-de-slag">
-        <h2 class="section-heading">Aan de slag</h2>
-
-        <h3 class="sub-heading">Inloggen</h3>
-        <p>Heda vereist een Google-account om je gegevens te beschermen. Inloggen maakt een versleutelde, apparaatgebonden sleutel die aan je account is gekoppeld — er worden geen gegevens in de cloud opgeslagen.</p>
-        <ol class="steps">
-          <li>Open Heda nadat je de app hebt geïnstalleerd via Google Play.</li>
-          <li>Tik op <strong>Inloggen met Google</strong> en kies je Google-account.</li>
-          <li>Je account is nu gekoppeld aan deze installatie. Hetzelfde Google-account moet worden gebruikt als je de app opnieuw installeert.</li>
-        </ol>
-        <div class="note">
-          <strong>Privacy voorop.</strong> Heda uploadt geen gezondheidsgegevens naar externe servers. Je Google-account wordt uitsluitend gebruikt voor identificatie — om versleutelingssleutels aan één gebruiker op dit apparaat te koppelen.
-        </div>
-
-        <h3 class="sub-heading">Toestemming bij eerste start</h3>
-        <p>Bij de eerste start vraagt Heda of je anonieme crashrapporten wilt delen. Dit stuurt geen gezondheidsgegevens. Je kunt je keuze later wijzigen via <strong>Instellingen → Privacy &amp; Gegevens</strong>.</p>
-
-        <ul>
-          <li><strong>Anonieme crashrapporten</strong> — rapporteert crashes automatisch zodat bugs snel kunnen worden verholpen (GlitchTip). Er worden geen gebruiksstatistieken verzameld.</li>
-        </ul>
-      </section>
-
-      <!-- ─ Kalender ─ -->
-      <section class="doc-section" id="kalender">
-        <h2 class="section-heading">Kalender</h2>
-        <p>De Kalender is je dagelijkse weergave. Hij toont de huidige maand in één oogopslag, met gekleurde stippen die de hoofdpijnintensiteit per dag aangeven.</p>
-
-        <h3 class="sub-heading" id="maandweergave">Maandweergave</h3>
-        <p>De maandstrook bovenaan toont de huidige maand in een ISO-weekrooster (weken lopen van maandag tot zondag). Elke dag met minstens één geregistreerde gebeurtenis toont een kleine intensiteitsstip:</p>
-
-        <ul>
-          <li><span style="color:var(--accent)">●</span> <strong>Blauw</strong> — intensiteit 1–3 (mild)</li>
-          <li><span style="color:var(--danger)">●</span> <strong>Rood</strong> — intensiteit 4–5 (ernstig)</li>
-        </ul>
-
-        <p>Gebruik de knoppen <strong>‹</strong> en <strong>›</strong> om tussen maanden te navigeren. Tik op een datum om die te selecteren en de gebeurtenissen van die dag eronder te bekijken.</p>
-        <p>De huidige datum is gemarkeerd. Tik op het label <strong>Vandaag</strong> of de datum van vandaag om terug te scrollen naar de huidige dag.</p>
-
-        <h3 class="sub-heading" id="gebeurteniskaarten">Gebeurteniskaarten</h3>
-        <p>Gebeurtenissen voor de geselecteerde datum worden als kaarten onder de maandstrook weergegeven. Elke kaart toont:</p>
-        <ul>
-          <li>Het <strong>hoofdpijntype</strong> (Hoofdpijn of Migraine)</li>
-          <li>Het <strong>tijdsbestek</strong> — begin- en eindtijd en de duur</li>
-          <li>Een <strong>intensiteitsbalk</strong> (schaal 1–5)</li>
-          <li>Aura- en noodmedicatie-indicatoren, indien geregistreerd</li>
-        </ul>
-        <p>Tik op een kaart om deze te openen in de <strong>bewerkingsmodus</strong> waar alle velden kunnen worden gewijzigd.</p>
-
-        <h3 class="sub-heading" id="snel-toevoegen">Snel toevoegen</h3>
-        <p>Voor snel registreren tik je op <strong>Snel toevoegen</strong> onderaan het Kalender-scherm. Een vel schuift omhoog met de meest essentiële velden:</p>
-        <ul>
-          <li><strong>Type</strong> — Hoofdpijn of Migraine</li>
-          <li><strong>Intensiteit</strong> — schuifregelaar 1–5</li>
-          <li><strong>Aura</strong> — selectievakje</li>
-          <li><strong>Noodmedicatie</strong> — selectievakje</li>
-        </ul>
-        <p>Tik op <strong>Opslaan</strong> om direct te registreren met de huidige tijd, of tik op <strong>Details toevoegen…</strong> om het volledige gebeurtenisformulier vooraf ingevuld met deze waarden te openen.</p>
-      </section>
-
-      <!-- ─ Registreren ─ -->
-      <section class="doc-section" id="registreren">
-        <h2 class="section-heading">Een gebeurtenis registreren</h2>
-        <p>Om een nieuwe gebeurtenis met alle details te registreren, tik je op de knop <strong>+ Gebeurtenis toevoegen</strong> in de Kalender. Als je eerst op een specifieke datum hebt getikt, wordt die datum vooraf geselecteerd in het formulier.</p>
-
-        <h3 class="sub-heading" id="type-intensiteit">Type &amp; intensiteit</h3>
-        <p>Kies met de selector bovenaan tussen <strong>Hoofdpijn</strong> en <strong>Migraine</strong>. Stel vervolgens de intensiteit in op een schaal van 1 (mild) tot 5 (volledig invaliderend) met de schuifregelaar.</p>
-
-        <h3 class="sub-heading" id="datum-tijd">Datum &amp; tijd</h3>
-        <p>Drie velden bepalen de tijdsinformatie van de gebeurtenis:</p>
-        <ul>
-          <li><strong>Datum</strong> — tik om een datumkiezer te openen. Standaard is vandaag.</li>
-          <li><strong>Begintijd</strong> — wanneer de aanval begon. Tik om een 24-uurs tijdkiezer te openen.</li>
-          <li><strong>Eindtijd</strong> — wanneer de aanval eindigde. Standaard is 2 uur na de begintijd. Als je de begintijd voorbij de eindtijd verschuift, schuift de eindtijd automatisch op om het 2-uurs interval te behouden.</li>
-        </ul>
-
-        <h3 class="sub-heading" id="pijngebied">Pijngebied</h3>
-        <p>Met het <strong>3D-hoofdmodel</strong> kun je precies markeren waar de pijn zit. Het ondersteunt twee gebaren:</p>
-        <ul>
-          <li><strong>Eén vinger</strong> — schilder pijngebieden door over het oppervlak van het hoofd te slepen.</li>
-          <li><strong>Twee vingers</strong> — draai het hoofd om gebieden achteraan, opzij of in de nek te bereiken.</li>
-        </ul>
-
-        <p>Acht anatomische regio's worden ondersteund:</p>
-        <div class="tag-group">
-          <span class="tag">Voorhoofd</span>
-          <span class="tag">Rondom oog — links</span>
-          <span class="tag">Rondom oog — rechts</span>
-          <span class="tag">Slaap — links</span>
-          <span class="tag">Slaap — rechts</span>
-          <span class="tag">Achterhoofd — links</span>
-          <span class="tag">Achterhoofd — rechts</span>
-          <span class="tag">Nek</span>
-        </div>
-
-        <p>Activeer de schakelaar <strong>Kleur op intensiteit</strong> om de geschilderde regio's te kleuren met de intensiteitskleur (licht rood voor mild, donkerrood voor ernstig). Dit is standaard uitgeschakeld.</p>
-
-        <div class="note">
-          <strong>Tip.</strong> Je kunt geschilderde regio's verwijderen door er opnieuw overheen te slepen — het gebaar wisselt tussen toevoegen en wissen.
-        </div>
-
-        <h3 class="sub-heading" id="triggers">Mogelijke triggers</h3>
-        <p>Registreer mogelijke triggers die aan deze aanval kunnen hebben bijgedragen. Ze zijn ingedeeld in zeven categorieën:</p>
-
-        <table class="data-table">
-          <thead>
-            <tr><th>Categorie</th><th>Triggers</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Stress &amp; stemming</strong></td>
-              <td>Stress, Stressontlading, Angst</td>
-            </tr>
-            <tr>
-              <td><strong>Slaap</strong></td>
-              <td>Te weinig slaap, Te veel slaap, Onregelmatige slaap</td>
-            </tr>
-            <tr>
-              <td><strong>Eten &amp; drinken</strong></td>
-              <td>Maaltijd overgeslagen, Lang vasten, Uitdroging, Alcohol, Cafeïne, Cafeïneonttrekking, Chocolade, Gerijpte kaas, Voedseladditieven, Bewerkt vlees</td>
-            </tr>
-            <tr>
-              <td><strong>Hormonaal</strong></td>
-              <td>Menstruatie, Eisprong, Hormonale anticonceptie</td>
-            </tr>
-            <tr>
-              <td><strong>Omgeving</strong></td>
-              <td>Weerverandering, Extreme temperatuur, Luchtvochtigheid</td>
-            </tr>
-            <tr>
-              <td><strong>Zintuiglijk</strong></td>
-              <td>Fel licht, Sterke geur, Hard geluid, Schermflikkering</td>
-            </tr>
-            <tr>
-              <td><strong>Lichamelijk</strong></td>
-              <td>Intensieve training, Nekspanning, Reizen, Medicatieovergebruik</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3 class="sub-heading" id="aura-medicatie">Aura &amp; noodmedicatie</h3>
-        <ul>
-          <li><strong>Aura</strong> — vink aan als deze gebeurtenis voorafgegaan werd door een aura (visuele stoornissen, tintelingen, spraakveranderingen, enz.).</li>
-          <li><strong>Noodmedicatie</strong> — vink aan als je tijdens deze aanval een acuut geneesmiddel hebt genomen (bijv. triptan, NSAID of paracetamol).</li>
-        </ul>
-
-        <h3 class="sub-heading" id="notities">Notities</h3>
-        <p>Het vrije-tekstveld legt alles vast wat niet door de gestructureerde velden wordt gedekt — context, observaties, wat hielp of andere details die je wilt onthouden.</p>
-
-        <p>Tik op <strong>Opslaan</strong> als je klaar bent. De gebeurtenis verschijnt direct in de Kalender.</p>
-      </section>
-
-      <!-- ─ Bewerken & verwijderen ─ -->
-      <section class="doc-section" id="bewerking">
-        <h2 class="section-heading">Gebeurtenissen bewerken &amp; verwijderen</h2>
-
-        <h3 class="sub-heading">Een gebeurtenis bewerken</h3>
-        <ol class="steps">
-          <li>Navigeer naar de datum in de Kalender.</li>
-          <li>Tik op de gebeurteniskaart die je wilt wijzigen.</li>
-          <li>Het gebeurtenisformulier opent in bewerkingsmodus — alle velden zijn bewerkbaar.</li>
-          <li>Breng je wijzigingen aan en tik op <strong>Bijwerken</strong> om op te slaan.</li>
-        </ol>
-
-        <h3 class="sub-heading">Een gebeurtenis verwijderen</h3>
-        <ol class="steps">
-          <li>Open de gebeurtenis in bewerkingsmodus (tik op de kaart in de Kalender).</li>
-          <li>Scroll naar beneden en tik op <strong>Vermelding verwijderen</strong>.</li>
-          <li>Er verschijnt een bevestigingsdialoogvenster. Tik op <strong>Verwijderen</strong> om de gebeurtenis permanent te verwijderen.</li>
-        </ol>
-
-        <div class="warning">
-          <strong>Permanente actie.</strong> Verwijderen kan niet ongedaan worden gemaakt. De gebeurtenis wordt onmiddellijk verwijderd uit de versleutelde database op je apparaat.
-        </div>
-      </section>
-
-      <!-- ─ Analyse ─ -->
-      <section class="doc-section" id="analyse">
-        <h2 class="section-heading">Analyse</h2>
-        <p>Het Analyse-scherm heeft bovenaan twee tabbladen: <strong>Statistieken</strong> en <strong>Correlaties</strong>. Statistieken is beschikbaar voor alle gebruikers. Correlaties is een premiumfunctie waarvoor ook een Health Connect-verbinding vereist is.</p>
-
-        <div class="card-grid">
-          <div class="info-card">
-            <div class="card-title">Statistieken</div>
-            <div class="card-body">Frequentie- en ernstgrafieken voor een geselecteerde tijdsperiode. Beschikbaar voor alle gebruikers.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Correlaties</div>
-            <div class="card-body">Detecteert patronen in je Health Connect-gegevens die hoofdpijnaanvallen kunnen voorafgaan. Vereist premium en Health Connect.</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─ Statistieken ─ -->
-      <section class="doc-section" id="statistieken">
-        <h2 class="section-heading">Statistieken</h2>
-        <p>Het tabblad Statistieken geeft je een overzicht van de frequentie en ernst van je hoofdpijn over een geselecteerde periode.</p>
-
-        <h3 class="sub-heading">Periodekiezer</h3>
-        <p>Kies uit vijf tijdsperiodes:</p>
-        <div class="tag-group">
-          <span class="tag accent">7 dagen</span>
-          <span class="tag">30 dagen</span>
-          <span class="tag">90 dagen</span>
-          <span class="tag">1 jaar</span>
-          <span class="tag">Alle tijd</span>
-        </div>
-
-        <h3 class="sub-heading">Samenvattingskaart</h3>
-        <p>Een hoofdkaart toont de volgende statistieken voor de geselecteerde periode. Trendpijlen (↑ / ↓) vergelijken elk cijfer met de overeenkomstige vorige periode:</p>
-        <div class="card-grid">
-          <div class="info-card">
-            <div class="card-title">Totale gebeurtenissen</div>
-            <div class="card-body">Aantal van alle hoofdpijn- en migrainegebeurtenissen in de periode.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Gemiddelde intensiteit</div>
-            <div class="card-body">Gemiddelde intensiteit (1–5) over alle gebeurtenissen in de periode.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Gebeurtenissen met aura</div>
-            <div class="card-body">Hoeveel gebeurtenissen vergezeld gingen van een aura.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Gebeurtenissen met noodmedicatie</div>
-            <div class="card-body">Hoeveel gebeurtenissen acuut medicijn vereisten.</div>
-          </div>
-        </div>
-
-        <h3 class="sub-heading">Grafieken</h3>
-        <ul>
-          <li><strong>Trendgrafiek</strong> — aantal gebeurtenissen per tijdseenheid (dagelijks voor 7/30/90 dagen, wekelijks voor 1 jaar, maandelijks voor Alle tijd).</li>
-          <li><strong>Weekdag-heatmap</strong> — toont op welke weekdagen je hoofdpijnen het vaakst optreden.</li>
-        </ul>
-
-        <h3 class="sub-heading">Gebeurtenistype &amp; triggers</h3>
-        <p>Een gestapeld staafdiagram toont de verdeling tussen gebeurtenistypes (Hoofdpijn / Ernstige hoofdpijn / Migraine / Ernstige migraine) met aantallen en percentages. Eronder toont een horizontaal staafdiagram je meest voorkomende triggers voor de geselecteerde periode.</p>
-      </section>
-
-      <!-- ─ Correlaties ─ -->
-      <section class="doc-section" id="correlaties">
-        <h2 class="section-heading">Correlaties</h2>
-        <p>Het tabblad Correlaties analyseert je Health Connect-gegevens en zoekt naar negen op bewijs gebaseerde patronen die vaak voorafgaan aan hoofdpijn- en migraineaanvallen. Het kijkt terug over de afgelopen 90 dagen.</p>
-
-        <div class="note">
-          <strong>Premiumfunctie.</strong> Het tabblad Correlaties vereist Heda Premium. Het vereist ook Health Connect-machtigingen voor slaap-, hartslag-, HRV-, stappen- en sportgegevens. Zie het gedeelte <a href="#health-connect">Health Connect</a> voor installatiesstappen.
-        </div>
-
-        <h3 class="sub-heading">Jouw basiswaarden</h3>
-        <p>Een basiswaardenkaart bovenaan toont je 14-daagse mediaanwaarden voor elke gezondheidsmaatstaf. "—" wordt weergegeven voor maatstaven zonder voldoende gegevens.</p>
-        <ul>
-          <li><strong>Slaap</strong> — mediaan totale nachtelijke slaapduur</li>
-          <li><strong>HRV</strong> — mediaan hartslagvariabiliteit (ms)</li>
-          <li><strong>Rusthartslag</strong> — mediaan rusthartslag (slagen/min)</li>
-          <li><strong>Stappen</strong> — mediaan dagelijks stappenaantal</li>
-          <li><strong>Beweging</strong> — mediaan dagelijkse actieve minuten</li>
-          <li><strong>Diepe slaap</strong> — mediaan nachtelijke diepe slaapduur</li>
-          <li><strong>REM-slaap</strong> — mediaan nachtelijke REM-slaapduur</li>
-          <li><strong>Wakker tijdens slaap</strong> — mediaan waktijd binnen slaaperiodes</li>
-        </ul>
-
-        <h3 class="sub-heading">Gedetecteerde patronen</h3>
-        <p>Heda controleert negen op bewijs gebaseerde patronen voor elke hoofdpijngebeurtenis. Elke bevinding toont de gemeten waarde en de drempel die werd overschreden — bijvoorbeeld: <em>"Sliep 5 u 30 min voor deze gebeurtenis (drempel: 7 u)"</em>.</p>
-
-        <ul class="feature-list">
-          <li><strong>Korte slaap</strong> — totale slaapduur de nacht ervoor was minder dan 7 uur (instelbaar via Instellingen → Geavanceerd).</li>
-          <li><strong>Onregelmatig slaapschema</strong> — slaaptijden varieerden meer dan 120 minuten (standaardafwijking) gedurende de voorgaande 7 dagen.</li>
-          <li><strong>Laag stappenaantal</strong> — minder dan 3 000 stappen de dag voor de gebeurtenis (instelbaar).</li>
-          <li><strong>HRV-daling</strong> — HRV daalde onder 30 ms of onder 80% van je persoonlijke 14-daagse basislijn.</li>
-          <li><strong>Verhoogde rusthartslag</strong> — rusthartslag was de dag voor de gebeurtenis boven je 14-daagse mediaan.</li>
-          <li><strong>Bewegingspiek</strong> — actieve minuten waren de dag ervoor ongewoon hoog vergeleken met je 14-daagse mediaan.</li>
-          <li><strong>Weinig diepe slaap</strong> — diepe slaap was de nacht ervoor aanzienlijk onder je 14-daagse mediaan.</li>
-          <li><strong>Weinig REM-slaap</strong> — REM-slaap was de nacht ervoor aanzienlijk onder je 14-daagse mediaan.</li>
-          <li><strong>Gefragmenteerde slaap</strong> — waktijd binnen slaaperiodes was ongewoon hoog ten opzichte van de totale slaap en je basislijn.</li>
-        </ul>
-
-        <h3 class="sub-heading">Aanbevelingen</h3>
-        <p>Op basis van de gedetecteerde patronen genereert Heda gepersonaliseerde aanbevelingen gerangschikt op prioriteit (Hoog / Gemiddeld / Laag). Voorbeelden zijn het verbeteren van slaapduuur of -regelmaat, meer dagelijkse activiteit of het beheren van stress en herstel.</p>
-
-        <div class="warning">
-          <strong>Geen medisch advies.</strong> Gedetecteerde patronen zijn correlaties, geen diagnoses. Raadpleeg altijd een zorgverlener voor medisch advies over je hoofdpijn.
-        </div>
-      </section>
-
-      <!-- ─ Rapporten ─ -->
-      <section class="doc-section" id="rapporten">
-        <h2 class="section-heading">Rapporten</h2>
-        <p>Het tabblad Rapporten laat je gestructureerde samenvattingen van je gegevens bekijken en exporteren voor het delen met een zorgverlener.</p>
-
-        <h3 class="sub-heading">Maandrapport</h3>
-        <p>Het maandrapport toont een kalenderweergave voor elke geselecteerde maand, waarbij elke dag kleurgecodeerd is op status:</p>
-        <ul>
-          <li><strong>Geen gebeurtenissen</strong> — geen aanval geregistreerd</li>
-          <li><strong>Hoofdpijn</strong> — minstens één hoofdpijngebeurtenis</li>
-          <li><strong>Migraine</strong> — minstens één migrainegebeurtenis</li>
-        </ul>
-        <p>Een taartdiagram toont het aandeel dagen in elke categorie. Selecteer één of meer maanden met de maandchips. Tik op <strong>Alles selecteren</strong> of <strong>Wissen</strong> om snel alle maanden te selecteren of deselecteren.</p>
-
-        <h3 class="sub-heading">Dagrapport</h3>
-        <p>Het dagrapport richt zich op afzonderlijke gebeurtenissen binnen een geselecteerde periode. Kies uit:</p>
-        <div class="tag-group">
-          <span class="tag">7 dagen</span>
-          <span class="tag accent">30 dagen</span>
-          <span class="tag">90 dagen</span>
-          <span class="tag">Alle tijd</span>
-        </div>
-        <p>Een samenvattingsrij bovenaan toont het totale aantal gebeurtenissen, de gemiddelde intensiteit en het datumbereik. Eronder staat elke gebeurtenis vermeld met type, tijd en intensiteit.</p>
-
-        <h3 class="sub-heading">Gegevens exporteren</h3>
-        <p>Gebruik de exportknoppen om je gegevens op te slaan:</p>
-        <ul>
-          <li><strong>Exporteren als CSV</strong> — slaat een door komma's gescheiden bestand op met alle gebeurtenissen in de huidige periode. Kolommen: Datum, Tijd, Type, Intensiteit, Aura, Noodmedicatie, Triggers, Notities. Met de Android-systeembestandskiezer kun je de opslaglocatie kiezen.</li>
-          <li><strong>Exporteren als PDF</strong> — genereert een opgemaakt PDF-document met de samenvatting en de gebeurtenistabel, geschikt voor afdrukken of sturen naar een arts.</li>
-          <li><strong>Health Connect-gegevens exporteren als CSV</strong> — exporteer optioneel de gecachte slaap-, hartslag-, HRV-, stappen- en sportgegevens samen met je hoofdpijngebeurtenissen.</li>
-        </ul>
-
-        <div class="note">
-          <strong>Bestandslocatie.</strong> Heda gebruikt het Android Storage Access Framework, zodat jij kiest waar het geëxporteerde bestand wordt opgeslagen. Er worden geen bestanden naar een server geüpload.
-        </div>
-      </section>
-
-      <!-- ─ Instellingen ─ -->
-      <section class="doc-section" id="instellingen">
-        <h2 class="section-heading">Instellingen</h2>
-        <p>Open Instellingen via de navigatiebalk onderaan. Wijzigingen zijn onmiddellijk van kracht.</p>
-
-        <h3 class="sub-heading">Thema</h3>
-        <p>Kies uit drie opties:</p>
-        <ul>
-          <li><strong>Licht</strong> — warme, papiertintige lichte modus.</li>
-          <li><strong>Donker</strong> — diepe, bosgroene donkere modus (standaard).</li>
-          <li><strong>Systeem</strong> — volgt automatisch de donker/licht-instelling van je apparaat.</li>
-        </ul>
-
-        <h3 class="sub-heading">Taal</h3>
-        <p>Kies uit 30+ talen gegroepeerd per regio (Scandinavisch, Germaans, Romaans, Slavisch, Baltisch en Overig). De geselecteerde taal wordt toegepast op alle tekst in de app. Kies <strong>Systeem</strong> om de taalinstelling van je apparaat te volgen.</p>
-
-        <h3 class="sub-heading">Health Connect</h3>
-        <p>Leidt naar het Health Connect-instellingenscherm waar je machtigingen voor slaap-, hartslag-, HRV-, stappen- en sportgegevens kunt verlenen of intrekken. Zie het gedeelte <a href="#health-connect">Health Connect</a> voor details.</p>
-
-        <h3 class="sub-heading">Privacy &amp; Gegevens</h3>
-        <p>Opent het scherm Privacy &amp; Gegevens waar je je account kunt beheren, kunt bekijken welke gegevens worden opgeslagen, je AVG-rechten kunt uitoefenen en je gegevens kunt verwijderen. Zie het gedeelte <a href="#privacy">Privacy &amp; Gegevens</a> voor details.</p>
-
-        <h3 class="sub-heading">Automatische Health Connect-synchronisatie</h3>
-        <p>Wanneer ingeschakeld haalt Heda éénmaal per dag op de achtergrond je nieuwste gezondheidsgegevens op uit Health Connect, zelfs wanneer de app gesloten is. Dit is <strong>standaard uitgeschakeld</strong>. Inschakelen vereist verleende Health Connect-machtigingen.</p>
-
-        <h3 class="sub-heading">Dagelijkse gezondheidsaanbevelingen</h3>
-        <p>Wanneer ingeschakeld stuurt Heda een dagelijkse melding als er een hoogprioritaire correlatie wordt gedetecteerd. Door op de melding te tikken, wordt het Analyse-scherm geopend. Dit is <strong>standaard uitgeschakeld</strong> en vereist de meldingsmachtiging van het apparaat.</p>
-
-        <h3 class="sub-heading">Geavanceerd</h3>
-        <p>Vouw het gedeelte Geavanceerd uit om de drempelwaarden van de correlatie-engine nauwkeurig af te stemmen. De standaardwaarden komen overeen met gevestigde klinische richtlijnen voor migrainepreventie:</p>
-
-        <table class="data-table">
-          <thead>
-            <tr><th>Instelling</th><th>Standaard</th><th>Beschrijving</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>Minimale slaap</strong></td><td>7 u 0 min</td><td>Slaap onder deze duur wordt gemarkeerd als mogelijke trigger.</td></tr>
-            <tr><td><strong>Max. slaapvariabiliteit</strong></td><td>60 min</td><td>Standaardafwijking van slaaptiming boven dit activeert het onregelmatige-slaappatroon.</td></tr>
-            <tr><td><strong>Minimale stappen</strong></td><td>3 000</td><td>Stappenaantal hieronder wordt gemarkeerd als lage activiteit.</td></tr>
-            <tr><td><strong>Minimale HRV</strong></td><td>30 ms</td><td>HRV onder deze absolute drempel wordt gemarkeerd.</td></tr>
-            <tr><td><strong>HRV-basiswaardefractie</strong></td><td>0,80</td><td>HRV onder dit aandeel van je 14-daagse basiswaarde wordt ook gemarkeerd.</td></tr>
-          </tbody>
-        </table>
-
-        <p>Tik op <strong>Herstellen naar standaard</strong> om alle drempelwaarden te herstellen naar hun oorspronkelijke waarden.</p>
-      </section>
-
-      <!-- ─ Privacy & Gegevens ─ -->
-      <section class="doc-section" id="privacy">
-        <h2 class="section-heading">Privacy &amp; Gegevens</h2>
-        <p>Open <strong>Instellingen → Privacy &amp; Gegevens</strong> om alle gegevens- en accountinstellingen te beheren.</p>
-
-        <h3 class="sub-heading">Jouw account</h3>
-        <p>Bovenaan het scherm staat het momenteel ingelogde Google-account. Tik op <strong>Uitloggen</strong> om je af te melden bij de app. Je gegevens blijven op het apparaat staan; je kunt op elk moment opnieuw inloggen.</p>
-
-        <h3 class="sub-heading">Welke gegevens worden opgeslagen</h3>
-        <p>Alle gegevens worden lokaal op je apparaat opgeslagen in twee versleutelde databases:</p>
-
-        <table class="data-table">
-          <thead>
-            <tr><th>Gegevenstype</th><th>Inhoud</th><th>Versleuteling</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Hoofdpijngebeurtenissen</strong></td>
-              <td>Tijdstempels, pijngebieden, intensiteit, aura, noodmedicatie, triggers, notities</td>
-              <td>AES-256 (SQLCipher)</td>
-            </tr>
-            <tr>
-              <td><strong>Health Connect-cache</strong></td>
-              <td>Slaap, slaapfasen, HRV, hartslag, stappen en sport</td>
-              <td>AES-256 (SQLCipher)</td>
-            </tr>
-            <tr>
-              <td><strong>Authenticatietoken</strong></td>
-              <td>Supabase-gebruikers-ID, e-mail, inlogtijdstempel, accountkoppeling</td>
-              <td>AES-256-GCM (Tink)</td>
-            </tr>
-            <tr>
-              <td><strong>App-instellingen</strong></td>
-              <td>Alleen thema- en taalvoorkeur — geen gezondheidsgegevens</td>
-              <td>Niet versleuteld</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p>Versleutelingssleutels worden opgeslagen in de Android Keystore, hardware-ondersteund waar beschikbaar, en verlaten het apparaat nooit.</p>
-
-        <h3 class="sub-heading">Biometrisch slot</h3>
-        <p>Schakel het biometrisch slot in om een vingerafdruk, gezichtsontgrendeling of pincode te vereisen om de app te openen. Vereist een geconfigureerde schermvergrendeling in de apparaatinstellingen.</p>
-
-        <h3 class="sub-heading">Diagnostiek</h3>
-        <p>Deel optioneel anonieme crashrapporten (GlitchTip). <strong>Er worden nooit gezondheidsgegevens opgenomen.</strong> Er worden geen gebruiksstatistieken verzameld. Dit kan op elk moment worden gewijzigd.</p>
-
-        <h3 class="sub-heading">Jouw AVG-rechten</h3>
-        <p>Heda voldoet aan EU AVG Artikel 9 (bijzondere categorieën persoonsgegevens). Jouw rechten:</p>
-
-        <ul>
-          <li><strong>Recht op inzage (art. 15)</strong> — alle gegevens zijn zichtbaar in Kalender en Statistieken.</li>
-          <li><strong>Recht op rectificatie (art. 16)</strong> — bewerk elke gebeurtenis door erop te tikken in de Kalender.</li>
-          <li><strong>Recht op verwijdering (art. 17)</strong> — verwijder alle gegevens via de Gevarenzone (zie hieronder).</li>
-          <li><strong>Recht op beperking (art. 18)</strong> — log uit om alle verwerking te stoppen.</li>
-          <li><strong>Recht op gegevensoverdraagbaarheid (art. 20)</strong> — exporteer alle gebeurtenissen als CSV vanuit het Rapporten-scherm.</li>
-          <li><strong>Recht van bezwaar (art. 21)</strong> — log uit; verwerking stopt onmiddellijk.</li>
-        </ul>
-
-        <h3 class="sub-heading">Gevarenzone</h3>
-        <div class="warning">
-          <strong>Deze acties zijn permanent en kunnen niet ongedaan worden gemaakt.</strong>
-        </div>
-        <ul>
-          <li><strong>Lokale gegevens verwijderen (account behouden)</strong> — verwijdert permanent alle hoofdpijnaantekeningen, gezondheidsgegevens, instellingen en versleutelingssleutels van dit apparaat. Je Google-accountkoppeling blijft behouden, zodat je opnieuw kunt inloggen op elk apparaat.</li>
-          <li><strong>Account en alle gegevens verwijderen</strong> — verwijdert permanent alles hierboven plus je Supabase-account. Er is geen herstel mogelijk. Een tweestapsbevestiging is vereist.</li>
-        </ul>
-      </section>
-
-      <!-- ─ Health Connect ─ -->
-      <section class="doc-section" id="health-connect">
-        <h2 class="section-heading">Health Connect</h2>
-        <p>Health Connect is het uniforme gezondheidsgegevensplatform van Google voor Android. Heda leest vijf typen gezondheidsgegevens hieruit om de functie Correlaties op het Analyse-scherm te voeden:</p>
-
-        <div class="card-grid">
-          <div class="info-card">
-            <div class="card-title">Slaapsessies</div>
-            <div class="card-body">Nachtelijke slaapduur en slaapfasen (REM, diepe slaap, lichte slaap en wakker zijn) van je wearable of slaap-tracking-app.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Hartslagvariabiliteit (HRV)</div>
-            <div class="card-body">Dagelijkse RMSSD-metingen die de herstelstatus en de balans van het autonome zenuwstelsel aangeven.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Hartslag</div>
-            <div class="card-body">Continue hartslagdata gebruikt om je dagelijkse gemiddelde en rustende hartslag te berekenen.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Stappenaantal</div>
-            <div class="card-body">Dagelijks stappenaantal van je telefoon of wearable.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Sportsessies</div>
-            <div class="card-body">Duur van sportsessies gebruikt om je dagelijkse activiteitsniveau te berekenen.</div>
-          </div>
-        </div>
-
-        <div class="note">
-          <strong>Alleen lezen.</strong> Heda leest uitsluitend gegevens uit Health Connect — het schrijft er nooit naar. Alleen de specifieke recordtypen die nodig zijn voor correlatieanalyse worden aangevraagd.
-        </div>
-
-        <h3 class="sub-heading">Health Connect instellen</h3>
-        <ol class="steps">
-          <li>Ga in Heda naar <strong>Instellingen → Health Connect</strong>.</li>
-          <li>Als de Health Connect-app niet is geïnstalleerd, tik op <strong>Health Connect installeren</strong> om het van Google Play te halen. (Android 9 en later. Op Android 14+ is Health Connect ingebouwd.)</li>
-          <li>Tik op <strong>Health Connect verbinden</strong>.</li>
-          <li>Verleen Heda in het Health Connect-machtigingenscherm toegang tot <strong>Slaap</strong>, <strong>Hartslagvariabiliteit</strong>, <strong>Hartslag</strong>, <strong>Stappen</strong> en <strong>Sport</strong>.</li>
-          <li>Keer terug naar Heda. Je recente gezondheidsgegevens worden weergegeven.</li>
-        </ol>
-
-        <h3 class="sub-heading">Achtergrondssynchronisatie</h3>
-        <p>Standaard worden gezondheidsgegevens alleen opgehaald wanneer je het Health Connect-scherm opent of op <strong>Vernieuwen</strong> tikt. Schakel <strong>Automatische Health Connect-synchronisatie</strong> in Instellingen in om gegevens eenmaal per dag op de achtergrond op te halen.</p>
-
-        <h3 class="sub-heading">Toegang intrekken</h3>
-        <p>Je kunt Heda's Health Connect-machtigingen op elk moment intrekken in de Health Connect-app (<strong>Apps &amp; apparaten beheren → Heda → Machtigingen</strong>) of via <strong>Instellingen → Health Connect</strong> in Heda. Eerder gecachte gegevens blijven op je apparaat totdat je ze verwijdert via <strong>Privacy &amp; Gegevens → Lokale gegevens verwijderen</strong>.</p>
-
-        <div class="note">
-          <strong>Gegevens blijven op het apparaat.</strong> Health Connect-gegevens worden gecachet in de versleutelde lokale database en worden nooit naar een server verzonden.
-        </div>
-      </section>
-
-      <hr class="section-sep" />
-      <p style="font-size:13px; color:var(--text-dim)">© 2026 EXSports Oy. Deze documentatie wordt bijgewerkt naarmate de app zich ontwikkelt. Laatst herzien in april 2026.</p>
-
-    </main>
-  </div><!-- /.doc-layout -->
-
-  <footer class="site-footer">
-    &copy; 2026 EXSports Oy &nbsp;·&nbsp;
-    <a href="../index.html?pick=1">← Alle talen</a> &nbsp;·&nbsp;
-    <a href="../../index.html">← Documenten</a> &nbsp;·&nbsp;
-    <a href="../../legal/privacy_policy.html">Privacybeleid</a> &nbsp;·&nbsp;
-    <a href="mailto:info@exsports.fi">Contact</a>
-  </footer>
-
+  </div>
+</footer>
+
+<script>
+  document.body.classList.add('js');
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('is-stuck',window.scrollY>8);
+  onScroll(); addEventListener('scroll',onScroll,{passive:true});
+</script>
 </body>
 </html>

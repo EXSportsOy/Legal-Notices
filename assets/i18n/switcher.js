@@ -13,10 +13,15 @@
   if (grid) {
     var base = grid.getAttribute('data-base') || '.';
     var gridFile = grid.getAttribute('data-file') || 'index.html';
+    // Optional: one language whose file sits directly in data-base instead of a
+    // <lang>/ subfolder (Heda's legal pages keep English at the folder root).
+    var rootLang = grid.getAttribute('data-root-lang');
     langs.forEach(function (l) {
       var a = document.createElement('a');
       a.className = 'lang-option';
-      a.href = base + '/' + l.code + '/' + gridFile;
+      a.href = (l.code === rootLang)
+        ? base + '/' + gridFile
+        : base + '/' + l.code + '/' + gridFile;
       a.addEventListener('click', function () { remember(l.code); });
       a.innerHTML =
         '<span class="lang-name">' + l.en + '</span>' +

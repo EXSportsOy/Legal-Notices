@@ -1,631 +1,419 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Användarguide – Heda</title>
-  <link rel="stylesheet" href="../shared.css" />
+<meta charset="utf-8" />
+<title>Användarhandbok — Heda · EXSports Oy</title>
+<meta name="description" content="Så använder du Heda — en stillsam dagbok för huvudvärk och migrän för Android. Av EXSports Oy." />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0E1310" />
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/favicon-64.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16.png" />
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/legal.css" />
+<style>
+  body.theme-heda{ --signature:#C9DDA6; }
+  .toc{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:24px 26px; margin: 4px 0 36px; }
+  .toc .toc-label{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--signature); margin:0 0 14px; }
+  .toc ol{ list-style:none; margin:0; padding:0; columns:2; column-gap:36px; }
+  @media (max-width:560px){ .toc ol{ columns:1; } }
+  .toc li{ margin:0 0 9px; padding:0; }
+  .toc li::before{ display:none; }
+  .toc a{ color:var(--sub); text-decoration:none; font-size:0.95rem; border:none; }
+  .toc a:hover{ color:var(--ink); }
+  .toc .counter{ font-family:var(--mono); font-size:0.74rem; color:var(--signature); margin-right:9px; }
+  .areas{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin: 4px 0 8px; }
+  @media (max-width:560px){ .areas{ grid-template-columns:1fr; } }
+  .area{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:20px 22px; }
+  .area h4{ margin:0 0 6px; font-size:1.02rem; font-weight:500; color:var(--ink); }
+  .area p{ margin:0; font-size:0.92rem; }
+  .metric-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin: 6px 0 18px; }
+  @media (max-width:560px){ .metric-grid{ grid-template-columns:1fr; } }
+  .metric{ border:1px solid var(--line); border-radius:var(--r-sm); padding:16px 18px; }
+  .metric b{ color:var(--ink); font-weight:500; display:block; margin-bottom:4px; }
+  .metric span{ color:var(--sub); font-size:0.9rem; }
+  .prose h2[id], .prose h3[id]{ scroll-margin-top: 90px; }
+</style>
 </head>
-<body>
+<body class="theme-sage theme-heda">
 
-  <!-- ── Site header ── -->
-  <header class="site-header">
-    <div class="site-header-inner">
-      <a class="brand-lockup" href="../../index.html">
-        <svg width="26" height="26" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <circle cx="32" cy="32" r="29" stroke="currentColor" stroke-width="1" opacity="0.18" fill="none"/>
-          <circle cx="32" cy="32" r="23" stroke="currentColor" stroke-width="1" opacity="0.30" fill="none"/>
-          <circle cx="32" cy="32" r="17.5" stroke="currentColor" stroke-width="1" opacity="0.50" fill="none"/>
-          <ellipse cx="32" cy="30" rx="9" ry="11" fill="currentColor"/>
-          <path d="M27 41 Q32 44 37 41 L39 47 Q32 49 25 47 Z" fill="currentColor"/>
-        </svg>
-        <div class="header-meta">
-          <span class="wordmark">heda</span>
-          <span class="header-subtitle">Användarguide</span>
-        </div>
-      </a>
-      <nav class="header-nav">
-        <a href="../../index.html">← Dokument</a>
-        <a href="../index.html?pick=1">← Alla språk</a>
-      </nav>
-      <a class="lang-btn" href="../index.html?pick=1">🌐</a>
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="/index.html"><img src="/assets/brand/wordmark-ink.png" alt="exs" /><span class="mono-tag">EXSports Oy</span></a>
+    <nav class="nav__links">
+      <a href="/index.html" class="hide-sm">Hem</a>
+      <a href="/legal/imprint.html" class="hide-sm">Impressum</a>
+      <a href="/heda/user-guide/index.html?pick=1" class="hide-sm" aria-label="Språk" title="Språk">🌐</a>
+      <a href="mailto:info@exsports.fi" class="cta">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<section class="doc-head stage">
+  <div class="wrap doc-head__inner">
+    <a class="backlink" href="/heda/index.html"><span>←</span> Heda</a>
+    <p class="eyebrow">Heda · Handbok</p>
+    <h1>Så använder du Heda</h1>
+    <div class="meta"><span>Svenska</span><span>Senast reviderad <b>augusti 2026</b></span></div>
+    <p class="lead" style="margin-top:20px;">En stillsam dagbok för huvudvärk och migrän. Registrera dina attacker, symtom och anteckningar — allt lagras privat på din enhet.</p>
+  </div>
+</section>
+
+<div class="wrap"><div class="prose doc-sections">
+
+  <nav class="toc" aria-label="Innehåll">
+    <p class="toc-label">Innehåll</p>
+    <ol>
+      <li><a href="#overview"><span class="counter">01</span>Översikt</a></li>
+      <li><a href="#getting-started"><span class="counter">02</span>Kom igång</a></li>
+      <li><a href="#calendar"><span class="counter">03</span>Kalender</a></li>
+      <li><a href="#logging"><span class="counter">04</span>Registrera en händelse</a></li>
+      <li><a href="#editing"><span class="counter">05</span>Redigera &amp; radera</a></li>
+      <li><a href="#analysis"><span class="counter">06</span>Analys</a></li>
+      <li><a href="#reports"><span class="counter">07</span>Rapporter</a></li>
+      <li><a href="#settings"><span class="counter">08</span>Inställningar</a></li>
+      <li><a href="#privacy"><span class="counter">09</span>Integritet &amp; data</a></li>
+      <li><a href="#health-connect"><span class="counter">10</span>Health Connect</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="overview">Översikt</h2>
+  <p>Heda är en offline-först-dagbok för huvudvärk och migrän för Android. All hälsodata är krypterad och lagras endast på din enhet. Ingenting laddas upp till någon server — dina data är bara dina.</p>
+  <p>Appen har fyra huvudområden som du når från navigeringsfältet längst ned:</p>
+  <div class="areas">
+    <div class="area"><h4>Kalender</h4><p>Bläddra bland och hantera dina huvudvärkshändelser efter datum. Lägg till nya händelser härifrån.</p></div>
+    <div class="area"><h4>Analys</h4><p>Statistik och trenddiagram för alla användare. Korrelationer och Hälsa (premium) hittar mönster och rymmer dina hälsodata.</p></div>
+    <div class="area"><h4>Rapporter</h4><p>Månads- och dagssammanfattningar med diagram. Exportera dina data som CSV eller PDF.</p></div>
+    <div class="area"><h4>Inställningar</h4><p>Premiumstatus, synk och aviseringar, säkerhet, säkerhetskopiering, tema, språk, integritet och avancerade alternativ.</p></div>
+  </div>
+
+  <h2 id="getting-started">Kom igång</h2>
+  <h3>Logga in</h3>
+  <p>Heda kräver ett Google-konto för att skydda dina data. Inloggningen skapar en krypterad, enhetsbunden nyckel kopplad till ditt konto — ingen data lagras i molnet.</p>
+  <ul>
+    <li>Öppna Heda efter att du installerat appen från Google Play.</li>
+    <li>Tryck på <strong>Logga in med Google</strong> och välj ditt Google-konto.</li>
+    <li>Ditt konto är nu bundet till den här installationen. Samma Google-konto måste användas om du installerar om appen.</li>
+  </ul>
+  <div class="callout"><p><strong>Integritet först.</strong> Heda laddar inte upp någon hälsodata till externa servrar. Ditt Google-konto används enbart för identitet — för att knyta krypteringsnycklarna till en enda användare på den här enheten.</p></div>
+  <h3>Samtycke vid första starten</h3>
+  <p>Vid första starten frågar Heda om du vill dela anonyma kraschrapporter. Detta skickar ingen hälsodata. Du kan ändra ditt val senare under <strong>Inställningar → Integritet och data</strong>.</p>
+  <ul>
+    <li><strong>Anonyma kraschrapporter</strong> — rapporterar automatiskt krascher så att fel kan åtgärdas snabbt (GlitchTip). Ingen användningsstatistik samlas in.</li>
+  </ul>
+
+  <h2 id="calendar">Kalender</h2>
+  <p>Kalendern är din dagliga vy. Den visar den aktuella månaden med en blick, med färgade punkter som anger huvudvärkens intensitet varje dag.</p>
+  <h3>Månadsvy</h3>
+  <p>Månadsraden högst upp visar den aktuella månaden i ett ISO-veckorutnät (veckor löper måndag–söndag). Varje dag med minst en registrerad händelse visar en liten intensitetspunkt:</p>
+  <ul>
+    <li><strong>Blå</strong> — intensitet 1–3 (lindrig)</li>
+    <li><strong>Röd</strong> — intensitet 4–5 (svår)</li>
+  </ul>
+  <p>Använd knapparna <strong>‹</strong> och <strong>›</strong> för att bläddra mellan månader. Tryck på ett datum för att välja det och se dagens händelser nedanför. Dagens datum är markerat. Tryck på etiketten <strong>Idag</strong> eller dagens datum för att komma tillbaka till aktuell dag.</p>
+  <h3>Händelsekort</h3>
+  <p>Händelser för valt datum visas som kort under månadsraden. Varje kort visar:</p>
+  <ul>
+    <li><strong>Huvudvärkstypen</strong> (Huvudvärk eller Migrän)</li>
+    <li><strong>Tidsintervallet</strong> — start- och sluttid samt längd</li>
+    <li>En <strong>intensitetsstapel</strong> (skala 1–5)</li>
+    <li>Markeringar för aura och anfallsmedicin, om de registrerats</li>
+  </ul>
+  <p>Tryck på ett kort för att öppna det i <strong>redigeringsläge</strong> där alla fält kan ändras.</p>
+  <h3>Snabbregistrering</h3>
+  <p>För snabb registrering trycker du på <strong>Snabbregistrering</strong> längst ned i kalendern. Ett blad glider upp med de viktigaste fälten:</p>
+  <ul>
+    <li><strong>Typ</strong> — Huvudvärk eller Migrän</li>
+    <li><strong>Intensitet</strong> — reglage 1–5</li>
+    <li><strong>Aura</strong> — kryssruta</li>
+    <li><strong>Anfallsmedicin</strong> — kryssruta</li>
+  </ul>
+  <p>Tryck på <strong>Spara</strong> för att registrera direkt med aktuell tid, eller på <strong>Lägg till detaljer…</strong> för att öppna det fullständiga händelseformuläret förifyllt med dessa värden.</p>
+
+  <h2 id="logging">Registrera en händelse</h2>
+  <p>För att registrera en ny händelse med alla detaljer trycker du på <strong>+ Lägg till händelse</strong> i kalendern. Om du först tryckte på ett visst datum är det förvalt i formuläret.</p>
+  <h3>Typ och intensitet</h3>
+  <p>Välj mellan <strong>Huvudvärk</strong> och <strong>Migrän</strong> med väljaren högst upp. Ställ sedan in intensiteten på en skala från 1 (lindrig) till 5 (invalidiserande) med reglaget.</p>
+  <h3>Datum och tid</h3>
+  <p>Tre fält styr händelsens tidpunkt:</p>
+  <ul>
+    <li><strong>Datum</strong> — tryck för att öppna en datumväljare. Standard är idag.</li>
+    <li><strong>Starttid</strong> — när attacken började. Tryck för att öppna en 24-timmars tidväljare.</li>
+    <li><strong>Sluttid</strong> — när attacken slutade. Standard är 2 timmar efter starttiden. Om du flyttar starttiden förbi sluttiden flyttas sluttiden automatiskt så att intervallet på 2 timmar bibehålls.</li>
+  </ul>
+  <h3>Smärtområde</h3>
+  <p>Med <strong>3D-huvudmodellen</strong> kan du markera exakt var smärtan sitter. Den stöder två gester:</p>
+  <ul>
+    <li><strong>Ett finger</strong> — måla smärtområden genom att dra över huvudets yta.</li>
+    <li><strong>Två fingrar</strong> — rotera huvudet för att nå baksidan, sidorna eller nacken.</li>
+  </ul>
+  <p>Åtta anatomiska områden stöds: Panna, Runt ögat — vänster, Runt ögat — höger, Tinning — vänster, Tinning — höger, Nackknöl — vänster, Nackknöl — höger och Nacke.</p>
+  <p>Aktivera reglaget <strong>Färgkoda efter intensitet</strong> för att tona de målade områdena med intensitetsfärgen (ljusare rött för lindrigt, djupt rött för svårt). Detta är avstängt som standard.</p>
+  <div class="callout"><p><strong>Tips.</strong> Du kan ta bort målade områden genom att dra över dem igen — gesten växlar mellan att lägga till och radera.</p></div>
+  <h3>Möjliga utlösare</h3>
+  <p>Registrera möjliga utlösare som kan ha bidragit till attacken. De är grupperade i sju kategorier:</p>
+  <table class="grid">
+    <thead><tr><th>Kategori</th><th>Utlösare</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Stress och humör</strong></td><td>Stress, Stressavlastning, Ångest</td></tr>
+      <tr><td><strong>Sömn</strong></td><td>För lite sömn, För mycket sömn, Oregelbunden sömn</td></tr>
+      <tr><td><strong>Mat och dryck</strong></td><td>Överhoppad måltid, Lång fasta, Uttorkning, Alkohol, Koffein, Koffeinabstinens, Choklad, Lagrad ost, Livsmedelstillsatser, Processat kött</td></tr>
+      <tr><td><strong>Hormonella</strong></td><td>Menstruation, Ägglossning, Hormonella preventivmedel</td></tr>
+      <tr><td><strong>Miljö</strong></td><td>Väderomslag, Extrem temperatur, Luftfuktighet</td></tr>
+      <tr><td><strong>Sinnesintryck</strong></td><td>Starkt ljus, Stark lukt, Högt ljud, Skärmflimmer</td></tr>
+      <tr><td><strong>Fysiska</strong></td><td>Intensiv träning, Nackspänning, Resande, Överanvändning av läkemedel</td></tr>
+    </tbody>
+  </table>
+  <h3>Aura och anfallsmedicin</h3>
+  <ul>
+    <li><strong>Aura</strong> — kryssa i om händelsen föregicks av en aura (synstörningar, stickningar, talsvårigheter osv.).</li>
+    <li><strong>Anfallsmedicin</strong> — kryssa i om du tog akut medicin (t.ex. en triptan, NSAID eller paracetamol) under attacken.</li>
+  </ul>
+  <h3>Anteckningar</h3>
+  <p>Fritextfältet för anteckningar fångar allt som de strukturerade fälten inte täcker — sammanhang, observationer, vad som hjälpte eller andra detaljer du vill komma ihåg. Tryck på <strong>Spara</strong> när du är klar. Händelsen visas i kalendern omedelbart.</p>
+
+  <h2 id="editing">Redigera och radera händelser</h2>
+  <h3>Redigera en händelse</h3>
+  <ul>
+    <li>Navigera till datumet i kalendern.</li>
+    <li>Tryck på händelsekortet du vill ändra.</li>
+    <li>Händelseformuläret öppnas i redigeringsläge — alla fält är redigerbara.</li>
+    <li>Gör dina ändringar och tryck på <strong>Uppdatera</strong> för att spara.</li>
+  </ul>
+  <h3>Radera en händelse</h3>
+  <ul>
+    <li>Öppna händelsen i redigeringsläge (tryck på dess kort i kalendern).</li>
+    <li>Bläddra längst ned och tryck på <strong>Radera post</strong>.</li>
+    <li>En bekräftelsedialog visas. Tryck på <strong>Radera</strong> för att ta bort händelsen permanent.</li>
+  </ul>
+  <div class="callout"><p><strong>Permanent åtgärd.</strong> Radering kan inte ångras. Händelsen tas omedelbart bort ur den krypterade databasen på din enhet.</p></div>
+
+  <h2 id="analysis">Analys</h2>
+  <p>Analysskärmen har tre flikar högst upp: <strong>Statistik</strong>, <strong>Korrelationer</strong> och <strong>Hälsa</strong>. Statistik är tillgänglig för alla användare. Korrelationer och Hälsa kräver Heda Premium.</p>
+
+  <h3 id="statistics">Statistik</h3>
+  <p>Fliken Statistik ger dig en överblick över hur ofta och hur svår din huvudvärk är under en vald period.</p>
+  <p><strong>Val av period.</strong> Välj mellan fem perioder: 7 dagar, 30 dagar, 90 dagar, 1 år eller Hela tiden.</p>
+  <p><strong>Sammanfattningskort.</strong> Huvudkortet visar följande mått för den valda perioden. Trendpilar (↑ / ↓) jämför siffrorna med föregående motsvarande period:</p>
+  <ul>
+    <li><strong>Totalt antal händelser</strong> — antalet huvudvärks- och migränhändelser under perioden.</li>
+    <li><strong>Genomsnittlig intensitet</strong> — medelvärdet av intensiteten (1–5) för alla händelser under perioden.</li>
+    <li><strong>Händelser med aura</strong> — hur många attacker som åtföljdes av aura.</li>
+    <li><strong>Händelser med anfallsmedicin</strong> — hur många attacker som krävde akut medicin.</li>
+  </ul>
+  <p><strong>Diagram.</strong></p>
+  <ul>
+    <li><strong>Trenddiagram</strong> — antal händelser per tidsintervall (dagligen för 7/30/90 dagar, veckovis för 1 år, månadsvis för Hela tiden).</li>
+    <li><strong>Veckodagsvärmekarta</strong> — visar vilka veckodagar din huvudvärk oftast inträffar.</li>
+  </ul>
+  <p><strong>Typfördelning och utlösare.</strong> Ett staplat stapeldiagram visar fördelningen mellan händelsetyper (Huvudvärk / Svår huvudvärk / Migrän / Svår migrän) med antal och procent. Under det listar ett liggande stapeldiagram dina vanligaste utlösare för perioden.</p>
+
+  <h3 id="correlations">Korrelationer</h3>
+  <p>Fliken Korrelationer analyserar dina hälsodata — inlästa från Health Connect, inmatade för hand eller importerade från en fil — och letar efter nio evidensbaserade mönster som ofta föregår huvudvärks- och migränattacker. Den tittar tillbaka på de senaste 90 dagarna.</p>
+  <div class="callout"><p><strong>Premiumfunktion.</strong> Fliken Korrelationer kräver Heda Premium. Den använder samma sömn-, puls-, HRV-, steg- och träningsdata som visas på fliken <a href="#health-tab">Hälsa</a>, oavsett hur de hamnat där.</p></div>
+  <p><strong>Din baslinje.</strong> Ett baslinjekort högst upp visar dina medianvärden över 14 dagar för varje hälsomått. Ett ”—” visas för mått utan tillräckligt med data.</p>
+  <ul>
+    <li><strong>Sömn</strong> — median för total nattsömn</li>
+    <li><strong>HRV</strong> — median för hjärtfrekvensvariabilitet (ms)</li>
+    <li><strong>Vilopuls</strong> — median för vilopuls (slag/min)</li>
+    <li><strong>Steg</strong> — median för dagligt antal steg</li>
+    <li><strong>Träning</strong> — median för dagliga aktivitetsminuter</li>
+    <li><strong>Djupsömn</strong> — median för djupsömn per natt</li>
+    <li><strong>REM-sömn</strong> — median för REM-sömn per natt</li>
+    <li><strong>Vaken tid under sömnen</strong> — median för vaken tid under sömnperioden</li>
+  </ul>
+  <p><strong>Upptäckta mönster.</strong> Heda kontrollerar nio evidensbaserade mönster vid varje huvudvärksattack. Varje fynd visar det uppmätta värdet och tröskeln som överskreds — till exempel: <em>”Du sov 5 tim 30 min före den här attacken (tröskel: 7 tim)”</em>.</p>
+  <ul>
+    <li><strong>Kort sömn</strong> — total sömn natten före var mindre än 7 timmar (kan ändras under Inställningar → Avancerat).</li>
+    <li><strong>Oregelbunden sömn</strong> — sovtiderna varierade med mer än 120 minuter (standardavvikelse) under de föregående 7 dagarna.</li>
+    <li><strong>Lågt antal steg</strong> — färre än 3 000 steg dagen före attacken (kan ändras).</li>
+    <li><strong>HRV-fall</strong> — HRV sjönk under 30 ms eller under 80 % av din personliga 14-dagarsbaslinje.</li>
+    <li><strong>Förhöjd vilopuls</strong> — vilopulsen låg över din 14-dagarsmedian dagen före attacken.</li>
+    <li><strong>Träningstopp</strong> — aktivitetsminuterna var ovanligt höga jämfört med din 14-dagarsmedian dagen före attacken.</li>
+    <li><strong>Låg djupsömn</strong> — djupsömnen låg klart under din 14-dagarsmedian natten före.</li>
+    <li><strong>Låg REM-sömn</strong> — REM-sömnen låg klart under din 14-dagarsmedian natten före.</li>
+    <li><strong>Fragmenterad sömn</strong> — vaken tid under sömnperioden var ovanligt hög i förhållande till total sömn och baslinje.</li>
+  </ul>
+  <p><strong>Rekommendationer.</strong> Utifrån de upptäckta mönstren tar Heda fram personliga rekommendationer rangordnade efter prioritet (Hög / Medel / Låg). Exempel är att förbättra sömnlängd eller sömnregelbundenhet, öka den dagliga aktiviteten eller hantera stress och återhämtning.</p>
+  <div class="callout"><p><strong>Inte medicinsk rådgivning.</strong> Upptäckta mönster är korrelationer, inte diagnoser. Rådgör alltid med sjukvårdspersonal om medicinska frågor kring din huvudvärk.</p></div>
+
+  <h3 id="health-tab">Hälsa</h3>
+  <div class="callout"><p><strong>Premiumfunktion.</strong> Fliken Hälsa kräver Heda Premium. Tills Premium är aktivt visar fliken i stället skärmen <strong>Lås upp Health Connect</strong> — Heda begär inga Health Connect-behörigheter och läser ingen hälsodata dessförinnan.</p></div>
+  <p>På fliken Hälsa finns dina data för sömn, hjärtfrekvensvariabilitet (HRV), vilopuls, steg och träning — samma fem mått som Korrelationer analyserar. Data kan komma dit på tre sätt:</p>
+  <ul>
+    <li><strong>Health Connect</strong> — läses automatiskt från en ansluten wearable eller en annan app som skriver till Health Connect. Varje synk hämtar de senaste 30 dagarna, och dagar du redan synkat stannar kvar på enheten, så din historik växer. Tryck på <strong>Uppdatera</strong> för att synka direkt. Se <a href="#health-connect">Health Connect</a> för installation.</li>
+    <li><strong>Manuella värden</strong> — tryck på <strong>Lägg till värde för en dag</strong> under <em>Manuella värden</em> för att mata in vilopuls, HRV, sömnlängd, steg eller träning för hand för valfri dag. En källetikett (till exempel ”Polar Flow → Nightly Recharge”) håller reda på var siffrorna kommer ifrån. Ett värde utanför det vanliga intervallet flaggas med en varning men kan ändå sparas, och varje manuellt värde kan redigeras eller raderas senare.</li>
+    <li><strong>Importera från en fil</strong> — tryck på <strong>Importera från en fil</strong> för att läsa in en CSV-fil som exporterats från en annan enhet eller app. Du väljer filen, matchar dess kolumner mot datum- och värdefälten och granskar en förhandsvisning — inlästa och överhoppade rader, nya dagar, dagar som redan har ett värde samt hela datumintervallet — innan något sparas. Om en dag redan har ett värde väljer du en gång om ditt eget ska behållas eller ersättas med det importerade.</li>
+  </ul>
+  <p>Värden du matar in eller importerar märks med etiketten <strong>Manuellt</strong>, lagras exakt som Health Connect-data — krypterat, endast på din enhet — och används av Korrelationer tillsammans med det som lästs från Health Connect. Att återkalla åtkomsten till Health Connect påverkar dem inte.</p>
+  <p>Resten av fliken visar din senast synkade natt med sitt sömnfönster, ett 30-dagarsgenomsnitt för sömn, en trend för sömnlängd och en lista med <strong>Dagliga hälsouppgifter</strong> för enskilda dagar.</p>
+
+  <h2 id="reports">Rapporter</h2>
+  <p>På fliken Rapporter kan du se strukturerade sammanfattningar av dina data och exportera dem för att dela med vårdpersonal.</p>
+  <h3>Månadsrapport</h3>
+  <p>Månadsrapporten visar en kalendervy för varje vald månad, där varje dag är färgkodad efter status:</p>
+  <ul>
+    <li><strong>Inga händelser</strong> — ingen attack registrerad</li>
+    <li><strong>Huvudvärk</strong> — minst en huvudvärkshändelse</li>
+    <li><strong>Migrän</strong> — minst en migränhändelse</li>
+  </ul>
+  <p>Ett cirkeldiagram visar andelen dagar i varje kategori. Välj en eller flera månader med månadschipsen. Tryck på <strong>Välj alla</strong> eller <strong>Rensa</strong> för att snabbt markera eller avmarkera alla månader.</p>
+  <h3>Dagsrapport</h3>
+  <p>Dagsrapporten fokuserar på enskilda händelser inom en vald period. Välj mellan 7 dagar, 30 dagar, 90 dagar eller Hela tiden. En sammanfattningsrad högst upp visar totalt antal händelser, genomsnittlig intensitet och datumintervallet. Under den listas varje händelse med typ, tid och intensitet.</p>
+  <h3>Exportera data</h3>
+  <ul>
+    <li><strong>Exportera som CSV</strong> — sparar en kommaseparerad fil med alla händelser i den aktuella perioden. Kolumner: Datum, Tid, Typ, Intensitet, Aura, Anfallsmedicin, Utlösare, Anteckningar. Androids systemfilväljare låter dig välja var filen sparas.</li>
+    <li><strong>Exportera som PDF</strong> — skapar ett formaterat PDF-dokument med sammanfattning och händelsetabell, lämpligt att skriva ut eller skicka till en läkare. <strong>Kräver Premium</strong>; utan det öppnar knappen köpdialogen.</li>
+    <li><strong>Exportera hälsodata som CSV</strong> — exportera valfritt dina hälsodata tillsammans med huvudvärkshändelserna. Filen har fyra kolumner — datum, sömn i timmar, HRV i millisekunder och steg — och omfattar de dagar som synkats från Health Connect.</li>
+  </ul>
+  <div class="callout"><p><strong>Filplats.</strong> Heda använder Androids Storage Access Framework, så du väljer var den exporterade filen sparas. Inga filer laddas upp till någon server.</p></div>
+
+  <h2 id="settings">Inställningar</h2>
+  <p>Öppna Inställningar från navigeringsfältet längst ned. Ändringar träder i kraft omedelbart. Avsnitten nedan listas i samma ordning som de visas i appen.</p>
+
+  <h3>Premiumstatus</h3>
+  <p>Så länge Premium inte är aktivt ligger ett <strong>Premiumstatus</strong>-kort högst upp i Inställningar. <strong>Köp premium</strong> öppnar köpdialogen; <strong>Uppdatera status</strong> kontrollerar ett befintligt köp på nytt, vilket är vad du behöver efter en ominstallation eller ett telefonbyte. Om en kontroll misslyckades förklarar kortet varför — ingen kontakt med Google Play eller verifieringsservern, en betalning som fortfarande väntar, ett köp gjort med ett annat Google-konto och så vidare. När Premium är aktivt försvinner kortet.</p>
+  <p>Premium är ett <strong>engångsköp, inte en prenumeration</strong>. Det låser upp flikarna Korrelationer och Hälsa på analysskärmen (inklusive manuell inmatning och filimport av hälsodata), automatisk Health Connect-synk, dagliga hälsorekommendationer samt PDF-export på rapportskärmen.</p>
+
+  <h3>Synk och aviseringar</h3>
+  <p><strong>Automatisk Health Connect-synk.</strong> När den är aktiverad hämtar Heda dina senaste hälsodata från Health Connect en gång per dygn i bakgrunden, även när appen är stängd. Den är <strong>avstängd som standard</strong> och <strong>kräver Premium</strong> — om du trycker på den utan Premium öppnas köpdialogen. Den kräver också att Health Connect-behörigheter har beviljats.</p>
+  <p><strong>Dagliga hälsorekommendationer.</strong> När de är aktiverade skickar Heda en daglig avisering om en högprioriterad korrelation upptäcks. Om du trycker på aviseringen öppnas analysskärmen på fliken Korrelationer. Detta är <strong>avstängt som standard</strong>, <strong>kräver Premium</strong> och kräver enhetens aviseringsbehörighet.</p>
+
+  <h3>Avancerat</h3>
+  <p>Expandera avsnittet Avancerat för att finjustera de tröskelvärden som korrelationsmotorn använder. Standardvärdena följer etablerade kliniska riktlinjer för migränförebyggande:</p>
+  <table class="grid">
+    <thead><tr><th>Inställning</th><th>Standard</th><th>Beskrivning</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Minsta sömn</strong></td><td>7 tim 0 min</td><td>Sömn under denna längd flaggas som möjlig utlösare.</td></tr>
+      <tr><td><strong>Största sömnvariation</strong></td><td>60 min</td><td>Standardavvikelse för sovtider över detta utlöser mönstret oregelbunden sömn.</td></tr>
+      <tr><td><strong>Minsta antal steg</strong></td><td>3 000</td><td>Ett stegantal under detta flaggas som låg aktivitet.</td></tr>
+      <tr><td><strong>Minsta HRV</strong></td><td>30 ms</td><td>HRV under denna absoluta tröskel flaggas.</td></tr>
+      <tr><td><strong>HRV-baslinjeandel</strong></td><td>0,80</td><td>HRV under denna andel av din 14-dagarsbaslinje flaggas också.</td></tr>
+    </tbody>
+  </table>
+  <p>Tryck på <strong>Återställ standardvärden</strong> för att återställa alla tröskelvärden till sina ursprungliga värden.</p>
+
+  <h3>Säkerhet</h3>
+  <p>Avsnittet Säkerhet innehåller reglaget <strong>Biometrisk lås</strong> — kräv fingeravtryck, ansiktslås eller PIN för att öppna Heda. Reglaget är otillgängligt tills du ställt in ett skärmlås i enhetens egna inställningar.</p>
+
+  <h3>Säkerhetskopiering</h3>
+  <p>Avsnittet Säkerhetskopiering har en enda rad, <strong>Säkerhetskopiering och återställning</strong>, och den är gratis — inget Premium krävs. <strong>Skapa säkerhetskopia</strong> skriver en enda krypterad fil som du kan lagra var som helst; du väljer lösenordet som låser den, och det måste vara minst 10 tecken med en versal, en gemen och en siffra, och endast tecken utan diakriter (å, ä och ö går inte att använda). <strong>Om du tappar bort lösenordet går filen inte att öppna — det finns ingen återställning.</strong></p>
+  <p><strong>Återställ från säkerhetskopia</strong> slår samman filen med det som redan finns i telefonen i stället för att rensa bort det. Om vissa poster finns på båda sidor med olika innehåll frågar Heda en gång om det som finns i telefonen ska behållas eller ersättas med säkerhetskopian, och rapporterar sedan hur många poster och hälsodagar som lades till, ersattes och hoppades över. Appinställningar som tema och språk ingår inte i en säkerhetskopia — ställ in dem på nytt på den nya enheten.</p>
+
+  <h3>Utseende</h3>
+  <p><strong>Tema.</strong> Välj hur appen ser ut:</p>
+  <ul>
+    <li><strong>Ljust</strong> — varmt pappersfärgat ljust läge.</li>
+    <li><strong>Mörkt</strong> — djupt skogsmörkt läge (standard).</li>
+    <li><strong>System</strong> — följer automatiskt enhetens inställning för mörkt/ljust läge.</li>
+  </ul>
+  <p><strong>Språk.</strong> Välj bland 30+ språk grupperade efter region (Norden, germanska, romanska, slaviska, baltiska och övriga). Det valda språket gäller all text i appen. Välj <strong>System</strong> för att följa enhetens språkinställning.</p>
+
+  <h3>Diagnostik</h3>
+  <p><strong>Felrapportering</strong> delar valfritt anonyma kraschrapporter (GlitchTip) så att fel kan åtgärdas. <strong>Ingen hälsodata inkluderas någonsin</strong>, och ingen användningsstatistik samlas in. Du kan ändra detta när som helst; appen startar om rapporteraren när du gör det.</p>
+
+  <h3>Hjälp och juridik</h3>
+  <ul>
+    <li><strong>Användarhandbok</strong> — öppnar den här handboken på nätet.</li>
+    <li><strong>Ansvarsfriskrivning</strong> — den medicinska och ansvarsrelaterade friskrivningen.</li>
+    <li><strong>Impressum</strong> — leverantörsuppgifter för EXSports Oy.</li>
+    <li><strong>Integritet och data</strong> — öppnar skärmen Integritet och data, där du hanterar ditt konto, granskar vad som lagras, utövar dina GDPR-rättigheter och raderar dina data. Se <a href="#privacy">Integritet och data</a>.</li>
+    <li><strong>Rapportera ett fel</strong> — öppnar felrapportformuläret.</li>
+  </ul>
+
+  <h3>Om</h3>
+  <p>Längst ned på skärmen visas den installerade appversionen samt ett hopfällbart block med <strong>Upphovsrätt</strong> som anger vem som ligger bakom appen, dess 3D-modell och dess typografi.</p>
+
+  <h2 id="privacy">Integritet och data</h2>
+  <p>Öppna <strong>Inställningar → Integritet och data</strong> för att hantera alla data och kontoinställningar.</p>
+  <h3>Ditt konto</h3>
+  <p>Högst upp på skärmen visas det Google-konto som är inloggat. Tryck på <strong>Logga ut</strong> för att logga ut ur appen. Dina data stannar kvar på enheten; du kan logga in igen när som helst.</p>
+  <h3>Vilka data lagras</h3>
+  <p>Alla data lagras lokalt på din enhet i två krypterade databaser:</p>
+  <table class="grid">
+    <thead><tr><th>Datatyp</th><th>Innehåll</th><th>Kryptering</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Huvudvärkshändelser</strong></td><td>Tidsstämplar, smärtområden, intensitet, aura, anfallsmedicin, utlösare, anteckningar</td><td>AES-256 (SQLCipher)</td></tr>
+      <tr><td><strong>Health Connect-cache</strong></td><td>Sömn, sömnfaser, HRV, puls, steg och träning synkade från Health Connect</td><td>AES-256 (SQLCipher)</td></tr>
+      <tr><td><strong>Manuella hälsoposter</strong></td><td>Vilopuls, HRV, sömnlängd, steg och träning som du matat in för hand eller importerat från en fil</td><td>AES-256 (SQLCipher)</td></tr>
+      <tr><td><strong>Autentiseringstoken</strong></td><td>Supabase-användar-ID, e-post, tidsstämpel för inloggning, kontokoppling</td><td>AES-256-GCM (Tink)</td></tr>
+      <tr><td><strong>Appinställningar</strong></td><td>Endast tema- och språkinställning — ingen hälsodata</td><td>Okrypterat</td></tr>
+    </tbody>
+  </table>
+  <p>Krypteringsnycklarna lagras i Android Keystore, hårdvaruskyddade där det är möjligt, och lämnar aldrig enheten.</p>
+  <h3>Dina rättigheter enligt GDPR</h3>
+  <p>Heda följer EU:s GDPR artikel 9 (särskilda kategorier av personuppgifter). Dina rättigheter:</p>
+  <ul>
+    <li><strong>Rätt till tillgång (art. 15)</strong> — alla dina data syns i Kalender och Statistik.</li>
+    <li><strong>Rätt till rättelse (art. 16)</strong> — redigera valfri händelse genom att trycka på den i kalendern.</li>
+    <li><strong>Rätt till radering (art. 17)</strong> — radera alla data via Riskzonen (se nedan).</li>
+    <li><strong>Rätt till begränsning (art. 18)</strong> — logga ut för att stoppa all behandling.</li>
+    <li><strong>Rätt till dataportabilitet (art. 20)</strong> — skapa en krypterad säkerhetskopia under <strong>Inställningar → Säkerhetskopiering</strong>, eller exportera alla händelser som CSV från rapportskärmen.</li>
+    <li><strong>Rätt att invända (art. 21)</strong> — logga ut; behandlingen upphör omedelbart.</li>
+  </ul>
+  <h3>Riskzon</h3>
+  <p><strong>De här åtgärderna är permanenta och kan inte ångras.</strong></p>
+  <ul>
+    <li><strong>Radera lokala data (behåll kontot)</strong> — raderar permanent alla huvudvärksposter, hälsodata, inställningar och krypteringsnycklar från den här enheten. Kopplingen till ditt Google-konto behålls, så du kan logga in igen på valfri enhet.</li>
+    <li><strong>Radera konto och alla data</strong> — raderar permanent allt ovanstående plus ditt Supabase-konto. Det finns ingen återställning. Bekräftelse i två steg krävs.</li>
+  </ul>
+
+  <h2 id="health-connect">Health Connect</h2>
+  <p>Health Connect är Googles enhetliga plattform för hälsodata på Android. Heda läser fem typer av hälsodata därifrån för att driva flikarna Korrelationer och Hälsa på analysskärmen. Om du inte har någon ansluten enhet eller app kan du i stället mata in samma fem mått för hand eller importera dem från en fil — se <a href="#health-tab">Hälsa</a>.</p>
+  <div class="metric-grid">
+    <div class="metric"><b>Sömnpass</b><span>Nattlig sömnlängd och sömnfaser (REM, djup, lätt och vaken tid) från din wearable eller sömnapp.</span></div>
+    <div class="metric"><b>Hjärtfrekvensvariabilitet (HRV)</b><span>Dagliga RMSSD-mätningar som visar återhämtningsstatus och autonoma nervsystemets balans.</span></div>
+    <div class="metric"><b>Puls</b><span>Kontinuerliga pulsvärden som används för att beräkna dagens genomsnitts- och vilopuls.</span></div>
+    <div class="metric"><b>Steg</b><span>Dagligt antal steg från din telefon eller wearable.</span></div>
+    <div class="metric"><b>Träningspass</b><span>Längden på träningspass, som används för att beräkna daglig aktivitetsnivå.</span></div>
+  </div>
+  <div class="callout"><p><strong>Endast läsning.</strong> Heda läser bara data från Health Connect — den skriver aldrig dit. Endast de posttyper som krävs för korrelationsanalysen begärs.</p></div>
+  <h3>Ställa in Health Connect</h3>
+  <ul>
+    <li>Öppna fliken <strong>Hälsa</strong> på analysskärmen i Heda. Utan Premium visar fliken i stället skärmen <strong>Lås upp Health Connect</strong> — Heda begär inga Health Connect-behörigheter förrän Premium är aktivt.</li>
+    <li>Om appen Health Connect inte är installerad trycker du på <strong>Installera Health Connect</strong> för att hämta den från Google Play. (Android 9 och senare. På Android 14+ är Health Connect inbyggt.)</li>
+    <li>Tryck på <strong>Anslut Health Connect</strong>.</li>
+    <li>På behörighetsskärmen i Health Connect ger du Heda åtkomst till <strong>Sömn</strong>, <strong>Hjärtfrekvensvariabilitet</strong>, <strong>Puls</strong>, <strong>Steg</strong> och <strong>Träning</strong>.</li>
+    <li>Gå tillbaka till Heda. De senaste 30 dagarna hämtas och visas. Du kan fortfarande lägga till eller korrigera enskilda dagar för hand — se <a href="#health-tab">Hälsa</a>.</li>
+  </ul>
+  <h3>Bakgrundssynk</h3>
+  <p>Som standard hämtas hälsodata bara när du öppnar fliken Hälsa eller trycker på <strong>Uppdatera</strong>. Aktivera <strong>Automatisk Health Connect-synk</strong> i Inställningar för att hämta data en gång per dygn i bakgrunden.</p>
+  <h3>Återkalla åtkomst</h3>
+  <p>Du kan när som helst återkalla Hedas Health Connect-behörigheter i appen Health Connect (<strong>Hantera appar och enheter → Heda → Behörigheter</strong>) eller från fliken <strong>Hälsa</strong> i Heda. Tidigare cachade data ligger kvar på din enhet tills du raderar dem via <strong>Integritet och data → Radera lokala data</strong>. Värden du matat in för hand eller importerat från en fil påverkas inte av att åtkomsten återkallas.</p>
+  <div class="callout"><p><strong>Data stannar på enheten.</strong> Health Connect-data cachas i den krypterade databasen på enheten och skickas aldrig till någon server.</p></div>
+
+  <hr>
+  <p class="muted" style="font-size:0.9rem;">© 2026 EXSports Oy. Den här dokumentationen uppdateras allteftersom appen utvecklas. Senast reviderad augusti 2026.</p>
+
+  <div class="doc-cta">
+    <h3>Frågor om Heda?</h3>
+    <p>Berätta vad du försöker följa upp så hjälper vi dig.</p>
+    <a class="btn btn--primary" href="mailto:info@exsports.fi">info@exsports.fi <span class="arrow">→</span></a>
+  </div>
+
+</div></div>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <a class="footer__brand" href="/index.html"><img src="/assets/brand/wordmark-ink.png" alt="exs" /></a>
+    <div class="footer__meta">
+      <span>© 2026 EXSPORTS OY</span><span class="dot">·</span>
+      <a href="/index.html">Hem</a><span class="dot">·</span>
+      <a href="/legal/imprint.html">Impressum</a><span class="dot">·</span>
+      <a href="mailto:info@exsports.fi">Kontakt</a>
     </div>
-  </header>
-
-  <div class="doc-layout">
-
-    <!-- ── Sidebar TOC ── -->
-    <aside>
-      <nav class="toc" aria-label="Innehållsförteckning">
-        <p class="toc-label">Innehåll</p>
-        <ul class="toc-list">
-          <li><a href="#oversikt">Översikt</a></li>
-          <li><a href="#kom-igang">Kom igång</a></li>
-          <li><a href="#kalender">Kalender</a></li>
-          <li class="toc-sub"><ul class="toc-list">
-            <li><a href="#manadsvy">Månadsvy</a></li>
-            <li><a href="#handelsekort">Händelsekort</a></li>
-            <li><a href="#snabb-lagg-till">Snabbtillägg</a></li>
-          </ul></li>
-          <li><a href="#logga">Logga en händelse</a></li>
-          <li class="toc-sub"><ul class="toc-list">
-            <li><a href="#typ-intensitet">Typ &amp; intensitet</a></li>
-            <li><a href="#datum-tid">Datum &amp; tid</a></li>
-            <li><a href="#smartomrade">Smärtområde</a></li>
-            <li><a href="#utlosare">Utlösare</a></li>
-            <li><a href="#aura-medicinering">Aura &amp; medicinering</a></li>
-            <li><a href="#anteckningar">Anteckningar</a></li>
-          </ul></li>
-          <li><a href="#redigering">Redigera &amp; ta bort</a></li>
-          <li><a href="#analys">Analys</a></li>
-          <li class="toc-sub"><ul class="toc-list">
-            <li><a href="#statistik">Statistik</a></li>
-            <li><a href="#korrelationer">Korrelationer</a></li>
-          </ul></li>
-          <li><a href="#rapporter">Rapporter</a></li>
-          <li><a href="#installningar">Inställningar</a></li>
-          <li><a href="#integritet">Integritet &amp; Data</a></li>
-          <li><a href="#health-connect">Health Connect</a></li>
-        </ul>
-      </nav>
-    </aside>
-
-    <!-- ── Main content ── -->
-    <main class="doc-content">
-
-      <span class="section-label">Heda · Användarguide</span>
-      <h1 class="doc-title">Så här använder du Heda</h1>
-      <p class="doc-intro">En stillsam dagbok för huvudvärk och migrän. Kartlägg din smärta, hitta mönster och förstå dina utlösare — allt lagrat privat på din enhet.</p>
-
-      <!-- ─ Översikt ─ -->
-      <section class="doc-section" id="oversikt">
-        <h2 class="section-heading">Översikt</h2>
-
-        <p>Heda är en offline-first dagbok för huvudvärk och migrän för Android. All hälsodata krypteras och lagras enbart på din enhet. Ingenting laddas upp till någon server — din data tillhör dig.</p>
-
-        <p>Appen har fyra huvudområden, tillgängliga via det nedre navigeringsfältet:</p>
-
-        <div class="nav-bar-demo" aria-hidden="true">
-          <div class="nav-tab active">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 9h17M8 3v3M16 3v3"/></svg>
-            Kalender
-          </div>
-          <div class="nav-tab">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l4-6 3 3 5-8 4 6"/></svg>
-            Analys
-          </div>
-          <div class="nav-tab">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14M5 12h14M5 17h9"/></svg>
-            Rapporter
-          </div>
-          <div class="nav-tab">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.5 5.5l1.5 1.5M17 17l1.5 1.5M5.5 18.5L7 17M17 7l1.5-1.5"/></svg>
-            Inställningar
-          </div>
-        </div>
-
-        <div class="card-grid">
-          <div class="info-card">
-            <div class="card-title">Kalender</div>
-            <div class="card-body">Bläddra bland och hantera dina huvudvärkshändelser efter datum. Lägg till nya händelser härifrån.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Analys</div>
-            <div class="card-body">Statistik och trenddiagram för alla användare. Korrelationer (premium) identifierar mönster mellan dina Health Connect-data och huvudvärkshändelser.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Rapporter</div>
-            <div class="card-body">Månads- och dagssammanfattningar med diagram. Exportera dina data som CSV eller PDF.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Inställningar</div>
-            <div class="card-body">Tema, språk, Health Connect, notifikationer, integritet och avancerade alternativ.</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─ Kom igång ─ -->
-      <section class="doc-section" id="kom-igang">
-        <h2 class="section-heading">Kom igång</h2>
-
-        <h3 class="sub-heading">Logga in</h3>
-        <p>Heda kräver ett Google-konto för att skydda dina data. Inloggning skapar en krypterad, enhetsbunden nyckel kopplad till ditt konto — inga data lagras i molnet.</p>
-        <ol class="steps">
-          <li>Öppna Heda efter att du installerat appen från Google Play.</li>
-          <li>Tryck på <strong>Logga in med Google</strong> och välj ditt Google-konto.</li>
-          <li>Ditt konto är nu kopplat till den här installationen. Samma Google-konto måste användas om du installerar om appen.</li>
-        </ol>
-        <div class="note">
-          <strong>Integritet i första hand.</strong> Heda laddar inte upp några hälsodata till externa servrar. Ditt Google-konto används enbart för identifiering — för att binda krypteringsnycklar till en enskild användare på den här enheten.
-        </div>
-
-        <h3 class="sub-heading">Samtycke vid första start</h3>
-        <p>Vid första start frågar Heda om du vill dela anonyma kraschrapporter. Detta skickar inga hälsodata. Du kan ändra ditt val senare under <strong>Inställningar → Integritet &amp; Data</strong>.</p>
-
-        <ul>
-          <li><strong>Anonyma kraschrapporter</strong> — rapporterar krascher automatiskt så att buggar kan åtgärdas snabbt (GlitchTip). Ingen användningsstatistik samlas in.</li>
-        </ul>
-      </section>
-
-      <!-- ─ Kalender ─ -->
-      <section class="doc-section" id="kalender">
-        <h2 class="section-heading">Kalender</h2>
-        <p>Kalendern är din dagliga vy. Den visar aktuell månad i överblick med färgade prickar som indikerar huvudvärkens intensitet för varje dag.</p>
-
-        <h3 class="sub-heading" id="manadsvy">Månadsvy</h3>
-        <p>Månadsremsan längst upp visar aktuell månad i ett ISO-veckonät (veckor löper måndag–söndag). Varje dag med minst en loggad händelse visar en liten intensitetsprick:</p>
-
-        <ul>
-          <li><span style="color:var(--accent)">●</span> <strong>Blå</strong> — intensitet 1–3 (mild)</li>
-          <li><span style="color:var(--danger)">●</span> <strong>Röd</strong> — intensitet 4–5 (svår)</li>
-        </ul>
-
-        <p>Använd knapparna <strong>‹</strong> och <strong>›</strong> för att navigera mellan månader. Tryck på ett datum för att välja det och se dagens händelser nedanför.</p>
-        <p>Dagens datum är markerat. Tryck på etiketten <strong>Idag</strong> eller dagens datum för att scrolla tillbaka till idag.</p>
-
-        <h3 class="sub-heading" id="handelsekort">Händelsekort</h3>
-        <p>Händelser för det valda datumet visas som kort nedanför månadsremsan. Varje kort visar:</p>
-        <ul>
-          <li><strong>Huvudvärkstyp</strong> (Huvudvärk eller Migrän)</li>
-          <li><strong>Tidsintervall</strong> — start- och sluttid samt varaktighet</li>
-          <li>En <strong>intensitetsstapel</strong> (skala 1–5)</li>
-          <li>Aura- och akutmedicineringsindikator om loggat</li>
-        </ul>
-        <p>Tryck på ett kort för att öppna det i <strong>redigeringsläge</strong> där alla fält kan ändras.</p>
-
-        <h3 class="sub-heading" id="snabb-lagg-till">Snabbtillägg</h3>
-        <p>För snabb loggning, tryck på <strong>Snabbtillägg</strong> längst ned på kalenderskärmen. Ett blad glider upp med de viktigaste fälten:</p>
-        <ul>
-          <li><strong>Typ</strong> — Huvudvärk eller Migrän</li>
-          <li><strong>Intensitet</strong> — reglage 1–5</li>
-          <li><strong>Aura</strong> — kryssruta</li>
-          <li><strong>Akutmedicinering</strong> — kryssruta</li>
-        </ul>
-        <p>Tryck på <strong>Spara</strong> för att logga direkt med aktuell tid, eller tryck på <strong>Lägg till detaljer…</strong> för att öppna det fullständiga händelseformuläret förifyllt med dessa värden.</p>
-      </section>
-
-      <!-- ─ Logga ─ -->
-      <section class="doc-section" id="logga">
-        <h2 class="section-heading">Logga en händelse</h2>
-        <p>För att logga en ny händelse med alla detaljer, tryck på knappen <strong>+ Lägg till händelse</strong> i Kalendern. Om du tryckte på ett specifikt datum först, är det datumet förvalt i formuläret.</p>
-
-        <h3 class="sub-heading" id="typ-intensitet">Typ &amp; intensitet</h3>
-        <p>Välj mellan <strong>Huvudvärk</strong> och <strong>Migrän</strong> med väljaren längst upp. Ange sedan intensiteten på en skala från 1 (lindrig) till 5 (förlamanande) med reglaget.</p>
-
-        <h3 class="sub-heading" id="datum-tid">Datum &amp; tid</h3>
-        <p>Tre fält styr händelsens tidsinformation:</p>
-        <ul>
-          <li><strong>Datum</strong> — tryck för att öppna en datumväljare. Standardvärde är idag.</li>
-          <li><strong>Starttid</strong> — när anfallet började. Tryck för att öppna en 24-timmarsväljare.</li>
-          <li><strong>Sluttid</strong> — när anfallet slutade. Standardvärde är 2 timmar efter starttiden. Om du flyttar starttiden förbi sluttiden, flyttas sluttiden automatiskt framåt för att behålla 2-timmarsmellanrummet.</li>
-        </ul>
-
-        <h3 class="sub-heading" id="smartomrade">Smärtområde</h3>
-        <p><strong>3D-huvudmodellen</strong> låter dig markera exakt var smärtan sitter. Den stödjer två gester:</p>
-        <ul>
-          <li><strong>Ett finger</strong> — måla smärtområden genom att dra över huvudets yta.</li>
-          <li><strong>Två fingrar</strong> — rotera huvudet för att nå områden baktill, på sidorna eller nacken.</li>
-        </ul>
-
-        <p>Åtta anatomiska regioner stöds:</p>
-        <div class="tag-group">
-          <span class="tag">Panna</span>
-          <span class="tag">Runt ögat — vänster</span>
-          <span class="tag">Runt ögat — höger</span>
-          <span class="tag">Tinning — vänster</span>
-          <span class="tag">Tinning — höger</span>
-          <span class="tag">Occiput — vänster</span>
-          <span class="tag">Occiput — höger</span>
-          <span class="tag">Nacke</span>
-        </div>
-
-        <p>Aktivera växeln <strong>Färgkoda efter intensitet</strong> för att tona de målade regionerna med intensitetsfärgen (ljusrött för mild, mörkrött för svår). Detta är avstängt som standard.</p>
-
-        <div class="note">
-          <strong>Tips.</strong> Du kan ta bort målade regioner genom att dra över dem igen — gesten växlar mellan att lägga till och radera.
-        </div>
-
-        <h3 class="sub-heading" id="utlosare">Möjliga utlösare</h3>
-        <p>Registrera möjliga utlösare som kan ha bidragit till det här anfallet. De är grupperade i sju kategorier:</p>
-
-        <table class="data-table">
-          <thead>
-            <tr><th>Kategori</th><th>Utlösare</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Stress &amp; humör</strong></td>
-              <td>Stress, Stressavslappning, Ångest</td>
-            </tr>
-            <tr>
-              <td><strong>Sömn</strong></td>
-              <td>För lite sömn, För mycket sömn, Oregelbunden sömn</td>
-            </tr>
-            <tr>
-              <td><strong>Mat &amp; dryck</strong></td>
-              <td>Hoppat över måltid, Lång fasta, Uttorkning, Alkohol, Koffein, Koffeinavvänjning, Choklad, Lagrad ost, Livsmedelstillsatser, Processat kött</td>
-            </tr>
-            <tr>
-              <td><strong>Hormonell</strong></td>
-              <td>Menstruation, Ägglossning, Hormonellt preventivmedel</td>
-            </tr>
-            <tr>
-              <td><strong>Miljö</strong></td>
-              <td>Väderförändring, Extrem temperatur, Luftfuktighet</td>
-            </tr>
-            <tr>
-              <td><strong>Sensorisk</strong></td>
-              <td>Starkt ljus, Stark lukt, Högt ljud, Skärmflimmer</td>
-            </tr>
-            <tr>
-              <td><strong>Fysisk</strong></td>
-              <td>Intensiv träning, Nackspänning, Resa, Läkemedelsmissbruk</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3 class="sub-heading" id="aura-medicinering">Aura &amp; akutmedicinering</h3>
-        <ul>
-          <li><strong>Aura</strong> — kryssa i om denna händelse föregicks av en aura (synstörningar, stickningar, talförändringar osv.).</li>
-          <li><strong>Akutmedicinering</strong> — kryssa i om du tog akut medicin (t.ex. triptan, NSAID eller paracetamol) under det här anfallet.</li>
-        </ul>
-
-        <h3 class="sub-heading" id="anteckningar">Anteckningar</h3>
-        <p>Det fritextbaserade anteckningsfältet fångar allt som inte täcks av de strukturerade fälten — sammanhang, observationer, vad som hjälpte eller andra detaljer du vill minnas.</p>
-
-        <p>Tryck på <strong>Spara</strong> när du är klar. Händelsen visas direkt i Kalendern.</p>
-      </section>
-
-      <!-- ─ Redigering & borttagning ─ -->
-      <section class="doc-section" id="redigering">
-        <h2 class="section-heading">Redigera &amp; ta bort händelser</h2>
-
-        <h3 class="sub-heading">Redigera en händelse</h3>
-        <ol class="steps">
-          <li>Navigera till datumet i Kalendern.</li>
-          <li>Tryck på händelsekortet du vill ändra.</li>
-          <li>Händelseformuläret öppnas i redigeringsläge — alla fält är redigerbara.</li>
-          <li>Gör dina ändringar och tryck på <strong>Uppdatera</strong> för att spara.</li>
-        </ol>
-
-        <h3 class="sub-heading">Ta bort en händelse</h3>
-        <ol class="steps">
-          <li>Öppna händelsen i redigeringsläge (tryck på dess kort i Kalendern).</li>
-          <li>Scrolla till botten och tryck på <strong>Ta bort post</strong>.</li>
-          <li>En bekräftelsedialog visas. Tryck på <strong>Ta bort</strong> för att permanent ta bort händelsen.</li>
-        </ol>
-
-        <div class="warning">
-          <strong>Permanent åtgärd.</strong> Borttagning kan inte ångras. Händelsen tas omedelbart bort från den krypterade databasen på din enhet.
-        </div>
-      </section>
-
-      <!-- ─ Analys ─ -->
-      <section class="doc-section" id="analys">
-        <h2 class="section-heading">Analys</h2>
-        <p>Analysskärmen har två flikar längst upp: <strong>Statistik</strong> och <strong>Korrelationer</strong>. Statistik är tillgängligt för alla användare. Korrelationer är en premiumfunktion som även kräver en Health Connect-anslutning.</p>
-
-        <div class="card-grid">
-          <div class="info-card">
-            <div class="card-title">Statistik</div>
-            <div class="card-body">Frekvens- och svårighetsdiagram för en vald tidsperiod. Tillgängligt för alla användare.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Korrelationer</div>
-            <div class="card-body">Identifierar mönster i dina Health Connect-data som kan föregå huvudvärksepisoder. Kräver premium och Health Connect.</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─ Statistik ─ -->
-      <section class="doc-section" id="statistik">
-        <h2 class="section-heading">Statistik</h2>
-        <p>Statistikfliken ger dig en överblick över din huvudvärksfrekvens och -svårighetsgrad under en vald tidsperiod.</p>
-
-        <h3 class="sub-heading">Periodsväljare</h3>
-        <p>Välj mellan fem tidsperioder:</p>
-        <div class="tag-group">
-          <span class="tag accent">7 dagar</span>
-          <span class="tag">30 dagar</span>
-          <span class="tag">90 dagar</span>
-          <span class="tag">1 år</span>
-          <span class="tag">All tid</span>
-        </div>
-
-        <h3 class="sub-heading">Sammanfattningskort</h3>
-        <p>Ett huvudkort visar följande mätvärden för den valda perioden. Trendpilar (↑ / ↓) jämför varje siffra med motsvarande föregående period:</p>
-        <div class="card-grid">
-          <div class="info-card">
-            <div class="card-title">Totalt antal händelser</div>
-            <div class="card-body">Antal huvud- och migränhändelser under perioden.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Genomsnittlig intensitet</div>
-            <div class="card-body">Medelintensitet (1–5) för alla händelser under perioden.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Händelser med aura</div>
-            <div class="card-body">Hur många händelser åtföljdes av aura.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Händelser med akutmedicinering</div>
-            <div class="card-body">Hur många händelser krävde akut medicin.</div>
-          </div>
-        </div>
-
-        <h3 class="sub-heading">Diagram</h3>
-        <ul>
-          <li><strong>Trenddiagram</strong> — antal händelser per tidsintervall (dagligen för 7/30/90 dagar, veckovis för 1 år, månadsvis för All tid).</li>
-          <li><strong>Veckodagsvärmekartor</strong> — visar vilka veckodagar dina huvudvärkar oftast inträffar.</li>
-        </ul>
-
-        <h3 class="sub-heading">Händelsetyp &amp; utlösare</h3>
-        <p>Ett stapeldiagram visar fördelningen mellan händelsetyper (Huvudvärk / Svår huvudvärk / Migrän / Svår migrän) med antal och procent. Under det visar ett vågrätt stapeldiagram dina vanligaste utlösare för den valda perioden.</p>
-      </section>
-
-      <!-- ─ Korrelationer ─ -->
-      <section class="doc-section" id="korrelationer">
-        <h2 class="section-heading">Korrelationer</h2>
-        <p>Korrelationsfliken analyserar dina Health Connect-data och letar efter nio evidensbaserade mönster som vanligtvis föregår huvud- och migränanfall. Den tittar tillbaka 90 dagar.</p>
-
-        <div class="note">
-          <strong>Premiumfunktion.</strong> Korrelationsfliken kräver Heda Premium. Den kräver även Health Connect-behörigheter för sömn-, hjärtfrekvens-, HRV-, steg- och träningsdata. Se avsnittet <a href="#health-connect">Health Connect</a> för installationssteg.
-        </div>
-
-        <h3 class="sub-heading">Din baslinje</h3>
-        <p>Ett baslinjekort längst upp visar dina 14-dagarsmedianvärden för varje hälsomått. "—" visas för mått utan tillräcklig data.</p>
-        <ul>
-          <li><strong>Sömn</strong> — medianvärde för total nattsömnslängd</li>
-          <li><strong>HRV</strong> — medianvärde för hjärtfrekvensvariabilitet (ms)</li>
-          <li><strong>Vilopuls</strong> — medianvärde för vilopuls (slag/min)</li>
-          <li><strong>Steg</strong> — medianvärde för dagligt stegantal</li>
-          <li><strong>Träning</strong> — medianvärde för dagliga aktiva minuter</li>
-          <li><strong>Djupsömn</strong> — medianvärde för nattlig djupsömnslängd</li>
-          <li><strong>REM-sömn</strong> — medianvärde för nattlig REM-sömnslängd</li>
-          <li><strong>Vaken under sömn</strong> — medianvärde för vaken tid i sömnperioder</li>
-        </ul>
-
-        <h3 class="sub-heading">Identifierade mönster</h3>
-        <p>Heda kontrollerar nio evidensbaserade mönster för varje huvudvärkshändelse. Varje fynd visar det uppmätta värdet och det tröskelvärde som överskridits — till exempel: <em>"Sov 5 t 30 min före den här händelsen (tröskel: 7 t)"</em>.</p>
-
-        <ul class="feature-list">
-          <li><strong>Kort sömn</strong> — total sömntid natten innan var under 7 timmar (konfigurerbar under Inställningar → Avancerat).</li>
-          <li><strong>Oregelbundet sömnschema</strong> — sömnrytmen varierade mer än 120 minuter (standardavvikelse) under föregående 7 dagar.</li>
-          <li><strong>Lågt stegantal</strong> — färre än 3 000 steg dagen före händelsen (konfigurerbar).</li>
-          <li><strong>HRV-fall</strong> — HRV sjönk under 30 ms eller under 80 % av din personliga 14-dagarsbaslinje.</li>
-          <li><strong>Förhöjd vilopuls</strong> — vilopulsen var över din 14-dagarsmedian dagen före händelsen.</li>
-          <li><strong>Träningspik</strong> — aktiva minuter var ovanligt höga jämfört med din 14-dagarsmedian dagen före.</li>
-          <li><strong>Lite djupsömn</strong> — djupsömnen var betydligt under din 14-dagarsmedian natten innan.</li>
-          <li><strong>Lite REM-sömn</strong> — REM-sömnen var betydligt under din 14-dagarsmedian natten innan.</li>
-          <li><strong>Fragmenterad sömn</strong> — vaken tid i sömnperioder var ovanligt hög i förhållande till total sömn och din baslinje.</li>
-        </ul>
-
-        <h3 class="sub-heading">Rekommendationer</h3>
-        <p>Baserat på identifierade mönster genererar Heda personliga rekommendationer rankade efter prioritet (Hög / Medel / Låg). Exempel inkluderar att förbättra sömnlängden eller -regelbundenheten, öka den dagliga aktiviteten eller hantera stress och återhämtning.</p>
-
-        <div class="warning">
-          <strong>Inte medicinsk rådgivning.</strong> Identifierade mönster är korrelationer, inte diagnoser. Konsultera alltid en sjukvårdsprofessionell för medicinsk vägledning om dina huvudvärksbesvär.
-        </div>
-      </section>
-
-      <!-- ─ Rapporter ─ -->
-      <section class="doc-section" id="rapporter">
-        <h2 class="section-heading">Rapporter</h2>
-        <p>Rapportfliken låter dig visa strukturerade sammanfattningar av dina data och exportera dem för delning med en sjukvårdsprofessionell.</p>
-
-        <h3 class="sub-heading">Månadsrapport</h3>
-        <p>Månadsrapporten visar en kalendervy för varje vald månad, med varje dag färgkodad efter status:</p>
-        <ul>
-          <li><strong>Inga händelser</strong> — inget anfall registrerat</li>
-          <li><strong>Huvudvärk</strong> — minst en huvudvärkshändelse</li>
-          <li><strong>Migrän</strong> — minst en migränhändelse</li>
-        </ul>
-        <p>Ett cirkeldiagram visar andelen dagar i varje kategori. Välj en eller flera månader med månadsknapparna. Tryck på <strong>Välj alla</strong> eller <strong>Rensa</strong> för att snabbt markera eller avmarkera alla månader.</p>
-
-        <h3 class="sub-heading">Dagsrapport</h3>
-        <p>Dagsrapporten fokuserar på enskilda händelser inom en vald period. Välj bland:</p>
-        <div class="tag-group">
-          <span class="tag">7 dagar</span>
-          <span class="tag accent">30 dagar</span>
-          <span class="tag">90 dagar</span>
-          <span class="tag">All tid</span>
-        </div>
-        <p>En sammanfattningsrad längst upp visar totalt antal händelser, genomsnittlig intensitet och datumintervallet. Nedanför listas varje händelse med typ, tid och intensitet.</p>
-
-        <h3 class="sub-heading">Exportera data</h3>
-        <p>Använd exportknapparna för att spara dina data:</p>
-        <ul>
-          <li><strong>Exportera som CSV</strong> — sparar en kommaavgränsad fil med alla händelser i aktuell period. Kolumner: Datum, Tid, Typ, Intensitet, Aura, Akutmedicinering, Utlösare, Anteckningar. Androids systemfilväljare låter dig välja sparplats.</li>
-          <li><strong>Exportera som PDF</strong> — genererar ett formaterat PDF-dokument med sammanfattningen och händelsetabellen, lämpligt för utskrift eller att skicka till en läkare.</li>
-          <li><strong>Exportera Health Connect-data som CSV</strong> — exportera eventuellt den cachade sömn-, hjärtfrekvens-, HRV-, steg- och träningsdata tillsammans med dina huvudvärkshändelser.</li>
-        </ul>
-
-        <div class="note">
-          <strong>Filplats.</strong> Heda använder Androids Storage Access Framework, så du väljer var den exporterade filen sparas. Inga filer laddas upp till någon server.
-        </div>
-      </section>
-
-      <!-- ─ Inställningar ─ -->
-      <section class="doc-section" id="installningar">
-        <h2 class="section-heading">Inställningar</h2>
-        <p>Öppna Inställningar via det nedre navigeringsfältet. Ändringar träder i kraft omedelbart.</p>
-
-        <h3 class="sub-heading">Tema</h3>
-        <p>Välj mellan tre alternativ:</p>
-        <ul>
-          <li><strong>Ljust</strong> — varmt papperstonat ljust läge.</li>
-          <li><strong>Mörkt</strong> — djupt skogsmörkt läge (standard).</li>
-          <li><strong>System</strong> — följer enhetens mörkt/ljust-inställning automatiskt.</li>
-        </ul>
-
-        <h3 class="sub-heading">Språk</h3>
-        <p>Välj bland 30+ språk grupperade efter region (Nordiska, Germanska, Romanska, Slaviska, Baltiska och Övriga). Det valda språket tillämpas på all text i appen. Välj <strong>System</strong> för att följa enhetens språkinställning.</p>
-
-        <h3 class="sub-heading">Health Connect</h3>
-        <p>Leder till Health Connect-inställningsskärmen där du kan bevilja eller återkalla behörigheter för sömn-, hjärtfrekvens-, HRV-, steg- och träningsdata. Se avsnittet <a href="#health-connect">Health Connect</a> för detaljer.</p>
-
-        <h3 class="sub-heading">Integritet &amp; Data</h3>
-        <p>Öppnar skärmen Integritet &amp; Data där du kan hantera ditt konto, granska vilka data som lagras, utöva dina GDPR-rättigheter och ta bort dina data. Se avsnittet <a href="#integritet">Integritet &amp; Data</a> för detaljer.</p>
-
-        <h3 class="sub-heading">Automatisk Health Connect-synkronisering</h3>
-        <p>När aktiverat hämtar Heda dina senaste hälsodata från Health Connect en gång per dag i bakgrunden, även när appen är stängd. Det här är <strong>avstängt som standard</strong>. Aktivering kräver att Health Connect-behörigheter har beviljats.</p>
-
-        <h3 class="sub-heading">Dagliga hälsorekommendationer</h3>
-        <p>När aktiverat skickar Heda ett dagligt meddelande om en högt prioriterad korrelation identifieras. Att trycka på meddelandet öppnar analysskärmen. Det här är <strong>avstängt som standard</strong> och kräver enhetens aviseringsbehörighet.</p>
-
-        <h3 class="sub-heading">Avancerat</h3>
-        <p>Expandera avsnittet Avancerat för att finjustera tröskelvärdena som används av korrelationsmotorn. Standardvärdena matchar etablerade kliniska riktlinjer för migränprevention:</p>
-
-        <table class="data-table">
-          <thead>
-            <tr><th>Inställning</th><th>Standard</th><th>Beskrivning</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>Minsta sömntid</strong></td><td>7 t 0 min</td><td>Sömn under den här varaktigheten flaggas som möjlig utlösare.</td></tr>
-            <tr><td><strong>Max sömnvariabilitet</strong></td><td>60 min</td><td>Standardavvikelse för sömnrytm över detta utlöser oregelbunden-sömn-mönstret.</td></tr>
-            <tr><td><strong>Minsta stegantal</strong></td><td>3 000</td><td>Stegantal under detta flaggas som låg aktivitet.</td></tr>
-            <tr><td><strong>Minsta HRV</strong></td><td>30 ms</td><td>HRV under detta absoluta tröskelvärde flaggas.</td></tr>
-            <tr><td><strong>HRV-baslinjefraktion</strong></td><td>0,80</td><td>HRV under denna andel av din 14-dagarsbaslinje flaggas också.</td></tr>
-          </tbody>
-        </table>
-
-        <p>Tryck på <strong>Återställ till standard</strong> för att återställa alla tröskelvärden till sina ursprungliga värden.</p>
-      </section>
-
-      <!-- ─ Integritet & Data ─ -->
-      <section class="doc-section" id="integritet">
-        <h2 class="section-heading">Integritet &amp; Data</h2>
-        <p>Öppna <strong>Inställningar → Integritet &amp; Data</strong> för att hantera alla data- och kontoinställningar.</p>
-
-        <h3 class="sub-heading">Ditt konto</h3>
-        <p>Längst upp på skärmen visas det Google-konto som är inloggat. Tryck på <strong>Logga ut</strong> för att logga ut ur appen. Dina data förblir på enheten; du kan logga in igen när som helst.</p>
-
-        <h3 class="sub-heading">Vilka data lagras</h3>
-        <p>Alla data lagras lokalt på din enhet i två krypterade databaser:</p>
-
-        <table class="data-table">
-          <thead>
-            <tr><th>Datatyp</th><th>Innehåll</th><th>Kryptering</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Huvudvärkshändelser</strong></td>
-              <td>Tidsstämplar, smärtområden, intensitet, aura, akutmedicinering, utlösare, anteckningar</td>
-              <td>AES-256 (SQLCipher)</td>
-            </tr>
-            <tr>
-              <td><strong>Health Connect-cache</strong></td>
-              <td>Sömn, sömnstadier, HRV, hjärtfrekvens, steg och träning</td>
-              <td>AES-256 (SQLCipher)</td>
-            </tr>
-            <tr>
-              <td><strong>Autentiseringstoken</strong></td>
-              <td>Supabase-användar-ID, e-post, inloggningstidsstämpel, kontobindning</td>
-              <td>AES-256-GCM (Tink)</td>
-            </tr>
-            <tr>
-              <td><strong>Appinställningar</strong></td>
-              <td>Enbart tema- och språkpreferens — inga hälsodata</td>
-              <td>Okrypterat</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p>Krypteringsnycklar lagras i Android Keystore, maskinvaruunderstött där tillgängligt, och lämnar aldrig enheten.</p>
-
-        <h3 class="sub-heading">Biometrisk låsning</h3>
-        <p>Aktivera biometrisk låsning för att kräva fingeravtryck, ansiktsupplåsning eller PIN för att öppna appen. Kräver att skärmlås är konfigurerat i enhetens inställningar.</p>
-
-        <h3 class="sub-heading">Diagnostik</h3>
-        <p>Dela eventuellt anonyma kraschrapporter (GlitchTip). <strong>Inga hälsodata inkluderas någonsin.</strong> Ingen användningsstatistik samlas in. Detta kan ändras när som helst.</p>
-
-        <h3 class="sub-heading">Dina GDPR-rättigheter</h3>
-        <p>Heda uppfyller EU GDPR artikel 9 (särskilda kategorier av personuppgifter). Dina rättigheter:</p>
-
-        <ul>
-          <li><strong>Rätt till tillgång (art. 15)</strong> — alla dina data är synliga i Kalender och Statistik.</li>
-          <li><strong>Rätt till rättelse (art. 16)</strong> — redigera vilken händelse som helst genom att trycka på den i Kalendern.</li>
-          <li><strong>Rätt till radering (art. 17)</strong> — ta bort alla data via Farozonen (se nedan).</li>
-          <li><strong>Rätt till begränsning (art. 18)</strong> — logga ut för att stoppa all behandling.</li>
-          <li><strong>Rätt till dataportabilitet (art. 20)</strong> — exportera alla händelser som CSV från Rapporter-skärmen.</li>
-          <li><strong>Rätt att invända (art. 21)</strong> — logga ut; behandlingen upphör omedelbart.</li>
-        </ul>
-
-        <h3 class="sub-heading">Farozonen</h3>
-        <div class="warning">
-          <strong>Dessa åtgärder är permanenta och kan inte ångras.</strong>
-        </div>
-        <ul>
-          <li><strong>Ta bort lokal data (behåll konto)</strong> — tar permanent bort alla huvudvärksposter, hälsodata, inställningar och krypteringsnycklar från den här enheten. Din Google-kontolänk behålls, så du kan logga in igen på vilken enhet som helst.</li>
-          <li><strong>Ta bort konto och all data</strong> — tar permanent bort allt ovanstående plus ditt Supabase-konto. Det finns ingen återhämtning. En tvåstegsbekräftelse krävs.</li>
-        </ul>
-      </section>
-
-      <!-- ─ Health Connect ─ -->
-      <section class="doc-section" id="health-connect">
-        <h2 class="section-heading">Health Connect</h2>
-        <p>Health Connect är Googles enhetliga hälsodataplattform för Android. Heda läser fem typer av hälsodata från den för att driva funktionen Korrelationer på analysskärmen:</p>
-
-        <div class="card-grid">
-          <div class="info-card">
-            <div class="card-title">Sömnsessioner</div>
-            <div class="card-body">Nattsömntid och sömnstadier (REM, djup, lätt och vaken tid) från din wearable eller sömnspårningsapp.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Hjärtfrekvensvariabilitet (HRV)</div>
-            <div class="card-body">Dagliga RMSSD-mätningar som indikerar återhämtningsstatus och det autonoma nervsystemets balans.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Hjärtfrekvens</div>
-            <div class="card-body">Kontinuerliga hjärtfrekvensdata som används för att beräkna din dagliga genomsnittliga och vilande hjärtfrekvens.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Stegantal</div>
-            <div class="card-body">Dagligt stegantal från din telefon eller wearable.</div>
-          </div>
-          <div class="info-card">
-            <div class="card-title">Träningssessioner</div>
-            <div class="card-body">Varaktigheter för träningssessioner som används för att beräkna din dagliga aktivitetsnivå.</div>
-          </div>
-        </div>
-
-        <div class="note">
-          <strong>Skrivskyddad.</strong> Heda läser enbart data från Health Connect — den skriver aldrig till den. Bara de specifika posttyper som krävs för korrelationsanalys begärs.
-        </div>
-
-        <h3 class="sub-heading">Konfigurera Health Connect</h3>
-        <ol class="steps">
-          <li>Gå till <strong>Inställningar → Health Connect</strong> i Heda.</li>
-          <li>Om Health Connect-appen inte är installerad, tryck på <strong>Installera Health Connect</strong> för att hämta den från Google Play. (Android 9 och senare. På Android 14+ är Health Connect inbyggt.)</li>
-          <li>Tryck på <strong>Anslut Health Connect</strong>.</li>
-          <li>På Health Connect-behörighetsskärmen, bevilja Heda åtkomst till <strong>Sömn</strong>, <strong>Hjärtfrekvensvariabilitet</strong>, <strong>Hjärtfrekvens</strong>, <strong>Steg</strong> och <strong>Träning</strong>.</li>
-          <li>Återvänd till Heda. Dina senaste hälsodata visas.</li>
-        </ol>
-
-        <h3 class="sub-heading">Bakgrundssynkronisering</h3>
-        <p>Som standard hämtas hälsodata bara när du öppnar Health Connect-skärmen eller trycker på <strong>Uppdatera</strong>. Aktivera <strong>Automatisk Health Connect-synkronisering</strong> i Inställningar för att hämta data en gång per dag i bakgrunden.</p>
-
-        <h3 class="sub-heading">Återkalla åtkomst</h3>
-        <p>Du kan återkalla Hedas Health Connect-behörigheter när som helst i Health Connect-appen (<strong>Hantera appar &amp; enheter → Heda → Behörigheter</strong>) eller under <strong>Inställningar → Health Connect</strong> i Heda. Tidigare cachad data förblir på din enhet tills du tar bort den via <strong>Integritet &amp; Data → Ta bort lokal data</strong>.</p>
-
-        <div class="note">
-          <strong>Data stannar på enheten.</strong> Health Connect-data cachelagras i den krypterade lokala databasen och skickas aldrig till någon server.
-        </div>
-      </section>
-
-      <hr class="section-sep" />
-      <p style="font-size:13px; color:var(--text-dim)">© 2026 EXSports Oy. Denna dokumentation uppdateras i takt med att appen utvecklas. Senast reviderad april 2026.</p>
-
-    </main>
-  </div><!-- /.doc-layout -->
-
-  <footer class="site-footer">
-    &copy; 2026 EXSports Oy &nbsp;·&nbsp;
-    <a href="../index.html?pick=1">← Alla språk</a> &nbsp;·&nbsp;
-    <a href="../../index.html">← Dokument</a> &nbsp;·&nbsp;
-    <a href="../../legal/privacy_policy.html">Integritetspolicy</a> &nbsp;·&nbsp;
-    <a href="mailto:info@exsports.fi">Kontakt</a>
-  </footer>
-
+  </div>
+</footer>
+
+<script>
+  document.body.classList.add('js');
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('is-stuck',window.scrollY>8);
+  onScroll(); addEventListener('scroll',onScroll,{passive:true});
+</script>
 </body>
 </html>

@@ -1,168 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Heda — Choose your language</title>
-  <meta name="description" content="Heda — a personal migraine and headache diary by EXSports Oy. Choose your language." />
-  <link rel="stylesheet" href="user-guide/shared.css" />
-  <script>
-    (function () {
-      if (new URLSearchParams(window.location.search).get('pick') === '1') return;
-      var map = {
-        en: 'en/index.html', fi: 'fi/index.html', sv: 'sv/index.html',
-        no: 'no/index.html', nb: 'no/index.html', nn: 'no/index.html',
-        da: 'da/index.html', de: 'de/index.html', nl: 'nl/index.html',
-        fr: 'fr/index.html', es: 'es/index.html', it: 'it/index.html',
-        pl: 'pl/index.html', pt: 'pt/index.html',
-        et: 'et/index.html', lv: 'lv/index.html', lt: 'lt/index.html'
-      };
-      var langs = navigator.languages || [navigator.language || 'en'];
-      for (var i = 0; i < langs.length; i++) {
-        var code = langs[i].split('-')[0].toLowerCase();
-        if (map[code]) { window.location.replace(map[code]); return; }
-      }
-      window.location.replace('en/index.html');
-    })();
-  </script>
+<meta charset="utf-8" />
+<title>Heda &mdash; Choose your language</title>
+<meta name="description" content="Heda — a quiet migraine and headache diary by EXSports Oy. Choose your language." />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0E1310" />
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/favicon-64.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16.png" />
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/assets/i18n/i18n.css" />
+<style>
+  body.theme-heda{ --signature:#C9DDA6; }
+  .backlink{ display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:0.74rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--sub); text-decoration:none; transition:color .25s var(--ease); }
+  .backlink:hover{ color:var(--ink); }
+  .lang-page .backlink{ margin-top:32px; }
+</style>
+<script src="/assets/i18n/languages.js"></script>
+<script src="/assets/i18n/lang-pick.js"></script>
+<script src="/assets/i18n/redirect.js"></script>
 </head>
-<body>
-
-  <!-- ── Site header ── -->
-  <header class="site-header">
-    <div class="site-header-inner">
-      <a class="brand-lockup" href="../index.html">
-        <svg width="26" height="26" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <circle cx="32" cy="32" r="29" stroke="currentColor" stroke-width="1" opacity="0.18" fill="none"/>
-          <circle cx="32" cy="32" r="23" stroke="currentColor" stroke-width="1" opacity="0.30" fill="none"/>
-          <circle cx="32" cy="32" r="17.5" stroke="currentColor" stroke-width="1" opacity="0.50" fill="none"/>
-          <ellipse cx="32" cy="30" rx="9" ry="11" fill="currentColor"/>
-          <path d="M27 41 Q32 44 37 41 L39 47 Q32 49 25 47 Z" fill="currentColor"/>
-        </svg>
-        <div class="header-meta">
-          <span class="wordmark">heda</span>
-          <span class="header-subtitle">Migraine diary</span>
-        </div>
-      </a>
-      <nav class="header-nav">
-        <a href="../index.html">← EXSports</a>
-      </nav>
-    </div>
-  </header>
-
+<body class="theme-sage theme-heda">
   <main class="lang-page">
-    <div class="lang-hero">
-      <svg width="52" height="52" viewBox="0 0 64 64" fill="none" aria-hidden="true" style="color:var(--accent)">
-        <circle cx="32" cy="32" r="29" stroke="currentColor" stroke-width="1" opacity="0.18" fill="none"/>
-        <circle cx="32" cy="32" r="23" stroke="currentColor" stroke-width="1" opacity="0.30" fill="none"/>
-        <circle cx="32" cy="32" r="17.5" stroke="currentColor" stroke-width="1" opacity="0.50" fill="none"/>
-        <ellipse cx="32" cy="30" rx="9" ry="11" fill="currentColor"/>
-        <path d="M27 41 Q32 44 37 41 L39 47 Q32 49 25 47 Z" fill="currentColor"/>
-      </svg>
-      <h1 class="lang-hero-title">Heda</h1>
-      <p class="lang-hero-sub">Choose your language to continue.</p>
-    </div>
-
-    <div class="lang-grid">
-
-      <a class="lang-option available" href="en/index.html">
-        <span class="lang-name">English</span>
-        <span class="lang-native">English (UK)</span>
-        <span class="lang-badge">Available</span>
-      </a>
-
-      <a class="lang-option available" href="fi/index.html">
-        <span class="lang-name">Finnish</span>
-        <span class="lang-native">Suomi</span>
-        <span class="lang-badge">Available</span>
-      </a>
-
-      <a class="lang-option available" href="sv/index.html">
-        <span class="lang-name">Swedish</span>
-        <span class="lang-native">Svenska</span>
-        <span class="lang-badge">Available</span>
-      </a>
-
-      <a class="lang-option available" href="no/index.html">
-        <span class="lang-name">Norwegian</span>
-        <span class="lang-native">Norsk (bokmål)</span>
-        <span class="lang-badge">Available</span>
-      </a>
-
-      <a class="lang-option available" href="da/index.html">
-        <span class="lang-name">Danish</span>
-        <span class="lang-native">Dansk</span>
-        <span class="lang-badge">Available</span>
-      </a>
-
-      <a class="lang-option available" href="de/index.html">
-        <span class="lang-name">German</span>
-        <span class="lang-native">Deutsch</span>
-        <span class="lang-badge">Available</span>
-      </a>
-
-      <a class="lang-option available" href="nl/index.html">
-        <span class="lang-name">Dutch</span>
-        <span class="lang-native">Nederlands</span>
-        <span class="lang-badge">Available</span>
-      </a>
-
-      <a class="lang-option available" href="fr/index.html">
-        <span class="lang-name">French</span>
-        <span class="lang-native">Français</span>
-        <span class="lang-badge">Available</span>
-      </a>
-
-      <a class="lang-option available" href="es/index.html">
-        <span class="lang-name">Spanish</span>
-        <span class="lang-native">Español</span>
-        <span class="lang-badge">Available</span>
-      </a>
-
-      <a class="lang-option available" href="it/index.html">
-        <span class="lang-name">Italian</span>
-        <span class="lang-native">Italiano</span>
-        <span class="lang-badge">Available</span>
-      </a>
-
-      <a class="lang-option available" href="pl/index.html">
-        <span class="lang-name">Polish</span>
-        <span class="lang-native">Polski</span>
-        <span class="lang-badge">Available</span>
-      </a>
-
-      <a class="lang-option available" href="pt/index.html">
-        <span class="lang-name">Portuguese</span>
-        <span class="lang-native">Português</span>
-        <span class="lang-badge">Available</span>
-      </a>
-
-      <a class="lang-option available" href="et/index.html">
-        <span class="lang-name">Estonian</span>
-        <span class="lang-native">Eesti</span>
-        <span class="lang-badge">Available</span>
-      </a>
-
-      <a class="lang-option available" href="lv/index.html">
-        <span class="lang-name">Latvian</span>
-        <span class="lang-native">Latviešu</span>
-        <span class="lang-badge">Available</span>
-      </a>
-
-      <a class="lang-option available" href="lt/index.html">
-        <span class="lang-name">Lithuanian</span>
-        <span class="lang-native">Lietuvių</span>
-        <span class="lang-badge">Available</span>
-      </a>
-
-    </div>
+    <a class="nav__brand" href="/index.html"><img src="/assets/brand/wordmark-ink.png" alt="EXSports Oy" /></a>
+    <h1 class="display" style="margin-top:24px;">Heda</h1>
+    <p class="lead" style="margin-top:12px;">Choose your language to continue.</p>
+    <div class="lang-grid" data-i18n-picker data-base="."></div>
+    <noscript>
+      <p style="margin-top:24px;">
+        <a href="en/index.html">English</a> &middot;
+        <a href="fi/index.html">Suomi</a> &middot;
+        <a href="sv/index.html">Svenska</a> &middot;
+        <a href="no/index.html">Norsk (bokmål)</a> &middot;
+        <a href="da/index.html">Dansk</a> &middot;
+        <a href="de/index.html">Deutsch</a> &middot;
+        <a href="nl/index.html">Nederlands</a> &middot;
+        <a href="fr/index.html">Français</a> &middot;
+        <a href="es/index.html">Español</a> &middot;
+        <a href="it/index.html">Italiano</a> &middot;
+        <a href="pl/index.html">Polski</a> &middot;
+        <a href="pt/index.html">Português</a> &middot;
+        <a href="et/index.html">Eesti</a> &middot;
+        <a href="lv/index.html">Latviešu</a> &middot;
+        <a href="lt/index.html">Lietuvių</a>
+      </p>
+    </noscript>
+    <a class="backlink" href="/index.html"><span>&#8592;</span> All apps</a>
   </main>
-
-  <footer class="site-footer">
-    &copy; 2026 EXSports Oy &nbsp;·&nbsp;
-    <a href="../index.html">← EXSports</a> &nbsp;·&nbsp;
-    <a href="mailto:info@exsports.fi">Contact</a>
-  </footer>
-
+  <script src="/assets/i18n/switcher.js"></script>
 </body>
 </html>
