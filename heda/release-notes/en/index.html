@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Release Notes — Heda · EXSports Oy</title>
+<meta name="description" content="What's new in Heda — a quiet headache and migraine diary for Android. By EXSports Oy." />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0E1310" />
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/favicon-64.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16.png" />
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/legal.css" />
+<style>
+  body.theme-heda{ --signature:#C9DDA6; }
+  .toc{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:24px 26px; margin: 4px 0 36px; }
+  .toc .toc-label{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--signature); margin:0 0 14px; }
+  .toc ol{ list-style:none; margin:0; padding:0; }
+  .toc li{ margin:0 0 9px; padding:0; }
+  .toc li::before{ display:none; }
+  .toc a{ color:var(--sub); text-decoration:none; font-size:0.95rem; border:none; }
+  .toc a:hover{ color:var(--ink); }
+  .toc .counter{ font-family:var(--mono); font-size:0.74rem; color:var(--signature); margin-right:9px; }
+  .prose h2[id]{ scroll-margin-top: 90px; }
+</style>
+</head>
+<body class="theme-sage theme-heda">
+
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="/index.html"><img src="/assets/brand/wordmark-ink.png" alt="exs" /><span class="mono-tag">EXSports Oy</span></a>
+    <nav class="nav__links">
+      <a href="/index.html" class="hide-sm">Home</a>
+      <a href="/legal/imprint.html" class="hide-sm">Imprint</a>
+      <a href="/heda/release-notes/index.html" class="hide-sm" aria-label="Language" title="Language">🌐</a>
+      <a href="mailto:info@exsports.fi" class="cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="doc-head stage">
+  <div class="wrap doc-head__inner">
+    <a class="backlink" href="/heda/index.html"><span>←</span> Heda</a>
+    <p class="eyebrow">Heda · Release Notes</p>
+    <h1>What's new in Heda</h1>
+    <div class="meta"><span>UK English</span><span>Updated <b>2026-08-20</b></span></div>
+    <p class="lead" style="margin-top:20px;">A running history of what changed in each production release, in plain language.</p>
+  </div>
+</section>
+
+<div class="wrap"><div class="prose doc-sections">
+
+  <nav class="toc" aria-label="Versions">
+    <p class="toc-label">Versions</p>
+    <ol>
+      <li><a href="#v1-3-0"><span class="counter">•</span>1.3.0</a></li>
+      <li><a href="#v1-0-4"><span class="counter">•</span>1.0.4</a></li>
+      <li><a href="#v1-0-3"><span class="counter">•</span>1.0.3</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="v1-3-0">Version 1.3.0: backups, manual health data, and premium reliability</h2>
+  <p class="muted" style="font-size:0.9rem; margin-top:-8px;">Production release · 2026-08-20</p>
+
+  <h3>New features</h3>
+  <ul>
+    <li><strong>Encrypted backup and restore</strong> — export your data to a password-protected <code>.hedabak</code> file and restore it on any device.</li>
+    <li><strong>Manual health data entry</strong> — log sleep, steps, exercise, and heart rate by hand when Health Connect data isn't available, with support for editing and merging with synced data.</li>
+    <li><strong>CSV import</strong> — import health data from a CSV file, with a mapping step to match your columns.</li>
+    <li><strong>Redesigned Health tab</strong> — health data and trends now have their own tab in Analysis.</li>
+    <li><strong>In-app updates</strong> — the app can now download and prompt to install updates in the background instead of sending you to the Play Store.</li>
+    <li><strong>Legal acceptance dialog</strong> — the Privacy Policy and Disclaimer are now presented for acceptance at startup, and re-shown whenever their terms change.</li>
+  </ul>
+
+  <h3>Improvements</h3>
+  <ul>
+    <li>Fixed several situations where Premium incorrectly showed as locked or failed silently (network issues, expired sign-in session, restore flows); retry now shows a clear error message and spinner instead of failing quietly.</li>
+    <li>The daily recommendation reminder is now anchored to 09:00 local time and no longer repeats unnecessarily.</li>
+    <li>The calendar's "+" button is now more visible.</li>
+    <li>Added an Imprint link to Settings and a TMG §5 Impressum section to the Privacy screen (German legal requirement).</li>
+    <li>Removed the redundant Disclaimer line from the Settings main screen (now covered by the legal acceptance dialog).</li>
+    <li>The "most common triggers" statistic is now shown on two lines for readability.</li>
+  </ul>
+
+  <h3>Bug fixes</h3>
+  <ul>
+    <li>Fixed text-encoding corruption in Nordic and several other language translations, including restoring correct characters in sign-in screens across six languages.</li>
+    <li>Fixed Polish button and label wording issues.</li>
+  </ul>
+
+  <div class="callout"><p><strong>Updated terms.</strong> The Privacy Policy and Disclaimer were revised on 2026-08-19. You'll be asked to review and accept them again after updating.</p></div>
+
+  <h2 id="v1-0-4">Version 1.0.4: wellness classification and copy refinements</h2>
+  <p class="muted" style="font-size:0.9rem; margin-top:-8px;">Production release · 2026-05-18</p>
+
+  <h3>Improvements</h3>
+  <ul>
+    <li><strong>Wellness re-categorisation</strong> — app store copy and in-app wording updated throughout all supported languages to position Heda clearly as a wellness app. This keeps categorisation on Google Play consistent and avoids any medical-device interpretation.</li>
+  </ul>
+
+  <h2 id="v1-0-3">Version 1.0.3: bug fixes and stability</h2>
+  <p class="muted" style="font-size:0.9rem; margin-top:-8px;">Production release · 2026-05-18</p>
+
+  <h3>Bug fixes</h3>
+  <ul>
+    <li><strong>Account deletion</strong> — the deletion flow no longer crashes if sign-out fails after a remote account delete; cleanup now completes reliably and the app restarts cleanly afterwards.</li>
+    <li><strong>Purchase verification</strong> — fixed a spurious "revocation" error that appeared immediately after a successful in-app purchase.</li>
+    <li><strong>Heart rate reading</strong> — sleep-window average is now used when available; readings outside the sleep window no longer skew the baseline.</li>
+    <li><strong>Language picker</strong> — languages are now displayed in the correct alphabetical order in Settings.</li>
+    <li><strong>Localisation fixes</strong> — missing translation strings for the "one-time payment" notification, credits links, and several other UI labels corrected across all supported languages.</li>
+    <li><strong>Privacy Policy link</strong> — removed a duplicate link; it is now rendered as tappable inline text instead of a plain URL.</li>
+    <li><strong>Advanced settings placement</strong> — the Advanced settings section is now correctly positioned below Health Connect.</li>
+    <li><strong>Edge-to-edge rendering</strong> — fixed status and navigation bar colours on Android 15+.</li>
+  </ul>
+
+  <hr>
+  <p class="muted" style="font-size:0.9rem;">© 2026 EXSports Oy. This page is updated with each production release.</p>
+
+</div></div>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <a class="footer__brand" href="/index.html"><img src="/assets/brand/wordmark-ink.png" alt="exs" /></a>
+    <div class="footer__meta">
+      <span>© 2026 EXSPORTS OY</span><span class="dot">·</span>
+      <a href="/index.html">Home</a><span class="dot">·</span>
+      <a href="/legal/imprint.html">Imprint</a><span class="dot">·</span>
+      <a href="mailto:info@exsports.fi">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.body.classList.add('js');
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('is-stuck',window.scrollY>8);
+  onScroll(); addEventListener('scroll',onScroll,{passive:true});
+</script>
+</body>
+</html>

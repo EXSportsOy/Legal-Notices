@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8" />
+<title>Julkaisutiedot — Heda · EXSports Oy</title>
+<meta name="description" content="Mitä uutta Hedassa — hiljainen päänsärky- ja migreenipäiväkirja Androidille. EXSports Oy." />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0E1310" />
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/favicon-64.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16.png" />
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/legal.css" />
+<style>
+  body.theme-heda{ --signature:#C9DDA6; }
+  .toc{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:24px 26px; margin: 4px 0 36px; }
+  .toc .toc-label{ font-family:var(--mono); font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--signature); margin:0 0 14px; }
+  .toc ol{ list-style:none; margin:0; padding:0; }
+  .toc li{ margin:0 0 9px; padding:0; }
+  .toc li::before{ display:none; }
+  .toc a{ color:var(--sub); text-decoration:none; font-size:0.95rem; border:none; }
+  .toc a:hover{ color:var(--ink); }
+  .toc .counter{ font-family:var(--mono); font-size:0.74rem; color:var(--signature); margin-right:9px; }
+  .prose h2[id]{ scroll-margin-top: 90px; }
+</style>
+</head>
+<body class="theme-sage theme-heda">
+
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__brand" href="/index.html"><img src="/assets/brand/wordmark-ink.png" alt="exs" /><span class="mono-tag">EXSports Oy</span></a>
+    <nav class="nav__links">
+      <a href="/index.html" class="hide-sm">Etusivu</a>
+      <a href="/legal/imprint.html" class="hide-sm">Imprint</a>
+      <a href="/heda/release-notes/index.html" class="hide-sm" aria-label="Kieli" title="Kieli">🌐</a>
+      <a href="mailto:info@exsports.fi" class="cta">Yhteystiedot</a>
+    </nav>
+  </div>
+</header>
+
+<section class="doc-head stage">
+  <div class="wrap doc-head__inner">
+    <a class="backlink" href="/heda/index.html"><span>←</span> Heda</a>
+    <p class="eyebrow">Heda · Julkaisutiedot</p>
+    <h1>Mitä uutta Hedassa</h1>
+    <div class="meta"><span>Suomi</span><span>Päivitetty <b>2026-08-20</b></span></div>
+    <p class="lead" style="margin-top:20px;">Kooste jokaisen tuotantojulkaisun muutoksista selkokielellä.</p>
+  </div>
+</section>
+
+<div class="wrap"><div class="prose doc-sections">
+
+  <nav class="toc" aria-label="Versiot">
+    <p class="toc-label">Versiot</p>
+    <ol>
+      <li><a href="#v1-3-0"><span class="counter">•</span>1.3.0</a></li>
+      <li><a href="#v1-0-4"><span class="counter">•</span>1.0.4</a></li>
+      <li><a href="#v1-0-3"><span class="counter">•</span>1.0.3</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="v1-3-0">Versio 1.3.0: varmuuskopiointi, manuaaliset terveystiedot ja premium-luotettavuus</h2>
+  <p class="muted" style="font-size:0.9rem; margin-top:-8px;">Tuotantojulkaisu · 2026-08-20</p>
+
+  <h3>Uudet ominaisuudet</h3>
+  <ul>
+    <li><strong>Salattu varmuuskopiointi ja palautus</strong> — vie tietosi salasanasuojattuun <code>.hedabak</code>-tiedostoon ja palauta se millä tahansa laitteella.</li>
+    <li><strong>Terveystietojen manuaalinen syöttö</strong> — kirjaa uni, askeleet, liikunta ja syke käsin, kun Health Connect -dataa ei ole saatavilla. Tiedot voi muokata ja yhdistää synkronoituun dataan.</li>
+    <li><strong>CSV-tuonti</strong> — tuo terveystietoja CSV-tiedostosta, sarakkeiden kartoitusvaiheen kanssa.</li>
+    <li><strong>Uudistettu Terveystiedot-välilehti</strong> — terveystiedot ja trendit näkyvät nyt omalla välilehdellä Analyysissä.</li>
+    <li><strong>Sovelluksen sisäiset päivitykset</strong> — sovellus voi nyt ladata ja ehdottaa päivityksen asennusta taustalla, ilman ohjausta Play Storeen.</li>
+    <li><strong>Legal-hyväksyntädialogi</strong> — tietosuojakäytäntö ja vastuuvapauslauseke esitetään hyväksyttäväksi käynnistyksessä, ja uudelleen aina kun niiden sisältö muuttuu.</li>
+  </ul>
+
+  <h3>Parannukset</h3>
+  <ul>
+    <li>Korjattu useita tilanteita, joissa premium näkyi virheellisesti lukittuna tai epäonnistui huomaamattomasti (yhteysongelmat, vanhentunut kirjautuminen, palautustilanteet). Uudelleenyritys näyttää nyt selkeän virheilmoituksen ja latausanimaation.</li>
+    <li>Päivittäinen suositusmuistutus on nyt kiinnitetty klo 09:00 paikallista aikaa eikä toistu enää turhaan.</li>
+    <li>Kalenterin +-nappi on nyt paremmin näkyvissä.</li>
+    <li>Imprint-linkki lisätty Asetuksiin ja TMG §5 Impressum -osio Tietosuoja-näyttöön (Saksan lakivaatimus).</li>
+    <li>Poistettu tarpeeton vastuuvapauslauseke-rivi asetusten päänäkymästä (asia kattaa nyt legal-hyväksyntädialogi).</li>
+    <li>"Yleisimmät laukaisijat" -tilasto näytetään nyt kaksirivisenä luettavuuden parantamiseksi.</li>
+  </ul>
+
+  <h3>Bugikorjaukset</h3>
+  <ul>
+    <li>Korjattu merkistövauriot pohjoismaisissa ja useissa muissa käännöksissä, mukaan lukien kirjautumisnäyttöjen merkistön palautus kuudella kielellä.</li>
+    <li>Korjattu puolan kielen nappi- ja otsikkotekstien sanamuotoja.</li>
+  </ul>
+
+  <div class="callout"><p><strong>Päivitetyt ehdot.</strong> Tietosuojakäytäntö ja vastuuvapauslauseke päivitettiin 2026-08-19. Sinua pyydetään hyväksymään ne uudelleen päivityksen jälkeen.</p></div>
+
+  <h2 id="v1-0-4">Versio 1.0.4: wellness-luokittelu ja tekstimuutokset</h2>
+  <p class="muted" style="font-size:0.9rem; margin-top:-8px;">Tuotantojulkaisu · 2026-05-18</p>
+
+  <h3>Parannukset</h3>
+  <ul>
+    <li><strong>Wellness-uudelleenluokittelu</strong> — sovelluskaupan tekstit ja sovelluksen sisäiset sanamuodot päivitetty kaikilla tuetuilla kielillä siten, että Heda esitetään selkeästi wellness-sovelluksena. Tämä pitää luokittelun Google Playssa yhtenäisenä eikä anna aihetta tulkita sovellusta lääkinnälliseksi laitteeksi.</li>
+  </ul>
+
+  <h2 id="v1-0-3">Versio 1.0.3: bugikorjauksia ja vakauttamista</h2>
+  <p class="muted" style="font-size:0.9rem; margin-top:-8px;">Tuotantojulkaisu · 2026-05-18</p>
+
+  <h3>Bugikorjaukset</h3>
+  <ul>
+    <li><strong>Tilinpoisto</strong> — poistovuo ei enää kaadu, jos uloskirjautuminen epäonnistuu etäpoiston jälkeen; siivous toimii nyt luotettavasti ja sovellus käynnistyy puhtaasti uudelleen.</li>
+    <li><strong>Ostovahvistus</strong> — korjattu turha "revocation"-virhe, joka ilmeni välittömästi onnistuneen sovelluksen sisäisen oston jälkeen.</li>
+    <li><strong>Sykeen luku</strong> — unijaksolta laskettu keskiarvo käytetään nyt ensisijaisesti; sen ulkopuolelle jäävät mittauspisteet eivät enää vääristä perustasoa.</li>
+    <li><strong>Kielivalikko</strong> — kielet näkyvät nyt oikeassa aakkosjärjestyksessä Asetuksissa.</li>
+    <li><strong>Käännöskorjaukset</strong> — puuttuvat käännösmerkkijonot "kertamaksu"-ilmoituksessa, krediteissä ja muissa käyttöliittymäteksteissä korjattu kaikille tuetuille kielille.</li>
+    <li><strong>Tietosuojakäytäntö-linkki</strong> — poistettu kaksois-linkki; linkki näytetään nyt klikattavana tekstinä.</li>
+    <li><strong>Edistyneet asetukset -sijoittelu</strong> — osio sijoitettu oikein Health Connect -osion alle.</li>
+    <li><strong>Reuna reunaan -renderöinti</strong> — korjattu tila- ja navigointipalkkien värit Android 15+ -laitteilla.</li>
+  </ul>
+
+  <hr>
+  <p class="muted" style="font-size:0.9rem;">© 2026 EXSports Oy. Tätä sivua päivitetään jokaisen tuotantojulkaisun yhteydessä.</p>
+
+</div></div>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <a class="footer__brand" href="/index.html"><img src="/assets/brand/wordmark-ink.png" alt="exs" /></a>
+    <div class="footer__meta">
+      <span>© 2026 EXSPORTS OY</span><span class="dot">·</span>
+      <a href="/index.html">Etusivu</a><span class="dot">·</span>
+      <a href="/legal/imprint.html">Imprint</a><span class="dot">·</span>
+      <a href="mailto:info@exsports.fi">Yhteystiedot</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.body.classList.add('js');
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('is-stuck',window.scrollY>8);
+  onScroll(); addEventListener('scroll',onScroll,{passive:true});
+</script>
+</body>
+</html>
