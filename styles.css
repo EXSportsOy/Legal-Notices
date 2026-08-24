@@ -196,6 +196,18 @@ h1, h2, h3 { font-weight: 600; letter-spacing: -0.03em; line-height: 1.04; margi
 .btn .arrow { transition: transform 0.3s var(--ease); }
 .btn:hover .arrow { transform: translateX(4px); }
 
+/* ---------- Get the app (store link) ---------- */
+.getapp { border-top: 1px solid var(--line); }
+.getapp__inner {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: clamp(16px, 3vw, 28px);
+  padding-block: clamp(28px, 4.5vw, 52px);
+}
+.playbadge { display: inline-flex; transition: transform 0.3s var(--ease); }
+.playbadge:hover { transform: translateY(-2px); }
+.playbadge img { display: block; height: 56px; width: auto; }
+@media (max-width: 480px) { .playbadge img { height: 48px; } }
+
 /* ---------- Footer ---------- */
 .footer { border-top: 1px solid var(--line); background: var(--bg-deep); }
 .footer__inner {
