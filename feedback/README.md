@@ -44,7 +44,7 @@ Proton for Business -tason), joten erillistä lähetyspalvelua ei tarvita.
 2. Julkaise funktio ja aseta secretit (Supabase CLI):
    ```bash
    supabase functions deploy notify-feedback --no-verify-jwt
-   supabase secrets set SMTP_HOST=smtp.protonmail.ch SMTP_PORT=587 \
+   supabase secrets set SMTP_HOST=smtp.protonmail.ch SMTP_PORT=465 \
      SMTP_USERNAME=info@exsports.fi SMTP_PASSWORD=<proton-smtp-token> \
      NOTIFY_EMAIL_TO=info@exsports.fi NOTIFY_EMAIL_FROM=info@exsports.fi \
      WEBHOOK_SECRET=satunnainen-merkkijono
