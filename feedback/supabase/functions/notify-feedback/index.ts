@@ -1,16 +1,21 @@
 // ============================================================================
 //  Edge Function: notify-feedback
 //  Sends an email when a new row is inserted into public.feedback.
-//  Triggered by a Supabase Database Webhook (INSERT on public.feedback).
-//  Email is sent via Resend (free tier ~3000/month). A Discord/Slack webhook
-//  alternative is described in /feedback/README.md.
+//  Triggered by a database trigger (supabase/webhook_trigger.sql).
+//  Email is sent via Proton Mail SMTP submission (custom domain, no extra
+//  provider account needed).
 //
 //  Secrets (Supabase → Edge Functions → Secrets):
-//    RESEND_API_KEY     re_xxx
-//    NOTIFY_EMAIL_TO    where notifications go, e.g. team@exsports.fi
-//    NOTIFY_EMAIL_FROM  verified sender, e.g. feedback@exsports.fi
-//    WEBHOOK_SECRET     optional shared secret (recommended)
+//    SMTP_HOST          smtp.protonmail.ch
+//    SMTP_PORT          587 (STARTTLS)
+//    SMTP_USERNAME      the Proton address the token was generated for
+//    SMTP_PASSWORD      Proton SMTP submission token
+//    NOTIFY_EMAIL_TO    where notifications go, e.g. info@exsports.fi
+//    NOTIFY_EMAIL_FROM  sender, must match the token's address
+//    WEBHOOK_SECRET     shared secret checked against x-webhook-secret
 // ============================================================================
+
+import { SMTPClient } from "https://deno.land/x/denomailer@1.6.0/mod.ts";
 
 Deno.serve(async (req) => {
   try {
@@ -22,11 +27,14 @@ Deno.serve(async (req) => {
     const payload = await req.json();
     const row = payload.record ?? payload;
 
-    const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+    const SMTP_HOST = Deno.env.get("SMTP_HOST") ?? "smtp.protonmail.ch";
+    const SMTP_PORT = Number(Deno.env.get("SMTP_PORT") ?? "587");
+    const SMTP_USERNAME = Deno.env.get("SMTP_USERNAME");
+    const SMTP_PASSWORD = Deno.env.get("SMTP_PASSWORD");
     const TO = Deno.env.get("NOTIFY_EMAIL_TO");
     const FROM = Deno.env.get("NOTIFY_EMAIL_FROM");
-    if (!RESEND_API_KEY || !TO || !FROM) {
-      console.error("Missing env vars (RESEND_API_KEY / NOTIFY_EMAIL_TO / NOTIFY_EMAIL_FROM).");
+    if (!SMTP_USERNAME || !SMTP_PASSWORD || !TO || !FROM) {
+      console.error("Missing env vars (SMTP_USERNAME / SMTP_PASSWORD / NOTIFY_EMAIL_TO / NOTIFY_EMAIL_FROM).");
       return new Response("Missing config", { status: 500 });
     }
 
@@ -74,25 +82,30 @@ Deno.serve(async (req) => {
         <p style="color:#9aa3af;font-size:12px;margin-top:16px">Sent automatically from a Supabase Edge Function.</p>
       </div>`;
 
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: { "Authorization": `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        from: FROM,
-        to: TO.split(",").map((s) => s.trim()),
-        subject,
-        html,
-        reply_to: row.email || undefined,
-      }),
+    const client = new SMTPClient({
+      connection: {
+        hostname: SMTP_HOST,
+        port: SMTP_PORT,
+        tls: false, // port 587: plain connect, then STARTTLS
+        auth: { username: SMTP_USERNAME, password: SMTP_PASSWORD },
+      },
     });
 
-    if (!res.ok) {
-      console.error("Resend error:", res.status, await res.text());
-      return new Response("Email failed", { status: 502 });
+    try {
+      await client.send({
+        from: FROM,
+        to: TO.split(",").map((s) => s.trim()),
+        replyTo: row.email || undefined,
+        subject,
+        html,
+      });
+    } finally {
+      try { await client.close(); } catch { /* ignore close errors */ }
     }
+
     return new Response(JSON.stringify({ ok: true }), { headers: { "Content-Type": "application/json" } });
   } catch (err) {
     console.error("notify-feedback error:", err);
-    return new Response("Error", { status: 500 });
+    return new Response("Email failed", { status: 502 });
   }
 });

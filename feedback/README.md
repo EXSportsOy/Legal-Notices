@@ -36,17 +36,20 @@ Luo projekti osoitteessa [supabase.com](https://supabase.com) (ilmainen taso rii
 ### 3. Avaimet
 **Project Settings → API** → kopioi *Project URL* ja *anon public* ‑avain tiedostoon `feedback/feedback-config.js`. Anon-avain on tarkoitettu julkiseksi; **älä** käytä service_role-avainta.
 
-### 4. Sähköposti-ilmoitukset (Resend, ilmainen)
-1. Luo tili [resend.com](https://resend.com), tee API-avain ja verifioi lähettäjädomain (esim. `exsports.fi`).
-2. Julkaise funktio (Supabase CLI):
+### 4. Sähköposti-ilmoitukset (Proton Mail SMTP)
+Funktio lähettää postin Proton Mailin SMTP submission -ominaisuudella (vaatii
+Proton for Business -tason), joten erillistä lähetyspalvelua ei tarvita.
+
+1. Proton: **Settings → IMAP/SMTP → SMTP submission → Generate token** osoitteelle `info@exsports.fi`.
+2. Julkaise funktio ja aseta secretit (Supabase CLI):
    ```bash
    supabase functions deploy notify-feedback --no-verify-jwt
-   supabase secrets set RESEND_API_KEY=re_xxx \
-     NOTIFY_EMAIL_TO=tiimi@exsports.fi \
-     NOTIFY_EMAIL_FROM=feedback@exsports.fi \
+   supabase secrets set SMTP_HOST=smtp.protonmail.ch SMTP_PORT=587 \
+     SMTP_USERNAME=info@exsports.fi SMTP_PASSWORD=<proton-smtp-token> \
+     NOTIFY_EMAIL_TO=info@exsports.fi NOTIFY_EMAIL_FROM=info@exsports.fi \
      WEBHOOK_SECRET=satunnainen-merkkijono
    ```
-3. Webhook on toteutettu suoraan tietokantatriggerinä (`supabase/webhook_trigger.sql`, ajettu tuotantoon 2026-09-01), joten dashboardin *Database Webhooks* -asetusta ei tarvita. Funktio, triggeri ja secretit `NOTIFY_EMAIL_TO=info@exsports.fi`, `NOTIFY_EMAIL_FROM` ja `WEBHOOK_SECRET` ovat valmiina; vain `RESEND_API_KEY` puuttuu.
+3. Webhook on toteutettu suoraan tietokantatriggerinä (`supabase/webhook_trigger.sql`, ajettu tuotantoon 2026-09-01), joten dashboardin *Database Webhooks* -asetusta ei tarvita. Funktio, triggeri ja kaikki secretit paitsi `SMTP_PASSWORD` ovat valmiina tuotannossa.
 
 > **Ilman domainia / Resendiä?** Ohjaa webhook suoraan Discord- tai Slack-webhook-URLiin (Type: *HTTP Request*). Täysin ilmaista. Muotoiltua viestiä varten käytä yllä olevaa Edge Functionia.
 
@@ -63,7 +66,7 @@ Kaikki tekstit ovat `feedback-i18n.js`-sanakirjassa. Englanti on virallinen; muu
 `category` (website / program_general / program_bug), `app` (website / surveytools / heda / shodia), `lang`, `message`, `rating`, `email`, bugikentät (`bug_title`, `severity`, `steps`, `expected`, `actual`, `environment`), `page_url`, `user_agent`, `status` (käsittelyn seurantaan).
 
 ## Ilmaistason rajat
-Supabase free: 500 MB tietokantaa, Edge Functions sisältyvät. Resend free: ~100 viestiä/päivä, 3 000/kk. Riittää palautteelle hyvin.
+Supabase free: 500 MB tietokantaa, Edge Functions sisältyvät. Sähköposti lähtee omasta Proton-postista (SMTP submission), ei erillistä viestirajaa palautemäärillä. Ilmaisprojektin pausautuminen on estetty GitHub Actions -keepalivella (`.github/workflows/supabase-keepalive.yml`).
 
 ## Roskapostisuoja
 Piilotettu hunajapurkkikenttä (botit täyttävät → hylätään hiljaa) + RLS rajoittaa viestin pituuden. Tarvittaessa lisää Cloudflare Turnstile (ilmainen).
