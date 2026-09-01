@@ -1,0 +1,28 @@
+# Pitää Supabasen ilmaistason feedback-projektin hereillä.
+# Supabase pausaa ilmaisprojektin ~7 päivän API-epäaktiivisuuden jälkeen,
+# jolloin palautelomakkeen tallennukset epäonnistuvat hiljaa.
+# URL ja anon-avain ovat samat julkiset arvot kuin feedback/feedback-config.js:ssä,
+# joten niitä ei tarvitse piilottaa secretteihin.
+
+name: Supabase keepalive
+
+on:
+  schedule:
+    # maanantaisin ja torstaisin klo 06:17 UTC
+    - cron: "17 6 * * 1,4"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase REST API
+        run: |
+          status=$(curl --silent --show-error --output /dev/null --write-out "%{http_code}" \
+            -H "apikey: sb_publishable_oLj_DP6MSemsDIX4fgpeSw_VBma2Ay2" \
+            "https://jaepadyeyrrwhiomxyfj.supabase.co/rest/v1/feedback?select=id&limit=1")
+          echo "HTTP $status"
+          if [ "$status" != "200" ]; then
+            echo "Keepalive-ping epäonnistui, projekti voi olla pausattuna." >&2
+            exit 1
+          fi
