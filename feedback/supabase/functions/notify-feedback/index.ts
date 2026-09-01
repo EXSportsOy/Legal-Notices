@@ -28,7 +28,7 @@ Deno.serve(async (req) => {
     const row = payload.record ?? payload;
 
     const SMTP_HOST = Deno.env.get("SMTP_HOST") ?? "smtp.protonmail.ch";
-    const SMTP_PORT = Number(Deno.env.get("SMTP_PORT") ?? "587");
+    const SMTP_PORT = Number(Deno.env.get("SMTP_PORT") ?? "465");
     const SMTP_USERNAME = Deno.env.get("SMTP_USERNAME");
     const SMTP_PASSWORD = Deno.env.get("SMTP_PASSWORD");
     const TO = Deno.env.get("NOTIFY_EMAIL_TO");
@@ -86,7 +86,7 @@ Deno.serve(async (req) => {
       connection: {
         hostname: SMTP_HOST,
         port: SMTP_PORT,
-        tls: false, // port 587: plain connect, then STARTTLS
+        tls: SMTP_PORT === 465, // 465: suora TLS; 587: STARTTLS
         auth: { username: SMTP_USERNAME, password: SMTP_PASSWORD },
       },
     });
