@@ -46,7 +46,7 @@ Luo projekti osoitteessa [supabase.com](https://supabase.com) (ilmainen taso rii
      NOTIFY_EMAIL_FROM=feedback@exsports.fi \
      WEBHOOK_SECRET=satunnainen-merkkijono
    ```
-3. **Database → Webhooks → Create**: taulu `public.feedback`, tapahtuma `INSERT`, tyyppi *Supabase Edge Functions* → `notify-feedback`, lisää HTTP-otsikko `x-webhook-secret: <sama kuin WEBHOOK_SECRET>`.
+3. Webhook on toteutettu suoraan tietokantatriggerinä (`supabase/webhook_trigger.sql`, ajettu tuotantoon 2026-09-01), joten dashboardin *Database Webhooks* -asetusta ei tarvita. Funktio, triggeri ja secretit `NOTIFY_EMAIL_TO=info@exsports.fi`, `NOTIFY_EMAIL_FROM` ja `WEBHOOK_SECRET` ovat valmiina; vain `RESEND_API_KEY` puuttuu.
 
 > **Ilman domainia / Resendiä?** Ohjaa webhook suoraan Discord- tai Slack-webhook-URLiin (Type: *HTTP Request*). Täysin ilmaista. Muotoiltua viestiä varten käytä yllä olevaa Edge Functionia.
 
