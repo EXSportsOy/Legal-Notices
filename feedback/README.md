@@ -66,7 +66,11 @@ Kaikki tekstit ovat `feedback-i18n.js`-sanakirjassa. Englanti on virallinen; muu
 `category` (website / program_general / program_bug), `app` (website / surveytools / heda / shodia), `lang`, `message`, `rating`, `email`, bugikentät (`bug_title`, `severity`, `steps`, `expected`, `actual`, `environment`), `page_url`, `user_agent`, `status` (käsittelyn seurantaan).
 
 ## Ilmaistason rajat
-Supabase free: 500 MB tietokantaa, Edge Functions sisältyvät. Sähköposti lähtee omasta Proton-postista (SMTP submission), ei erillistä viestirajaa palautemäärillä. Ilmaisprojektin pausautuminen on estetty GitHub Actions -keepalivella (`.github/workflows/supabase-keepalive.yml`).
+Supabase free: 500 MB tietokantaa, Edge Functions sisältyvät. Sähköposti lähtee omasta Proton-postista (SMTP submission), ei erillistä viestirajaa palautemäärillä.
+
+GitHub Actions -keepalive (`.github/workflows/supabase-keepalive.yml`) tekee kevyen tietokannan lukukyselyn kuuden tunnin välein (00:17, 06:17, 12:17 ja 18:17 UTC). Se ei lisää palautteita eikä muuta niiden lukuoikeuksia. Yhteyden aikakatkaisu on 10 sekuntia ja yhden yrityksen enimmäiskesto 20 sekuntia. Tilapäisiä virheitä yritetään uudelleen enintään kolme kertaa; epäonnistunut yhteys tai muu kuin HTTP 200 merkitsee ajon epäonnistuneeksi Actionsissa.
+
+[Supabasen mukaan](https://supabase.com/docs/guides/platform/free-project-pausing) muutama tietokantapyyntö päivässä yleensä riittää estämään tauotuksen, mutta Free-taso ei takaa tauottomuutta. Tarkista Actions-ajojen tila, jos saat tauotusvaroituksen. [GitHub voi poistaa julkisen repon ajastukset käytöstä](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/disable-and-enable-workflows), jos repossa ei ole toimintaa 60 päivään; ota ajastus tällöin uudelleen käyttöön Actionsista.
 
 ## Roskapostisuoja
 Piilotettu hunajapurkkikenttä (botit täyttävät → hylätään hiljaa) + RLS rajoittaa viestin pituuden. Tarvittaessa lisää Cloudflare Turnstile (ilmainen).
