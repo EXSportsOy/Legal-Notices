@@ -1,0 +1,83 @@
+name: Feedback tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'feedback/**'
+      - 'tests/feedback/**'
+      - 'assets/i18n/**'
+      - 'styles.css'
+      - '.github/workflows/feedback-tests.yml'
+  pull_request:
+    paths:
+      - 'feedback/**'
+      - 'tests/feedback/**'
+      - 'assets/i18n/**'
+      - 'styles.css'
+      - '.github/workflows/feedback-tests.yml'
+  schedule:
+    # Daily regression checks detect CDN, configuration and database drift.
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+  workflow_run:
+    workflows: [pages-build-deployment]
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  browser:
+    if: github.event_name != 'workflow_run'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: tests/feedback
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tests/feedback/package-lock.json
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm test
+
+  production:
+    if: >-
+      github.event_name == 'schedule' ||
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'workflow_run' &&
+       github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_branch == 'main' &&
+       github.event.workflow_run.head_repository.full_name == github.repository)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: feedback-production-tests
+      cancel-in-progress: false
+    defaults:
+      run:
+        working-directory: tests/feedback
+    env:
+      FEEDBACK_BASE_URL: https://www.exsports.fi
+      FEEDBACK_LIVE_API: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tests/feedback/package-lock.json
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:production

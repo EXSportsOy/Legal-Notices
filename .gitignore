@@ -2,3 +2,9 @@
 
 # Supabase CLI local cache
 /supabase/.temp/
+
+# Local test dependencies, browser downloads and reports
+/.tmp/
+/tests/feedback/node_modules/
+/tests/feedback/test-results/
+/tests/feedback/playwright-report/

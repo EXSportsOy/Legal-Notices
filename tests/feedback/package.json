@@ -1,0 +1,11 @@
+{
+  "name": "exs-feedback-tests",
+  "private": true,
+  "scripts": {
+    "test": "playwright test --project=browser",
+    "test:production": "playwright test --project=browser --project=api"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  }
+}
